@@ -30,10 +30,9 @@ SOURCES = ROOT / "scripts" / "sources.json"
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5")  # modelo pequeño: barato
 API_URL = "https://api.anthropic.com/v1/messages"
 MAX_NUEVAS_POR_DIA = 8      # tope para controlar el gasto
-DIAS_RECIENTES = 3          # solo entradas de los últimos días
-MAX_NOTICIAS_WEB = 60       # histórico máximo que se conserva
+DIAS_RECIENTES = 7          # solo entradas de los últimos días (las ya conocidas se ignoran por URL)
 USER_AGENT = "AgroAlmeriaBot/1.0 (+proyecto personal; lee feeds RSS publicos)"
-TAGS = ["mercados", "sanidad", "clima", "politica", "logistica", "campo"]
+TAGS = ["mercados", "sanidad", "clima", "politica", "logistica", "campo", "innovacion"]
 
 
 def log(msg):
@@ -106,7 +105,8 @@ Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves
 - "motivo": una frase corta explicando por qué es o no relevante.
 - "titulo": titular claro en español, máximo 120 caracteres, con tus propias palabras.
 - "resumen": 2 o 3 frases en español con tus propias palabras.
-- "tema": uno de {tags}.
+- "importancia": número entero de 1 a 5 (5 = afecta a muchos agricultores o decisiones/cifras clave de Almería; 3 = interesante; 1 = anecdótica).
+- "tema": uno de {tags}. («innovacion» = tecnología, IA, robótica, digitalización, I+D; «campo» = estado de los cultivos y la cosecha).
 
 Reglas estrictas:
 - Usa SOLO la información del titular y del extracto. No añadas cifras, nombres ni hechos que no aparezcan ahí.
@@ -140,6 +140,10 @@ def resumir(entrada, api_key):
     if not m:
         raise ValueError("La respuesta de Claude no contiene JSON. Respuesta recibida: " + texto[:300].replace("\n", " "))
     datos = json.loads(m.group(0))
+    try:
+        datos["importancia"] = min(5, max(1, int(datos.get("importancia", 3))))
+    except (TypeError, ValueError):
+        datos["importancia"] = 3
     if datos.get("tema") not in TAGS:
         datos["tema"] = "campo"
     return datos
@@ -198,19 +202,28 @@ def main():
             "summary": r["resumen"],
             "source": e["source"],
             "url": e["url"],
+            "importancia": r["importancia"],
             "status": "auto",
         })
         log(f"  Añadida: {r['titulo'][:70]}")
 
-    datos["items"] = (nuevas + datos["items"])
-    datos["items"].sort(key=lambda i: i["date"], reverse=True)
-    datos["items"] = datos["items"][:MAX_NOTICIAS_WEB]
-    datos["updated"] = datetime.now().astimezone().isoformat(timespec="seconds")
-    DATA.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
     sys.path.insert(0, str(ROOT / "scripts"))
     import build_site
-    build_site.build()
+    hoy = datetime.now().astimezone().date()
+    datos["items"] = nuevas + datos["items"]
+    antes = len(datos["items"])
+    datos["items"] = build_site.vigentes(datos["items"], hoy)   # caducan a los 30 días
+    log(f"Caducadas por superar {build_site.DIAS_MAX} días: {antes - len(datos['items'])}")
+    datos["items"].sort(key=lambda i: i["date"], reverse=True)
+    datos["stats"] = [x for x in datos.get("stats", []) if x.get("date") and build_site.antiguedad(x, hoy) <= build_site.DIAS_MAX]
+    ahora = datetime.now().astimezone().isoformat(timespec="seconds")
+    datos["checked"] = ahora          # última vez que se buscó (siempre)
+    if nuevas:
+        datos["updated"] = ahora      # última vez que entró una noticia nueva
+    log(f"Noticias nuevas añadidas hoy: {len(nuevas)}")
+    DATA.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    build_site.build(hoy)
     return 0
 
 
