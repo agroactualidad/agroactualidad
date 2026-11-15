@@ -1,0 +1,37 @@
+name: Actualizar noticias cada día
+
+on:
+  schedule:
+    # 06:00 UTC = 07:00 en invierno / 08:00 en verano (hora de Madrid)
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar noticias, resumir y regenerar la web
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/update_news.py
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "agro-almeria-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/almeria.json index.html
+          if git diff --cached --quiet; then
+            echo "Sin cambios hoy."
+          else
+            git commit -m "Actualización diaria de noticias"
+            git push
+          fi

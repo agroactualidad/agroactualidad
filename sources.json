@@ -1,0 +1,14 @@
+{
+  "_nota": "Fuentes RSS que lee el script cada día. 'confirmado' = la URL del feed aparece enlazada en la propia web. 'por comprobar' = feed habitual de WordPress que hay que verificar en la primera ejecución real. Si un feed falla, el script lo salta y sigue con los demás.",
+  "feeds": [
+    { "name": "HortiDaily", "url": "https://www.hortidaily.com/rss.xml/", "estado": "confirmado" },
+    { "name": "Agronews Castilla y León", "url": "https://www.agronewscastillayleon.com/feed", "estado": "confirmado" },
+    { "name": "Hortoinfo", "url": "https://hortoinfo.es/feed/", "estado": "por comprobar" }
+  ],
+  "palabras_clave": [
+    "almería", "almeria", "poniente", "el ejido", "níjar", "nijar", "roquetas",
+    "la mojonera", "campo de dalías", "vícar", "berja", "adra",
+    "coexphal", "hortyfruta", "asaja almería", "coag almería", "unica group",
+    "invernadero", "parvispinus"
+  ]
+}

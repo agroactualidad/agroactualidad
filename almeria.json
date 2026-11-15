@@ -1,0 +1,132 @@
+{
+  "updated": "2026-11-14T23:55:00+01:00",
+  "stats": [
+    {
+      "value": "4.120 M€",
+      "label": "Exportación hortofrutícola de Almería, campaña 2025/26 (+12 %)",
+      "source": "Coexphal, vía HortiDaily",
+      "url": "https://www.hortidaily.com/article/9878206/almeria-s-fruit-and-vegetable-exports-totaled-4-120-million-euros-in-2025-2026/"
+    },
+    {
+      "value": "3.916 M€",
+      "label": "Valor de la producción hortícola 2025/26 (+0,6 %)",
+      "source": "ASAJA Almería, vía Interempresas",
+      "url": "https://www.interempresas.net/Horticola/652217-sector-hortofruticola-almeriense-supera-3916-millones-valor-produccion-pesar-tormenta.html"
+    },
+    {
+      "value": "33.720 ha",
+      "label": "Superficie cultivada en la provincia 2025/26 (+1,5 %)",
+      "source": "ASAJA Almería, vía Interempresas",
+      "url": "https://www.interempresas.net/Horticola/652217-sector-hortofruticola-almeriense-supera-3916-millones-valor-produccion-pesar-tormenta.html"
+    },
+    {
+      "value": "130 ha",
+      "label": "Invernadero dañado por la borrasca Adam en el Poniente (estimación de COAG)",
+      "source": "Moncloa, 22 oct 2026",
+      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/"
+    }
+  ],
+  "items": [
+    {
+      "id": "thrips-fitosanitarios-2026-11-14",
+      "date": "2026-11-14",
+      "tag": "sanidad",
+      "lead": true,
+      "title": "Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos",
+      "summary": "El consejero de Agricultura, Ramón Fernández-Pacheco, reclama que España habilite productos ya disponibles en otros Estados miembros contra la plaga, que vuelve a amenazar el pimiento de Almería. La Consejería no ha concretado qué materias activas pide ni cifras de superficie afectada. Mientras tanto, el control se apoya en la vigilancia temprana y el control biológico.",
+      "source": "Moncloa",
+      "url": "https://www.moncloa.com/2026/11/14/andalucia-fitosanitarios-thrips-parvispinus-3467890/",
+      "status": "revisada"
+    },
+    {
+      "id": "asaja-plasticos-2026-11-08",
+      "date": "2026-11-08",
+      "tag": "politica",
+      "title": "ASAJA Almería pide que los plásticos de invernadero entren en las rebajas fiscales de 2026",
+      "summary": "La Orden HAC/1161/2026, del 4 de noviembre, fija para los módulos del IRPF de 2026 una reducción general del 10 %, más minoraciones del 35 % en gasóleo agrícola y del 15 % en fertilizantes. ASAJA considera que dejar fuera los plásticos ignora un gasto básico del invernadero y pide además rebajas específicas para los cultivos con pérdidas por plagas, sobre todo el pimiento. Es una reclamación pendiente de respuesta de Hacienda.",
+      "source": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/asaja-almeria-rebaja-fiscal-plasticos-agricolas-modulos-2026",
+      "status": "revisada"
+    },
+    {
+      "id": "inicio-campana-precios-2026-11-05",
+      "date": "2026-11-05",
+      "tag": "mercados",
+      "title": "La campaña arranca tarde y con precios a la baja en berenjena, calabacín y pepino",
+      "summary": "Según Inteligencia de Mercados de Coexphal, el calor del verano retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg (0,68 el año anterior) y cayó a 0,63 €/kg en la semana 39. El calabacín bajó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40. El pepino tocó su mínimo en 0,52 €/kg en la semana 39, aún por encima del mismo punto de la campaña pasada.",
+      "source": "HortiDaily (datos de Coexphal)",
+      "url": "https://www.hortidaily.com/article/9889545/almeria-kicks-off-the-season-with-price-slumps-in-eggplant-zucchini-and-cucumber/",
+      "status": "revisada"
+    },
+    {
+      "id": "estado-invernaderos-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "campo",
+      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
+      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
+      "source": "HortiDaily (boletín de la Junta de Andalucía)",
+      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
+      "status": "revisada"
+    },
+    {
+      "id": "temporal-fondo-emergencia-2026-10-22",
+      "date": "2026-10-22",
+      "tag": "clima",
+      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
+      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
+      "source": "Moncloa",
+      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
+      "status": "revisada"
+    },
+    {
+      "id": "exportaciones-4120-2026-09-30",
+      "date": "2026-09-30",
+      "tag": "mercados",
+      "title": "Las exportaciones hortofrutícolas de Almería suman 4.120 millones en la campaña 2025/26",
+      "summary": "En su asamblea general, Coexphal cifró la exportación en 2,5 millones de toneladas (+1,03 %) y 4.120 millones de euros (+12 %), con un precio medio de 1 €/kg (+11,75 %). La producción provincial fue de 3,9 millones de toneladas (−1,85 %). Los costes de producción han subido más de un 25 % en cinco años, y para 2026/27 se prevén menos tomate y pimiento y más pepino, calabacín y berenjena.",
+      "source": "HortiDaily (vía FEPEX)",
+      "url": "https://www.hortidaily.com/article/9878206/almeria-s-fruit-and-vegetable-exports-totaled-4-120-million-euros-in-2025-2026/",
+      "status": "revisada"
+    },
+    {
+      "id": "renfe-autopista-ferroviaria-2026-09-24",
+      "date": "2026-09-24",
+      "tag": "logistica",
+      "title": "Renfe Mercancías estudia una autopista ferroviaria para llevar fruta y hortaliza de Almería a Europa",
+      "summary": "Tras reunirse con Coexphal, la compañía confirmó que trabaja en un servicio de semirremolques y contenedores refrigerados por el Corredor Mediterráneo, que podría arrancar cuando terminen las obras de la conexión ferroviaria Almería–Murcia. Las partes se comprometieron a celebrar antes de fin de año una jornada sobre transporte de mercancías e intermodalidad.",
+      "source": "Infoagro",
+      "url": "https://www.infoagro.com/noticias/2026/renfe_mercancias_prepara_una_autopista_ferroviaria_para_conectar_las_f.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "superficie-otono-2026-06-15",
+      "date": "2026-06-15",
+      "tag": "mercados",
+      "title": "Superficie estable para la campaña de otoño 2026/27, con más berenjena y menos pimiento",
+      "summary": "Los datos iniciales de los socios de Coexphal apuntan a una superficie similar a la del año anterior: berenjena +7 %, calabacín +3 %, pepino +2 %, tomate −1 % y pimiento −4 %. El pimiento sigue siendo el cultivo con más superficie, y el California rojo supone el 65 % del total. El tomate retrocede por sus costes y por la competencia de Marruecos y Turquía.",
+      "source": "HortiDaily (datos de Coexphal)",
+      "url": "https://www.hortidaily.com/article/9846076/the-cultivation-area-in-almeria-is-projected-to-stay-stable-during-the-autumn-season-of-2026-2027/",
+      "status": "revisada"
+    },
+    {
+      "id": "trips-control-biologico-2026-06-08",
+      "date": "2026-06-08",
+      "tag": "sanidad",
+      "title": "Lo que dejó el trips en el pimiento y cómo se prepara el control biológico",
+      "summary": "En una jornada en Las Palmerillas, Coexphal explicó que el parvispinus se detectó en el 100 % de las fincas, que en noviembre un 6 % arrancó el cultivo antes de tiempo y que los daños en segunda categoría rondaron el 20–30 %. El sector confía en el depredador Orius laevigatus, en sueltas tempranas y en nuevas opciones como Franklinothrips megalops, que investiga el IFAPA. La industria del biocontrol denuncia que registrar un producto en España lleva de media diez años.",
+      "source": "Interempresas",
+      "url": "https://www.interempresas.net/Distribucion-Hortofruticola/634219-Blindaje-contra-trips-exito-control-biologio-exige-buen-manejo-tecnico-urgencia.html",
+      "status": "revisada"
+    },
+    {
+      "id": "balance-asaja-2025-26-2026-07-08",
+      "date": "2026-07-08",
+      "tag": "mercados",
+      "title": "Balance 2025/26 según ASAJA: el valor se mantiene en 3.916 millones pese a producir un 9,8 % menos",
+      "summary": "ASAJA Almería cifra la producción en 3,7 millones de toneladas y atribuye la caída a borrascas y plagas (trips parvispinus, araña roja, tuta, mosca blanca). Los precios medios más altos compensaron el volumen: el pimiento perdió un 10,4 % de valor y el tomate un 7,7 %, mientras que la berenjena (+27,3 %) y el melón (+52,6 %) subieron. Estas cifras de producción no coinciden con las que presentó Coexphal (3,9 millones de toneladas, −1,85 %): cada organización publica su propio recuento.",
+      "source": "Interempresas",
+      "url": "https://www.interempresas.net/Horticola/652217-sector-hortofruticola-almeriense-supera-3916-millones-valor-produccion-pesar-tormenta.html",
+      "status": "revisada"
+    }
+  ]
+}
