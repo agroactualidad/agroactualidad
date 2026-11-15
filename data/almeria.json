@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T18:17:17+00:00",
+  "updated": "2026-11-15T18:26:11+00:00",
   "stats": [
     {
       "value": "4.120 M€",
@@ -37,6 +37,16 @@
       "source": "Moncloa",
       "url": "https://www.moncloa.com/2026/11/14/andalucia-fitosanitarios-thrips-parvispinus-3467890/",
       "status": "revisada"
+    },
+    {
+      "id": "invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "sanidad",
+      "title": "Una especie invasora de trips ha causado pérdidas de más de 500 millones de euros al pimiento almeriense en cuatro campañas",
+      "summary": "La presencia de Thrips parvispinus en el sector del pimiento almeriense se ha agravado en las últimas cuatro campañas, con pérdidas productivas y económicas importantes. Desde la campaña 2022/2023, los volúmenes producidos y comercializados han caído de media un 10 % por temporada. El texto disponible no detalla todas las causas de esta caída.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9891979/invasive-thrips-species-costs-almeria-pepper-sector-over-half-a-billion-euros-in-four-seasons/",
+      "status": "auto"
     },
     {
       "id": "estado-invernaderos-2026-11-13",
