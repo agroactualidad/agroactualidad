@@ -22,6 +22,201 @@ DIAS_MAX = 30          # una noticia desaparece de la web a los 30 días de su f
 DIAS_FRESCAS = 7       # «noticias de los últimos días»
 MAX_NOTICIAS_WEB = 8   # tope de noticias visibles (la web debe quedar corta)
 HUECOS_FRESCOS = 3     # huecos reservados a las noticias más recientes
+ESTILOS = r"""
+/* Agro Almería · tema azul profundo, pensado para lectura larga */
+:root {
+  --bg: #0c1a2c;
+  --bg-deep: #091424;
+  --surface: #13284a;
+  --line: #234266;
+  --text: #e8eff8;
+  --muted: #a3b7cd;
+  --accent: #6fd3c7;
+  --accent-ink: #062a2a;
+  --max: 1120px;
+  --gutter: clamp(18px, 4vw, 40px);
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Cabecera: logo a la izquierda, pestañas desplegables a la derecha */
+.masthead { position: relative; background: var(--bg-deep); border-bottom: 1px solid var(--line); z-index: 20; }
+.masthead .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.logo { display: block; background: #f6faf6; border-radius: 12px; padding: 6px 14px; line-height: 0; }
+.logo img { height: 50px; width: auto; display: block; }
+.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.tab > button {
+  font: inherit; font-size: 0.97rem; font-weight: 500; color: var(--text); background: none; border: 0;
+  padding: 10px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.tab > button::after { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .7; }
+.tab > button[aria-expanded="true"] { background: var(--surface); }
+.tab > button[aria-expanded="true"]::after { transform: rotate(225deg) translateY(-2px); }
+.tab > button:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.tab > button[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.panel {
+  position: absolute; right: var(--gutter); top: 100%; width: min(380px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 14px 14px;
+  padding: 18px 20px; box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+.panel[hidden] { display: none; }
+.panel-intro { margin: 0; color: #cbd9e8; font-size: .97rem; }
+.panel-intro strong { color: var(--accent); font-weight: 600; }
+.panel-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; font-size: .93rem; }
+.panel-list a { text-decoration: none; display: block; padding-left: 12px; border-left: 2px solid var(--line); }
+.panel-list a:hover { border-left-color: var(--accent); }
+.panel-go { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--accent); }
+
+/* Gráficos */
+.charts { padding: clamp(28px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+.charts h2 { font-size: 1.5rem; margin-bottom: 20px; }
+.chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px 8px; }
+.chart h3 { font-size: 1.1rem; }
+.chart figcaption p { color: var(--muted); font-size: .86rem; margin: 6px 0 14px; max-width: 60ch; }
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.bars .lab { font-size: .93rem; line-height: 1.25; }
+.bars .lab small { display: block; color: var(--muted); font-size: .76rem; margin-top: 2px; }
+.bars .track { position: relative; height: 14px; border-radius: 4px; background: color-mix(in srgb, var(--bg) 55%, transparent); }
+.bars .bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.bars .pos { background: var(--accent); }
+.bars .neg { background: #f0b45a; }
+.bars .zero { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: .6; }
+.bars .val { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .93rem; min-width: 5.5em; text-align: right; }
+@media (max-width: 520px) { .bars li { grid-template-columns: 1fr auto; } .bars .track { grid-column: 1 / -1; order: 3; } }
+
+/* Iconos de tema */
+.when { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.tico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+.tico[data-tag="sanidad"] { color: #f0b45a; }
+.tico[data-tag="clima"] { color: #8fb8ff; }
+.tico[data-tag="politica"] { color: #c9b6ff; }
+.tico[data-tag="logistica"] { color: #ffa98f; }
+
+/* Portada: tejado de invernadero multicapilla como trama de fondo */
+.hero {
+  background-color: var(--bg-deep);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='56' viewBox='0 0 160 56'%3E%3Cpath d='M0 56 L40 12 L80 56 L120 12 L160 56' fill='none' stroke='%236fd3c7' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(9,20,36,0) 55%, var(--bg) 100%);
+  background-repeat: repeat, no-repeat;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: clamp(36px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  align-items: start;
+}
+.lead-meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; }
+.lead h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 22ch; }
+.lead p { color: #cbd9e8; max-width: 62ch; margin: 22px 0 0; }
+.lead .go {
+  display: inline-block; margin-top: 26px; padding: 11px 20px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600;
+  border-radius: 8px; text-decoration: none;
+}
+.lead .go:hover { background: #8fe0d6; color: var(--accent-ink); }
+
+.figures { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.figures-title { font-size: 1.05rem; color: var(--muted); font-weight: 500; margin: 0 0 14px; font-family: inherit; letter-spacing: 0; }
+.figures li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.figures .num { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1.1; }
+.figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
+.figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+/* Barra de filtros */
+.filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
+.filters button {
+  flex: 0 0 auto; font: inherit; font-size: 0.95rem; color: var(--text);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 15px; cursor: pointer;
+}
+.filters button:hover { border-color: var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+/* Lista de noticias */
+.feed { list-style: none; margin: 0; padding: 12px 0 8px; }
+.story {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px 28px;
+  padding: 28px 0; border-bottom: 1px solid var(--line);
+}
+.story[hidden] { display: none; }
+.story time { color: var(--muted); font-size: 0.95rem; }
+.story h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); max-width: 34ch; }
+.story h3 a { text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.story p { color: #cbd9e8; margin: 12px 0 0; max-width: 68ch; }
+.story .byline { color: var(--muted); font-size: 0.9rem; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot, var(--accent)); }
+.chip[data-tag="mercados"] { --dot: #6fd3c7; }
+.chip[data-tag="sanidad"] { --dot: #f0a58a; }
+.chip[data-tag="clima"] { --dot: #7fb2ff; }
+.chip[data-tag="politica"] { --dot: #d6b8ff; }
+.chip[data-tag="logistica"] { --dot: #e9cf99; }
+.chip[data-tag="campo"] { --dot: #9fdc8e; }
+.mark { border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; font-size: 0.82rem; }
+.mark.auto { border-color: #8a7a4a; color: #e9cf99; }
+.empty { padding: 40px 0; color: var(--muted); }
+
+/* Pie */
+.foot { background: var(--bg-deep); border-top: 1px solid var(--line); margin-top: 24px; padding: 40px 0 56px; color: var(--muted); font-size: 0.95rem; }
+.foot .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.foot h2 { font-size: 1.05rem; color: var(--text); margin-bottom: 8px; }
+.foot p, .foot ul { margin: 0; max-width: 56ch; }
+.foot ul { padding-left: 1.1em; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; gap: 4px; }
+  .when { flex-direction: row; align-items: center; gap: 10px; }
+  .foot .cols { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Ajustes de cabecera: una sola fila en pantallas anchas */
+.masthead .wrap { max-width: 1320px; }
+.logo img { height: 46px; }
+.tab > button { padding: 10px 11px; font-size: 0.94rem; }
+.tabs { gap: 0 2px; }
+
+"""
+
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
          "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
@@ -201,7 +396,7 @@ def build(hoy=None):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+  <style>{ESTILOS}</style>
 </head>
 <body>
   <header class="masthead">
