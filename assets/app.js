@@ -19,3 +19,26 @@
     });
   });
 })();
+
+// Pestañas desplegables de la cabecera
+(function () {
+  var tabs = document.querySelectorAll('.tab > button');
+  function closeAll(except) {
+    tabs.forEach(function (b) {
+      if (b === except) return;
+      b.setAttribute('aria-expanded', 'false');
+      document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+    });
+  }
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      closeAll(btn);
+      btn.setAttribute('aria-expanded', String(!open));
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.panel')) closeAll(); else if (e.target.closest('.panel a')) closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+})();
