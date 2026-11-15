@@ -102,7 +102,8 @@ def es_de_almeria(entrada, palabras):
 
 PROMPT = """Eres redactor de una web de noticias agrícolas sobre Almería.
 Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves:
-- "relevante": true si trata de la agricultura de Almería o afecta directamente a ella; si no, false.
+- "relevante": true si la noticia trata de la agricultura de Almería o de algo que afecta directamente al sector almeriense (una plaga que sufre, un mercado donde vende, una norma que le aplica, una tecnología que usa); false si es una noticia general sin relación clara con Almería.
+- "motivo": una frase corta explicando por qué es o no relevante.
 - "titulo": titular claro en español, máximo 120 caracteres, con tus propias palabras.
 - "resumen": 2 o 3 frases en español con tus propias palabras.
 - "tema": uno de {tags}.
@@ -110,7 +111,9 @@ Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves
 Reglas estrictas:
 - Usa SOLO la información del titular y del extracto. No añadas cifras, nombres ni hechos que no aparezcan ahí.
 - No copies frases literales del texto original.
-- Si el extracto es demasiado pobre para resumir con fiabilidad, pon "relevante": false.
+- Si el extracto es pobre pero el titular deja claro que va de Almería, resume solo lo que diga el titular.
+- Si no hay información suficiente para resumir sin inventar, pon "relevante": false y explícalo en "motivo".
+- Responde únicamente con el JSON, sin texto antes ni después.
 
 Titular: {title}
 Extracto: {desc}
@@ -121,7 +124,7 @@ Fuente: {source}
 def resumir(entrada, api_key):
     cuerpo = json.dumps({
         "model": MODEL,
-        "max_tokens": 500,
+        "max_tokens": 1000,
         "messages": [{"role": "user", "content": PROMPT.format(
             tags=", ".join(TAGS), title=entrada["title"], desc=entrada["desc"], source=entrada["source"])}],
     }).encode("utf-8")
@@ -135,7 +138,7 @@ def resumir(entrada, api_key):
     texto = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text")
     m = re.search(r"\{.*\}", texto, re.S)
     if not m:
-        raise ValueError("La respuesta de Claude no contiene JSON")
+        raise ValueError("La respuesta de Claude no contiene JSON. Respuesta recibida: " + texto[:300].replace("\n", " "))
     datos = json.loads(m.group(0))
     if datos.get("tema") not in TAGS:
         datos["tema"] = "campo"
@@ -185,7 +188,7 @@ def main():
             log(f"  Sin resumir «{e['title'][:60]}»: {err}")
             continue
         if not r.get("relevante"):
-            log(f"  Descartada por irrelevante: {e['title'][:60]}")
+            log(f"  Descartada por irrelevante: {e['title'][:60]} | Motivo: {r.get('motivo', 'sin motivo')}")
             continue
         nuevas.append({
             "id": re.sub(r"[^a-z0-9]+", "-", e["title"].lower())[:50].strip("-") + "-" + e["date"].strftime("%Y-%m-%d"),
