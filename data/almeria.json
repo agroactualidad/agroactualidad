@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T18:52:27+00:00",
+  "updated": "2026-11-15T20:00:00+01:00",
   "stats": [
     {
       "value": "1.120 M€",
@@ -43,83 +43,6 @@
       "importancia": 5
     },
     {
-      "id": "invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13",
-      "date": "2026-11-13",
-      "tag": "sanidad",
-      "title": "El trips invasor ya ha costado a la producción de pimiento almeriense más de medio millón de euros en cuatro campañas",
-      "summary": "El trips Thrips parvispinus ha agravado sus daños en el sector del pimiento de Almería durante las últimas cuatro campañas, con pérdidas productivas y económicas importantes. Desde la campaña 2022/2023, los volúmenes de producción y comercialización han bajado de media un 10 % por campaña.",
-      "source": "HortiDaily",
-      "url": "https://www.hortidaily.com/article/9891979/invasive-thrips-species-costs-almeria-pepper-sector-over-half-a-billion-euros-in-four-seasons/",
-      "importancia": 5,
-      "status": "auto"
-    },
-    {
-      "id": "estado-invernaderos-2026-11-13",
-      "date": "2026-11-13",
-      "tag": "campo",
-      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
-      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
-      "source": "HortiDaily (boletín de la Junta de Andalucía)",
-      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
-      "status": "revisada",
-      "importancia": 3
-    },
-    {
-      "id": "de-un-15-en-unas-comercializadoras-a-un-35-en-otra-2026-11-11",
-      "date": "2026-11-11",
-      "tag": "logistica",
-      "title": "La huelga general golpea de forma desigual al sector hortícola almeriense",
-      "summary": "La huelga general tuvo una incidencia desigual en el sector hortícola de Almería, de alrededor del 15 % en unas comercializadoras y del 35 % en otras. Según la información disponible, la mayoría de empresas mantuvo su actividad en invernaderos, industria auxiliar, subastas, manipulado y comercialización. La distribución también siguió operando, aunque con algunas incidencias.",
-      "source": "Hortoinfo",
-      "url": "https://hortoinfo.es/de-un-15-en-unas-comercializadoras-a-un-35-en-otras-asi-ha-incidido-la-huelga-general-en-el-sector-horticola-de-almeria/",
-      "importancia": 4,
-      "status": "auto"
-    },
-    {
-      "id": "el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11",
-      "date": "2026-11-11",
-      "tag": "sanidad",
-      "title": "La plaga de thrips parvispinus resta 360 millones de kilos a la producción almeriense en cuatro campañas",
-      "summary": "Desde la campaña 2022/2023, la plaga provoca una caída del 10% anual en la producción y comercialización en Almería. La merma se debe tanto a cultivos arrancados como a superficies que los agricultores han dejado de plantar por la dificultad para controlarla.",
-      "source": "Hortoinfo",
-      "url": "https://hortoinfo.es/el-thrips-parvispinus-ha-provocado-perdidas-de-360-millones-de-kilos-en-4-campanas-a-los-productores-almerienses/",
-      "importancia": 5,
-      "status": "auto"
-    },
-    {
-      "id": "el-cooperativismo-agroalimentario-europeo-se-re-ne-2026-11-11",
-      "date": "2026-11-11",
-      "tag": "mercados",
-      "title": "El cooperativismo agrario europeo se reúne en Almería para debatir integración e inversión",
-      "summary": "El Foro Empresarial de COGECA, organizado junto a Cooperativas Agro-alimentarias de España y Cajamar, tiene lugar en Almería. El encuentro sitúa en el centro del debate la integración empresarial y las alianzas entre cooperativas. Se busca así orientar el futuro del sector agroalimentario europeo.",
-      "source": "Hortoinfo",
-      "url": "https://hortoinfo.es/el-cooperativismo-agroalimentario-europeo-se-reune-en-almeria-para-reclamar-mas-inversion-y-un-mercado-unico-mas-fuerte/",
-      "importancia": 3,
-      "status": "auto"
-    },
-    {
-      "id": "cogeca-forum-2026-11-11",
-      "date": "2026-11-11",
-      "tag": "politica",
-      "title": "Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE",
-      "summary": "Unos 130 representantes de cooperativas se reunieron el 9 y 10 de noviembre en el Presidency Cogeca Business Forum. Su presidente, Lennart Nilsson, reclamó una PAC que apoye la inversión en explotaciones y cooperativas, una OCM que refuerce a las organizaciones de productores y un Fondo Europeo de Competitividad abierto a las cooperativas, de cara al presupuesto 2028-2034. Cajamar anunció en junio que apoyaría la organización del foro, previsto en Almería; FreshPlaza fecha el llamamiento «desde Almería», pero solo confirma que se celebró en España.",
-      "source": "FreshPlaza",
-      "url": "https://www.freshplaza.com/article/9891576/european-agricultural-cooperatives-call-for-stronger-eu-investment-support/",
-      "status": "revisada",
-      "importancia": 2
-    },
-    {
-      "id": "las-mesas-de-la-uni-n-europea-se-llenaron-de-sand-2026-11-09",
-      "date": "2026-11-09",
-      "tag": "mercados",
-      "title": "Almería aporta más de la mitad de las sandías españolas consumidas en la UE",
-      "summary": "Casi un tercio de las sandías consumidas en la Unión Europea durante la temporada tuvo origen español. De ese volumen, algo más del 53 % salió de Almería. Italia y Marruecos aportaron alrededor del 11,8 % y el 9,8 %, respectivamente.",
-      "source": "Hortoinfo",
-      "url": "https://hortoinfo.es/las-mesas-de-la-union-europea-se-llenaron-de-sandias-espanolas-durante-la-campana-mas-de-la-mitad-de-almeria/",
-      "importancia": 5,
-      "status": "auto"
-    },
-    {
       "id": "asaja-plasticos-2026-11-08",
       "date": "2026-11-08",
       "tag": "politica",
@@ -142,15 +65,37 @@
       "importancia": 4
     },
     {
-      "id": "tomate-retraso-precios-2026-11-03",
-      "date": "2026-11-03",
-      "tag": "mercados",
-      "importancia": 4,
-      "title": "Campaña de tomate retrasada: precios muy por encima de la media en las subastas almerienses",
-      "summary": "Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.",
-      "source": "HortiDaily (Vicasol)",
-      "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
-      "status": "revisada"
+      "id": "estado-invernaderos-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "campo",
+      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
+      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
+      "source": "HortiDaily (boletín de la Junta de Andalucía)",
+      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
+      "status": "revisada",
+      "importancia": 3
+    },
+    {
+      "id": "temporal-fondo-emergencia-2026-10-22",
+      "date": "2026-10-22",
+      "tag": "clima",
+      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
+      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
+      "source": "Moncloa",
+      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
+      "status": "revisada",
+      "importancia": 3
+    },
+    {
+      "id": "cogeca-forum-2026-11-11",
+      "date": "2026-11-11",
+      "tag": "politica",
+      "title": "Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE",
+      "summary": "Unos 130 representantes de cooperativas se reunieron el 9 y 10 de noviembre en el Presidency Cogeca Business Forum. Su presidente, Lennart Nilsson, reclamó una PAC que apoye la inversión en explotaciones y cooperativas, una OCM que refuerce a las organizaciones de productores y un Fondo Europeo de Competitividad abierto a las cooperativas, de cara al presupuesto 2028-2034. Cajamar anunció en junio que apoyaría la organización del foro, previsto en Almería; FreshPlaza fecha el llamamiento «desde Almería», pero solo confirma que se celebró en España.",
+      "source": "FreshPlaza",
+      "url": "https://www.freshplaza.com/article/9891576/european-agricultural-cooperatives-call-for-stronger-eu-investment-support/",
+      "status": "revisada",
+      "importancia": 2
     },
     {
       "id": "pimiento-trips-sin-armas-2026-11-02",
@@ -175,16 +120,94 @@
       "status": "revisada"
     },
     {
-      "id": "temporal-fondo-emergencia-2026-10-22",
-      "date": "2026-10-22",
-      "tag": "clima",
-      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
-      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
-      "source": "Moncloa",
-      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
-      "status": "revisada",
-      "importancia": 3
+      "id": "tomate-retraso-precios-2026-11-03",
+      "date": "2026-11-03",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Campaña de tomate retrasada: precios muy por encima de la media en las subastas almerienses",
+      "summary": "Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.",
+      "source": "HortiDaily (Vicasol)",
+      "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
+      "status": "revisada"
     }
   ],
-  "checked": "2026-11-15T18:52:27+00:00"
+  "checked": "2026-11-15T20:00:00+01:00",
+  "charts": [
+    {
+      "id": "precios",
+      "title": "Precios en origen de referencia",
+      "unit": "€/kg",
+      "date": "2026-11-03",
+      "decimals": 2,
+      "intro": "Cada barra viene de una fuente y semana distintas (indicadas debajo); sirven para comparar órdenes de magnitud, no como cotización de hoy.",
+      "bars": [
+        {
+          "label": "Pimiento California amarillo",
+          "value": 2.34,
+          "src": "Agroejido, 27 oct"
+        },
+        {
+          "label": "Tomate en rama",
+          "value": 2.11,
+          "src": "Agropizarra, media citada el 3 nov"
+        },
+        {
+          "label": "Tomate plum",
+          "value": 2.06,
+          "src": "Agropizarra, media citada el 3 nov"
+        },
+        {
+          "label": "Pimiento California rojo",
+          "value": 1.75,
+          "src": "Agroejido, 27 oct"
+        },
+        {
+          "label": "Pimiento California verde",
+          "value": 1.74,
+          "src": "Agroejido, 27 oct"
+        },
+        {
+          "label": "Berenjena",
+          "value": 0.63,
+          "src": "Coexphal, semana 39"
+        },
+        {
+          "label": "Pepino (mínimo)",
+          "value": 0.52,
+          "src": "Coexphal, semana 39"
+        },
+        {
+          "label": "Calabacín",
+          "value": 0.46,
+          "src": "Coexphal, semana 40"
+        }
+      ]
+    },
+    {
+      "id": "campana",
+      "title": "Producción 2025/26 frente a la campaña anterior",
+      "unit": "%",
+      "date": "2026-10-29",
+      "decimals": 1,
+      "signed": true,
+      "intro": "Estimación de un consultor publicada en HortiDaily; no es un dato oficial.",
+      "bars": [
+        {
+          "label": "Total provincia",
+          "value": -9.8,
+          "src": "HortiDaily, 29 oct"
+        },
+        {
+          "label": "Pimiento",
+          "value": -16.0,
+          "src": "HortiDaily, 29 oct"
+        },
+        {
+          "label": "Tomate",
+          "value": -17.3,
+          "src": "HortiDaily, 29 oct"
+        }
+      ]
+    }
+  ]
 }
