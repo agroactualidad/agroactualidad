@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14T23:55:00+01:00",
+  "updated": "2026-11-15T13:11:56+00:00",
   "stats": [
     {
       "value": "4.120 M€",
@@ -39,6 +39,16 @@
       "status": "revisada"
     },
     {
+      "id": "estado-invernaderos-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "campo",
+      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
+      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
+      "source": "HortiDaily (boletín de la Junta de Andalucía)",
+      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
+      "status": "revisada"
+    },
+    {
       "id": "asaja-plasticos-2026-11-08",
       "date": "2026-11-08",
       "tag": "politica",
@@ -56,16 +66,6 @@
       "summary": "Según Inteligencia de Mercados de Coexphal, el calor del verano retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg (0,68 el año anterior) y cayó a 0,63 €/kg en la semana 39. El calabacín bajó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40. El pepino tocó su mínimo en 0,52 €/kg en la semana 39, aún por encima del mismo punto de la campaña pasada.",
       "source": "HortiDaily (datos de Coexphal)",
       "url": "https://www.hortidaily.com/article/9889545/almeria-kicks-off-the-season-with-price-slumps-in-eggplant-zucchini-and-cucumber/",
-      "status": "revisada"
-    },
-    {
-      "id": "estado-invernaderos-2026-11-13",
-      "date": "2026-11-13",
-      "tag": "campo",
-      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
-      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
-      "source": "HortiDaily (boletín de la Junta de Andalucía)",
-      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
       "status": "revisada"
     },
     {
@@ -99,6 +99,16 @@
       "status": "revisada"
     },
     {
+      "id": "balance-asaja-2025-26-2026-07-08",
+      "date": "2026-07-08",
+      "tag": "mercados",
+      "title": "Balance 2025/26 según ASAJA: el valor se mantiene en 3.916 millones pese a producir un 9,8 % menos",
+      "summary": "ASAJA Almería cifra la producción en 3,7 millones de toneladas y atribuye la caída a borrascas y plagas (trips parvispinus, araña roja, tuta, mosca blanca). Los precios medios más altos compensaron el volumen: el pimiento perdió un 10,4 % de valor y el tomate un 7,7 %, mientras que la berenjena (+27,3 %) y el melón (+52,6 %) subieron. Estas cifras de producción no coinciden con las que presentó Coexphal (3,9 millones de toneladas, −1,85 %): cada organización publica su propio recuento.",
+      "source": "Interempresas",
+      "url": "https://www.interempresas.net/Horticola/652217-sector-hortofruticola-almeriense-supera-3916-millones-valor-produccion-pesar-tormenta.html",
+      "status": "revisada"
+    },
+    {
       "id": "superficie-otono-2026-06-15",
       "date": "2026-06-15",
       "tag": "mercados",
@@ -116,16 +126,6 @@
       "summary": "En una jornada en Las Palmerillas, Coexphal explicó que el parvispinus se detectó en el 100 % de las fincas, que en noviembre un 6 % arrancó el cultivo antes de tiempo y que los daños en segunda categoría rondaron el 20–30 %. El sector confía en el depredador Orius laevigatus, en sueltas tempranas y en nuevas opciones como Franklinothrips megalops, que investiga el IFAPA. La industria del biocontrol denuncia que registrar un producto en España lleva de media diez años.",
       "source": "Interempresas",
       "url": "https://www.interempresas.net/Distribucion-Hortofruticola/634219-Blindaje-contra-trips-exito-control-biologio-exige-buen-manejo-tecnico-urgencia.html",
-      "status": "revisada"
-    },
-    {
-      "id": "balance-asaja-2025-26-2026-07-08",
-      "date": "2026-07-08",
-      "tag": "mercados",
-      "title": "Balance 2025/26 según ASAJA: el valor se mantiene en 3.916 millones pese a producir un 9,8 % menos",
-      "summary": "ASAJA Almería cifra la producción en 3,7 millones de toneladas y atribuye la caída a borrascas y plagas (trips parvispinus, araña roja, tuta, mosca blanca). Los precios medios más altos compensaron el volumen: el pimiento perdió un 10,4 % de valor y el tomate un 7,7 %, mientras que la berenjena (+27,3 %) y el melón (+52,6 %) subieron. Estas cifras de producción no coinciden con las que presentó Coexphal (3,9 millones de toneladas, −1,85 %): cada organización publica su propio recuento.",
-      "source": "Interempresas",
-      "url": "https://www.interempresas.net/Horticola/652217-sector-hortofruticola-almeriense-supera-3916-millones-valor-produccion-pesar-tormenta.html",
       "status": "revisada"
     }
   ]
