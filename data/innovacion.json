@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:00:00+01:00",
-  "checked": "2026-11-16T21:00:00+01:00",
+  "updated": "2026-11-16T19:54:42+00:00",
+  "checked": "2026-11-16T19:54:42+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -30,6 +30,42 @@
   ],
   "items": [
     {
+      "id": "i-una-nueva-m-quina-permite-envasar-frutas-y-hortali-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Manter presenta una máquina que envasa frutas y hortalizas en malla reciclable de PE sin clips",
+      "summary": "Manter ha desarrollado la MoNo Clipper Inline, un equipo que agrupa productos en línea y los empaqueta en una malla monomaterial reciclable. Su diseño busca reducir el consumo de material y ofrecer un cierre fiable.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9891957/una-nueva-maquina-permite-envasar-frutas-y-hortalizas-en-mallas-de-pe-sin-clips/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "envases"
+    },
+    {
+      "id": "i-presentadas-en-valencia-nuevas-variedades-de-c-tri-2026-11-16",
+      "date": "2026-11-16",
+      "title": "El IVIA presenta en Valencia nuevas variedades de cítricos y patrones en una jornada técnica",
+      "summary": "El Instituto Valenciano de Investigaciones Agrarias celebró en Valencia una jornada técnica sobre innovación varietal y nuevas tecnologías en citricultura. El encuentro se centró en los avances de la investigación agraria y en cómo aplicarlos a los retos del sector, con la sostenibilidad como eje.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893180/presentadas-en-valencia-nuevas-variedades-de-citricos-y-patrones/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
+    {
+      "id": "i-sormac-presentar-su-tecnolog-a-de-pelado-y-corte-d-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Sormac mostrará su tecnología de pelado y corte de patatas en Interpom 2026",
+      "summary": "La empresa Sormac llevará a Interpom 2026, en Kortrijk (Bélgica), su tecnología para pelar y cortar patatas, con equipos que van desde máquinas individuales hasta líneas totalmente automatizadas. La feria se celebrará del 29 de noviembre al 1 de diciembre y la presentación se hará en el stand 165.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893221/sormac-presentara-su-tecnologia-de-pelado-y-corte-de-patatas-en-interpom/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "maquinaria"
+    },
+    {
       "id": "i-pimiento-bayer-arava-2026-11-16",
       "date": "2026-11-16",
       "ambito": "variedades",
@@ -42,15 +78,51 @@
       "status": "revisada"
     },
     {
-      "id": "i-tomate-roma-solstic-2026-11-04",
-      "date": "2026-11-04",
-      "ambito": "variedades",
+      "id": "i-bull-qii-plataforma-autonoma-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "maquinaria",
       "tag": "innovacion",
-      "importancia": 4,
-      "title": "De Ruiter presenta Solstic, su primer tomate Roma con resistencia intermedia al virus rugoso",
-      "summary": "La variedad, de la marca de semillas de Bayer, tiene resistencia intermedia multigénica a ToBRFV y al oídio, y está pensada para invernadero de alta tecnología, con o sin iluminación. Da fruto rojo, oval y uniforme de 90 a 110 gramos. El artículo no ofrece datos de rendimiento.",
-      "source": "HortiDaily (De Ruiter)",
-      "url": "https://www.hortidaily.com/article/9889221/introducing-solstic-roma-tomato-variety-with-resistance-to-tobrfv/",
+      "importancia": 3,
+      "title": "Lanzan una plataforma autónoma que circula por invernaderos sin raíles",
+      "summary": "La Bull-Qii DS de Bogaerts se mueve en túneles, invernaderos de plástico y de cristal sin tubos-carril. Su uso principal es aplicar luz UV-C de noche en fresa, y puede servir para controlar oídio sin químicos o llevar otros equipos. No se aportan datos de velocidad ni autonomía.",
+      "source": "HortiDaily (Bogaerts)",
+      "url": "https://www.hortidaily.com/article/9892322/autonomous-driving-platform-for-greenhouses-without-rail-tubes-launched/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-envases-murcia-exportaciones-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "envases",
+      "tag": "innovacion",
+      "importancia": 2,
+      "title": "Las exportaciones de envases y embalajes de Murcia suben un 3,2 % hasta agosto",
+      "summary": "Alcanzan 251,46 millones de euros, según las cifras que dio el consejero de Empresa, Luis Alberto Marín, en una visita a Sonoco. El dato es regional y no se detalla la estadística de origen.",
+      "source": "Infoagro",
+      "url": "https://www.infoagro.com/noticias/2026/las_exportaciones_del_sector_de_los_envases_y_embalajes_crecen_un_3_2_.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-robot-inaho-pilotos-2026-11-11",
+      "date": "2026-11-11",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Un robot cosechador de tomate cherry termina sus pilotos de verano y un productor lo adoptará en 2027",
+      "summary": "El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, uno en Países Bajos y otro en Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.",
+      "source": "HortiDaily (inaho)",
+      "url": "https://www.hortidaily.com/article/9890382/harvest-robot-completes-summer-pilots-at-two-european-growers/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-koppert-el-ejido-gestion-integrada-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "bioinsumos",
+      "tag": "innovacion",
+      "importancia": 5,
+      "title": "El Ejido y Koppert defienden la gestión integrada como respuesta al trips parvispinus",
+      "summary": "Ambos plantean un modelo basado en control biológico, higiene y aislamiento, plantas reservorio y químicos solo cuando sean compatibles con la fauna auxiliar. Koppert considera al ácaro depredador A. limonicus la opción más eficaz hoy, sin materias activas autorizadas eficaces. El Ayuntamiento pide actuar de forma colectiva y cumplir el protocolo de la Junta.",
+      "source": "Infoagro (Koppert)",
+      "url": "https://www.infoagro.com/noticias/2026/el_ayuntamiento_de_el_ejido_y_koppert_reconocen_la_importancia_de_la_l.asp",
       "status": "revisada"
     },
     {
@@ -78,30 +150,6 @@
       "status": "revisada"
     },
     {
-      "id": "i-robot-inaho-pilotos-2026-11-11",
-      "date": "2026-11-11",
-      "ambito": "maquinaria",
-      "tag": "innovacion",
-      "importancia": 3,
-      "title": "Un robot cosechador de tomate cherry termina sus pilotos de verano y un productor lo adoptará en 2027",
-      "summary": "El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, uno en Países Bajos y otro en Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.",
-      "source": "HortiDaily (inaho)",
-      "url": "https://www.hortidaily.com/article/9890382/harvest-robot-completes-summer-pilots-at-two-european-growers/",
-      "status": "revisada"
-    },
-    {
-      "id": "i-bull-qii-plataforma-autonoma-2026-11-13",
-      "date": "2026-11-13",
-      "ambito": "maquinaria",
-      "tag": "innovacion",
-      "importancia": 3,
-      "title": "Lanzan una plataforma autónoma que circula por invernaderos sin raíles",
-      "summary": "La Bull-Qii DS de Bogaerts se mueve en túneles, invernaderos de plástico y de cristal sin tubos-carril. Su uso principal es aplicar luz UV-C de noche en fresa, y puede servir para controlar oídio sin químicos o llevar otros equipos. No se aportan datos de velocidad ni autonomía.",
-      "source": "HortiDaily (Bogaerts)",
-      "url": "https://www.hortidaily.com/article/9892322/autonomous-driving-platform-for-greenhouses-without-rail-tubes-launched/",
-      "status": "revisada"
-    },
-    {
       "id": "i-mallas-termorreflectantes-2026-11-06",
       "date": "2026-11-06",
       "ambito": "maquinaria",
@@ -111,42 +159,6 @@
       "summary": "El departamento de I+D de Arrigoni probó 25 tejidos. Sus mallas Prisma y Robuxta recortan la evaporación un 40 % en la versión con 30 % de sombreo y un 46 % en la de 49 %; con sombreo total la reducción llega al 75 %. El artículo no indica dónde se hicieron las pruebas ni el cultivo.",
       "source": "HortiDaily (Arrigoni)",
       "url": "https://www.hortidaily.com/article/9889620/thermoreflective-screens-reduce-water-evaporation-by-up-to-50-in-trials/",
-      "status": "revisada"
-    },
-    {
-      "id": "i-infoagro-exhibition-2027-2026-10-26",
-      "date": "2026-10-26",
-      "ambito": "maquinaria",
-      "tag": "innovacion",
-      "importancia": 3,
-      "title": "Infoagro Exhibition 2027 será del 5 al 7 de mayo en Roquetas de Mar",
-      "summary": "La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.",
-      "source": "HortiDaily",
-      "url": "https://www.hortidaily.com/article/9885983/infoagro-exhibition-2027-will-bring-together-the-key-players-in-intensive-agriculture-in-almeria/",
-      "status": "revisada"
-    },
-    {
-      "id": "i-koppert-el-ejido-gestion-integrada-2026-11-10",
-      "date": "2026-11-10",
-      "ambito": "bioinsumos",
-      "tag": "innovacion",
-      "importancia": 5,
-      "title": "El Ejido y Koppert defienden la gestión integrada como respuesta al trips parvispinus",
-      "summary": "Ambos plantean un modelo basado en control biológico, higiene y aislamiento, plantas reservorio y químicos solo cuando sean compatibles con la fauna auxiliar. Koppert considera al ácaro depredador A. limonicus la opción más eficaz hoy, sin materias activas autorizadas eficaces. El Ayuntamiento pide actuar de forma colectiva y cumplir el protocolo de la Junta.",
-      "source": "Infoagro (Koppert)",
-      "url": "https://www.infoagro.com/noticias/2026/el_ayuntamiento_de_el_ejido_y_koppert_reconocen_la_importancia_de_la_l.asp",
-      "status": "revisada"
-    },
-    {
-      "id": "i-bionema-licencias-2026-11-05",
-      "date": "2026-11-05",
-      "ambito": "bioinsumos",
-      "tag": "innovacion",
-      "importancia": 3,
-      "title": "Bionema abre al mundo sus plataformas de biocontrol para licencias y alianzas",
-      "summary": "La empresa británica ofrece Incapsulex (microencapsulado estable más de 17 meses a temperatura ambiente), Adhesulex y BiofilmTech, un biofertilizante de consorcios microbianos. Syngenta compró dos de sus bioinsecticidas en 2021. El artículo cita los objetivos de Bayer, Corteva y FMC en biológicos.",
-      "source": "Infoagro",
-      "url": "https://www.infoagro.com/noticias/2026/bionema_abre_sus_plataformas_tecnologicas_de_biocontrol_a_la_concesion.asp",
       "status": "revisada"
     },
     {
@@ -162,15 +174,39 @@
       "status": "revisada"
     },
     {
-      "id": "i-envases-murcia-exportaciones-2026-11-13",
-      "date": "2026-11-13",
-      "ambito": "envases",
+      "id": "i-bionema-licencias-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "bioinsumos",
       "tag": "innovacion",
-      "importancia": 2,
-      "title": "Las exportaciones de envases y embalajes de Murcia suben un 3,2 % hasta agosto",
-      "summary": "Alcanzan 251,46 millones de euros, según las cifras que dio el consejero de Empresa, Luis Alberto Marín, en una visita a Sonoco. El dato es regional y no se detalla la estadística de origen.",
+      "importancia": 3,
+      "title": "Bionema abre al mundo sus plataformas de biocontrol para licencias y alianzas",
+      "summary": "La empresa británica ofrece Incapsulex (microencapsulado estable más de 17 meses a temperatura ambiente), Adhesulex y BiofilmTech, un biofertilizante de consorcios microbianos. Syngenta compró dos de sus bioinsecticidas en 2021. El artículo cita los objetivos de Bayer, Corteva y FMC en biológicos.",
       "source": "Infoagro",
-      "url": "https://www.infoagro.com/noticias/2026/las_exportaciones_del_sector_de_los_envases_y_embalajes_crecen_un_3_2_.asp",
+      "url": "https://www.infoagro.com/noticias/2026/bionema_abre_sus_plataformas_tecnologicas_de_biocontrol_a_la_concesion.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-tomate-roma-solstic-2026-11-04",
+      "date": "2026-11-04",
+      "ambito": "variedades",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "De Ruiter presenta Solstic, su primer tomate Roma con resistencia intermedia al virus rugoso",
+      "summary": "La variedad, de la marca de semillas de Bayer, tiene resistencia intermedia multigénica a ToBRFV y al oídio, y está pensada para invernadero de alta tecnología, con o sin iluminación. Da fruto rojo, oval y uniforme de 90 a 110 gramos. El artículo no ofrece datos de rendimiento.",
+      "source": "HortiDaily (De Ruiter)",
+      "url": "https://www.hortidaily.com/article/9889221/introducing-solstic-roma-tomato-variety-with-resistance-to-tobrfv/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-infoagro-exhibition-2027-2026-10-26",
+      "date": "2026-10-26",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Infoagro Exhibition 2027 será del 5 al 7 de mayo en Roquetas de Mar",
+      "summary": "La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9885983/infoagro-exhibition-2027-will-bring-together-the-key-players-in-intensive-agriculture-in-almeria/",
       "status": "revisada"
     }
   ]

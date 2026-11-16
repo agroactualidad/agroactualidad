@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agro Actualidad: innovación y productos</title>
+  <meta name="description" content="Novedades en variedades, maquinaria, bioinsumos y envases para el campo, con enlace a cada fuente.">
+  <meta name="theme-color" content="#0c1a2c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* Agro Almería · tema azul profundo, pensado para lectura larga */
+:root {
+  --bg: #0c1a2c;
+  --bg-deep: #091424;
+  --surface: #13284a;
+  --line: #234266;
+  --text: #e8eff8;
+  --muted: #a3b7cd;
+  --accent: #6fd3c7;
+  --accent-ink: #062a2a;
+  --max: 1120px;
+  --gutter: clamp(18px, 4vw, 40px);
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Cabecera: logo a la izquierda, pestañas desplegables a la derecha */
+.masthead { position: relative; background: var(--bg-deep); border-bottom: 1px solid var(--line); z-index: 20; }
+.masthead .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.logo { display: block; background: #f6faf6; border-radius: 12px; padding: 6px 14px; line-height: 0; }
+.logo img { height: 50px; width: auto; display: block; }
+.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.tab > button {
+  font: inherit; font-size: 0.97rem; font-weight: 500; color: var(--text); background: none; border: 0;
+  padding: 10px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.tab > button::after { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .7; }
+.tab > button[aria-expanded="true"] { background: var(--surface); }
+.tab > button[aria-expanded="true"]::after { transform: rotate(225deg) translateY(-2px); }
+.tab > button:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.tab > button[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.panel {
+  position: absolute; right: var(--gutter); top: 100%; width: min(380px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 14px 14px;
+  padding: 18px 20px; box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+.panel[hidden] { display: none; }
+.panel-intro { margin: 0; color: #cbd9e8; font-size: .97rem; }
+.panel-intro strong { color: var(--accent); font-weight: 600; }
+.panel-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; font-size: .93rem; }
+.panel-list a { text-decoration: none; display: block; padding-left: 12px; border-left: 2px solid var(--line); }
+.panel-list a:hover { border-left-color: var(--accent); }
+.panel-go { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--accent); }
+
+/* Gráficos */
+.charts { padding: clamp(28px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+.charts h2 { font-size: 1.5rem; margin-bottom: 20px; }
+.chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px 8px; }
+.chart h3 { font-size: 1.1rem; }
+.chart figcaption p { color: var(--muted); font-size: .86rem; margin: 6px 0 14px; max-width: 60ch; }
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.bars .lab { font-size: .93rem; line-height: 1.25; }
+.bars .lab small { display: block; color: var(--muted); font-size: .76rem; margin-top: 2px; }
+.bars .track { position: relative; height: 14px; border-radius: 4px; background: color-mix(in srgb, var(--bg) 55%, transparent); }
+.bars .bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.bars .pos { background: var(--accent); }
+.bars .neg { background: #f0b45a; }
+.bars .zero { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: .6; }
+.bars .val { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .93rem; min-width: 5.5em; text-align: right; }
+@media (max-width: 520px) { .bars li { grid-template-columns: 1fr auto; } .bars .track { grid-column: 1 / -1; order: 3; } }
+
+/* Iconos de tema */
+.when { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.tico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+.tico[data-tag="sanidad"] { color: #f0b45a; }
+.tico[data-tag="clima"] { color: #8fb8ff; }
+.tico[data-tag="politica"] { color: #c9b6ff; }
+.tico[data-tag="logistica"] { color: #ffa98f; }
+
+/* Portada: tejado de invernadero multicapilla como trama de fondo */
+.hero {
+  background-color: var(--bg-deep);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='56' viewBox='0 0 160 56'%3E%3Cpath d='M0 56 L40 12 L80 56 L120 12 L160 56' fill='none' stroke='%236fd3c7' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(9,20,36,0) 55%, var(--bg) 100%);
+  background-repeat: repeat, no-repeat;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: clamp(36px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  align-items: start;
+}
+.lead-meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; }
+.lead h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 22ch; }
+.lead p { color: #cbd9e8; max-width: 62ch; margin: 22px 0 0; }
+.lead .go {
+  display: inline-block; margin-top: 26px; padding: 11px 20px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600;
+  border-radius: 8px; text-decoration: none;
+}
+.lead .go:hover { background: #8fe0d6; color: var(--accent-ink); }
+
+.figures { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.figures-title { font-size: 1.05rem; color: var(--muted); font-weight: 500; margin: 0 0 14px; font-family: inherit; letter-spacing: 0; }
+.figures li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.figures .num { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1.1; }
+.figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
+.figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+/* Barra de filtros */
+.filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
+.filters button {
+  flex: 0 0 auto; font: inherit; font-size: 0.95rem; color: var(--text);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 15px; cursor: pointer;
+}
+.filters button:hover { border-color: var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+/* Lista de noticias */
+.feed { list-style: none; margin: 0; padding: 12px 0 8px; }
+.story {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px 28px;
+  padding: 28px 0; border-bottom: 1px solid var(--line);
+}
+.story[hidden] { display: none; }
+.story time { color: var(--muted); font-size: 0.95rem; }
+.story h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); max-width: 34ch; }
+.story h3 a { text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.story p { color: #cbd9e8; margin: 12px 0 0; max-width: 68ch; }
+.story .byline { color: var(--muted); font-size: 0.9rem; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot, var(--accent)); }
+.chip[data-tag="mercados"] { --dot: #6fd3c7; }
+.chip[data-tag="sanidad"] { --dot: #f0a58a; }
+.chip[data-tag="clima"] { --dot: #7fb2ff; }
+.chip[data-tag="politica"] { --dot: #d6b8ff; }
+.chip[data-tag="logistica"] { --dot: #e9cf99; }
+.chip[data-tag="campo"] { --dot: #9fdc8e; }
+.mark { border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; font-size: 0.82rem; }
+.mark.auto { border-color: #8a7a4a; color: #e9cf99; }
+.empty { padding: 40px 0; color: var(--muted); }
+
+/* Pie */
+.foot { background: var(--bg-deep); border-top: 1px solid var(--line); margin-top: 24px; padding: 40px 0 56px; color: var(--muted); font-size: 0.95rem; }
+.foot .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.foot h2 { font-size: 1.05rem; color: var(--text); margin-bottom: 8px; }
+.foot p, .foot ul { margin: 0; max-width: 56ch; }
+.foot ul { padding-left: 1.1em; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; gap: 4px; }
+  .when { flex-direction: row; align-items: center; gap: 10px; }
+  .foot .cols { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Ajustes de cabecera: una sola fila en pantallas anchas */
+.masthead .wrap { max-width: 1320px; }
+.logo img { height: 46px; }
+.tab > button { padding: 10px 11px; font-size: 0.94rem; }
+.tabs { gap: 0 2px; }
+
+/* Página de Mercados */
+.saltos { display: grid; gap: 8px; }
+.saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
+.saltos a:hover { border-color: var(--accent); color: var(--text); }
+.nota { color: var(--muted); font-size: .88rem; margin: 14px 0 0; }
+.mercado { padding-top: clamp(28px, 5vw, 48px); scroll-margin-top: 20px; }
+.mercado + .mercado { border-top: 1px solid var(--line); margin-top: 20px; }
+.mercado h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); display: flex; align-items: center; gap: 12px; }
+.mercado .cuenta { font-family: "Instrument Sans", sans-serif; font-size: .8rem; font-weight: 600; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+.empty-sec { color: var(--muted); }
+.chip.ajeno { font-style: italic; }
+
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap bar">
+      <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
+      <nav class="tabs" aria-label="Secciones">
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-almeria">Almería</button>
+          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
+            <a class="panel-go" href="index.html">Abrir Almería</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mercados">Mercados</button>
+          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
+            <a class="panel-go" href="mercados.html">Abrir Mercados</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-innovacion" aria-current="page">Innovación y productos</button>
+          <div class="panel" id="p-innovacion" hidden><p class="panel-intro">Variedades, maquinaria, bioinsumos y envases que llegan al campo.</p><ul class="panel-list"><li><a href="innovacion.html#n-variedades">Variedades y semillas</a></li><li><a href="innovacion.html#n-maquinaria">Maquinaria y tecnología de cultivo</a></li><li><a href="innovacion.html#n-bioinsumos">Bioinsumos y protección de cultivos</a></li><li><a href="innovacion.html#n-envases">Envases y poscosecha</a></li></ul>
+            
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
+          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
+            
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mundo">Mundo</button>
+          <div class="panel" id="p-mundo" hidden><p class="panel-intro"><strong>Próximamente.</strong> Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria.</p>
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="lead-title">
+    <div class="wrap">
+      <article class="lead" id="destacada">
+        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
+        <p class="lead-meta">10 de noviembre de 2026 · Infoagro (Koppert)</p>
+        <h1 id="lead-title">El Ejido y Koppert defienden la gestión integrada como respuesta al trips parvispinus</h1>
+        <p>Ambos plantean un modelo basado en control biológico, higiene y aislamiento, plantas reservorio y químicos solo cuando sean compatibles con la fauna auxiliar. Koppert considera al ácaro depredador A. limonicus la opción más eficaz hoy, sin materias activas autorizadas eficaces. El Ayuntamiento pide actuar de forma colectiva y cumplir el protocolo de la Junta.</p>
+        <a class="go" href="https://www.infoagro.com/noticias/2026/el_ayuntamiento_de_el_ejido_y_koppert_reconocen_la_importancia_de_la_l.asp" rel="noopener" target="_blank">Leer la noticia original</a>
+      </article>
+      <aside aria-labelledby="salto-title">
+        <h2 class="figures-title" id="salto-title">Cuatro áreas</h2>
+        <nav class="saltos"><a href="#n-variedades">Variedades y semillas</a><a href="#n-maquinaria">Maquinaria y tecnología de cultivo</a><a href="#n-bioinsumos">Bioinsumos y protección de cultivos</a><a href="#n-envases">Envases y poscosecha</a></nav>
+        <p class="nota">Cada apartado muestra hasta 6 noticias de los últimos 30 días. Si uno se queda corto, se completa con noticias destacadas de los demás.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="charts" id="graficos" aria-labelledby="charts-title">
+    <div class="wrap">
+      <h2 id="charts-title">La innovación en gráficos</h2>
+      <div class="chart-grid">
+      <figure class="chart">
+        <figcaption><h3>Mallas Arrigoni: menos evaporación de agua</h3><p>Reducción frente a zona sin cubrir en pruebas de verano del propio fabricante, no un estudio independiente.</p></figcaption>
+        <ul class="bars">
+          <li>
+            <span class="lab">Sombreo total<small>Arrigoni, 6 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:100.0%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">75 %</span>
+          </li>
+          <li>
+            <span class="lab">Malla MDF (49 % de sombreo)<small>Arrigoni, 6 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:61.3%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">46 %</span>
+          </li>
+          <li>
+            <span class="lab">Malla LDF (30 % de sombreo)<small>Arrigoni, 6 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:53.3%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">40 %</span>
+          </li>
+        </ul>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap mercados">
+    <section class="mercado" id="n-variedades">
+      <h2>Variedades y semillas <span class="cuenta">5</span></h2>
+      <ul class="feed">
+      <li class="story" id="i-presentadas-en-valencia-nuevas-variedades-de-c-tri-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9893180/presentadas-en-valencia-nuevas-variedades-de-citricos-y-patrones/" rel="noopener" target="_blank">El IVIA presenta en Valencia nuevas variedades de cítricos y patrones en una jornada técnica</a></h3>
+          <p>El Instituto Valenciano de Investigaciones Agrarias celebró en Valencia una jornada técnica sobre innovación varietal y nuevas tecnologías en citricultura. El encuentro se centró en los avances de la investigación agraria y en cómo aplicarlos a los retos del sector, con la sostenibilidad como eje.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-pimiento-bayer-arava-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9892732/bayer-introduces-red-export-bell-pepper-for-growers-in-arava-valley/" rel="noopener" target="_blank">Bayer enseña en Israel un nuevo pimiento rojo de exportación con larga vida poscosecha</a></h3>
+          <p>Unos 50 productores vieron el 11 de noviembre en Paran (Arava) las variedades de pimiento de Bayer. La SVPB1028, roja y pensada para exportar por su larga conservación, aún no es comercial. Bayer atribuye parte de la demanda del pimiento israelí a los problemas de trips en España y a la ola de calor en Países Bajos.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily (Bayer)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-sandia-fito-gama-2026-11-09" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/fito_apuesta_por_la_productividad__la_calidad_y_la_rentabilidad_del_ag.asp" rel="noopener" target="_blank">Fitó presenta su gama de sandía para la campaña de primavera en Almería</a></h3>
+          <p>Incluye dos polinizadores de micropepita, Leiva (trasplantes desde principios de diciembre hasta mediados de febrero) y Amaral, y el triploide rayado Taylor, con buen cuajado en frío. Los frutos apuntan a 2-3 kg y la empresa probará esta primavera una sandía de color más llamativo y algo más pequeña.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro (Fitó)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-uva-aledo-sin-semillas-2026-11-09" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/uvanova__un_nuevo_proyecto_para_obtener_uva_de_mesa_aledo_sin_semillas.asp" rel="noopener" target="_blank">Un proyecto busca una uva de mesa Aledo sin semillas mediante edición genómica</a></h3>
+          <p>UVANOVA reúne a Madeinplant, ValGenetics y el IBMCP-CSIC, con apoyo de la Agència Valenciana de la Innovació y la UE. Aplicará CRISPR-Cas para eliminar las semillas sin cambiar las características de la variedad. La siguiente fase es un protocolo de regeneración in vitro; el artículo no da plazos ni presupuesto.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro (NTG España)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-tomate-roma-solstic-2026-11-04" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-04">4 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9889221/introducing-solstic-roma-tomato-variety-with-resistance-to-tobrfv/" rel="noopener" target="_blank">De Ruiter presenta Solstic, su primer tomate Roma con resistencia intermedia al virus rugoso</a></h3>
+          <p>La variedad, de la marca de semillas de Bayer, tiene resistencia intermedia multigénica a ToBRFV y al oídio, y está pensada para invernadero de alta tecnología, con o sin iluminación. Da fruto rojo, oval y uniforme de 90 a 110 gramos. El artículo no ofrece datos de rendimiento.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily (De Ruiter)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="n-maquinaria">
+      <h2>Maquinaria y tecnología de cultivo <span class="cuenta">5</span></h2>
+      <ul class="feed">
+      <li class="story" id="i-sormac-presentar-su-tecnolog-a-de-pelado-y-corte-d-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9893221/sormac-presentara-su-tecnologia-de-pelado-y-corte-de-patatas-en-interpom/" rel="noopener" target="_blank">Sormac mostrará su tecnología de pelado y corte de patatas en Interpom 2026</a></h3>
+          <p>La empresa Sormac llevará a Interpom 2026, en Kortrijk (Bélgica), su tecnología para pelar y cortar patatas, con equipos que van desde máquinas individuales hasta líneas totalmente automatizadas. La feria se celebrará del 29 de noviembre al 1 de diciembre y la presentación se hará en el stand 165.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-bull-qii-plataforma-autonoma-2026-11-13" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9892322/autonomous-driving-platform-for-greenhouses-without-rail-tubes-launched/" rel="noopener" target="_blank">Lanzan una plataforma autónoma que circula por invernaderos sin raíles</a></h3>
+          <p>La Bull-Qii DS de Bogaerts se mueve en túneles, invernaderos de plástico y de cristal sin tubos-carril. Su uso principal es aplicar luz UV-C de noche en fresa, y puede servir para controlar oídio sin químicos o llevar otros equipos. No se aportan datos de velocidad ni autonomía.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily (Bogaerts)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-robot-inaho-pilotos-2026-11-11" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9890382/harvest-robot-completes-summer-pilots-at-two-european-growers/" rel="noopener" target="_blank">Un robot cosechador de tomate cherry termina sus pilotos de verano y un productor lo adoptará en 2027</a></h3>
+          <p>El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, uno en Países Bajos y otro en Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily (inaho)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-mallas-termorreflectantes-2026-11-06" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-06">6 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9889620/thermoreflective-screens-reduce-water-evaporation-by-up-to-50-in-trials/" rel="noopener" target="_blank">Las mallas termorreflectantes reducen hasta un 50 % la evaporación en pruebas de verano</a></h3>
+          <p>El departamento de I+D de Arrigoni probó 25 tejidos. Sus mallas Prisma y Robuxta recortan la evaporación un 40 % en la versión con 30 % de sombreo y un 46 % en la de 49 %; con sombreo total la reducción llega al 75 %. El artículo no indica dónde se hicieron las pruebas ni el cultivo.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily (Arrigoni)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-infoagro-exhibition-2027-2026-10-26" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-10-26">26 oct</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9885983/infoagro-exhibition-2027-will-bring-together-the-key-players-in-intensive-agriculture-in-almeria/" rel="noopener" target="_blank">Infoagro Exhibition 2027 será del 5 al 7 de mayo en Roquetas de Mar</a></h3>
+          <p>La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>HortiDaily</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="n-bioinsumos">
+      <h2>Bioinsumos y protección de cultivos <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="i-pimiento-bayer-arava-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9892732/bayer-introduces-red-export-bell-pepper-for-growers-in-arava-valley/" rel="noopener" target="_blank">Bayer enseña en Israel un nuevo pimiento rojo de exportación con larga vida poscosecha</a></h3>
+          <p>Unos 50 productores vieron el 11 de noviembre en Paran (Arava) las variedades de pimiento de Bayer. La SVPB1028, roja y pensada para exportar por su larga conservación, aún no es comercial. Bayer atribuye parte de la demanda del pimiento israelí a los problemas de trips en España y a la ola de calor en Países Bajos.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            <span class="chip ajeno">Desde: Variedades y semillas</span>
+            <span>HortiDaily (Bayer)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-koppert-el-ejido-gestion-integrada-2026-11-10" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/el_ayuntamiento_de_el_ejido_y_koppert_reconocen_la_importancia_de_la_l.asp" rel="noopener" target="_blank">El Ejido y Koppert defienden la gestión integrada como respuesta al trips parvispinus</a></h3>
+          <p>Ambos plantean un modelo basado en control biológico, higiene y aislamiento, plantas reservorio y químicos solo cuando sean compatibles con la fauna auxiliar. Koppert considera al ácaro depredador A. limonicus la opción más eficaz hoy, sin materias activas autorizadas eficaces. El Ayuntamiento pide actuar de forma colectiva y cumplir el protocolo de la Junta.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro (Koppert)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-bionema-licencias-2026-11-05" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/bionema_abre_sus_plataformas_tecnologicas_de_biocontrol_a_la_concesion.asp" rel="noopener" target="_blank">Bionema abre al mundo sus plataformas de biocontrol para licencias y alianzas</a></h3>
+          <p>La empresa británica ofrece Incapsulex (microencapsulado estable más de 17 meses a temperatura ambiente), Adhesulex y BiofilmTech, un biofertilizante de consorcios microbianos. Syngenta compró dos de sus bioinsecticidas en 2021. El artículo cita los objetivos de Bayer, Corteva y FMC en biológicos.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="n-envases">
+      <h2>Envases y poscosecha <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="i-una-nueva-m-quina-permite-envasar-frutas-y-hortali-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9891957/una-nueva-maquina-permite-envasar-frutas-y-hortalizas-en-mallas-de-pe-sin-clips/" rel="noopener" target="_blank">Manter presenta una máquina que envasa frutas y hortalizas en malla reciclable de PE sin clips</a></h3>
+          <p>Manter ha desarrollado la MoNo Clipper Inline, un equipo que agrupa productos en línea y los empaqueta en una malla monomaterial reciclable. Su diseño busca reducir el consumo de material y ofrecer un cierre fiable.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-envases-murcia-exportaciones-2026-11-13" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/las_exportaciones_del_sector_de_los_envases_y_embalajes_crecen_un_3_2_.asp" rel="noopener" target="_blank">Las exportaciones de envases y embalajes de Murcia suben un 3,2 % hasta agosto</a></h3>
+          <p>Alcanzan 251,46 millones de euros, según las cifras que dio el consejero de Empresa, Luis Alberto Marín, en una visita a Sonoco. El dato es regional y no se detalla la estadística de origen.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="i-ifco-coexphal-2026-11-06" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-06">6 nov</time></div>
+        <div>
+          <h3><a href="https://www.infoagro.com/noticias/2026/la_cupula_mundial_de_ifco_visita_coexphal_para_conocer_las_necesidades.asp" rel="noopener" target="_blank">La cúpula de IFCO visita Coexphal para conocer las necesidades del envase reutilizable en Almería</a></h3>
+          <p>El consejero delegado, Mike Pooley, y su equipo se reunieron en La Mojonera con los gestores de Coexphal y recorrieron empresas asociadas. Hablaron de disponibilidad de envases en picos de campaña, logística de recogida, higiene y gestión de incidencias. Acordaron mantener abierto el canal.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            <span>Infoagro (IFCO)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap cols">
+      <section>
+        <h2>Cómo se hace esta página</h2>
+        <p>Cada noticia es un resumen redactado con ayuda de inteligencia artificial y enlaza a la fuente original. Las marcadas como «Revisada» se han contrastado a mano con el medio; las de «Resumen automático» no. Ante cualquier cifra importante, consulta la fuente.</p>
+      </section>
+      <section>
+        <h2>Fuentes consultadas</h2>
+        <ul><li>FreshPlaza España</li><li>HortiDaily</li><li>Infoagro</li></ul>
+      </section>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

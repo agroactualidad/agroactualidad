@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T19:11:32+00:00",
-  "checked": "2026-11-16T19:11:32+00:00",
+  "updated": "2026-11-16T19:54:42+00:00",
+  "checked": "2026-11-16T19:54:42+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,102 @@
     }
   ],
   "items": [
+    {
+      "id": "m-la-producci-n-francesa-de-peras-caer-un-8-en-2026-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Francia prevé un descenso del 8 % en su producción de peras en 2026, aunque superaría la media de cinco años",
+      "summary": "Según estimaciones del servicio de estadística del Ministerio de Agricultura francés, la cosecha de peras de mesa rondaría las 146.000 toneladas en 2026. Esa cifra supone un retroceso del 8 % frente al año anterior, pero aun así quedaría por encima de la media de los últimos cinco años.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892892/la-produccion-francesa-de-peras-caera-un-8-en-2026-pero-superara-la-media-quinquenal/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-la-clementina-de-c-rcega-cobra-impulso-tras-un-ini-2026-11-16",
+      "date": "2026-11-16",
+      "title": "La clementina de Córcega gana ritmo comercial tras una campaña inicial difícil",
+      "summary": "La campaña de clementina de Córcega empezó con dificultades por el exceso de precipitaciones y un clima templado. Ahora la comercialización entra en una nueva etapa, y se espera que los envíos aumenten a medida que madura la variedad Fine de Corse.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892896/la-clementina-de-corcega-cobra-impulso-tras-un-inicio-complicado/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-espa-a-combina-las-importaciones-de-ar-ndanos-peru-2026-11-16",
+      "date": "2026-11-16",
+      "title": "El mercado español de arándanos depende de Perú mientras Huelva prepara su nueva cosecha",
+      "summary": "El consumo español de arándanos se abastece sobre todo de fruta importada, con Perú como principal proveedor. Mientras tanto, Huelva se prepara para sus primeras recolecciones de la campaña 2026/27, con Sudáfrica y Zimbabue como orígenes complementarios.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893182/espana-combina-las-importaciones-de-arandanos-peruanos-con-la-preparacion-de-la-nueva-cosecha-de-huelva/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-la-pi-a-paname-a-registra-precios-al-alza-por-la-m-2026-11-16",
+      "date": "2026-11-16",
+      "title": "La piña panameña sube de precio por menor oferta y costes de producción más altos",
+      "summary": "Los precios de la piña panameña se mantienen firmes en plena temporada alta, con una demanda estable pese al encarecimiento de los costes. Un gerente comercial de una empresa panameña señala que su firma ha aumentado sus exportaciones frente a 2025 y ha diversificado sus destinos.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893214/la-pina-panamena-registra-precios-al-alza-por-la-menor-oferta-de-fruta-fresca-y-el-aumento-de-costos/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-dia-y-consum-lideran-las-ganancias-de-cuota-de-mer-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Dia y Consum encabezan el avance en cuota de mercado de la distribución alimentaria española",
+      "summary": "Dia y Consum son las cadenas que más han crecido en cuota de mercado dentro de la distribución alimentaria en España. Entre enero y octubre de 2026 ganaron 0,4 puntos porcentuales en valor frente al mismo periodo del año anterior, según Worldpanel by Numerator. Juntas concentran una parte muy relevante de ese mercado.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893230/dia-y-consum-lideran-las-ganancias-de-cuota-de-mercado-en-la-distribucion-alimentaria-espanola/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-el-mercado-est-presionando-los-precios-del-pomelo-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Los precios del pomelo caen a niveles poco sostenibles por la mayor oferta y la competencia turca",
+      "summary": "La campaña española de pomelo 2026/2027 arranca con una producción algo superior a la del año anterior y con más competencia de países terceros, sobre todo Turquía. Esta situación presiona a la baja los precios de venta mientras los costes de producción siguen subiendo.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893251/el-mercado-esta-presionando-los-precios-del-pomelo-hasta-niveles-dificilmente-sostenibles/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-polish-berry-cultivation-covers-116-674-hectares-a-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Polonia alcanza las 116.674 hectáreas de bayas con el auge del cultivo protegido",
+      "summary": "La superficie polaca dedicada a bayas llega a las 116.674 hectáreas y abastece tanto al mercado en fresco como a la industria de transformación. Los cultivos tradicionales siguen siendo importantes para el procesado, mientras que el cultivo en fresco crece, sobre todo bajo sistemas protegidos. Especies como la aronia, la grosella espinosa y la grosella se destinan principalmente a la transformación.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893224/polish-berry-cultivation-covers-116-674-hectares-as-protected-growing-expands/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-spanish-blueberry-market-relies-on-imports-ahead-o-2026-11-16",
+      "date": "2026-11-16",
+      "title": "El mercado español de arándanos depende de las importaciones antes de la cosecha de Huelva",
+      "summary": "En noviembre, el mercado español de arándanos sigue dependiendo de las importaciones mientras Huelva se prepara para la campaña 2026/27. Perú es el principal proveedor, con apoyo de volúmenes menores procedentes de Sudáfrica y Zimbabue. Las exportaciones peruanas de arándanos a Europa alcanzaron 59.500 toneladas entre las semanas 18 y 43 de 2026.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892952/spanish-blueberry-market-relies-on-imports-ahead-of-huelva-harvest/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
     {
       "id": "m-el-verano-m-s-dif-cil-en-a-os-para-la-iv-gama-ital-2026-11-16",
       "date": "2026-11-16",
