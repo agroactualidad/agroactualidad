@@ -202,6 +202,18 @@ h1, h2, h3 {
 .tab > button { padding: 10px 11px; font-size: 0.94rem; }
 .tabs { gap: 0 2px; }
 
+/* Página de Mercados */
+.saltos { display: grid; gap: 8px; }
+.saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
+.saltos a:hover { border-color: var(--accent); color: var(--text); }
+.nota { color: var(--muted); font-size: .88rem; margin: 14px 0 0; }
+.mercado { padding-top: clamp(28px, 5vw, 48px); scroll-margin-top: 20px; }
+.mercado + .mercado { border-top: 1px solid var(--line); margin-top: 20px; }
+.mercado h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); display: flex; align-items: center; gap: 12px; }
+.mercado .cuenta { font-family: "Instrument Sans", sans-serif; font-size: .8rem; font-weight: 600; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+.empty-sec { color: var(--muted); }
+.chip.ajeno { font-style: italic; }
+
 </style>
 </head>
 <body>
@@ -211,34 +223,32 @@ h1, h2, h3 {
       <nav class="tabs" aria-label="Secciones">
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-almeria" aria-current="page">Almería</button>
-          <div class="panel" id="p-almeria" hidden>
-            <p class="panel-intro">Agricultura almeriense, al día.</p>
-            <ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
-            <a class="panel-go" href="#graficos">Ver gráficos</a>
+          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
+            
           </div>
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-mercados">Mercados</button>
-          <div class="panel" id="p-mercados" hidden>
-            <p class="panel-intro"><strong>Próximamente.</strong> Precios en origen, cotizaciones, exportaciones y gráficos de evolución.</p>
+          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
+            <a class="panel-go" href="mercados.html">Abrir Mercados</a>
           </div>
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-innovacion">Innovación y productos</button>
-          <div class="panel" id="p-innovacion" hidden>
-            <p class="panel-intro"><strong>Próximamente.</strong> Variedades nuevas, maquinaria, bioinsumos, envases y lanzamientos del sector.</p>
+          <div class="panel" id="p-innovacion" hidden><p class="panel-intro"><strong>Próximamente.</strong> Variedades nuevas, maquinaria, bioinsumos, envases y lanzamientos del sector.</p>
+            
           </div>
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden>
-            <p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
+          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
+            
           </div>
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-mundo">Mundo</button>
-          <div class="panel" id="p-mundo" hidden>
-            <p class="panel-intro"><strong>Próximamente.</strong> Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria.</p>
+          <div class="panel" id="p-mundo" hidden><p class="panel-intro"><strong>Próximamente.</strong> Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria.</p>
+            
           </div>
         </div>
       </nav>
@@ -282,7 +292,6 @@ h1, h2, h3 {
       </aside>
     </div>
   </section>
-
 
   <section class="charts" id="graficos" aria-labelledby="charts-title">
     <div class="wrap">
@@ -372,6 +381,7 @@ h1, h2, h3 {
           <p>El trips Thrips parvispinus está agravando su impacto sobre el pimiento de Almería y ha causado pérdidas productivas y económicas importantes en las últimas cuatro campañas. Desde la campaña 2022/2023, los volúmenes de producción y comercialización han caído de media un 10 % por campaña. El extracto no detalla todas las causas de esta caída.</p>
           <div class="byline">
             <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            
             <span>HortiDaily</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -384,6 +394,7 @@ h1, h2, h3 {
           <p>El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.</p>
           <div class="byline">
             <span class="chip" data-tag="campo">Campo</span>
+            
             <span>HortiDaily (boletín de la Junta de Andalucía)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -396,6 +407,7 @@ h1, h2, h3 {
           <p>Desde la campaña 2022/2023, esta plaga ha reducido un 10% por campaña la producción y la comercialización en Almería. La merma se debe tanto a cultivos eliminados como a superficies que los agricultores han dejado de sembrar, ante la dificultad para controlarla.</p>
           <div class="byline">
             <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -408,6 +420,7 @@ h1, h2, h3 {
           <p>La mayoría de las compañías del sector hortícola de Almería siguió operando durante la huelga general, tanto en los invernaderos como en la industria auxiliar y las subastas. La incidencia varió según la empresa, entre un 15% en unas comercializadoras y un 35% en otras. La distribución también mantuvo su actividad, aunque con algunas incidencias.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -420,6 +433,7 @@ h1, h2, h3 {
           <p>España abasteció el 31,51 % de las sandías consumidas en la UE durante la campaña, y el 53,03 % de esa cuota española salió de Almería. Italia (11,8 %) y Marruecos (9,8 %) figuran como otros orígenes destacados.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -432,6 +446,7 @@ h1, h2, h3 {
           <p>Según Inteligencia de Mercados de Coexphal, el calor del verano retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg (0,68 el año anterior) y cayó a 0,63 €/kg en la semana 39. El calabacín bajó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40. El pepino tocó su mínimo en 0,52 €/kg en la semana 39, aún por encima del mismo punto de la campaña pasada.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             <span>HortiDaily (datos de Coexphal)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -444,6 +459,7 @@ h1, h2, h3 {
           <p>Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             <span>HortiDaily (Vicasol)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -452,7 +468,6 @@ h1, h2, h3 {
     </ul>
     <p class="empty" id="empty" hidden>No hay noticias de este tema por ahora.</p>
   </main>
-
   <footer class="foot">
     <div class="wrap cols">
       <section>

@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agro Actualidad: mercados agrícolas</title>
+  <meta name="description" content="Precios, campañas y comercio agrícola en Almería, España, Europa y el resto del mundo, con enlace a cada fuente.">
+  <meta name="theme-color" content="#0c1a2c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* Agro Almería · tema azul profundo, pensado para lectura larga */
+:root {
+  --bg: #0c1a2c;
+  --bg-deep: #091424;
+  --surface: #13284a;
+  --line: #234266;
+  --text: #e8eff8;
+  --muted: #a3b7cd;
+  --accent: #6fd3c7;
+  --accent-ink: #062a2a;
+  --max: 1120px;
+  --gutter: clamp(18px, 4vw, 40px);
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Cabecera: logo a la izquierda, pestañas desplegables a la derecha */
+.masthead { position: relative; background: var(--bg-deep); border-bottom: 1px solid var(--line); z-index: 20; }
+.masthead .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.logo { display: block; background: #f6faf6; border-radius: 12px; padding: 6px 14px; line-height: 0; }
+.logo img { height: 50px; width: auto; display: block; }
+.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.tab > button {
+  font: inherit; font-size: 0.97rem; font-weight: 500; color: var(--text); background: none; border: 0;
+  padding: 10px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.tab > button::after { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .7; }
+.tab > button[aria-expanded="true"] { background: var(--surface); }
+.tab > button[aria-expanded="true"]::after { transform: rotate(225deg) translateY(-2px); }
+.tab > button:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.tab > button[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.panel {
+  position: absolute; right: var(--gutter); top: 100%; width: min(380px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 14px 14px;
+  padding: 18px 20px; box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+.panel[hidden] { display: none; }
+.panel-intro { margin: 0; color: #cbd9e8; font-size: .97rem; }
+.panel-intro strong { color: var(--accent); font-weight: 600; }
+.panel-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; font-size: .93rem; }
+.panel-list a { text-decoration: none; display: block; padding-left: 12px; border-left: 2px solid var(--line); }
+.panel-list a:hover { border-left-color: var(--accent); }
+.panel-go { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--accent); }
+
+/* Gráficos */
+.charts { padding: clamp(28px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+.charts h2 { font-size: 1.5rem; margin-bottom: 20px; }
+.chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px 8px; }
+.chart h3 { font-size: 1.1rem; }
+.chart figcaption p { color: var(--muted); font-size: .86rem; margin: 6px 0 14px; max-width: 60ch; }
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.bars .lab { font-size: .93rem; line-height: 1.25; }
+.bars .lab small { display: block; color: var(--muted); font-size: .76rem; margin-top: 2px; }
+.bars .track { position: relative; height: 14px; border-radius: 4px; background: color-mix(in srgb, var(--bg) 55%, transparent); }
+.bars .bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.bars .pos { background: var(--accent); }
+.bars .neg { background: #f0b45a; }
+.bars .zero { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: .6; }
+.bars .val { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .93rem; min-width: 5.5em; text-align: right; }
+@media (max-width: 520px) { .bars li { grid-template-columns: 1fr auto; } .bars .track { grid-column: 1 / -1; order: 3; } }
+
+/* Iconos de tema */
+.when { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.tico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+.tico[data-tag="sanidad"] { color: #f0b45a; }
+.tico[data-tag="clima"] { color: #8fb8ff; }
+.tico[data-tag="politica"] { color: #c9b6ff; }
+.tico[data-tag="logistica"] { color: #ffa98f; }
+
+/* Portada: tejado de invernadero multicapilla como trama de fondo */
+.hero {
+  background-color: var(--bg-deep);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='56' viewBox='0 0 160 56'%3E%3Cpath d='M0 56 L40 12 L80 56 L120 12 L160 56' fill='none' stroke='%236fd3c7' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(9,20,36,0) 55%, var(--bg) 100%);
+  background-repeat: repeat, no-repeat;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: clamp(36px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  align-items: start;
+}
+.lead-meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; }
+.lead h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 22ch; }
+.lead p { color: #cbd9e8; max-width: 62ch; margin: 22px 0 0; }
+.lead .go {
+  display: inline-block; margin-top: 26px; padding: 11px 20px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600;
+  border-radius: 8px; text-decoration: none;
+}
+.lead .go:hover { background: #8fe0d6; color: var(--accent-ink); }
+
+.figures { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.figures-title { font-size: 1.05rem; color: var(--muted); font-weight: 500; margin: 0 0 14px; font-family: inherit; letter-spacing: 0; }
+.figures li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.figures .num { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1.1; }
+.figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
+.figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+/* Barra de filtros */
+.filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
+.filters button {
+  flex: 0 0 auto; font: inherit; font-size: 0.95rem; color: var(--text);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 15px; cursor: pointer;
+}
+.filters button:hover { border-color: var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+/* Lista de noticias */
+.feed { list-style: none; margin: 0; padding: 12px 0 8px; }
+.story {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px 28px;
+  padding: 28px 0; border-bottom: 1px solid var(--line);
+}
+.story[hidden] { display: none; }
+.story time { color: var(--muted); font-size: 0.95rem; }
+.story h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); max-width: 34ch; }
+.story h3 a { text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.story p { color: #cbd9e8; margin: 12px 0 0; max-width: 68ch; }
+.story .byline { color: var(--muted); font-size: 0.9rem; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot, var(--accent)); }
+.chip[data-tag="mercados"] { --dot: #6fd3c7; }
+.chip[data-tag="sanidad"] { --dot: #f0a58a; }
+.chip[data-tag="clima"] { --dot: #7fb2ff; }
+.chip[data-tag="politica"] { --dot: #d6b8ff; }
+.chip[data-tag="logistica"] { --dot: #e9cf99; }
+.chip[data-tag="campo"] { --dot: #9fdc8e; }
+.mark { border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; font-size: 0.82rem; }
+.mark.auto { border-color: #8a7a4a; color: #e9cf99; }
+.empty { padding: 40px 0; color: var(--muted); }
+
+/* Pie */
+.foot { background: var(--bg-deep); border-top: 1px solid var(--line); margin-top: 24px; padding: 40px 0 56px; color: var(--muted); font-size: 0.95rem; }
+.foot .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.foot h2 { font-size: 1.05rem; color: var(--text); margin-bottom: 8px; }
+.foot p, .foot ul { margin: 0; max-width: 56ch; }
+.foot ul { padding-left: 1.1em; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; gap: 4px; }
+  .when { flex-direction: row; align-items: center; gap: 10px; }
+  .foot .cols { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Ajustes de cabecera: una sola fila en pantallas anchas */
+.masthead .wrap { max-width: 1320px; }
+.logo img { height: 46px; }
+.tab > button { padding: 10px 11px; font-size: 0.94rem; }
+.tabs { gap: 0 2px; }
+
+/* Página de Mercados */
+.saltos { display: grid; gap: 8px; }
+.saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
+.saltos a:hover { border-color: var(--accent); color: var(--text); }
+.nota { color: var(--muted); font-size: .88rem; margin: 14px 0 0; }
+.mercado { padding-top: clamp(28px, 5vw, 48px); scroll-margin-top: 20px; }
+.mercado + .mercado { border-top: 1px solid var(--line); margin-top: 20px; }
+.mercado h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); display: flex; align-items: center; gap: 12px; }
+.mercado .cuenta { font-family: "Instrument Sans", sans-serif; font-size: .8rem; font-weight: 600; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+.empty-sec { color: var(--muted); }
+.chip.ajeno { font-style: italic; }
+
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap bar">
+      <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
+      <nav class="tabs" aria-label="Secciones">
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-almeria">Almería</button>
+          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
+            <a class="panel-go" href="index.html">Abrir Almería</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mercados" aria-current="page">Mercados</button>
+          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
+            
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-innovacion">Innovación y productos</button>
+          <div class="panel" id="p-innovacion" hidden><p class="panel-intro"><strong>Próximamente.</strong> Variedades nuevas, maquinaria, bioinsumos, envases y lanzamientos del sector.</p>
+            
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
+          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
+            
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mundo">Mundo</button>
+          <div class="panel" id="p-mundo" hidden><p class="panel-intro"><strong>Próximamente.</strong> Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria.</p>
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="lead-title">
+    <div class="wrap">
+      <article class="lead" id="destacada">
+        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
+        <p class="lead-meta">10 de noviembre de 2026 · USDA (informe WASDE)</p>
+        <h1 id="lead-title">El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels</h1>
+        <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
+        <a class="go" href="https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf" rel="noopener" target="_blank">Leer la noticia original</a>
+      </article>
+      <aside aria-labelledby="salto-title">
+        <h2 class="figures-title" id="salto-title">Cuatro mercados</h2>
+        <nav class="saltos"><a href="#m-almeria">Almería</a><a href="#m-espana">España</a><a href="#m-europa">Europa</a><a href="#m-mundo">Mundo</a></nav>
+        <p class="nota">Cada mercado muestra hasta 6 noticias de los últimos 30 días. Si uno se queda corto, se completa con noticias destacadas de los demás.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="charts" id="graficos" aria-labelledby="charts-title">
+    <div class="wrap">
+      <h2 id="charts-title">Los mercados en gráficos</h2>
+      <div class="chart-grid">
+      <figure class="chart">
+        <figcaption><h3>Precios de referencia en Europa</h3><p>Cada barra procede de una fuente y una semana distintas; sirven para comparar magnitudes, no como cotización del día.</p></figcaption>
+        <ul class="bars">
+          <li>
+            <span class="lab">Tomate rama (Bélgica, sem. 43)<small>Subastas VBT, 28 oct</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:100.0%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">2,19 €/kg</span>
+          </li>
+          <li>
+            <span class="lab">Tomate rama (Almería)<small>Agropizarra, 3 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:96.3%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">2,11 €/kg</span>
+          </li>
+          <li>
+            <span class="lab">Tomate plum (Almería)<small>Agropizarra, 3 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:94.1%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">2,06 €/kg</span>
+          </li>
+          <li>
+            <span class="lab">Tomate suelto (Bélgica, sem. 43)<small>Subastas VBT, 28 oct</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:63.0%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">1,38 €/kg</span>
+          </li>
+          <li>
+            <span class="lab">Pimiento rojo (Bélgica, sem. 44)<small>Subastas VBT, 5 nov</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:54.8%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">1,20 €/kg</span>
+          </li>
+          <li>
+            <span class="lab">Berenjena (Almería, sem. 39)<small>Coexphal</small></span>
+            <span class="track"><i class="bar pos" style="left:0.0%;width:28.8%"></i><i class="zero" style="left:0.0%"></i></span>
+            <span class="val">0,63 €/kg</span>
+          </li>
+        </ul>
+      </figure>
+      <figure class="chart">
+        <figcaption><h3>Índice FAO de octubre: variación mensual por grupo</h3><p>Variación respecto a septiembre. El índice general quedó en 133,9 puntos.</p></figcaption>
+        <ul class="bars">
+          <li>
+            <span class="lab">Azúcar<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar pos" style="left:40.5%;width:59.5%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">+6,6 %</span>
+          </li>
+          <li>
+            <span class="lab">Aceites vegetales<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar pos" style="left:40.5%;width:2.7%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">+0,3 %</span>
+          </li>
+          <li>
+            <span class="lab">Índice general<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar neg" style="left:29.7%;width:10.8%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">−1,2 %</span>
+          </li>
+          <li>
+            <span class="lab">Lácteos<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar neg" style="left:30.6%;width:9.9%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">−1,1 %</span>
+          </li>
+          <li>
+            <span class="lab">Carne<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar neg" style="left:29.7%;width:10.8%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">−1,2 %</span>
+          </li>
+          <li>
+            <span class="lab">Cereales<small>FAO, octubre</small></span>
+            <span class="track"><i class="bar neg" style="left:0.0%;width:40.5%"></i><i class="zero" style="left:40.5%"></i></span>
+            <span class="val">−4,5 %</span>
+          </li>
+        </ul>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap mercados">
+    <section class="mercado" id="m-almeria">
+      <h2>El mercado en Almería <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="inicio-campana-precios-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9889545/almeria-kicks-off-the-season-with-price-slumps-in-eggplant-zucchini-and-cucumber/" rel="noopener" target="_blank">La campaña arranca tarde y con precios a la baja en berenjena, calabacín y pepino</a></h3>
+          <p>Según Inteligencia de Mercados de Coexphal, el calor retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg y cayó a 0,63 €/kg en la semana 39; el calabacín pasó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40; el pepino tocó mínimo en 0,52 €/kg.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>HortiDaily (datos de Coexphal)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="tomate-retraso-precios-2026-11-03" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-03">3 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/" rel="noopener" target="_blank">El tomate se paga muy por encima de la media en las subastas almerienses</a></h3>
+          <p>Vicasol explica que el trasplante se retrasó por las plagas y el calor, así que el volumen no llegó hasta mediados de noviembre en vez de las semanas 44-45. Los precios citados rondan 2,06 €/kg en plum y 2,11 €/kg en rama, muy por encima de la media de tres años.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>HortiDaily (Vicasol)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="balance-perspectivas-2026-10-29" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-29">29 oct</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9887461/examining-almeria-s-2025-26-season-and-2026-27-outlook/" rel="noopener" target="_blank">Balance 2025/26: menos producción, precios más altos y pimiento bajo presión</a></h3>
+          <p>Un consultor que visitó la provincia cifra la caída de producción en un 9,8 % (pimiento −16 %, tomate −17,3 %), con un valor cercano a 3.900 millones compensado por los precios. Para 2026/27 apunta a un 5-10 % menos de superficie de pimiento California. Es una valoración personal, no un dato oficial.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>HortiDaily (Alberto Lizarraga)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="m-espana">
+      <h2>El mercado en España <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="lonjas-cereales-2026-11-07" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-07">7 nov</time></div>
+        <div>
+          <h3><a href="https://www.agronewscastillayleon.com/precios-agrarios-2-6-noviembre-2026-porcino-cereales-vacuno" rel="noopener" target="_blank">Los cereales cierran la semana a la baja en las lonjas de León, Salamanca y Barcelona</a></h3>
+          <p>En las sesiones del 3 y 4 de noviembre, el trigo se pagó a 226 €/t en León y 236 €/t en Salamanca, y la cebada a 221 y 231 €/t, con bajadas de uno y dos euros. El maíz cedió hasta 243 €/t en Salamanca; en León no hubo precio al no haber acuerdo entre compradores y vendedores.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>Agronews Castilla y León</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="fruit-attraction-balance-2026-10-23" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-23">23 oct</time></div>
+        <div>
+          <h3><a href="https://agraria.pe/noticias/fruit-attraction-sigue-creciendo-y-reune-a-128-364-profesion-43338" rel="noopener" target="_blank">Fruit Attraction cierra con 128.364 profesionales y un impacto estimado de 419 millones</a></h3>
+          <p>La feria hortofrutícola de Madrid reunió a 128.364 profesionales de 170 países, un 6 % más, y a 2.588 empresas expositoras de 79 países en 162.000 metros cuadrados. La organización estima un impacto de 419 millones de euros en la ciudad. La próxima edición será del 5 al 7 de octubre de 2027.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>Agraria.pe (datos de la organización)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="aceite-norma-comercializacion-2026-10-21" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-21">21 oct</time></div>
+        <div>
+          <h3><a href="https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen" rel="noopener" target="_blank">Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg</a></h3>
+          <p>ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>Agronews Castilla y León</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="m-europa">
+      <h2>El mercado en Europa <span class="cuenta">6</span></h2>
+      <ul class="feed">
+      <li class="story" id="m-el-verano-m-s-dif-cil-en-a-os-para-la-iv-gama-ital-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9878177/el-verano-mas-dificil-en-anos-para-la-iv-gama-italiana-calor-extremo-bajos-rendimientos-y-escasez-de-producto/" rel="noopener" target="_blank">Italia vive uno de sus veranos más duros para la IV gama por el calor, los bajos rendimientos y la falta de producto</a></h3>
+          <p>El sector italiano de la IV gama ha atravesado un verano especialmente complicado, con temperaturas extremas que han reducido las cosechas. La oferta no ha podido cubrir en todo momento una demanda que se ha mantenido firme, según la empresa Altamura OP.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-egipto-duplica-sus-env-os-de-frutas-y-hortalizas-a-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9891915/egipto-duplica-sus-envios-de-frutas-y-hortalizas-a-san-petersburgo-y-leningrado/" rel="noopener" target="_blank">Las importaciones egipcias de frutas y hortalizas frescas en San Petersburgo y Leningrado se duplican</a></h3>
+          <p>Las compras de frutas y hortalizas frescas llegadas desde Egipto a San Petersburgo y su región sumaron 60.500 toneladas hasta el 2 de noviembre de 2026, casi el doble que un año antes. Los datos proceden del Servicio Federal de Supervisión Veterinaria.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-buena-posici-n-en-el-mercado-para-las-fresas-hola-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9892318/buena-posicion-en-el-mercado-para-las-fresas-holandesas-y-belgas-gracias-a-la-baja-competencia/" rel="noopener" target="_blank">Las fresas holandesas y belgas ganan posición en el mercado por la escasa competencia</a></h3>
+          <p>Las fresas de Países Bajos y Bélgica mejoran su posición comercial gracias a la poca competencia. Según el extracto, la cooperativa BelOrta mantiene mucha actividad pese al fin cercano de la temporada belga de berries. Las fiestas navideñas siguen siendo un momento clave para las ventas, aunque la oferta sea menor.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-las-malas-pr-cticas-de-cosecha-generan-preocupaci-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9892365/las-malas-practicas-de-cosecha-generan-preocupacion-por-la-vida-util-del-kiwi/" rel="noopener" target="_blank">Preocupación por las malas prácticas en la cosecha de kiwi Hayward en Grecia</a></h3>
+          <p>La producción de kiwi Hayward en Arta, Grecia, crece un 20% respecto al año anterior y más del 70% de la cosecha ya está recolectada. Se advierte, no obstante, del estado en que la fruta llega a las cámaras frigoríficas, y se subraya que una recolección adecuada necesita mano de obra suficiente.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="inflacion-alimentos-ue-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
+        <div>
+          <h3><a href="https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest" rel="noopener" target="_blank">Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona</a></h3>
+          <p>Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>Euronews (datos de Eurostat)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="vbt-pimiento-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9889462/final-batches-of-yellow-peppers-arrive-at-auction/" rel="noopener" target="_blank">El pimiento rojo belga baja a 1,20 €/kg en la recta final de la campaña</a></h3>
+          <p>En la semana 44, las subastas belgas pagaron el pimiento rojo a unos 1,20 €/kg, por debajo del año anterior pese a una oferta algo mayor. El amarillo, el verde y el naranja se pagaron mejor que en 2025. Los precios vienen cayendo desde el máximo de finales de septiembre.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>HortiDaily (subastas VBT)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="m-mundo">
+      <h2>El mercado en el mundo <span class="cuenta">6</span></h2>
+      <ul class="feed">
+      <li class="story" id="m-los-productores-est-n-listos-para-trabajar-a-mayo-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9890955/los-productores-estan-listos-para-trabajar-a-mayor-escala-ahora-todo-depende-del-mercado/" rel="noopener" target="_blank">El aguacate ecológico crece un 18% pero sigue lejos del convencional</a></h3>
+          <p>El mercado del aguacate ecológico aumentó cerca de un 18% el año pasado, aunque todavía es bastante menor que el del producto convencional. Según un directivo de la empresa neerlandesa Eosta, su potencial de crecimiento sigue siendo muy considerable.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-es-una-gran-novedad-poder-ofrecer-ube-de-origen-v-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9891540/es-una-gran-novedad-poder-ofrecer-ube-de-origen-vietnamita/" rel="noopener" target="_blank">Capexo busca ube vietnamita ante la dificultad para conseguir volúmenes en Europa</a></h3>
+          <p>El ube, un tubérculo morado poco conocido en Europa, despierta cada vez más interés, pero reunir volúmenes suficientes sigue siendo un reto para los importadores. Capexo - Grupo Orsero empezó a abastecerse en Filipinas en enero y después se orientó hacia Vietnam.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-la-escasez-de-calibres-grandes-complica-las-compra-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9892480/la-escasez-de-calibres-grandes-complica-las-compras-de-castana-china-esta-temporada/" rel="noopener" target="_blank">Hay menos castañas de calibre grande y las compras en el mercado chino se complican esta temporada</a></h3>
+          <p>En 2026, el mercado chino de la castaña sufre a la vez clima adverso, menor producción de materia prima y costes logísticos internacionales más altos. Además, la oferta por tamaños ha cambiado y eso provoca variaciones en los precios y en las compras.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-el-tomate-marroqu-pierde-la-mitad-de-su-superficie-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9892834/el-tomate-marroqui-pierde-la-mitad-de-su-superficie-de-cultivo-por-el-tobrfv/" rel="noopener" target="_blank">Marruecos pierde la mitad de la superficie de tomate por el virus ToBRFV</a></h3>
+          <p>El sector tomatero marroquí atraviesa una crisis por la caída de rendimientos y la reducción de las tierras cultivadas. El ministro de Agricultura ha advertido en el Parlamento de que el país podría pasar a importar tomate en tres años.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="m-nuestros-clientes-est-n-muy-interesados-en-la-ceb-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.freshplaza.es/spain/article/9892850/nuestros-clientes-estan-muy-interesados-en-la-cebolla-holandesa-de-nueva-campana/" rel="noopener" target="_blank">Vietnam recibe con interés los primeros envíos de cebolla holandesa de la nueva campaña</a></h3>
+          <p>Vietnam ha dejado de importar cebolla neozelandesa desde septiembre y se abastece de China durante todo el año, junto con pequeños volúmenes de producción local. Los compradores siguen con atención la llegada de la cebolla holandesa de la nueva temporada.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>FreshPlaza España</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="wasde-noviembre-2026-11-10" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
+        <div>
+          <h3><a href="https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf" rel="noopener" target="_blank">El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels</a></h3>
+          <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span>USDA (informe WASDE)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap cols">
+      <section>
+        <h2>Cómo se hace esta página</h2>
+        <p>Cada noticia es un resumen redactado con ayuda de inteligencia artificial y enlaza a la fuente original. Las marcadas como «Revisada» se han contrastado a mano con el medio; las de «Resumen automático» no. Ante cualquier cifra importante, consulta la fuente.</p>
+      </section>
+      <section>
+        <h2>Fuentes consultadas</h2>
+        <ul><li>Agraria.pe</li><li>Agronews Castilla y León</li><li>Euronews</li><li>FreshPlaza España</li><li>HortiDaily</li><li>USDA</li></ul>
+      </section>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

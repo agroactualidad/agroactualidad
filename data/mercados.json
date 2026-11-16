@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T20:00:00+01:00",
-  "checked": "2026-11-16T20:00:00+01:00",
+  "updated": "2026-11-16T19:11:32+00:00",
+  "checked": "2026-11-16T19:11:32+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -86,6 +86,162 @@
   ],
   "items": [
     {
+      "id": "m-el-verano-m-s-dif-cil-en-a-os-para-la-iv-gama-ital-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Italia vive uno de sus veranos más duros para la IV gama por el calor, los bajos rendimientos y la falta de producto",
+      "summary": "El sector italiano de la IV gama ha atravesado un verano especialmente complicado, con temperaturas extremas que han reducido las cosechas. La oferta no ha podido cubrir en todo momento una demanda que se ha mantenido firme, según la empresa Altamura OP.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9878177/el-verano-mas-dificil-en-anos-para-la-iv-gama-italiana-calor-extremo-bajos-rendimientos-y-escasez-de-producto/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-los-productores-est-n-listos-para-trabajar-a-mayo-2026-11-16",
+      "date": "2026-11-16",
+      "title": "El aguacate ecológico crece un 18% pero sigue lejos del convencional",
+      "summary": "El mercado del aguacate ecológico aumentó cerca de un 18% el año pasado, aunque todavía es bastante menor que el del producto convencional. Según un directivo de la empresa neerlandesa Eosta, su potencial de crecimiento sigue siendo muy considerable.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9890955/los-productores-estan-listos-para-trabajar-a-mayor-escala-ahora-todo-depende-del-mercado/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-es-una-gran-novedad-poder-ofrecer-ube-de-origen-v-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Capexo busca ube vietnamita ante la dificultad para conseguir volúmenes en Europa",
+      "summary": "El ube, un tubérculo morado poco conocido en Europa, despierta cada vez más interés, pero reunir volúmenes suficientes sigue siendo un reto para los importadores. Capexo - Grupo Orsero empezó a abastecerse en Filipinas en enero y después se orientó hacia Vietnam.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9891540/es-una-gran-novedad-poder-ofrecer-ube-de-origen-vietnamita/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-egipto-duplica-sus-env-os-de-frutas-y-hortalizas-a-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Las importaciones egipcias de frutas y hortalizas frescas en San Petersburgo y Leningrado se duplican",
+      "summary": "Las compras de frutas y hortalizas frescas llegadas desde Egipto a San Petersburgo y su región sumaron 60.500 toneladas hasta el 2 de noviembre de 2026, casi el doble que un año antes. Los datos proceden del Servicio Federal de Supervisión Veterinaria.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9891915/egipto-duplica-sus-envios-de-frutas-y-hortalizas-a-san-petersburgo-y-leningrado/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-buena-posici-n-en-el-mercado-para-las-fresas-hola-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Las fresas holandesas y belgas ganan posición en el mercado por la escasa competencia",
+      "summary": "Las fresas de Países Bajos y Bélgica mejoran su posición comercial gracias a la poca competencia. Según el extracto, la cooperativa BelOrta mantiene mucha actividad pese al fin cercano de la temporada belga de berries. Las fiestas navideñas siguen siendo un momento clave para las ventas, aunque la oferta sea menor.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892318/buena-posicion-en-el-mercado-para-las-fresas-holandesas-y-belgas-gracias-a-la-baja-competencia/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-las-malas-pr-cticas-de-cosecha-generan-preocupaci-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Preocupación por las malas prácticas en la cosecha de kiwi Hayward en Grecia",
+      "summary": "La producción de kiwi Hayward en Arta, Grecia, crece un 20% respecto al año anterior y más del 70% de la cosecha ya está recolectada. Se advierte, no obstante, del estado en que la fruta llega a las cámaras frigoríficas, y se subraya que una recolección adecuada necesita mano de obra suficiente.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892365/las-malas-practicas-de-cosecha-generan-preocupacion-por-la-vida-util-del-kiwi/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-la-escasez-de-calibres-grandes-complica-las-compra-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Hay menos castañas de calibre grande y las compras en el mercado chino se complican esta temporada",
+      "summary": "En 2026, el mercado chino de la castaña sufre a la vez clima adverso, menor producción de materia prima y costes logísticos internacionales más altos. Además, la oferta por tamaños ha cambiado y eso provoca variaciones en los precios y en las compras.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892480/la-escasez-de-calibres-grandes-complica-las-compras-de-castana-china-esta-temporada/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-el-tomate-marroqu-pierde-la-mitad-de-su-superficie-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Marruecos pierde la mitad de la superficie de tomate por el virus ToBRFV",
+      "summary": "El sector tomatero marroquí atraviesa una crisis por la caída de rendimientos y la reducción de las tierras cultivadas. El ministro de Agricultura ha advertido en el Parlamento de que el país podría pasar a importar tomate en tres años.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892834/el-tomate-marroqui-pierde-la-mitad-de-su-superficie-de-cultivo-por-el-tobrfv/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-nuestros-clientes-est-n-muy-interesados-en-la-ceb-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Vietnam recibe con interés los primeros envíos de cebolla holandesa de la nueva campaña",
+      "summary": "Vietnam ha dejado de importar cebolla neozelandesa desde septiembre y se abastece de China durante todo el año, junto con pequeños volúmenes de producción local. Los compradores siguen con atención la llegada de la cebolla holandesa de la nueva temporada.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892850/nuestros-clientes-estan-muy-interesados-en-la-cebolla-holandesa-de-nueva-campana/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-la-variedad-pompur-apunta-a-convertirse-en-referen-2026-11-16",
+      "date": "2026-11-16",
+      "title": "La variedad Pompur podría convertirse en referente anual de las manzanas en los lineales alemanes",
+      "summary": "La recolección de manzana en Altes Land, en el norte de Alemania, terminó en la primera semana de noviembre. Un responsable de una mayorista de frutas valora los rendimientos como satisfactorios, y la variedad Pompur aspira a ocupar un lugar habitual en el mercado alemán.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892881/la-variedad-pompur-apunta-a-convertirse-en-referencia-anual-en-el-lineal-de-manzanas-aleman/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "wasde-noviembre-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels",
+      "summary": "El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.",
+      "source": "USDA (informe WASDE)",
+      "url": "https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf",
+      "status": "revisada"
+    },
+    {
+      "id": "lonjas-cereales-2026-11-07",
+      "date": "2026-11-07",
+      "ambito": "espana",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Los cereales cierran la semana a la baja en las lonjas de León, Salamanca y Barcelona",
+      "summary": "En las sesiones del 3 y 4 de noviembre, el trigo se pagó a 226 €/t en León y 236 €/t en Salamanca, y la cebada a 221 y 231 €/t, con bajadas de uno y dos euros. El maíz cedió hasta 243 €/t en Salamanca; en León no hubo precio al no haber acuerdo entre compradores y vendedores.",
+      "source": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/precios-agrarios-2-6-noviembre-2026-porcino-cereales-vacuno",
+      "status": "revisada"
+    },
+    {
+      "id": "fao-indice-precios-2026-11-06",
+      "date": "2026-11-06",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "El índice de precios de los alimentos de la FAO baja un 1,2 % en octubre, con el azúcar disparado",
+      "summary": "El indicador quedó en 133,9 puntos, un 1,2 % menos que en septiembre pero un 5,9 % por encima de octubre de 2025. Los cereales cayeron un 4,5 %, la carne un 1,2 % y los lácteos un 1,1 %, mientras el azúcar subió un 6,6 %, cuarto mes al alza y máximo desde diciembre de 2024.",
+      "source": "Tribuna do Sertão (datos de la FAO)",
+      "url": "https://www.tribunadosertao.com.br/geral/2026/11/06/1014931-indice-da-fao-de-precos-de-alimentos-recua-12-em-outubro",
+      "status": "revisada"
+    },
+    {
       "id": "inicio-campana-precios-2026-11-05",
       "date": "2026-11-05",
       "ambito": "almeria",
@@ -95,6 +251,42 @@
       "summary": "Según Inteligencia de Mercados de Coexphal, el calor retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg y cayó a 0,63 €/kg en la semana 39; el calabacín pasó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40; el pepino tocó mínimo en 0,52 €/kg.",
       "source": "HortiDaily (datos de Coexphal)",
       "url": "https://www.hortidaily.com/article/9889545/almeria-kicks-off-the-season-with-price-slumps-in-eggplant-zucchini-and-cucumber/",
+      "status": "revisada"
+    },
+    {
+      "id": "inflacion-alimentos-ue-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona",
+      "summary": "Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.",
+      "source": "Euronews (datos de Eurostat)",
+      "url": "https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest",
+      "status": "revisada"
+    },
+    {
+      "id": "vbt-pimiento-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 2,
+      "title": "El pimiento rojo belga baja a 1,20 €/kg en la recta final de la campaña",
+      "summary": "En la semana 44, las subastas belgas pagaron el pimiento rojo a unos 1,20 €/kg, por debajo del año anterior pese a una oferta algo mayor. El amarillo, el verde y el naranja se pagaron mejor que en 2025. Los precios vienen cayendo desde el máximo de finales de septiembre.",
+      "source": "HortiDaily (subastas VBT)",
+      "url": "https://www.hortidaily.com/article/9889462/final-batches-of-yellow-peppers-arrive-at-auction/",
+      "status": "revisada"
+    },
+    {
+      "id": "peru-exportaciones-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Perú exporta 4.799 millones de dólares en frutas y hortalizas hasta agosto, un 15 % más",
+      "summary": "El Ministerio de Desarrollo Agrario y Riego cifra en 4.798,9 millones de dólares las ventas de enero a agosto, frente a 4.167,8 del año anterior. Las frutas aportan 4.381,7 millones (+16,6 %) y las hortalizas 417,2 millones (+1,7 %). Suponen el 63,5 % de la agroexportación no tradicional.",
+      "source": "Agraria.pe (datos de Midagri)",
+      "url": "https://agraria.pe/noticias/exportaciones-de-frutas-y-hortalizas-sumaron-us-4-798-897-00-43414",
       "status": "revisada"
     },
     {
@@ -122,27 +314,15 @@
       "status": "revisada"
     },
     {
-      "id": "aceite-norma-comercializacion-2026-10-21",
-      "date": "2026-10-21",
-      "ambito": "espana",
-      "tag": "mercados",
-      "importancia": 5,
-      "title": "Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg",
-      "summary": "ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.",
-      "source": "Agronews Castilla y León",
-      "url": "https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen",
-      "status": "revisada"
-    },
-    {
-      "id": "lonjas-cereales-2026-11-07",
-      "date": "2026-11-07",
-      "ambito": "espana",
+      "id": "vbt-tomate-pepino-2026-10-28",
+      "date": "2026-10-28",
+      "ambito": "europa",
       "tag": "mercados",
       "importancia": 3,
-      "title": "Los cereales cierran la semana a la baja en las lonjas de León, Salamanca y Barcelona",
-      "summary": "En las sesiones del 3 y 4 de noviembre, el trigo se pagó a 226 €/t en León y 236 €/t en Salamanca, y la cebada a 221 y 231 €/t, con bajadas de uno y dos euros. El maíz cedió hasta 243 €/t en Salamanca; en León no hubo precio al no haber acuerdo entre compradores y vendedores.",
-      "source": "Agronews Castilla y León",
-      "url": "https://www.agronewscastillayleon.com/precios-agrarios-2-6-noviembre-2026-porcino-cereales-vacuno",
+      "title": "Bélgica: suben el tomate y el pepino al apagarse los invernaderos sin calefacción",
+      "summary": "En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.",
+      "source": "HortiDaily (subastas VBT)",
+      "url": "https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/",
       "status": "revisada"
     },
     {
@@ -158,6 +338,18 @@
       "status": "revisada"
     },
     {
+      "id": "aceite-norma-comercializacion-2026-10-21",
+      "date": "2026-10-21",
+      "ambito": "espana",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg",
+      "summary": "ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.",
+      "source": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen",
+      "status": "revisada"
+    },
+    {
       "id": "ce-grupo-tomate-2026-10-19",
       "date": "2026-10-19",
       "ambito": "europa",
@@ -167,78 +359,6 @@
       "summary": "En el grupo de expertos del tomate de la Comisión Europea, reunido el 15 de octubre, se expuso que Marruecos suministró 527.000 de las 773.000 toneladas importadas de terceros países. La producción española bajó cerca de un 2 % en 2025/26, con la energía y el transporte un 16 % más caros y los plásticos y envases un 18 %.",
       "source": "Agronews Castilla y León (vía FEPEX)",
       "url": "https://www.agronewscastillayleon.com/tomate-espana-produccion-costes-marruecos-2026",
-      "status": "revisada"
-    },
-    {
-      "id": "inflacion-alimentos-ue-2026-11-05",
-      "date": "2026-11-05",
-      "ambito": "europa",
-      "tag": "mercados",
-      "importancia": 4,
-      "title": "Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona",
-      "summary": "Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.",
-      "source": "Euronews (datos de Eurostat)",
-      "url": "https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest",
-      "status": "revisada"
-    },
-    {
-      "id": "vbt-tomate-pepino-2026-10-28",
-      "date": "2026-10-28",
-      "ambito": "europa",
-      "tag": "mercados",
-      "importancia": 3,
-      "title": "Bélgica: suben el tomate y el pepino al apagarse los invernaderos sin calefacción",
-      "summary": "En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.",
-      "source": "HortiDaily (subastas VBT)",
-      "url": "https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/",
-      "status": "revisada"
-    },
-    {
-      "id": "vbt-pimiento-2026-11-05",
-      "date": "2026-11-05",
-      "ambito": "europa",
-      "tag": "mercados",
-      "importancia": 2,
-      "title": "El pimiento rojo belga baja a 1,20 €/kg en la recta final de la campaña",
-      "summary": "En la semana 44, las subastas belgas pagaron el pimiento rojo a unos 1,20 €/kg, por debajo del año anterior pese a una oferta algo mayor. El amarillo, el verde y el naranja se pagaron mejor que en 2025. Los precios vienen cayendo desde el máximo de finales de septiembre.",
-      "source": "HortiDaily (subastas VBT)",
-      "url": "https://www.hortidaily.com/article/9889462/final-batches-of-yellow-peppers-arrive-at-auction/",
-      "status": "revisada"
-    },
-    {
-      "id": "fao-indice-precios-2026-11-06",
-      "date": "2026-11-06",
-      "ambito": "mundo",
-      "tag": "mercados",
-      "importancia": 5,
-      "title": "El índice de precios de los alimentos de la FAO baja un 1,2 % en octubre, con el azúcar disparado",
-      "summary": "El indicador quedó en 133,9 puntos, un 1,2 % menos que en septiembre pero un 5,9 % por encima de octubre de 2025. Los cereales cayeron un 4,5 %, la carne un 1,2 % y los lácteos un 1,1 %, mientras el azúcar subió un 6,6 %, cuarto mes al alza y máximo desde diciembre de 2024.",
-      "source": "Tribuna do Sertão (datos de la FAO)",
-      "url": "https://www.tribunadosertao.com.br/geral/2026/11/06/1014931-indice-da-fao-de-precos-de-alimentos-recua-12-em-outubro",
-      "status": "revisada"
-    },
-    {
-      "id": "wasde-noviembre-2026-11-10",
-      "date": "2026-11-10",
-      "ambito": "mundo",
-      "tag": "mercados",
-      "importancia": 4,
-      "title": "El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels",
-      "summary": "El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.",
-      "source": "USDA (informe WASDE)",
-      "url": "https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf",
-      "status": "revisada"
-    },
-    {
-      "id": "peru-exportaciones-2026-11-05",
-      "date": "2026-11-05",
-      "ambito": "mundo",
-      "tag": "mercados",
-      "importancia": 3,
-      "title": "Perú exporta 4.799 millones de dólares en frutas y hortalizas hasta agosto, un 15 % más",
-      "summary": "El Ministerio de Desarrollo Agrario y Riego cifra en 4.798,9 millones de dólares las ventas de enero a agosto, frente a 4.167,8 del año anterior. Las frutas aportan 4.381,7 millones (+16,6 %) y las hortalizas 417,2 millones (+1,7 %). Suponen el 63,5 % de la agroexportación no tradicional.",
-      "source": "Agraria.pe (datos de Midagri)",
-      "url": "https://agraria.pe/noticias/exportaciones-de-frutas-y-hortalizas-sumaron-us-4-798-897-00-43414",
       "status": "revisada"
     }
   ]
