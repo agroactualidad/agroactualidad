@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:34:56+00:00",
-  "checked": "2026-11-16T21:34:56+00:00",
+  "updated": "2026-11-16T21:50:03+00:00",
+  "checked": "2026-11-16T21:50:03+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,54 @@
     }
   ],
   "items": [
+    {
+      "id": "m-december-corn-trying-to-get-back-to-4-50-2026-11-16",
+      "date": "2026-11-16",
+      "title": "El maíz de diciembre intenta recuperar los 4,50 dólares",
+      "summary": "Los futuros del maíz con entrega en diciembre buscan volver a 4,50 dólares tras una sesión de tarde en la que los precios subieron moderadamente al inicio de la semana. El extracto no aporta más detalles sobre las causas ni el volumen de la subida.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-why-you-shouldn-t-bank-on-a-grain-bottom-yet-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Los futuros de cereales no confirman todavía que los precios hayan tocado fondo",
+      "summary": "Los futuros de soja retroceden tras haber subido a máximos de dos semanas al final de la semana anterior, mientras que el maíz muestra un comportamiento mixto. Los operadores siguen a la espera de la reunión entre Trump y Xi, que comienza el miércoles.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-moroccan-tomato-potato-and-onion-prices-expected-t-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Marruecos prevé que los precios de tomate, patata y cebolla se normalicen en unas tres semanas",
+      "summary": "Los comerciantes marroquíes esperan que los precios del tomate, la patata y la cebolla vuelvan a niveles habituales en unas tres semanas, a medida que aumente la oferta nacional. Los precios minoristas de estos productos han subido recientemente, y un operador del mercado mayorista de Inezgane comparte esa previsión de bajada.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893175/moroccan-tomato-potato-and-onion-prices-expected-to-ease-within-three-weeks/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-asian-vegetables-move-more-into-mainstream-distrib-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Las hortalizas asiáticas ganan presencia en la distribución convencional",
+      "summary": "La temporada de hortalizas asiáticas en México arranca algo más tarde de lo habitual. Según un mayorista de Calgary, las lluvias de octubre por varios huracanes retrasaron la producción.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892899/asian-vegetables-move-more-into-mainstream-distribution/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-limited-competition-strengthens-market-position-o-2026-11-16",
       "date": "2026-11-16",
