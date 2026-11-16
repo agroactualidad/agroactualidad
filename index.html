@@ -142,6 +142,17 @@ h1, h2, h3 {
 .figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
 .figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
 
+/* Origen de la noticia (filtro sin JavaScript) */
+.origen-filtro { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 4px; align-items: center; }
+.origen-filtro input { position: absolute; opacity: 0; pointer-events: none; }
+.origen-filtro label { cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #cfdcf0; font-size: .92rem; }
+.origen-filtro input:checked + label { background: #2f6fd0; border-color: #2f6fd0; color: #fff; }
+.origen-filtro input:focus-visible + label { outline: 2px solid #9fc4ff; outline-offset: 2px; }
+.chip.origen { --dot: #8fb8ff; font-weight: 600; }
+.chip.origen[data-origen="almeria"] { --dot: #9fdc8e; }
+.chip.origen[data-origen="espana"] { --dot: #f0b45a; }
+.chip.origen[data-origen="europa"] { --dot: #c9b6ff; }
+
 /* Barra de filtros */
 .filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
@@ -241,8 +252,8 @@ h1, h2, h3 {
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
-            
+          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
+            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
           </div>
         </div>
         <div class="tab">
@@ -382,6 +393,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
             
+            
             <span>HortiDaily</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -394,6 +406,7 @@ h1, h2, h3 {
           <p>El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.</p>
           <div class="byline">
             <span class="chip" data-tag="campo">Campo</span>
+            
             
             <span>HortiDaily (boletín de la Junta de Andalucía)</span>
             <span class="mark">Revisada</span>
@@ -408,6 +421,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
             
+            
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -420,6 +434,7 @@ h1, h2, h3 {
           <p>La mayoría de las compañías del sector hortícola de Almería siguió operando durante la huelga general, tanto en los invernaderos como en la industria auxiliar y las subastas. La incidencia varió según la empresa, entre un 15% en unas comercializadoras y un 35% en otras. La distribución también mantuvo su actividad, aunque con algunas incidencias.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
@@ -434,6 +449,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>Hortoinfo</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -447,6 +463,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>HortiDaily (datos de Coexphal)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -459,6 +476,7 @@ h1, h2, h3 {
           <p>Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>HortiDaily (Vicasol)</span>
             <span class="mark">Revisada</span>

@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T19:54:42+00:00",
-  "checked": "2026-11-16T19:54:42+00:00",
+  "updated": "2026-11-16T21:34:56+00:00",
+  "checked": "2026-11-16T21:34:56+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,30 @@
     }
   ],
   "items": [
+    {
+      "id": "m-limited-competition-strengthens-market-position-o-2026-11-16",
+      "date": "2026-11-16",
+      "title": "La poca competencia refuerza la posición de las fresas neerlandesas y belgas en el mercado",
+      "summary": "La campaña de frutos blandos en Bélgica se acerca a su fin, pero BelOrta mantiene mucha actividad con fresas, moras y grosellas rojas que siguen llegando a los consumidores en otoño. Las fiestas navideñas siguen siendo un periodo de ventas importante, aunque la demanda muestra un descenso.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892317/limited-competition-strengthens-market-position-of-dutch-and-belgian-strawberries/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-weather-related-supply-disruptions-keep-cucumber-m-2026-11-16",
+      "date": "2026-11-16",
+      "title": "Las alteraciones climáticas en México sostienen los precios del pepino",
+      "summary": "La producción de pepino en México se está trasladando a nuevas zonas de cultivo, y algunas áreas retrasan el inicio de la campaña. Según la fuente citada, la irregularidad del tiempo, las lluvias y las fluctuaciones de temperatura son la causa, y el mercado se mantiene firme por la escasez de suministro.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892898/weather-related-supply-disruptions-keep-cucumber-market-firm/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-la-producci-n-francesa-de-peras-caer-un-8-en-2026-2026-11-16",
       "date": "2026-11-16",

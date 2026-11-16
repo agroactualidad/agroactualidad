@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T19:54:42+00:00",
-  "checked": "2026-11-16T19:54:42+00:00",
+  "updated": "2026-11-16T21:34:56+00:00",
+  "checked": "2026-11-16T21:34:56+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,18 @@
     }
   ],
   "items": [
+    {
+      "id": "i-biotherm-introduces-panel-mounted-benchwarmer-kit-2026-11-16",
+      "date": "2026-11-16",
+      "title": "BioTherm lanza un kit de calefacción por agua para la zona radicular en invernaderos pequeños",
+      "summary": "BioTherm ha presentado el PMBWK, una solución de entrada de calefacción por agua caliente que lleva el control profesional de la temperatura de la zona radicular a cultivos de menor superficie. Está pensado para invernaderos e instalaciones de interior, y sirve para apoyar la germinación de semillas y la propagación de plantas.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893074/biotherm-introduces-panel-mounted-benchwarmer-kit-for-root-zone-heating/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "maquinaria"
+    },
     {
       "id": "i-una-nueva-m-quina-permite-envasar-frutas-y-hortali-2026-11-16",
       "date": "2026-11-16",

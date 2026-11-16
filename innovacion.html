@@ -142,6 +142,17 @@ h1, h2, h3 {
 .figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
 .figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
 
+/* Origen de la noticia (filtro sin JavaScript) */
+.origen-filtro { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 4px; align-items: center; }
+.origen-filtro input { position: absolute; opacity: 0; pointer-events: none; }
+.origen-filtro label { cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #cfdcf0; font-size: .92rem; }
+.origen-filtro input:checked + label { background: #2f6fd0; border-color: #2f6fd0; color: #fff; }
+.origen-filtro input:focus-visible + label { outline: 2px solid #9fc4ff; outline-offset: 2px; }
+.chip.origen { --dot: #8fb8ff; font-weight: 600; }
+.chip.origen[data-origen="almeria"] { --dot: #9fdc8e; }
+.chip.origen[data-origen="espana"] { --dot: #f0b45a; }
+.chip.origen[data-origen="europa"] { --dot: #c9b6ff; }
+
 /* Barra de filtros */
 .filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
@@ -241,8 +252,8 @@ h1, h2, h3 {
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
-            
+          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
+            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
           </div>
         </div>
         <div class="tab">
@@ -300,9 +311,10 @@ h1, h2, h3 {
     </div>
   </section>
 
+  <div class="wrap"></div>
   <main class="wrap mercados">
     <section class="mercado" id="n-variedades">
-      <h2>Variedades y semillas <span class="cuenta">5</span></h2>
+      <h2>Variedades y semillas <span class="cuenta">4</span></h2>
       <ul class="feed">
       <li class="story" id="i-presentadas-en-valencia-nuevas-variedades-de-c-tri-2026-11-16" data-tag="innovacion">
         <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
@@ -312,21 +324,9 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="i-pimiento-bayer-arava-2026-11-16" data-tag="innovacion">
-        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9892732/bayer-introduces-red-export-bell-pepper-for-growers-in-arava-valley/" rel="noopener" target="_blank">Bayer enseña en Israel un nuevo pimiento rojo de exportación con larga vida poscosecha</a></h3>
-          <p>Unos 50 productores vieron el 11 de noviembre en Paran (Arava) las variedades de pimiento de Bayer. La SVPB1028, roja y pensada para exportar por su larga conservación, aún no es comercial. Bayer atribuye parte de la demanda del pimiento israelí a los problemas de trips en España y a la ola de calor en Países Bajos.</p>
-          <div class="byline">
-            <span class="chip" data-tag="innovacion">Innovación e IA</span>
-            
-            <span>HortiDaily (Bayer)</span>
-            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
@@ -337,6 +337,7 @@ h1, h2, h3 {
           <p>Incluye dos polinizadores de micropepita, Leiva (trasplantes desde principios de diciembre hasta mediados de febrero) y Amaral, y el triploide rayado Taylor, con buen cuajado en frío. Los frutos apuntan a 2-3 kg y la empresa probará esta primavera una sandía de color más llamativo y algo más pequeña.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>Infoagro (Fitó)</span>
             <span class="mark">Revisada</span>
@@ -351,6 +352,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>Infoagro (NTG España)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -364,6 +366,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>HortiDaily (De Ruiter)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -372,8 +375,22 @@ h1, h2, h3 {
       </ul>
     </section>
     <section class="mercado" id="n-maquinaria">
-      <h2>Maquinaria y tecnología de cultivo <span class="cuenta">5</span></h2>
+      <h2>Maquinaria y tecnología de cultivo <span class="cuenta">6</span></h2>
       <ul class="feed">
+      <li class="story" id="i-biotherm-introduces-panel-mounted-benchwarmer-kit-2026-11-16" data-tag="innovacion">
+        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9893074/biotherm-introduces-panel-mounted-benchwarmer-kit-for-root-zone-heating/" rel="noopener" target="_blank">BioTherm lanza un kit de calefacción por agua para la zona radicular en invernaderos pequeños</a></h3>
+          <p>BioTherm ha presentado el PMBWK, una solución de entrada de calefacción por agua caliente que lleva el control profesional de la temperatura de la zona radicular a cultivos de menor superficie. Está pensado para invernaderos e instalaciones de interior, y sirve para apoyar la germinación de semillas y la propagación de plantas.</p>
+          <div class="byline">
+            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
+            
+            <span>HortiDaily</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
       <li class="story" id="i-sormac-presentar-su-tecnolog-a-de-pelado-y-corte-d-2026-11-16" data-tag="innovacion">
         <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
         <div>
@@ -381,6 +398,7 @@ h1, h2, h3 {
           <p>La empresa Sormac llevará a Interpom 2026, en Kortrijk (Bélgica), su tecnología para pelar y cortar patatas, con equipos que van desde máquinas individuales hasta líneas totalmente automatizadas. La feria se celebrará del 29 de noviembre al 1 de diciembre y la presentación se hará en el stand 165.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -395,6 +413,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>HortiDaily (Bogaerts)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -407,6 +426,7 @@ h1, h2, h3 {
           <p>El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, uno en Países Bajos y otro en Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>HortiDaily (inaho)</span>
             <span class="mark">Revisada</span>
@@ -421,6 +441,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>HortiDaily (Arrigoni)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -433,6 +454,7 @@ h1, h2, h3 {
           <p>La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>HortiDaily</span>
             <span class="mark">Revisada</span>
@@ -451,6 +473,7 @@ h1, h2, h3 {
           <p>Unos 50 productores vieron el 11 de noviembre en Paran (Arava) las variedades de pimiento de Bayer. La SVPB1028, roja y pensada para exportar por su larga conservación, aún no es comercial. Bayer atribuye parte de la demanda del pimiento israelí a los problemas de trips en España y a la ola de calor en Países Bajos.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             <span class="chip ajeno">Desde: Variedades y semillas</span>
             <span>HortiDaily (Bayer)</span>
             <span class="mark">Revisada</span>
@@ -465,6 +488,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>Infoagro (Koppert)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -477,6 +501,7 @@ h1, h2, h3 {
           <p>La empresa británica ofrece Incapsulex (microencapsulado estable más de 17 meses a temperatura ambiente), Adhesulex y BiofilmTech, un biofertilizante de consorcios microbianos. Syngenta compró dos de sus bioinsecticidas en 2021. El artículo cita los objetivos de Bayer, Corteva y FMC en biológicos.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>Infoagro</span>
             <span class="mark">Revisada</span>
@@ -496,6 +521,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -509,6 +535,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
             
+            
             <span>Infoagro</span>
             <span class="mark">Revisada</span>
           </div>
@@ -521,6 +548,7 @@ h1, h2, h3 {
           <p>El consejero delegado, Mike Pooley, y su equipo se reunieron en La Mojonera con los gestores de Coexphal y recorrieron empresas asociadas. Hablaron de disponibilidad de envases en picos de campaña, logística de recogida, higiene y gestión de incidencias. Acordaron mantener abierto el canal.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            
             
             <span>Infoagro (IFCO)</span>
             <span class="mark">Revisada</span>

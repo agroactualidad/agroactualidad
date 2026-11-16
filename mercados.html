@@ -142,6 +142,17 @@ h1, h2, h3 {
 .figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
 .figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
 
+/* Origen de la noticia (filtro sin JavaScript) */
+.origen-filtro { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 4px; align-items: center; }
+.origen-filtro input { position: absolute; opacity: 0; pointer-events: none; }
+.origen-filtro label { cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #cfdcf0; font-size: .92rem; }
+.origen-filtro input:checked + label { background: #2f6fd0; border-color: #2f6fd0; color: #fff; }
+.origen-filtro input:focus-visible + label { outline: 2px solid #9fc4ff; outline-offset: 2px; }
+.chip.origen { --dot: #8fb8ff; font-weight: 600; }
+.chip.origen[data-origen="almeria"] { --dot: #9fdc8e; }
+.chip.origen[data-origen="espana"] { --dot: #f0b45a; }
+.chip.origen[data-origen="europa"] { --dot: #c9b6ff; }
+
 /* Barra de filtros */
 .filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
@@ -241,8 +252,8 @@ h1, h2, h3 {
         </div>
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden><p class="panel-intro"><strong>Próximamente.</strong> Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo.</p>
-            
+          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
+            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
           </div>
         </div>
         <div class="tab">
@@ -350,6 +361,7 @@ h1, h2, h3 {
     </div>
   </section>
 
+  <div class="wrap"></div>
   <main class="wrap mercados">
     <section class="mercado" id="m-almeria">
       <h2>El mercado en Almería <span class="cuenta">3</span></h2>
@@ -361,6 +373,7 @@ h1, h2, h3 {
           <p>Según Inteligencia de Mercados de Coexphal, el calor retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg y cayó a 0,63 €/kg en la semana 39; el calabacín pasó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40; el pepino tocó mínimo en 0,52 €/kg.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>HortiDaily (datos de Coexphal)</span>
             <span class="mark">Revisada</span>
@@ -375,6 +388,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>HortiDaily (Vicasol)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -387,6 +401,7 @@ h1, h2, h3 {
           <p>Un consultor que visitó la provincia cifra la caída de producción en un 9,8 % (pimiento −16 %, tomate −17,3 %), con un valor cercano a 3.900 millones compensado por los precios. Para 2026/27 apunta a un 5-10 % menos de superficie de pimiento California. Es una valoración personal, no un dato oficial.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>HortiDaily (Alberto Lizarraga)</span>
             <span class="mark">Revisada</span>
@@ -406,6 +421,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -418,6 +434,7 @@ h1, h2, h3 {
           <p>Dia y Consum son las cadenas que más han crecido en cuota de mercado dentro de la distribución alimentaria en España. Entre enero y octubre de 2026 ganaron 0,4 puntos porcentuales en valor frente al mismo periodo del año anterior, según Worldpanel by Numerator. Juntas concentran una parte muy relevante de ese mercado.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -432,6 +449,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -444,6 +462,7 @@ h1, h2, h3 {
           <p>En noviembre, el mercado español de arándanos sigue dependiendo de las importaciones mientras Huelva se prepara para la campaña 2026/27. Perú es el principal proveedor, con apoyo de volúmenes menores procedentes de Sudáfrica y Zimbabue. Las exportaciones peruanas de arándanos a Europa alcanzaron 59.500 toneladas entre las semanas 18 y 43 de 2026.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>HortiDaily</span>
             <span class="mark auto">Resumen automático</span>
@@ -458,6 +477,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>Agronews Castilla y León</span>
             <span class="mark">Revisada</span>
           </div>
@@ -471,6 +491,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>Agraria.pe (datos de la organización)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -481,6 +502,20 @@ h1, h2, h3 {
     <section class="mercado" id="m-europa">
       <h2>El mercado en Europa <span class="cuenta">6</span></h2>
       <ul class="feed">
+      <li class="story" id="m-limited-competition-strengthens-market-position-o-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9892317/limited-competition-strengthens-market-position-of-dutch-and-belgian-strawberries/" rel="noopener" target="_blank">La poca competencia refuerza la posición de las fresas neerlandesas y belgas en el mercado</a></h3>
+          <p>La campaña de frutos blandos en Bélgica se acerca a su fin, pero BelOrta mantiene mucha actividad con fresas, moras y grosellas rojas que siguen llegando a los consumidores en otoño. Las fiestas navideñas siguen siendo un periodo de ventas importante, aunque la demanda muestra un descenso.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            
+            <span>HortiDaily</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
       <li class="story" id="m-la-producci-n-francesa-de-peras-caer-un-8-en-2026-2026-11-16" data-tag="mercados">
         <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
         <div>
@@ -488,6 +523,7 @@ h1, h2, h3 {
           <p>Según estimaciones del servicio de estadística del Ministerio de Agricultura francés, la cosecha de peras de mesa rondaría las 146.000 toneladas en 2026. Esa cifra supone un retroceso del 8 % frente al año anterior, pero aun así quedaría por encima de la media de los últimos cinco años.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -502,20 +538,8 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-polish-berry-cultivation-covers-116-674-hectares-a-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9893224/polish-berry-cultivation-covers-116-674-hectares-as-protected-growing-expands/" rel="noopener" target="_blank">Polonia alcanza las 116.674 hectáreas de bayas con el auge del cultivo protegido</a></h3>
-          <p>La superficie polaca dedicada a bayas llega a las 116.674 hectáreas y abastece tanto al mercado en fresco como a la industria de transformación. Los cultivos tradicionales siguen siendo importantes para el procesado, mientras que el cultivo en fresco crece, sobre todo bajo sistemas protegidos. Especies como la aronia, la grosella espinosa y la grosella se destinan principalmente a la transformación.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
             
-            <span>HortiDaily</span>
+            <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
         </div>
@@ -527,6 +551,7 @@ h1, h2, h3 {
           <p>El sector italiano de la IV gama ha atravesado un verano especialmente complicado, con temperaturas extremas que han reducido las cosechas. La oferta no ha podido cubrir en todo momento una demanda que se ha mantenido firme, según la empresa Altamura OP.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -541,6 +566,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -554,6 +580,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>Euronews (datos de Eurostat)</span>
             <span class="mark">Revisada</span>
           </div>
@@ -564,6 +591,20 @@ h1, h2, h3 {
     <section class="mercado" id="m-mundo">
       <h2>El mercado en el mundo <span class="cuenta">6</span></h2>
       <ul class="feed">
+      <li class="story" id="m-weather-related-supply-disruptions-keep-cucumber-m-2026-11-16" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9892898/weather-related-supply-disruptions-keep-cucumber-market-firm/" rel="noopener" target="_blank">Las alteraciones climáticas en México sostienen los precios del pepino</a></h3>
+          <p>La producción de pepino en México se está trasladando a nuevas zonas de cultivo, y algunas áreas retrasan el inicio de la campaña. Según la fuente citada, la irregularidad del tiempo, las lluvias y las fluctuaciones de temperatura son la causa, y el mercado se mantiene firme por la escasez de suministro.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            
+            <span>HortiDaily</span>
+            <span class="mark auto">Resumen automático</span>
+          </div>
+        </div>
+      </li>
       <li class="story" id="m-la-pi-a-paname-a-registra-precios-al-alza-por-la-m-2026-11-16" data-tag="mercados">
         <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
         <div>
@@ -571,6 +612,7 @@ h1, h2, h3 {
           <p>Los precios de la piña panameña se mantienen firmes en plena temporada alta, con una demanda estable pese al encarecimiento de los costes. Un gerente comercial de una empresa panameña señala que su firma ha aumentado sus exportaciones frente a 2025 y ha diversificado sus destinos.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -585,6 +627,7 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
+            
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
           </div>
@@ -597,6 +640,7 @@ h1, h2, h3 {
           <p>El ube, un tubérculo morado poco conocido en Europa, despierta cada vez más interés, pero reunir volúmenes suficientes sigue siendo un reto para los importadores. Capexo - Grupo Orsero empezó a abastecerse en Filipinas en enero y después se orientó hacia Vietnam.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -611,18 +655,6 @@ h1, h2, h3 {
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-la-escasez-de-calibres-grandes-complica-las-compra-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9892480/la-escasez-de-calibres-grandes-complica-las-compras-de-castana-china-esta-temporada/" rel="noopener" target="_blank">Hay menos castañas de calibre grande y las compras en el mercado chino se complican esta temporada</a></h3>
-          <p>En 2026, el mercado chino de la castaña sufre a la vez clima adverso, menor producción de materia prima y costes logísticos internacionales más altos. Además, la oferta por tamaños ha cambiado y eso provoca variaciones en los precios y en las compras.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
             
             <span>FreshPlaza España</span>
             <span class="mark auto">Resumen automático</span>
@@ -636,6 +668,7 @@ h1, h2, h3 {
           <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
+            
             
             <span>USDA (informe WASDE)</span>
             <span class="mark">Revisada</span>
