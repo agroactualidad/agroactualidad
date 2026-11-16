@@ -349,7 +349,7 @@ def origen_chip(item):
 ORIGENES = {"mundo": "Mundo", "europa": "Europa", "espana": "España", "almeria": "Almería"}
 
 
-def render_story(item, con_origen=False):
+def render_story(item, con_origen=False, con_pais=False):
     tag = item.get("tag", "campo")
     status = item.get("status", "auto")
     mark = (
@@ -366,6 +366,7 @@ def render_story(item, con_origen=False):
           <div class="byline">
             <span class="chip" data-tag="{escape(tag)}">{escape(TAGS.get(tag, tag))}</span>
             {origen_chip(item) if con_origen else ''}
+            {f'<span class="chip origen">{escape(item["pais"])}</span>' if con_pais and item.get("pais") else ''}
             {f'<span class="chip ajeno">Desde: {escape(item["prestada"])}</span>' if item.get("prestada") else ''}
             <span>{escape(item['source'])}</span>
             {mark}
@@ -395,6 +396,7 @@ BLOQUES = {
         "titulo": "Agro Actualidad: mercados agrícolas",
         "descripcion": "Precios, campañas y comercio agrícola en Almería, España, Europa y el resto del mundo, con enlace a cada fuente.",
         "otros": "Otros mercados",
+        "vacio": {"almeria": "Los precios y campañas de Almería están en la pestaña Almería, para no repetir noticias."},
     },
     "innovacion": {
         "pestana": "Innovación y productos", "archivo": "innovacion.html", "datos": ROOT / "data" / "innovacion.json",
@@ -420,9 +422,37 @@ BLOQUES = {
         "otros": "Otras áreas",
     },
 }
-PROXIMAMENTE = {
-    "mundo": ("Mundo", "Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria."),
+BLOQUES["mundo"] = {
+    "pestana": "Mundo", "archivo": "mundo.html", "datos": ROOT / "data" / "mundo.json",
+    "prefijo": "w", "clase": "mercado", "pais": True,
+    "intro": "Política agraria, comercio, economía y clima en el resto del mundo.",
+    "secciones": {"politica": "Política y comercio", "economia": "Economía e insumos",
+                  "empresas": "Empresas e inversión", "clima": "Clima, sanidad y seguridad alimentaria"},
+    "corto": lambda t: t, "resumen": "Cuatro áreas", "graficos": "El mundo en gráficos",
+    "titulo": "Agro Actualidad: agricultura en el mundo",
+    "descripcion": "Política agraria, comercio, economía, empresas y clima en el mundo, con enlace a cada fuente.",
+    "otros": "Otras áreas",
 }
+PROXIMAMENTE = {}
+
+# Cada noticia aparece en UN solo bloque. Si una URL está en varios, gana el de más arriba.
+PRIORIDAD = ["almeria", "ia", "innovacion", "mundo", "mercados"]
+
+
+def urls_de(clave, hoy):
+    """URL de las noticias vigentes de un bloque (para no repetirlas en los de menos prioridad)."""
+    ruta = DATA if clave == "almeria" else BLOQUES[clave]["datos"]
+    if not ruta.exists():
+        return set()
+    return {i["url"] for i in vigentes(json.loads(ruta.read_text(encoding="utf-8")).get("items", []), hoy)}
+
+
+def ocupadas(clave, hoy):
+    """URL que ya usan los bloques con más prioridad que `clave`."""
+    usadas = set()
+    for otro in PRIORIDAD[:PRIORIDAD.index(clave)]:
+        usadas |= urls_de(otro, hoy)
+    return usadas
 
 
 def secciones_bloque(items, nombres, otros, hoy):
@@ -547,7 +577,9 @@ def render_bloque(clave, cfg, hoy, menus):
         print(f"{cfg['archivo']}: falta {cfg['datos'].name}, no se genera.")
         return
     data = json.loads(cfg["datos"].read_text(encoding="utf-8"))
-    secciones = secciones_bloque(data.get("items", []), cfg["secciones"], cfg["otros"], hoy)
+    repetidas = ocupadas(clave, hoy)
+    propios = [i for i in data.get("items", []) if i["url"] not in repetidas]
+    secciones = secciones_bloque(propios, cfg["secciones"], cfg["otros"], hoy)
     todas = list({i["id"]: i for lista in secciones.values() for i in lista}.values())
     if not todas:
         print(f"{cfg['archivo']}: sin noticias vigentes, no se genera.")
@@ -561,13 +593,13 @@ def render_bloque(clave, cfg, hoy, menus):
             bloques += f"""
     <section class="{cfg['clase']}" id="{p}-{k}">
       <h2>{escape(titulo)}</h2>
-      <p class="empty-sec">Sin noticias nuevas en los últimos 30 días.</p>
+      <p class="empty-sec">{escape(cfg.get("vacio", {}).get(k, "Sin noticias nuevas en los últimos 30 días."))}</p>
     </section>"""
             continue
         bloques += f"""
     <section class="{cfg['clase']}" id="{p}-{k}">
       <h2>{escape(titulo)} <span class="cuenta">{len(lista)}</span></h2>
-      <ul class="feed">{"".join(render_story(i, cfg.get("origen", False)) for i in lista)}
+      <ul class="feed">{"".join(render_story(i, cfg.get("origen", False), cfg.get("pais", False)) for i in lista)}
       </ul>
     </section>"""
     filtro_origen = ""
