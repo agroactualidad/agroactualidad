@@ -351,43 +351,83 @@ def render_story(item):
       </li>"""
 
 
-AMBITOS = {
+AMBITOS = {  # (se mantiene el nombre por compatibilidad con update_news.py)
     "almeria": "El mercado en Almería",
     "espana": "El mercado en España",
     "europa": "El mercado en Europa",
     "mundo": "El mercado en el mundo",
 }
-MAX_SECCION = 6        # tope de noticias por cada uno de los cuatro mercados
+MAX_SECCION = 6        # tope de noticias por sección
 MIN_SECCION = 3        # por debajo de esto, la sección se completa con otras
 
+# Cada bloque con varias secciones: Mercados e Innovación y productos.
+BLOQUES = {
+    "mercados": {
+        "pestana": "Mercados", "archivo": "mercados.html", "datos": ROOT / "data" / "mercados.json",
+        "prefijo": "m", "clase": "mercado",
+        "intro": "Precios, campañas y comercio, de Almería al mundo.",
+        "secciones": AMBITOS,
+        "corto": lambda t: t.replace("El mercado en el ", "").replace("El mercado en ", "").capitalize(),
+        "resumen": "Cuatro mercados", "graficos": "Los mercados en gráficos",
+        "titulo": "Agro Actualidad: mercados agrícolas",
+        "descripcion": "Precios, campañas y comercio agrícola en Almería, España, Europa y el resto del mundo, con enlace a cada fuente.",
+        "otros": "Otros mercados",
+    },
+    "innovacion": {
+        "pestana": "Innovación y productos", "archivo": "innovacion.html", "datos": ROOT / "data" / "innovacion.json",
+        "prefijo": "n", "clase": "mercado",
+        "intro": "Variedades, maquinaria, bioinsumos y envases que llegan al campo.",
+        "secciones": {"variedades": "Variedades y semillas", "maquinaria": "Maquinaria y tecnología de cultivo",
+                      "bioinsumos": "Bioinsumos y protección de cultivos", "envases": "Envases y poscosecha"},
+        "corto": lambda t: t, "resumen": "Cuatro áreas", "graficos": "La innovación en gráficos",
+        "titulo": "Agro Actualidad: innovación y productos",
+        "descripcion": "Novedades en variedades, maquinaria, bioinsumos y envases para el campo, con enlace a cada fuente.",
+        "otros": "Otras áreas",
+    },
+}
+PROXIMAMENTE = {
+    "ia": ("IA y agricultura de precisión", "Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo."),
+    "mundo": ("Mundo", "Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria."),
+}
 
-def seccion_mercado(items, ambito, hoy, usados):
-    """Noticias de un ámbito; si hay pocas, completa con las de otros mercados."""
-    propias = [i for i in vigentes(items, hoy) if i.get("ambito") == ambito and i["id"] not in usados]
-    elegidas = seleccionar(propias, hoy)[:MAX_SECCION]
-    if len(elegidas) < MIN_SECCION:
-        ids = {i["id"] for i in elegidas} | usados
-        otras = [i for i in vigentes(items, hoy) if i["id"] not in ids]
-        otras.sort(key=lambda i: (i.get("importancia", 3), i["date"]), reverse=True)
-        for extra in otras[:MIN_SECCION - len(elegidas)]:
-            copia = dict(extra)
-            copia["prestada"] = AMBITOS.get(extra.get("ambito", ""), "Otros mercados")
-            elegidas.append(copia)
-        elegidas.sort(key=lambda i: i["date"], reverse=True)
-    usados.update(i["id"] for i in elegidas)
-    return elegidas
+
+def secciones_bloque(items, nombres, otros, hoy):
+    """Reparte las noticias por sección (máx. 6 cada una).
+
+    Si una sección se queda con menos de 3, se completa con las noticias más
+    importantes de secciones que tienen de sobra (se marcan «Desde: ...»).
+    """
+    vivas = vigentes(items, hoy)
+    elegidas = {k: seleccionar([i for i in vivas if i.get("ambito") == k], hoy)[:MAX_SECCION] for k in nombres}
+    resultado, prestados = {}, set()
+    for k in nombres:
+        lista = list(elegidas[k])
+        if len(lista) < MIN_SECCION:
+            ya = {i["id"] for i in lista}
+            pool = [(k2, i) for k2 in nombres if k2 != k and len(elegidas[k2]) > MIN_SECCION
+                    for i in elegidas[k2] if i["id"] not in ya and i["id"] not in prestados]
+            pool.sort(key=lambda p: (p[1].get("importancia", 3), p[1]["date"]), reverse=True)
+            for k2, extra in pool[:MIN_SECCION - len(lista)]:
+                prestados.add(extra["id"])
+                copia = dict(extra)
+                copia["prestada"] = nombres.get(k2, otros)
+                lista.append(copia)
+            lista.sort(key=lambda i: i["date"], reverse=True)
+        resultado[k] = lista
+    return resultado
 
 
-def cabecera(activa, data, enlaces):
+def cabecera(activa, menus):
     """Barra superior con el logo y las cinco pestañas desplegables."""
     pestanas = ""
-    for clave, titulo, destino, panel in enlaces:
+    for clave, titulo, destino, panel in menus:
         actual = ' aria-current="page"' if clave == activa else ""
+        enlace = f'<a class="panel-go" href="{destino}">Abrir {titulo}</a>' if destino and clave != activa else ""
         pestanas += f'''
         <div class="tab">
           <button type="button" aria-expanded="false" aria-controls="p-{clave}"{actual}>{titulo}</button>
           <div class="panel" id="p-{clave}" hidden>{panel}
-            {f'<a class="panel-go" href="{destino}">Abrir {titulo}</a>' if destino else ''}
+            {enlace}
           </div>
         </div>'''
     return f'''  <header class="masthead">
@@ -399,25 +439,18 @@ def cabecera(activa, data, enlaces):
   </header>'''
 
 
-PROXIMAMENTE = {
-    "innovacion": ("Innovación y productos", "Variedades nuevas, maquinaria, bioinsumos, envases y lanzamientos del sector."),
-    "ia": ("IA y agricultura de precisión", "Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo."),
-    "mundo": ("Mundo", "Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria."),
-}
-
-
-def pestanas(activa, lista_almeria, lista_mercados):
-    base = "" if activa == "almeria" else ""
-    enlaces = [
-        ("almeria", "Almería", "index.html" if activa != "almeria" else "",
-         f'<p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list">{lista_almeria}</ul>'),
-        ("mercados", "Mercados", "mercados.html" if activa != "mercados" else "",
-         f'<p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list">{lista_mercados}</ul>'),
-    ]
+def menus_pestanas(lista_almeria):
+    menus = [("almeria", "Almería", "index.html",
+              f'<p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list">{lista_almeria}</ul>')]
+    for clave, cfg in BLOQUES.items():
+        enlaces = "".join(
+            f'<li><a href="{cfg["archivo"]}#{cfg["prefijo"]}-{k}">{escape(t)}</a></li>' for k, t in cfg["secciones"].items())
+        menus.append((clave, cfg["pestana"], cfg["archivo"],
+                      f'<p class="panel-intro">{escape(cfg["intro"])}</p><ul class="panel-list">{enlaces}</ul>'))
     for clave, (titulo, texto) in PROXIMAMENTE.items():
-        enlaces.append((clave, titulo, "",
-                        f'<p class="panel-intro"><strong>Próximamente.</strong> {texto}</p>'))
-    return enlaces
+        menus.append((clave, titulo, "", f'<p class="panel-intro"><strong>Próximamente.</strong> {texto}</p>'))
+    orden = ["almeria", "mercados", "innovacion", "ia", "mundo"]
+    return sorted(menus, key=lambda m: orden.index(m[0]))
 
 
 def pagina(titulo, descripcion, cabecera_html, cuerpo, fuentes):
@@ -477,27 +510,73 @@ def indice(items, lead=None):
         for i in items[:4])
 
 
+def render_bloque(clave, cfg, hoy, menus):
+    """Genera la página de un bloque con secciones (Mercados, Innovación...)."""
+    if not cfg["datos"].exists():
+        print(f"{cfg['archivo']}: falta {cfg['datos'].name}, no se genera.")
+        return
+    data = json.loads(cfg["datos"].read_text(encoding="utf-8"))
+    secciones = secciones_bloque(data.get("items", []), cfg["secciones"], cfg["otros"], hoy)
+    todas = list({i["id"]: i for lista in secciones.values() for i in lista}.values())
+    if not todas:
+        print(f"{cfg['archivo']}: sin noticias vigentes, no se genera.")
+        return
+    lead = elegir_destacada(sorted(todas, key=lambda i: i["date"], reverse=True), hoy)
+    p = cfg["prefijo"]
+    bloques = ""
+    for k, titulo in cfg["secciones"].items():
+        lista = secciones[k]
+        if not lista:
+            bloques += f"""
+    <section class="{cfg['clase']}" id="{p}-{k}">
+      <h2>{escape(titulo)}</h2>
+      <p class="empty-sec">Sin noticias nuevas en los últimos 30 días.</p>
+    </section>"""
+            continue
+        bloques += f"""
+    <section class="{cfg['clase']}" id="{p}-{k}">
+      <h2>{escape(titulo)} <span class="cuenta">{len(lista)}</span></h2>
+      <ul class="feed">{"".join(render_story(i) for i in lista)}
+      </ul>
+    </section>"""
+    navegacion = "".join(f'<a href="#{p}-{k}">{escape(cfg["corto"](t))}</a>' for k, t in cfg["secciones"].items())
+    cuerpo = f"""
+  <section class="hero" aria-labelledby="lead-title">
+    <div class="wrap">
+      <article class="lead" id="destacada">
+        <p class="updated">Revisado el {fecha_larga(data.get('checked', data['updated']))}. Última noticia nueva: {fecha_larga(data['updated'])}.</p>
+        <p class="lead-meta">{fecha_larga(lead['date'])} · {escape(lead['source'])}</p>
+        <h1 id="lead-title">{escape(lead['title'])}</h1>
+        <p>{escape(lead['summary'])}</p>
+        <a class="go" href="{escape(lead['url'])}" rel="noopener" target="_blank">Leer la noticia original</a>
+      </article>
+      <aside aria-labelledby="salto-title">
+        <h2 class="figures-title" id="salto-title">{escape(cfg['resumen'])}</h2>
+        <nav class="saltos">{navegacion}</nav>
+        <p class="nota">Cada apartado muestra hasta {MAX_SECCION} noticias de los últimos 30 días. Si uno se queda corto, se completa con noticias destacadas de los demás.</p>
+      </aside>
+    </div>
+  </section>
+{bloque_graficos(data, hoy, cfg['graficos'])}
+
+  <main class="wrap mercados">{bloques}
+  </main>"""
+    (ROOT / cfg["archivo"]).write_text(pagina(
+        cfg["titulo"], cfg["descripcion"], cabecera(clave, menus), cuerpo,
+        sorted({i["source"].split(" (")[0] for i in todas})), encoding="utf-8")
+    print(f"{cfg['archivo']} generado con {len(todas)} noticias en {len(cfg['secciones'])} apartados.")
+
+
 def build(hoy=None):
-    """Genera las dos páginas: Almería (index.html) y Mercados (mercados.html)."""
+    """Genera todas las páginas: Almería (index.html) y los bloques con secciones."""
     hoy = hoy or date.today()
     almeria = json.loads(DATA.read_text(encoding="utf-8"))
-    mercados = json.loads(MERCADOS.read_text(encoding="utf-8")) if MERCADOS.exists() else {"items": []}
-
     items = seleccionar(almeria["items"], hoy)
     if not items:
         raise SystemExit("No hay noticias de los últimos 30 días: no se regenera la web.")
     lead = elegir_destacada(items, hoy)
     rest = [i for i in items if i["id"] != lead["id"]]
-
-    secciones = {}
-    usados = set()
-    for ambito in AMBITOS:
-        secciones[ambito] = seccion_mercado(mercados.get("items", []), ambito, hoy, usados)
-    todas_mercados = [i for lista in secciones.values() for i in lista]
-
-    lista_almeria = indice(items, lead)
-    lista_mercados = "".join(
-        f'<li><a href="mercados.html#m-{clave}">{escape(AMBITOS[clave])}</a></li>' for clave in AMBITOS)
+    menus = menus_pestanas(indice(items, lead))
 
     # ---------- Página 1: Almería ----------
     stats = [x for x in almeria.get("stats", []) if x.get("date") and 0 <= antiguedad(x, hoy) <= DIAS_MAX]
@@ -551,65 +630,13 @@ def build(hoy=None):
     OUT.write_text(pagina(
         "Agro Actualidad: Almería hoy",
         "Lo que pasa hoy en la agricultura de Almería: mercados, plagas, clima, política agraria y logística, con enlace a cada fuente.",
-        cabecera("almeria", almeria, pestanas("almeria", lista_almeria, lista_mercados)),
+        cabecera("almeria", menus),
         cuerpo,
         sorted({i["source"].split(" (")[0] for i in items})), encoding="utf-8")
     print(f"index.html generado con {len(items)} noticias.")
 
-    # ---------- Página 2: Mercados ----------
-    if not todas_mercados:
-        print("mercados.html: sin noticias vigentes, no se genera.")
-        return
-    lead_m = elegir_destacada(sorted(todas_mercados, key=lambda i: i["date"], reverse=True), hoy)
-    bloques = ""
-    for clave, titulo in AMBITOS.items():
-        lista = secciones[clave]
-        if not lista:
-            bloques += f"""
-    <section class="mercado" id="m-{clave}">
-      <h2>{escape(titulo)}</h2>
-      <p class="empty-sec">Sin noticias nuevas en los últimos 30 días.</p>
-    </section>"""
-            continue
-        bloques += f"""
-    <section class="mercado" id="m-{clave}">
-      <h2>{escape(titulo)} <span class="cuenta">{len(lista)}</span></h2>
-      <ul class="feed">{"".join(render_story(i) for i in lista)}
-      </ul>
-    </section>"""
-
-    navegacion = "".join(
-        f'<a href="#m-{clave}">{escape(titulo.replace("El mercado en el ", "").replace("El mercado en ", "").capitalize())}</a>' for clave, titulo in AMBITOS.items())
-
-    cuerpo_m = f"""
-  <section class="hero" aria-labelledby="lead-title">
-    <div class="wrap">
-      <article class="lead" id="destacada">
-        <p class="updated">Revisado el {fecha_larga(mercados.get('checked', mercados['updated']))}. Última noticia nueva: {fecha_larga(mercados['updated'])}.</p>
-        <p class="lead-meta">{fecha_larga(lead_m['date'])} · {escape(lead_m['source'])}</p>
-        <h1 id="lead-title">{escape(lead_m['title'])}</h1>
-        <p>{escape(lead_m['summary'])}</p>
-        <a class="go" href="{escape(lead_m['url'])}" rel="noopener" target="_blank">Leer la noticia original</a>
-      </article>
-      <aside aria-labelledby="salto-title">
-        <h2 class="figures-title" id="salto-title">Cuatro mercados</h2>
-        <nav class="saltos">{navegacion}</nav>
-        <p class="nota">Cada mercado muestra hasta {MAX_SECCION} noticias de los últimos 30 días. Si uno se queda corto, se completa con noticias destacadas de los demás.</p>
-      </aside>
-    </div>
-  </section>
-{bloque_graficos(mercados, hoy, "Los mercados en gráficos")}
-
-  <main class="wrap mercados">{bloques}
-  </main>"""
-
-    MERCADOS_OUT.write_text(pagina(
-        "Agro Actualidad: mercados agrícolas",
-        "Precios, campañas y comercio agrícola en Almería, España, Europa y el resto del mundo, con enlace a cada fuente.",
-        cabecera("mercados", mercados, pestanas("mercados", lista_almeria, lista_mercados)),
-        cuerpo_m,
-        sorted({i["source"].split(" (")[0] for i in todas_mercados})), encoding="utf-8")
-    print(f"mercados.html generado con {len(todas_mercados)} noticias en 4 mercados.")
+    for clave, cfg in BLOQUES.items():
+        render_bloque(clave, cfg, hoy, menus)
 
 
 if __name__ == "__main__":

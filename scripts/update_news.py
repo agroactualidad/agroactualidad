@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "almeria.json"
 MERCADOS = ROOT / "data" / "mercados.json"
+INNOVACION = ROOT / "data" / "innovacion.json"
 VISTAS = ROOT / "data" / "vistas.json"
 SOURCES = ROOT / "scripts" / "sources.json"
 
@@ -34,6 +35,7 @@ API_URL = "https://api.anthropic.com/v1/messages"
 MAX_NUEVAS_POR_DIA = 14     # tope para controlar el gasto
 DIAS_RECIENTES = 7          # solo entradas de los últimos días (las ya conocidas se ignoran por URL)
 USER_AGENT = "AgroAlmeriaBot/1.0 (+proyecto personal; lee feeds RSS publicos)"
+CATEGORIAS_VALIDAS = ["variedades", "maquinaria", "bioinsumos", "envases"]
 AMBITOS_VALIDOS = ["almeria", "espana", "europa", "mundo"]
 TAGS = ["mercados", "sanidad", "clima", "politica", "logistica", "campo", "innovacion"]
 
@@ -102,7 +104,7 @@ def es_de_almeria(entrada, palabras):
 
 # ---------- Resumen con Claude ----------
 
-PROMPT = """Eres redactor de una web de noticias agrícolas con dos bloques: «Almería» y «Mercados» (Almería, España, Europa y mundo).
+PROMPT = """Eres redactor de una web de noticias agrícolas con tres bloques: «Almería», «Mercados» (Almería, España, Europa y mundo) e «Innovación y productos».
 Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves:
 - "relevante": (bloque Almería) true si la noticia trata de la agricultura de Almería o de algo que afecta directamente al sector almeriense (una plaga que sufre, un mercado donde vende, una norma que le aplica, una tecnología que usa); false si es una noticia general sin relación clara con Almería.
 - "motivo": una frase corta explicando por qué es o no relevante.
@@ -110,6 +112,8 @@ Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves
 - "resumen": 2 o 3 frases en español con tus propias palabras.
 - "mercado": true si la noticia trata de mercados agrícolas (precios, cotizaciones, campañas, cosechas, exportaciones e importaciones, comercio, aranceles, costes de producción); false si no.
 - "ambito": solo si "mercado" es true, el territorio principal de la noticia: "almeria" (mercado almeriense), "espana" (España en general o una región española que no sea Almería), "europa" (UE u otros países europeos) o "mundo" (el resto, o global).
+- "innovacion": true si la noticia presenta una novedad de producto o tecnología para el campo (variedades y semillas nuevas, maquinaria y robots, mallas y plásticos, bioinsumos y control biológico, envases y poscosecha); false si no.
+- "categoria": solo si "innovacion" es true: "variedades" (semillas, variedades, mejora genética), "maquinaria" (maquinaria, robots, tecnología e infraestructura de cultivo), "bioinsumos" (control biológico, bioestimulantes, protección de cultivos) o "envases" (envases, embalaje, poscosecha, conservación).
 - "importancia": número entero de 1 a 5 (5 = afecta a muchos agricultores o decisiones/cifras clave de Almería; 3 = interesante; 1 = anecdótica).
 - "tema": uno de {tags}. («innovacion» = tecnología, IA, robótica, digitalización, I+D; «campo» = estado de los cultivos y la cosecha).
 
@@ -149,6 +153,9 @@ def resumir(entrada, api_key):
         datos["importancia"] = min(5, max(1, int(datos.get("importancia", 3))))
     except (TypeError, ValueError):
         datos["importancia"] = 3
+    datos["innovacion"] = bool(datos.get("innovacion"))
+    if datos.get("categoria") not in CATEGORIAS_VALIDAS:
+        datos["categoria"] = "maquinaria"
     datos["mercado"] = bool(datos.get("mercado"))
     if datos.get("ambito") not in AMBITOS_VALIDOS:
         datos["ambito"] = "mundo"
@@ -176,10 +183,12 @@ def main():
     cfg = json.loads(SOURCES.read_text(encoding="utf-8"))
     palabras = [p.lower() for p in cfg["palabras_clave"]]
     palabras_mercado = [p.lower() for p in cfg.get("palabras_mercado", [])]
+    palabras_innovacion = [p.lower() for p in cfg.get("palabras_innovacion", [])]
     almeria = cargar(DATA, {"items": [], "stats": []})
     mercados = cargar(MERCADOS, {"items": [], "charts": []})
+    innov = cargar(INNOVACION, {"items": [], "charts": []})
     vistas = cargar(VISTAS, {})          # url -> fecha en que se revisó (para no gastar dos veces)
-    conocidas = {i["url"] for i in almeria["items"]} | {i["url"] for i in mercados["items"]} | set(vistas)
+    conocidas = {i["url"] for i in almeria["items"]} | {i["url"] for i in mercados["items"]} | {i["url"] for i in innov["items"]} | set(vistas)
     limite = datetime.now(timezone.utc) - timedelta(days=DIAS_RECIENTES)
 
     candidatas = []
@@ -192,7 +201,8 @@ def main():
             continue
         candidatas += [e for e in entradas
                        if e["date"] >= limite and e["url"] not in conocidas
-                       and (es_de_almeria(e, palabras) or es_de_almeria(e, palabras_mercado))]
+                       and (es_de_almeria(e, palabras) or es_de_almeria(e, palabras_mercado)
+                            or es_de_almeria(e, palabras_innovacion))]
 
     candidatas.sort(key=lambda e: e["date"], reverse=True)
     vistos = set()
@@ -202,9 +212,9 @@ def main():
             vistos.add(e["url"])
             unicas.append(e)
     candidatas = unicas[:MAX_NUEVAS_POR_DIA]
-    log(f"{len(candidatas)} candidatas nuevas (Almería o mercados)")
+    log(f"{len(candidatas)} candidatas nuevas (Almería, mercados o innovación)")
 
-    nuevas_alm, nuevas_mer = [], []
+    nuevas_alm, nuevas_mer, nuevas_inn = [], [], []
     for e in candidatas:
         try:
             r = resumir(e, api_key)
@@ -228,11 +238,14 @@ def main():
         if r.get("mercado"):
             nuevas_mer.append({**base, "id": "m-" + base["id"], "tag": "mercados", "ambito": r["ambito"]})
             log(f"  Mercados ({r['ambito']}): {r['titulo'][:60]}")
-        if not r.get("relevante") and not r.get("mercado"):
+        if r.get("innovacion"):
+            nuevas_inn.append({**base, "id": "i-" + base["id"], "tag": "innovacion", "ambito": r["categoria"]})
+            log(f"  Innovación ({r['categoria']}): {r['titulo'][:60]}")
+        if not (r.get("relevante") or r.get("mercado") or r.get("innovacion")):
             log(f"  Descartada: {e['title'][:60]} | Motivo: {r.get('motivo', 'sin motivo')}")
 
     ahora = datetime.now().astimezone().isoformat(timespec="seconds")
-    for datos, nuevas in ((almeria, nuevas_alm), (mercados, nuevas_mer)):
+    for datos, nuevas in ((almeria, nuevas_alm), (mercados, nuevas_mer), (innov, nuevas_inn)):
         datos["items"] = build_site.vigentes(nuevas + datos["items"], hoy)   # caducan a los 30 días
         datos["items"].sort(key=lambda i: i["date"], reverse=True)
         for clave in ("stats", "charts"):
@@ -243,12 +256,13 @@ def main():
         if nuevas:
             datos["updated"] = ahora      # última vez que entró una noticia nueva
         datos.setdefault("updated", ahora)
-    log(f"Noticias nuevas hoy: Almería {len(nuevas_alm)}, Mercados {len(nuevas_mer)}")
+    log(f"Noticias nuevas hoy: Almería {len(nuevas_alm)}, Mercados {len(nuevas_mer)}, Innovación {len(nuevas_inn)}")
 
     vistas = {u: f for u, f in vistas.items()
               if (hoy - datetime.fromisoformat(f).date()).days <= 40}
     DATA.write_text(json.dumps(almeria, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     MERCADOS.write_text(json.dumps(mercados, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    INNOVACION.write_text(json.dumps(innov, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     VISTAS.write_text(json.dumps(vistas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     build_site.build(hoy)
