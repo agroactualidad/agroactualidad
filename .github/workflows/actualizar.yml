@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "agro-almeria-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/almeria.json data/mercados.json data/vistas.json index.html mercados.html
+          git add data/almeria.json data/mercados.json data/innovacion.json data/vistas.json index.html mercados.html innovacion.html
           if git diff --cached --quiet; then
             echo "Sin cambios hoy."
           else
