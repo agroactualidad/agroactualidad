@@ -157,6 +157,17 @@ h1, h2, h3 {
 .figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
 .figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
 
+/* Origen de la noticia (filtro sin JavaScript) */
+.origen-filtro { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 4px; align-items: center; }
+.origen-filtro input { position: absolute; opacity: 0; pointer-events: none; }
+.origen-filtro label { cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #cfdcf0; font-size: .92rem; }
+.origen-filtro input:checked + label { background: #2f6fd0; border-color: #2f6fd0; color: #fff; }
+.origen-filtro input:focus-visible + label { outline: 2px solid #9fc4ff; outline-offset: 2px; }
+.chip.origen { --dot: #8fb8ff; font-weight: 600; }
+.chip.origen[data-origen="almeria"] { --dot: #9fdc8e; }
+.chip.origen[data-origen="espana"] { --dot: #f0b45a; }
+.chip.origen[data-origen="europa"] { --dot: #c9b6ff; }
+
 /* Barra de filtros */
 .filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
@@ -327,7 +338,18 @@ def render_chart(c):
       </figure>"""
 
 
-def render_story(item):
+def origen_chip(item):
+    o = item.get("origen")
+    if o not in ORIGENES:
+        return ""
+    texto = ORIGENES[o] + (f" · {item['pais']}" if item.get("pais") else "")
+    return f'<span class="chip origen" data-origen="{o}">{escape(texto)}</span>'
+
+
+ORIGENES = {"mundo": "Mundo", "europa": "Europa", "espana": "España", "almeria": "Almería"}
+
+
+def render_story(item, con_origen=False):
     tag = item.get("tag", "campo")
     status = item.get("status", "auto")
     mark = (
@@ -336,13 +358,14 @@ def render_story(item):
         else '<span class="mark auto">Resumen automático</span>'
     )
     return f"""
-      <li class="story" id="{escape(item['id'])}" data-tag="{escape(tag)}">
+      <li class="story" id="{escape(item['id'])}" data-tag="{escape(tag)}"{f' data-origen="{escape(item["origen"])}"' if con_origen and item.get("origen") else ''}>
         <div class="when"><span class="tico" data-tag="{escape(tag)}">{icono(tag)}</span><time datetime="{escape(item['date'])}">{fecha_corta(item['date'])}</time></div>
         <div>
           <h3><a href="{escape(item['url'])}" rel="noopener" target="_blank">{escape(item['title'])}</a></h3>
           <p>{escape(item['summary'])}</p>
           <div class="byline">
             <span class="chip" data-tag="{escape(tag)}">{escape(TAGS.get(tag, tag))}</span>
+            {origen_chip(item) if con_origen else ''}
             {f'<span class="chip ajeno">Desde: {escape(item["prestada"])}</span>' if item.get("prestada") else ''}
             <span>{escape(item['source'])}</span>
             {mark}
@@ -384,9 +407,20 @@ BLOQUES = {
         "descripcion": "Novedades en variedades, maquinaria, bioinsumos y envases para el campo, con enlace a cada fuente.",
         "otros": "Otras áreas",
     },
+    "ia": {
+        "pestana": "IA y agricultura de precisión", "archivo": "ia.html", "datos": ROOT / "data" / "ia.json",
+        "prefijo": "a", "clase": "mercado",
+        "intro": "Última hora mundial en IA, sensores, robots y datos para el cultivo.",
+        "secciones": {"ia": "Inteligencia artificial", "sensores": "Sensores y riego de precisión",
+                      "robots": "Robots, drones y automatización", "datos": "Datos y plataformas digitales"},
+        "corto": lambda t: t, "resumen": "Cuatro áreas", "graficos": "La tecnología en gráficos",
+        "origen": True,
+        "titulo": "Agro Actualidad: IA y agricultura de precisión",
+        "descripcion": "Inteligencia artificial, sensores, robots y plataformas de datos aplicados a la agricultura, con enlace a cada fuente.",
+        "otros": "Otras áreas",
+    },
 }
 PROXIMAMENTE = {
-    "ia": ("IA y agricultura de precisión", "Sensores, robots, drones, riego inteligente e inteligencia artificial aplicada al campo."),
     "mundo": ("Mundo", "Lo que mueve la agricultura en el resto del mundo: cosechas, comercio y política agraria."),
 }
 
@@ -394,27 +428,24 @@ PROXIMAMENTE = {
 def secciones_bloque(items, nombres, otros, hoy):
     """Reparte las noticias por sección (máx. 6 cada una).
 
-    Si una sección se queda con menos de 3, se completa con las noticias más
-    importantes de secciones que tienen de sobra (se marcan «Desde: ...»).
+    Si una sección se queda con menos de 3, se completa con noticias de secciones
+    que tienen de sobra. La noticia se MUEVE (no se duplica) y queda marcada
+    «Desde: ...»; ninguna sección cede si se queda con menos de 3.
     """
     vivas = vigentes(items, hoy)
-    elegidas = {k: seleccionar([i for i in vivas if i.get("ambito") == k], hoy)[:MAX_SECCION] for k in nombres}
-    resultado, prestados = {}, set()
+    sel = {k: seleccionar([i for i in vivas if i.get("ambito") == k], hoy)[:MAX_SECCION] for k in nombres}
     for k in nombres:
-        lista = list(elegidas[k])
-        if len(lista) < MIN_SECCION:
-            ya = {i["id"] for i in lista}
-            pool = [(k2, i) for k2 in nombres if k2 != k and len(elegidas[k2]) > MIN_SECCION
-                    for i in elegidas[k2] if i["id"] not in ya and i["id"] not in prestados]
-            pool.sort(key=lambda p: (p[1].get("importancia", 3), p[1]["date"]), reverse=True)
-            for k2, extra in pool[:MIN_SECCION - len(lista)]:
-                prestados.add(extra["id"])
-                copia = dict(extra)
-                copia["prestada"] = nombres.get(k2, otros)
-                lista.append(copia)
-            lista.sort(key=lambda i: i["date"], reverse=True)
-        resultado[k] = lista
-    return resultado
+        while len(sel[k]) < MIN_SECCION:
+            pool = [(k2, i) for k2 in nombres if k2 != k and len(sel[k2]) > MIN_SECCION for i in sel[k2]]
+            if not pool:
+                break
+            k2, extra = max(pool, key=lambda p: (p[1].get("importancia", 3), p[1]["date"]))
+            sel[k2] = [i for i in sel[k2] if i["id"] != extra["id"]]
+            copia = dict(extra)
+            copia["prestada"] = nombres.get(k2, otros)
+            sel[k].append(copia)
+        sel[k].sort(key=lambda i: i["date"], reverse=True)
+    return sel
 
 
 def cabecera(activa, menus):
@@ -536,9 +567,19 @@ def render_bloque(clave, cfg, hoy, menus):
         bloques += f"""
     <section class="{cfg['clase']}" id="{p}-{k}">
       <h2>{escape(titulo)} <span class="cuenta">{len(lista)}</span></h2>
-      <ul class="feed">{"".join(render_story(i) for i in lista)}
+      <ul class="feed">{"".join(render_story(i, cfg.get("origen", False)) for i in lista)}
       </ul>
     </section>"""
+    filtro_origen = ""
+    if cfg.get("origen"):
+        usados = [o for o in ORIGENES if any(i.get("origen") == o for i in todas)]
+        radios = '<input type="radio" name="origen" id="or-todo" checked><label for="or-todo">Todo el mundo</label>'
+        css = ""
+        for o in usados:
+            radios += f'<input type="radio" name="origen" id="or-{o}"><label for="or-{o}">{ORIGENES[o]}</label>'
+            css += (f'body:has(#or-{o}:checked) .story:not([data-origen="{o}"]){{display:none}}'
+                    f'body:has(#or-{o}:checked) .mercados section:not(:has(.story[data-origen="{o}"])){{display:none}}')
+        filtro_origen = f'<div class="origen-filtro" role="radiogroup" aria-label="Filtrar por origen de la noticia">{radios}</div><style>{css}</style>'
     navegacion = "".join(f'<a href="#{p}-{k}">{escape(cfg["corto"](t))}</a>' for k, t in cfg["secciones"].items())
     cuerpo = f"""
   <section class="hero" aria-labelledby="lead-title">
@@ -559,6 +600,7 @@ def render_bloque(clave, cfg, hoy, menus):
   </section>
 {bloque_graficos(data, hoy, cfg['graficos'])}
 
+  <div class="wrap">{filtro_origen}</div>
   <main class="wrap mercados">{bloques}
   </main>"""
     (ROOT / cfg["archivo"]).write_text(pagina(
