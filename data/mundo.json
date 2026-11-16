@@ -1,0 +1,195 @@
+{
+  "updated": "2026-11-16T23:00:00+01:00",
+  "checked": "2026-11-16T23:00:00+01:00",
+  "charts": [
+    {
+      "id": "agco-ventas",
+      "title": "Venta de maquinaria agrícola en 2026 (nueve meses)",
+      "unit": "%",
+      "date": "2026-10-29",
+      "decimals": 0,
+      "signed": true,
+      "intro": "Variación de ventas según los datos de mercado del informe de AGCO, citados por AgNavigator.",
+      "bars": [
+        {
+          "label": "Tractores · Norteamérica",
+          "value": -9,
+          "src": "AGCO, 29 oct"
+        },
+        {
+          "label": "Cosechadoras · Norteamérica",
+          "value": -10,
+          "src": "AGCO, 29 oct"
+        },
+        {
+          "label": "Tractores · Brasil",
+          "value": -17,
+          "src": "AGCO, 29 oct"
+        },
+        {
+          "label": "Cosechadoras · Brasil",
+          "value": -38,
+          "src": "AGCO, 29 oct"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "w-farm-bill-eeuu-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "politica",
+      "pais": "EE. UU.",
+      "tag": "politica",
+      "importancia": 4,
+      "title": "El Congreso de EE. UU. se queda sin tiempo para aprobar la ley agraria",
+      "summary": "Las negociaciones avanzan en ambas cámaras, pero si no se cierran antes de que acabe la sesión podrían tener que reiniciarse el año que viene. El presidente del comité agrario del Senado, John Boozman, ve «una excelente oportunidad» y avisa de que «si no tenemos cuidado, vamos a perder la ley». Reconoce que a los agricultores las cuentas «no les salen». El Freedom Caucus de la Cámara condiciona su apoyo a que sea fiscalmente responsable.",
+      "source": "RFD-TV",
+      "url": "https://rfdtv.com/farm-bill-talks-advance-as-congressional-deadline-nears",
+      "status": "revisada"
+    },
+    {
+      "id": "w-mercosur-seis-meses-2026-11-11",
+      "date": "2026-11-11",
+      "ambito": "politica",
+      "pais": "UE y Mercosur",
+      "tag": "politica",
+      "importancia": 4,
+      "title": "Seis meses de acuerdo UE-Mercosur: cupos, salvaguardas y la duda del Tribunal de Justicia",
+      "summary": "El acuerdo provisional se aplica desde el 1 de mayo y eliminará aranceles sobre el 92 % de las importaciones del Mercosur en la UE. Hay cupos cerrados para carne de vacuno y aves, salvaguardas si los precios caen más de un 5 % y una reserva de 45.000 millones para compensar a los agricultores europeos. El Parlamento Europeo pidió en enero (334 votos a 324) que el Tribunal de Justicia revise el pacto; su opinión podría tardar hasta principios de 2028. ASAJA sostiene que no hay competencia justa si no se garantizan las normas de la UE; un analista de BBVA Research ve perdedores en el vacuno extensivo, el azúcar y el bioetanol.",
+      "source": "MercoPress",
+      "url": "https://en.mercopress.com/2026/11/11/eu-mercosur-deal-six-months-on-winners-losers-and-the-question-mark-over-europe-s-top-court",
+      "status": "revisada"
+    },
+    {
+      "id": "w-india-arroz-restricciones-2026-11-06",
+      "date": "2026-11-06",
+      "ambito": "politica",
+      "pais": "India",
+      "tag": "politica",
+      "importancia": 3,
+      "title": "Los exportadores indios temen nuevas restricciones a la exportación de arroz partido",
+      "summary": "Según S&P Global, el Gobierno se reunió el 4 de noviembre y estudiaría limitar las ventas de arroz blanco 100 % partido por la subida de precios internos y la competencia de la industria del etanol y de los piensos. No hay notificación oficial y un directivo del sector cree que es pronto para esperar una medida. El precio de referencia en Kakinada fue de 336 dólares por tonelada (un 5 % más que hace un mes). S&P prevé una producción india de 146 millones de toneladas en 2026/27, 8 millones menos por El Niño.",
+      "source": "S&P Global",
+      "url": "https://www.spglobal.com/energy/en/news-research/latest-news/agriculture/110626-indian-rice-exporters-brace-for-possible-curbs-on-100-broken-wr-exports",
+      "status": "revisada"
+    },
+    {
+      "id": "w-cf-nitrogeno-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "economia",
+      "pais": "Mundial",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Los abonos nitrogenados siguen caros: la urea de Oriente Medio se ha reducido a la mitad",
+      "summary": "CF Industries, que cifra sus ventas del tercer trimestre en 1.860 millones de dólares (1.659 un año antes), dice que las exportaciones de urea de Oriente Medio se han recortado más o menos a la mitad desde el inicio de la guerra de Irán. En octubre, el 37 % de la capacidad europea de amoníaco estaba parada o a ritmo reducido por el gas, y Trinidad cierra de forma definitiva el 35 % de la suya. India importará más de 10 millones de toneladas de urea y China podría restringir sus exportaciones. Son valoraciones de un productor de abonos.",
+      "source": "AgNavigator (CF Industries)",
+      "url": "https://www.agnavigator.com/Article/2026/11/05/nitrogen-market-update-cf-industries-reports-q3-2026-results/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-ipc-alimentos-eeuu-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "economia",
+      "pais": "EE. UU.",
+      "tag": "mercados",
+      "importancia": 2,
+      "title": "Los precios de los alimentos en EE. UU. suben un 0,4 % en octubre tras tres meses estables",
+      "summary": "El IPC de octubre, publicado el 10 de noviembre, muestra que los alimentos del supermercado interrumpen tres meses de precios prácticamente planos. Un economista de Cal Poly espera que la inflación alimentaria siga algo elevada hasta final de 2026 y posiblemente a principios de 2027. No hubo IPC de octubre de 2025 por el cierre del Gobierno federal.",
+      "source": "Agri-Pulse",
+      "url": "https://agri-pulse.com/articles/25504-daybreak-nov-13-permitting-reform-bill-gets-backing",
+      "status": "revisada"
+    },
+    {
+      "id": "w-cnh-kobelco-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "empresas",
+      "pais": "Mundial",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "CNH vende el 70 % de su negocio de construcción a Kobelco para centrarse en maquinaria agrícola",
+      "summary": "La sociedad conjunta se valora en 1.000 millones de dólares y CNH espera ingresar unos 700 millones para reducir deuda; el cierre se prevé para finales de 2027. En el tercer trimestre, los ingresos fueron planos (4.350 millones) y el beneficio ajustado casi se duplicó (205 millones). Su consejero delegado habla de «mejores indicadores del ciclo en Norteamérica», con volatilidad en Europa, Oriente Medio, África y Brasil.",
+      "source": "AgNavigator (CNH)",
+      "url": "https://www.agnavigator.com/Article/2026/11/09/cnh-sharpens-agriculture-focus-with-kobelco-deal-as-farm-machinery-recovery-gathers-pace/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-deere-fabricas-2026-11-04",
+      "date": "2026-11-04",
+      "ambito": "empresas",
+      "pais": "EE. UU.",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "John Deere reorganiza su producción y cerrará dos plantas de Iowa",
+      "summary": "Trasladará hileradoras (windrowers) y empacadoras redondas de Ottumwa a Des Moines, y los pulverizadores Hagie de Clarion a Thibodaux; las cosechadoras de caña pasarán de Luisiana a Brasil. No ha detallado el impacto en empleo. La empresa insiste en que 2026 marcará el fondo del ciclo de maquinaria agrícola; presenta resultados anuales el 25 de noviembre.",
+      "source": "AgNavigator (John Deere)",
+      "url": "https://www.agnavigator.com/Article/2026/11/04/john-deere-to-close-2-iowa-facilities-during-ag-machinery-slowdown/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-agco-tercer-trimestre-2026-10-29",
+      "date": "2026-10-29",
+      "ambito": "empresas",
+      "pais": "Mundial",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "AGCO recorta su previsión de ventas: la renta agraria baja en Europa y Latinoamérica",
+      "summary": "Las ventas del tercer trimestre cayeron un 8,6 % hasta 2.300 millones de dólares y la previsión anual baja a 9.800-10.000 millones. Su consejero delegado atribuye el frenazo a la menor renta agraria y a la incertidumbre, sobre todo en Europa, Oriente Medio y Latinoamérica; en Norteamérica ve el mercado más positivo. En Brasil, los tipos altos y el crédito escaso hunden la venta de máquinas.",
+      "source": "AgNavigator (AGCO)",
+      "url": "https://www.agnavigator.com/Article/2026/10/29/agco-q3-results-highlight-global-market-challenges-amid-stressed-farm-economics/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-syngenta-ventures-unicornios-2026-10-21",
+      "date": "2026-10-21",
+      "ambito": "empresas",
+      "pais": "Mundial",
+      "tag": "mercados",
+      "importancia": 2,
+      "title": "Un directivo de Syngenta Ventures pide a las empresas de agrotecnología dejar de soñar con unicornios",
+      "summary": "Michael Lee afirma que la mayoría de las salidas de estas start-ups son ventas a grandes agroindustriales por entre 100 y 400 millones de dólares y que las valoraciones siguen demasiado altas. Aconseja captar bastante menos de 50 millones y ve oportunidades en biológicos, robótica y gestión del agua. Es la opinión de un inversor, no un dato de mercado.",
+      "source": "AgNavigator (Syngenta Ventures)",
+      "url": "https://www.agnavigator.com/Article/2026/10/21/agtech-must-abandon-the-unicorn-fantasy-says-syngenta-ventures-michael-lee/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-fao-cop31-calor-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "clima",
+      "pais": "Turquía (COP31)",
+      "tag": "clima",
+      "importancia": 5,
+      "title": "La FAO avisa en la COP31 de que el calor y El Niño dificultan cada vez más producir alimentos",
+      "summary": "La conferencia, en Antalya hasta el 20 de noviembre, arrancó con un llamamiento de la FAO a invertir más en seguridad alimentaria y agricultura resistente al clima. El Ministerio de Agricultura turco y el FIDA presentaron un informe sobre cómo la volatilidad de precios de 2026 agrava los efectos del clima. Turquía lanzó además la iniciativa Turquoise Nexus, con compromisos de los países a partir de 2027. La FAO recuerda que la agricultura supone el 70 % de las extracciones de agua dulce.",
+      "source": "Global Agriculture (FAO)",
+      "url": "https://www.global-agriculture.com/global-agriculture/fao-warns-el-nino-heat-is-threatening-food-production-as-cop31-opens/",
+      "status": "revisada"
+    },
+    {
+      "id": "w-wfp-el-nino-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "clima",
+      "pais": "Mundial",
+      "tag": "clima",
+      "importancia": 4,
+      "title": "El PMA calcula que El Niño puede llevar al hambre aguda a otros 49 millones de personas a finales de 2027",
+      "summary": "El organismo de la ONU prevé que el fenómeno alcance su máximo entre octubre y diciembre y que sus efectos sobre siembras, cosechas y precios se alarguen hasta principios de 2028. Señala riesgo de sequía en el Corredor Seco centroamericano, el Sahel, África oriental y austral, y de inundaciones en el Cuerno de África y partes de Sudamérica. Pide a la COP31 más financiación anticipada: hoy supone menos del 2 % de la ayuda humanitaria.",
+      "source": "Programa Mundial de Alimentos",
+      "url": "https://www.wfp.org/news/cop31-world-food-programme-urges-use-innovative-finance-prevent-climate-shocks-becoming-hunger",
+      "status": "revisada"
+    },
+    {
+      "id": "w-gusano-barrenador-eeuu-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "clima",
+      "pais": "EE. UU.",
+      "tag": "sanidad",
+      "importancia": 3,
+      "title": "EE. UU. suma 128 casos animales de gusano barrenador del Nuevo Mundo",
+      "summary": "Según el USDA, 65 siguen activos; Texas acumula 71 y Nuevo México 38. Arizona confirmó su sexto caso, cerca de Pearce (condado de Cochise), y amplió la zona infestada. El primer caso en el país se notificó el 3 de junio de 2026.",
+      "source": "Agri-Pulse (USDA APHIS)",
+      "url": "https://agri-pulse.com/articles/25504-daybreak-nov-13-permitting-reform-bill-gets-backing",
+      "status": "revisada"
+    }
+  ]
+}
