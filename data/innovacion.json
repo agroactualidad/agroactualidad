@@ -1,0 +1,177 @@
+{
+  "updated": "2026-11-16T21:00:00+01:00",
+  "checked": "2026-11-16T21:00:00+01:00",
+  "charts": [
+    {
+      "id": "mallas",
+      "title": "Mallas Arrigoni: menos evaporación de agua",
+      "unit": "%",
+      "date": "2026-11-06",
+      "decimals": 0,
+      "intro": "Reducción frente a zona sin cubrir en pruebas de verano del propio fabricante, no un estudio independiente.",
+      "bars": [
+        {
+          "label": "Sombreo total",
+          "value": 75,
+          "src": "Arrigoni, 6 nov"
+        },
+        {
+          "label": "Malla MDF (49 % de sombreo)",
+          "value": 46,
+          "src": "Arrigoni, 6 nov"
+        },
+        {
+          "label": "Malla LDF (30 % de sombreo)",
+          "value": 40,
+          "src": "Arrigoni, 6 nov"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "i-pimiento-bayer-arava-2026-11-16",
+      "date": "2026-11-16",
+      "ambito": "variedades",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "Bayer enseña en Israel un nuevo pimiento rojo de exportación con larga vida poscosecha",
+      "summary": "Unos 50 productores vieron el 11 de noviembre en Paran (Arava) las variedades de pimiento de Bayer. La SVPB1028, roja y pensada para exportar por su larga conservación, aún no es comercial. Bayer atribuye parte de la demanda del pimiento israelí a los problemas de trips en España y a la ola de calor en Países Bajos.",
+      "source": "HortiDaily (Bayer)",
+      "url": "https://www.hortidaily.com/article/9892732/bayer-introduces-red-export-bell-pepper-for-growers-in-arava-valley/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-tomate-roma-solstic-2026-11-04",
+      "date": "2026-11-04",
+      "ambito": "variedades",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "De Ruiter presenta Solstic, su primer tomate Roma con resistencia intermedia al virus rugoso",
+      "summary": "La variedad, de la marca de semillas de Bayer, tiene resistencia intermedia multigénica a ToBRFV y al oídio, y está pensada para invernadero de alta tecnología, con o sin iluminación. Da fruto rojo, oval y uniforme de 90 a 110 gramos. El artículo no ofrece datos de rendimiento.",
+      "source": "HortiDaily (De Ruiter)",
+      "url": "https://www.hortidaily.com/article/9889221/introducing-solstic-roma-tomato-variety-with-resistance-to-tobrfv/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-sandia-fito-gama-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "variedades",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Fitó presenta su gama de sandía para la campaña de primavera en Almería",
+      "summary": "Incluye dos polinizadores de micropepita, Leiva (trasplantes desde principios de diciembre hasta mediados de febrero) y Amaral, y el triploide rayado Taylor, con buen cuajado en frío. Los frutos apuntan a 2-3 kg y la empresa probará esta primavera una sandía de color más llamativo y algo más pequeña.",
+      "source": "Infoagro (Fitó)",
+      "url": "https://www.infoagro.com/noticias/2026/fito_apuesta_por_la_productividad__la_calidad_y_la_rentabilidad_del_ag.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-uva-aledo-sin-semillas-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "variedades",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Un proyecto busca una uva de mesa Aledo sin semillas mediante edición genómica",
+      "summary": "UVANOVA reúne a Madeinplant, ValGenetics y el IBMCP-CSIC, con apoyo de la Agència Valenciana de la Innovació y la UE. Aplicará CRISPR-Cas para eliminar las semillas sin cambiar las características de la variedad. La siguiente fase es un protocolo de regeneración in vitro; el artículo no da plazos ni presupuesto.",
+      "source": "Infoagro (NTG España)",
+      "url": "https://www.infoagro.com/noticias/2026/uvanova__un_nuevo_proyecto_para_obtener_uva_de_mesa_aledo_sin_semillas.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-robot-inaho-pilotos-2026-11-11",
+      "date": "2026-11-11",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Un robot cosechador de tomate cherry termina sus pilotos de verano y un productor lo adoptará en 2027",
+      "summary": "El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, uno en Países Bajos y otro en Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.",
+      "source": "HortiDaily (inaho)",
+      "url": "https://www.hortidaily.com/article/9890382/harvest-robot-completes-summer-pilots-at-two-european-growers/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-bull-qii-plataforma-autonoma-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Lanzan una plataforma autónoma que circula por invernaderos sin raíles",
+      "summary": "La Bull-Qii DS de Bogaerts se mueve en túneles, invernaderos de plástico y de cristal sin tubos-carril. Su uso principal es aplicar luz UV-C de noche en fresa, y puede servir para controlar oídio sin químicos o llevar otros equipos. No se aportan datos de velocidad ni autonomía.",
+      "source": "HortiDaily (Bogaerts)",
+      "url": "https://www.hortidaily.com/article/9892322/autonomous-driving-platform-for-greenhouses-without-rail-tubes-launched/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-mallas-termorreflectantes-2026-11-06",
+      "date": "2026-11-06",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "Las mallas termorreflectantes reducen hasta un 50 % la evaporación en pruebas de verano",
+      "summary": "El departamento de I+D de Arrigoni probó 25 tejidos. Sus mallas Prisma y Robuxta recortan la evaporación un 40 % en la versión con 30 % de sombreo y un 46 % en la de 49 %; con sombreo total la reducción llega al 75 %. El artículo no indica dónde se hicieron las pruebas ni el cultivo.",
+      "source": "HortiDaily (Arrigoni)",
+      "url": "https://www.hortidaily.com/article/9889620/thermoreflective-screens-reduce-water-evaporation-by-up-to-50-in-trials/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-infoagro-exhibition-2027-2026-10-26",
+      "date": "2026-10-26",
+      "ambito": "maquinaria",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Infoagro Exhibition 2027 será del 5 al 7 de mayo en Roquetas de Mar",
+      "summary": "La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9885983/infoagro-exhibition-2027-will-bring-together-the-key-players-in-intensive-agriculture-in-almeria/",
+      "status": "revisada"
+    },
+    {
+      "id": "i-koppert-el-ejido-gestion-integrada-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "bioinsumos",
+      "tag": "innovacion",
+      "importancia": 5,
+      "title": "El Ejido y Koppert defienden la gestión integrada como respuesta al trips parvispinus",
+      "summary": "Ambos plantean un modelo basado en control biológico, higiene y aislamiento, plantas reservorio y químicos solo cuando sean compatibles con la fauna auxiliar. Koppert considera al ácaro depredador A. limonicus la opción más eficaz hoy, sin materias activas autorizadas eficaces. El Ayuntamiento pide actuar de forma colectiva y cumplir el protocolo de la Junta.",
+      "source": "Infoagro (Koppert)",
+      "url": "https://www.infoagro.com/noticias/2026/el_ayuntamiento_de_el_ejido_y_koppert_reconocen_la_importancia_de_la_l.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-bionema-licencias-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "bioinsumos",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Bionema abre al mundo sus plataformas de biocontrol para licencias y alianzas",
+      "summary": "La empresa británica ofrece Incapsulex (microencapsulado estable más de 17 meses a temperatura ambiente), Adhesulex y BiofilmTech, un biofertilizante de consorcios microbianos. Syngenta compró dos de sus bioinsecticidas en 2021. El artículo cita los objetivos de Bayer, Corteva y FMC en biológicos.",
+      "source": "Infoagro",
+      "url": "https://www.infoagro.com/noticias/2026/bionema_abre_sus_plataformas_tecnologicas_de_biocontrol_a_la_concesion.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-ifco-coexphal-2026-11-06",
+      "date": "2026-11-06",
+      "ambito": "envases",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "La cúpula de IFCO visita Coexphal para conocer las necesidades del envase reutilizable en Almería",
+      "summary": "El consejero delegado, Mike Pooley, y su equipo se reunieron en La Mojonera con los gestores de Coexphal y recorrieron empresas asociadas. Hablaron de disponibilidad de envases en picos de campaña, logística de recogida, higiene y gestión de incidencias. Acordaron mantener abierto el canal.",
+      "source": "Infoagro (IFCO)",
+      "url": "https://www.infoagro.com/noticias/2026/la_cupula_mundial_de_ifco_visita_coexphal_para_conocer_las_necesidades.asp",
+      "status": "revisada"
+    },
+    {
+      "id": "i-envases-murcia-exportaciones-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "envases",
+      "tag": "innovacion",
+      "importancia": 2,
+      "title": "Las exportaciones de envases y embalajes de Murcia suben un 3,2 % hasta agosto",
+      "summary": "Alcanzan 251,46 millones de euros, según las cifras que dio el consejero de Empresa, Luis Alberto Marín, en una visita a Sonoco. El dato es regional y no se detalla la estadística de origen.",
+      "source": "Infoagro",
+      "url": "https://www.infoagro.com/noticias/2026/las_exportaciones_del_sector_de_los_envases_y_embalajes_crecen_un_3_2_.asp",
+      "status": "revisada"
+    }
+  ]
+}
