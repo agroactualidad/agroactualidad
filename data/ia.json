@@ -1,0 +1,208 @@
+{
+  "updated": "2026-11-16T22:30:00+01:00",
+  "checked": "2026-11-16T22:30:00+01:00",
+  "charts": [
+    {
+      "id": "cosecha-mecanica",
+      "title": "Cosecha de arándano: coste por kilo",
+      "unit": "A$/kg",
+      "date": "2026-11-16",
+      "decimals": 2,
+      "intro": "Cifras de la propia empresa Western Berry (Australia); no es un estudio independiente.",
+      "bars": [
+        {
+          "label": "Recolección manual",
+          "value": 6.0,
+          "src": "Western Berry, 16 nov"
+        },
+        {
+          "label": "Cosechadora mecánica",
+          "value": 0.5,
+          "src": "Western Berry, 16 nov"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "a-trampa-luz-virtual-ia-2026-11-16",
+      "date": "2026-11-16",
+      "ambito": "ia",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Un modelo de IA entrenado solo con imágenes sintéticas detecta insectos en trampas de invernadero",
+      "summary": "El estudio, publicado en Smart Agricultural Technology, crea un gemelo digital de una trampa luminosa y genera imágenes artificiales de cuatro especies de insectos sin etiquetado manual. El detector YOLO26n entrenado solo con ellas alcanza un 78,6 % de mAP50 en insectos reales. Con una métrica más estricta rinde mucho menos que el entrenado con datos reales (0,367 frente a 0,814).",
+      "source": "HortiDaily (Smart Agricultural Technology)",
+      "url": "https://www.hortidaily.com/article/9892918/using-a-virtual-light-trap-to-detect-pests-in-the-greenhouse/",
+      "status": "revisada",
+      "origen": "mundo"
+    },
+    {
+      "id": "a-moyca-eficiencia-hidrica-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "sensores",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "Moyca digitaliza el control del agua de 1.552 hectáreas con sensores en embalses y cabezales",
+      "summary": "El proyecto de año y medio instala sensores piezométricos en 42 balsas, de unos 2 millones de m³ en conjunto, y controla el riego con 52 cabezales con caudalímetro conectados a internet. Los datos se actualizan cada hora y generan alertas por nivel, posibles fugas y pérdidas por evaporación. La empresa, de uva de mesa sin semillas en Murcia, prepara un balance hídrico completo.",
+      "source": "Infoagro (Moyca)",
+      "url": "https://www.infoagro.com/noticias/2026/moyca_impulsa_la_eficiencia_hidrica_mediante_la_digitalizacion_del_con.asp",
+      "status": "revisada",
+      "origen": "espana",
+      "pais": "Murcia"
+    },
+    {
+      "id": "a-western-berry-arandano-autonomo-2026-11-16",
+      "date": "2026-11-16",
+      "ambito": "robots",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "Un productor australiano de arándano prueba tractores sin conductor y cosecha mecánica a una décima parte del coste",
+      "summary": "Western Berry, con 120 hectáreas al norte de Perth, ensaya tractores autónomos para pulverizar y una cosechadora mecánica con batería solar que recoge hasta 6 toneladas al día. Según la empresa, cuesta unos 0,50 dólares australianos por kilo frente a 6 de la recolección manual. Espera cosechar casi 1.500 toneladas y que a lo sumo la mitad se recoja a máquina.",
+      "source": "HortiDaily (Western Berry)",
+      "url": "https://www.hortidaily.com/article/9892923/blueberry-grower-in-australia-trials-driverless-tractors-and-autonomous-harvesting/",
+      "status": "revisada",
+      "origen": "mundo",
+      "pais": "Australia"
+    },
+    {
+      "id": "a-pixa-fresa-nocturna-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "robots",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Canadá financia un estudio de tres años sobre un robot que cosecha fresa de noche y detecta plagas",
+      "summary": "La Kwantlen Polytechnic University recibe 540.000 dólares canadienses de NSERC y Mitacs para probar el robot Pixa, de Nupeak Robotics. Estudiarán si puede recolectar de noche y si sus cámaras detectan plagas y enfermedades antes que las inspecciones manuales semanales. Los ensayos serán en invernaderos de investigación y, el tercer año, en uno comercial.",
+      "source": "HortiDaily (KPU)",
+      "url": "https://www.hortidaily.com/article/9892727/can-kpu-awarded-540k-to-study-ai-powered-robotics-for-strawberry-production/",
+      "status": "revisada",
+      "origen": "mundo",
+      "pais": "Canadá"
+    },
+    {
+      "id": "a-robots-esparrago-china-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "robots",
+      "tag": "innovacion",
+      "importancia": 2,
+      "title": "China prueba robots para cosechar, transportar y clasificar espárrago de invernadero",
+      "summary": "Investigadores de la Academia de Ciencias Agrícolas de Sichuan presentaron los robots en el condado de Lianshui (Jiangsu), que concentra cerca del 30 % del espárrago de invernadero del país. La mecanización del cultivo está por debajo del 20 %. El artículo no da datos de velocidad ni resultados, y cita el coste de los equipos como freno.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9890630/china-trials-harvesting-robots-for-greenhouse-asparagus/",
+      "status": "revisada",
+      "origen": "mundo",
+      "pais": "China"
+    },
+    {
+      "id": "a-robot-inaho-pilotos-2026-11-11",
+      "date": "2026-11-11",
+      "ambito": "robots",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Un robot cosechador de tomate cherry termina sus pilotos de verano y un productor lo adoptará en 2027",
+      "summary": "El robot de inaho, compacto y con batería, trabajó cada día junto a los recolectores de dos productores comerciales, en Países Bajos y Bélgica, entre junio y agosto. Uno de ellos pasa a la fase de adopción para 2027. El artículo no da cifras de rendimiento.",
+      "source": "HortiDaily (inaho)",
+      "url": "https://www.hortidaily.com/article/9890382/harvest-robot-completes-summer-pilots-at-two-european-growers/",
+      "status": "revisada",
+      "origen": "europa",
+      "pais": "Países Bajos y Bélgica"
+    },
+    {
+      "id": "a-bull-qii-plataforma-autonoma-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "robots",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Lanzan una plataforma autónoma que circula por invernaderos sin raíles",
+      "summary": "La Bull-Qii DS de Bogaerts se mueve en túneles, invernaderos de plástico y de cristal sin tubos-carril. Su uso principal es aplicar luz UV-C de noche en fresa, y puede servir para controlar oídio sin químicos o llevar otros equipos. No se aportan datos de velocidad ni autonomía.",
+      "source": "HortiDaily (Bogaerts)",
+      "url": "https://www.hortidaily.com/article/9892322/autonomous-driving-platform-for-greenhouses-without-rail-tubes-launched/",
+      "status": "revisada",
+      "origen": "europa"
+    },
+    {
+      "id": "a-ikos-notes-cuaderno-digital-2026-11-11",
+      "date": "2026-11-11",
+      "ambito": "datos",
+      "tag": "innovacion",
+      "importancia": 5,
+      "title": "IKOS Advanced, de Adra, lanza un cuaderno de campo digital ante el fin del papel el 1 de enero de 2027",
+      "summary": "Ikos Notes permite registrar tratamientos, abonado y riego desde el móvil, importa fincas del REA y avisa si un producto supera la dosis o no está autorizado para el cultivo. Técnicos y cooperativas pueden gestionar los cuadernos de todos sus agricultores. La empresa, con unos 80 empleados, dice tener más de 4.000 agricultores y 15.000 hectáreas en 13 países, y ofrece un 25 % de descuento hasta el 31 de diciembre.",
+      "source": "Infoagro (IKOS Advanced)",
+      "url": "https://www.infoagro.com/noticias/2026/ikos_advanced_lanza_ikos_notes__su_cuaderno_de_campo_digital.asp",
+      "status": "revisada",
+      "origen": "almeria",
+      "pais": "Adra"
+    },
+    {
+      "id": "a-digitalizacion-invernadero-ciberseguridad-2026-11-16",
+      "date": "2026-11-16",
+      "ambito": "datos",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "La digitalización del invernadero trae nuevas herramientas y nuevos riesgos de ciberseguridad",
+      "summary": "Expertos de TNO advierten de que los sistemas de clima, energía y riego están conectados y que los proveedores suelen acceder en remoto, lo que expone a los cultivos ante un ataque. Recomiendan mapear qué está conectado, vigilar los accesos y preparar un plan de incidentes. Otros trabajos presentados analizan 16 técnicas para localizar sensores y robots.",
+      "source": "HortiDaily (TNO, 30MHz)",
+      "url": "https://www.hortidaily.com/article/9892775/greenhouse-digitalization-brings-new-tools-and-new-cybersecurity-risks/",
+      "status": "revisada",
+      "origen": "europa",
+      "pais": "Países Bajos"
+    },
+    {
+      "id": "a-hippo-harvest-robots-ia-2026-11-09",
+      "date": "2026-11-09",
+      "ambito": "ia",
+      "origen": "mundo",
+      "pais": "EE. UU.",
+      "tag": "innovacion",
+      "importancia": 4,
+      "title": "Hippo Harvest combina robots y aprendizaje automático para cultivar hoja verde en invernadero",
+      "summary": "La empresa estadounidense cultiva hortalizas de hoja en un invernadero de unos 0,4 ha (1 acre) con hidroponía sin recirculación y robots guiados por modelos de aprendizaje automático. Prevé ampliar a unas 12 hectáreas en Hollister (California) a partir de finales de 2027. Anunció una ronda de 30 millones de dólares en julio. El artículo no aporta datos de rendimiento.",
+      "source": "FreshPlaza (Hippo Harvest)",
+      "url": "https://www.freshplaza.com/article/9890582/where-robotics-and-ai-meet-greenhouse-growing/",
+      "status": "revisada"
+    },
+    {
+      "id": "a-hexagon-senvisio-vinedo-2026-11-13",
+      "date": "2026-11-13",
+      "ambito": "sensores",
+      "origen": "europa",
+      "pais": "Italia (EIMA)",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "Hexagon presenta Senvisio, una guía de tractor por cámaras que funciona sin señal de satélite",
+      "summary": "El sistema usa cámaras y procesamiento a bordo para detectar las filas de viñedo, huerto o cítricos, sin líneas guardadas, mapas ni GNSS. Se presentó en la feria EIMA de Bolonia y servirá para pulverizar, segar o abonar. La empresa prevé comercializarlo en 2027, como kit de adaptación o de fábrica.",
+      "source": "AgNavigator (Hexagon)",
+      "url": "https://www.agnavigator.com/Article/2026/11/13/hexagon-targets-satellite-blind-spots-with-vision-based-vineyard-steering/",
+      "status": "revisada"
+    },
+    {
+      "id": "a-earthsense-kit-tractor-2026-11-16",
+      "date": "2026-11-16",
+      "ambito": "ia",
+      "origen": "mundo",
+      "pais": "Malasia e Indonesia",
+      "tag": "innovacion",
+      "importancia": 3,
+      "title": "EarthSense lleva su abonado de precisión con IA a tractores ya existentes en palma de aceite",
+      "summary": "La empresa adapta la tecnología de sus robots a un kit con cámara, ordenador a bordo y esparcidor inteligente que se monta en tractores. Cuesta unos 25.000 dólares por unidad y tiene una cartera de unas 100 unidades para finales de 2027, mientras recauda 2 millones de dólares en su filial malasia.",
+      "source": "AgNavigator (EarthSense)",
+      "url": "https://www.agnavigator.com/Article/2026/11/16/earthsense-finds-a-faster-route-to-market-with-tractor-retrofits/",
+      "status": "revisada"
+    },
+    {
+      "id": "a-irri-mekong-datos-2026-10-20",
+      "date": "2026-10-20",
+      "ambito": "datos",
+      "origen": "mundo",
+      "pais": "Vietnam",
+      "tag": "innovacion",
+      "importancia": 2,
+      "title": "El IRRI señala el abonado y la fecha de siembra como las dos grandes causas de la brecha de rendimiento en arroz-camarón",
+      "summary": "Según el estudio presentado en un taller en Ca Mau, la gestión de nutrientes (37 %) y la época de siembra (29 %) explican en torno al 66 % de los factores analizados. El IRRI defiende herramientas basadas en datos para ajustar abonado y calendarios en el delta del Mekong.",
+      "source": "AgNavigator (IRRI)",
+      "url": "https://www.agnavigator.com/Article/2026/10/20/mekong-delta-rice-shrimp-producers-need-data-driven-tools-to-lift-yields-irri/",
+      "status": "revisada"
+    }
+  ]
+}
