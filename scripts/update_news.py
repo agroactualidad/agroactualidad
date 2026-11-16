@@ -25,13 +25,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "almeria.json"
+MERCADOS = ROOT / "data" / "mercados.json"
+VISTAS = ROOT / "data" / "vistas.json"
 SOURCES = ROOT / "scripts" / "sources.json"
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5")  # modelo pequeño: barato
 API_URL = "https://api.anthropic.com/v1/messages"
-MAX_NUEVAS_POR_DIA = 8      # tope para controlar el gasto
+MAX_NUEVAS_POR_DIA = 14     # tope para controlar el gasto
 DIAS_RECIENTES = 7          # solo entradas de los últimos días (las ya conocidas se ignoran por URL)
 USER_AGENT = "AgroAlmeriaBot/1.0 (+proyecto personal; lee feeds RSS publicos)"
+AMBITOS_VALIDOS = ["almeria", "espana", "europa", "mundo"]
 TAGS = ["mercados", "sanidad", "clima", "politica", "logistica", "campo", "innovacion"]
 
 
@@ -99,12 +102,14 @@ def es_de_almeria(entrada, palabras):
 
 # ---------- Resumen con Claude ----------
 
-PROMPT = """Eres redactor de una web de noticias agrícolas sobre Almería.
+PROMPT = """Eres redactor de una web de noticias agrícolas con dos bloques: «Almería» y «Mercados» (Almería, España, Europa y mundo).
 Te paso UNA noticia (titular y extracto). Devuelve SOLO un JSON con estas claves:
-- "relevante": true si la noticia trata de la agricultura de Almería o de algo que afecta directamente al sector almeriense (una plaga que sufre, un mercado donde vende, una norma que le aplica, una tecnología que usa); false si es una noticia general sin relación clara con Almería.
+- "relevante": (bloque Almería) true si la noticia trata de la agricultura de Almería o de algo que afecta directamente al sector almeriense (una plaga que sufre, un mercado donde vende, una norma que le aplica, una tecnología que usa); false si es una noticia general sin relación clara con Almería.
 - "motivo": una frase corta explicando por qué es o no relevante.
 - "titulo": titular claro en español, máximo 120 caracteres, con tus propias palabras.
 - "resumen": 2 o 3 frases en español con tus propias palabras.
+- "mercado": true si la noticia trata de mercados agrícolas (precios, cotizaciones, campañas, cosechas, exportaciones e importaciones, comercio, aranceles, costes de producción); false si no.
+- "ambito": solo si "mercado" es true, el territorio principal de la noticia: "almeria" (mercado almeriense), "espana" (España en general o una región española que no sea Almería), "europa" (UE u otros países europeos) o "mundo" (el resto, o global).
 - "importancia": número entero de 1 a 5 (5 = afecta a muchos agricultores o decisiones/cifras clave de Almería; 3 = interesante; 1 = anecdótica).
 - "tema": uno de {tags}. («innovacion» = tecnología, IA, robótica, digitalización, I+D; «campo» = estado de los cultivos y la cosecha).
 
@@ -144,6 +149,9 @@ def resumir(entrada, api_key):
         datos["importancia"] = min(5, max(1, int(datos.get("importancia", 3))))
     except (TypeError, ValueError):
         datos["importancia"] = 3
+    datos["mercado"] = bool(datos.get("mercado"))
+    if datos.get("ambito") not in AMBITOS_VALIDOS:
+        datos["ambito"] = "mundo"
     if datos.get("tema") not in TAGS:
         datos["tema"] = "campo"
     return datos
@@ -151,16 +159,27 @@ def resumir(entrada, api_key):
 
 # ---------- Proceso principal ----------
 
+def cargar(ruta, defecto):
+    return json.loads(ruta.read_text(encoding="utf-8")) if ruta.exists() else defecto
+
+
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         log("Falta ANTHROPIC_API_KEY. Añádela como secreto en GitHub (Settings > Secrets > Actions).")
         return 1
 
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import build_site
+    hoy = datetime.now().astimezone().date()
+
     cfg = json.loads(SOURCES.read_text(encoding="utf-8"))
     palabras = [p.lower() for p in cfg["palabras_clave"]]
-    datos = json.loads(DATA.read_text(encoding="utf-8"))
-    conocidas = {i["url"] for i in datos["items"]}
+    palabras_mercado = [p.lower() for p in cfg.get("palabras_mercado", [])]
+    almeria = cargar(DATA, {"items": [], "stats": []})
+    mercados = cargar(MERCADOS, {"items": [], "charts": []})
+    vistas = cargar(VISTAS, {})          # url -> fecha en que se revisó (para no gastar dos veces)
+    conocidas = {i["url"] for i in almeria["items"]} | {i["url"] for i in mercados["items"]} | set(vistas)
     limite = datetime.now(timezone.utc) - timedelta(days=DIAS_RECIENTES)
 
     candidatas = []
@@ -172,56 +191,65 @@ def main():
             log(f"{feed['name']}: no se pudo leer ({e}). Se salta.")
             continue
         candidatas += [e for e in entradas
-                       if e["date"] >= limite and e["url"] not in conocidas and es_de_almeria(e, palabras)]
+                       if e["date"] >= limite and e["url"] not in conocidas
+                       and (es_de_almeria(e, palabras) or es_de_almeria(e, palabras_mercado))]
 
     candidatas.sort(key=lambda e: e["date"], reverse=True)
-    vistas = set()
+    vistos = set()
     unicas = []
     for e in candidatas:  # evita duplicados si dos feeds repiten la misma noticia
-        if e["url"] not in vistas:
-            vistas.add(e["url"])
+        if e["url"] not in vistos:
+            vistos.add(e["url"])
             unicas.append(e)
     candidatas = unicas[:MAX_NUEVAS_POR_DIA]
-    log(f"{len(candidatas)} candidatas nuevas sobre Almería")
+    log(f"{len(candidatas)} candidatas nuevas (Almería o mercados)")
 
-    nuevas = []
+    nuevas_alm, nuevas_mer = [], []
     for e in candidatas:
         try:
             r = resumir(e, api_key)
         except (urllib.error.URLError, ValueError, json.JSONDecodeError, OSError) as err:
             log(f"  Sin resumir «{e['title'][:60]}»: {err}")
             continue
-        if not r.get("relevante"):
-            log(f"  Descartada por irrelevante: {e['title'][:60]} | Motivo: {r.get('motivo', 'sin motivo')}")
-            continue
-        nuevas.append({
+        vistas[e["url"]] = hoy.isoformat()
+        base = {
             "id": re.sub(r"[^a-z0-9]+", "-", e["title"].lower())[:50].strip("-") + "-" + e["date"].strftime("%Y-%m-%d"),
             "date": e["date"].astimezone().strftime("%Y-%m-%d"),
-            "tag": r["tema"],
             "title": r["titulo"][:160],
             "summary": r["resumen"],
             "source": e["source"],
             "url": e["url"],
             "importancia": r["importancia"],
             "status": "auto",
-        })
-        log(f"  Añadida: {r['titulo'][:70]}")
+        }
+        if r.get("relevante"):
+            nuevas_alm.append({**base, "tag": r["tema"]})
+            log(f"  Almería: {r['titulo'][:70]}")
+        if r.get("mercado"):
+            nuevas_mer.append({**base, "id": "m-" + base["id"], "tag": "mercados", "ambito": r["ambito"]})
+            log(f"  Mercados ({r['ambito']}): {r['titulo'][:60]}")
+        if not r.get("relevante") and not r.get("mercado"):
+            log(f"  Descartada: {e['title'][:60]} | Motivo: {r.get('motivo', 'sin motivo')}")
 
-    sys.path.insert(0, str(ROOT / "scripts"))
-    import build_site
-    hoy = datetime.now().astimezone().date()
-    datos["items"] = nuevas + datos["items"]
-    antes = len(datos["items"])
-    datos["items"] = build_site.vigentes(datos["items"], hoy)   # caducan a los 30 días
-    log(f"Caducadas por superar {build_site.DIAS_MAX} días: {antes - len(datos['items'])}")
-    datos["items"].sort(key=lambda i: i["date"], reverse=True)
-    datos["stats"] = [x for x in datos.get("stats", []) if x.get("date") and build_site.antiguedad(x, hoy) <= build_site.DIAS_MAX]
     ahora = datetime.now().astimezone().isoformat(timespec="seconds")
-    datos["checked"] = ahora          # última vez que se buscó (siempre)
-    if nuevas:
-        datos["updated"] = ahora      # última vez que entró una noticia nueva
-    log(f"Noticias nuevas añadidas hoy: {len(nuevas)}")
-    DATA.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for datos, nuevas in ((almeria, nuevas_alm), (mercados, nuevas_mer)):
+        datos["items"] = build_site.vigentes(nuevas + datos["items"], hoy)   # caducan a los 30 días
+        datos["items"].sort(key=lambda i: i["date"], reverse=True)
+        for clave in ("stats", "charts"):
+            if clave in datos:
+                datos[clave] = [x for x in datos[clave]
+                                if x.get("date") and build_site.antiguedad(x, hoy) <= build_site.DIAS_MAX]
+        datos["checked"] = ahora          # última vez que se buscó (siempre)
+        if nuevas:
+            datos["updated"] = ahora      # última vez que entró una noticia nueva
+        datos.setdefault("updated", ahora)
+    log(f"Noticias nuevas hoy: Almería {len(nuevas_alm)}, Mercados {len(nuevas_mer)}")
+
+    vistas = {u: f for u, f in vistas.items()
+              if (hoy - datetime.fromisoformat(f).date()).days <= 40}
+    DATA.write_text(json.dumps(almeria, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    MERCADOS.write_text(json.dumps(mercados, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    VISTAS.write_text(json.dumps(vistas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     build_site.build(hoy)
     return 0

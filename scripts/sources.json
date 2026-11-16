@@ -1,14 +1,118 @@
 {
-  "_nota": "Fuentes RSS que lee el script cada día. 'confirmado' = la URL del feed aparece enlazada en la propia web. 'por comprobar' = feed habitual de WordPress que hay que verificar en la primera ejecución real. Si un feed falla, el script lo salta y sigue con los demás.",
+  "_nota": "Fuentes RSS que lee el script cada día. 'confirmado' = el feed se ha leído con éxito. 'por comprobar' = dirección habitual que aún no se ha probado: si falla, el script la salta y lo anota en el registro de Actions.",
   "feeds": [
-    { "name": "HortiDaily", "url": "https://www.hortidaily.com/rss.xml/", "estado": "confirmado" },
-    { "name": "Agronews Castilla y León", "url": "https://www.agronewscastillayleon.com/feed", "estado": "confirmado" },
-    { "name": "Hortoinfo", "url": "https://hortoinfo.es/feed/", "estado": "por comprobar" }
+    {
+      "name": "HortiDaily",
+      "url": "https://www.hortidaily.com/rss.xml/",
+      "estado": "confirmado"
+    },
+    {
+      "name": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/feed",
+      "estado": "confirmado"
+    },
+    {
+      "name": "Hortoinfo",
+      "url": "https://hortoinfo.es/feed/",
+      "estado": "confirmado"
+    },
+    {
+      "name": "eComercio Agrario",
+      "url": "https://ecomercioagrario.com/feed/",
+      "estado": "por comprobar"
+    },
+    {
+      "name": "Agroinformación",
+      "url": "https://www.agroinformacion.com/feed/",
+      "estado": "por comprobar"
+    },
+    {
+      "name": "Revista Mercados",
+      "url": "https://revistamercados.com/feed/",
+      "estado": "por comprobar"
+    },
+    {
+      "name": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/rss.xml/",
+      "estado": "por comprobar"
+    },
+    {
+      "name": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/rss.xml/",
+      "estado": "por comprobar"
+    },
+    {
+      "name": "Interempresas Hortícola",
+      "url": "https://www.interempresas.net/Horticola/RSS/Articulos.xml",
+      "estado": "por comprobar"
+    }
   ],
   "palabras_clave": [
-    "almería", "almeria", "poniente", "el ejido", "níjar", "nijar", "roquetas",
-    "la mojonera", "campo de dalías", "vícar", "berja", "adra",
-    "coexphal", "hortyfruta", "asaja almería", "coag almería", "unica group",
-    "invernadero", "parvispinus"
+    "almería",
+    "almeria",
+    "poniente",
+    "el ejido",
+    "níjar",
+    "nijar",
+    "roquetas",
+    "la mojonera",
+    "campo de dalías",
+    "vícar",
+    "berja",
+    "adra",
+    "coexphal",
+    "hortyfruta",
+    "asaja almería",
+    "coag almería",
+    "unica group",
+    "cajamar",
+    "las palmerillas",
+    "anecoop",
+    "vicasol",
+    "agrupaejido",
+    "trops",
+    "universidad de almería",
+    "ifapa la mojonera",
+    "fhalmería",
+    "invernadero",
+    "invernaderos",
+    "greenhouse",
+    "parvispinus"
+  ],
+  "palabras_mercado": [
+    "precio",
+    "precios",
+    "cotización",
+    "cotizaciones",
+    "mercado",
+    "mercados",
+    "lonja",
+    "exportación",
+    "exportaciones",
+    "importación",
+    "importaciones",
+    "arancel",
+    "aranceles",
+    "cosecha",
+    "campaña",
+    "aforo",
+    "producción",
+    "comercio",
+    "inflación",
+    "fao",
+    "usda",
+    "eurostat",
+    "fepex",
+    "price",
+    "prices",
+    "market",
+    "export",
+    "exports",
+    "import",
+    "tariff",
+    "harvest",
+    "crop",
+    "season",
+    "supply"
   ]
 }
