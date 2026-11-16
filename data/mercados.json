@@ -1,0 +1,245 @@
+{
+  "updated": "2026-11-16T20:00:00+01:00",
+  "checked": "2026-11-16T20:00:00+01:00",
+  "charts": [
+    {
+      "id": "europa-precios",
+      "title": "Precios de referencia en Europa",
+      "unit": "€/kg",
+      "date": "2026-11-05",
+      "decimals": 2,
+      "intro": "Cada barra procede de una fuente y una semana distintas; sirven para comparar magnitudes, no como cotización del día.",
+      "bars": [
+        {
+          "label": "Tomate rama (Bélgica, sem. 43)",
+          "value": 2.19,
+          "src": "Subastas VBT, 28 oct"
+        },
+        {
+          "label": "Tomate rama (Almería)",
+          "value": 2.11,
+          "src": "Agropizarra, 3 nov"
+        },
+        {
+          "label": "Tomate plum (Almería)",
+          "value": 2.06,
+          "src": "Agropizarra, 3 nov"
+        },
+        {
+          "label": "Tomate suelto (Bélgica, sem. 43)",
+          "value": 1.38,
+          "src": "Subastas VBT, 28 oct"
+        },
+        {
+          "label": "Pimiento rojo (Bélgica, sem. 44)",
+          "value": 1.2,
+          "src": "Subastas VBT, 5 nov"
+        },
+        {
+          "label": "Berenjena (Almería, sem. 39)",
+          "value": 0.63,
+          "src": "Coexphal"
+        }
+      ]
+    },
+    {
+      "id": "fao",
+      "title": "Índice FAO de octubre: variación mensual por grupo",
+      "unit": "%",
+      "date": "2026-11-06",
+      "decimals": 1,
+      "signed": true,
+      "intro": "Variación respecto a septiembre. El índice general quedó en 133,9 puntos.",
+      "bars": [
+        {
+          "label": "Azúcar",
+          "value": 6.6,
+          "src": "FAO, octubre"
+        },
+        {
+          "label": "Aceites vegetales",
+          "value": 0.3,
+          "src": "FAO, octubre"
+        },
+        {
+          "label": "Índice general",
+          "value": -1.2,
+          "src": "FAO, octubre"
+        },
+        {
+          "label": "Lácteos",
+          "value": -1.1,
+          "src": "FAO, octubre"
+        },
+        {
+          "label": "Carne",
+          "value": -1.2,
+          "src": "FAO, octubre"
+        },
+        {
+          "label": "Cereales",
+          "value": -4.5,
+          "src": "FAO, octubre"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "inicio-campana-precios-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "almeria",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "La campaña arranca tarde y con precios a la baja en berenjena, calabacín y pepino",
+      "summary": "Según Inteligencia de Mercados de Coexphal, el calor retrasó el inicio de la campaña 2026/27. La berenjena abrió a 0,82 €/kg y cayó a 0,63 €/kg en la semana 39; el calabacín pasó de 1,52 €/kg en la semana 36 a 0,46 €/kg en la 40; el pepino tocó mínimo en 0,52 €/kg.",
+      "source": "HortiDaily (datos de Coexphal)",
+      "url": "https://www.hortidaily.com/article/9889545/almeria-kicks-off-the-season-with-price-slumps-in-eggplant-zucchini-and-cucumber/",
+      "status": "revisada"
+    },
+    {
+      "id": "tomate-retraso-precios-2026-11-03",
+      "date": "2026-11-03",
+      "ambito": "almeria",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "El tomate se paga muy por encima de la media en las subastas almerienses",
+      "summary": "Vicasol explica que el trasplante se retrasó por las plagas y el calor, así que el volumen no llegó hasta mediados de noviembre en vez de las semanas 44-45. Los precios citados rondan 2,06 €/kg en plum y 2,11 €/kg en rama, muy por encima de la media de tres años.",
+      "source": "HortiDaily (Vicasol)",
+      "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
+      "status": "revisada"
+    },
+    {
+      "id": "balance-perspectivas-2026-10-29",
+      "date": "2026-10-29",
+      "ambito": "almeria",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Balance 2025/26: menos producción, precios más altos y pimiento bajo presión",
+      "summary": "Un consultor que visitó la provincia cifra la caída de producción en un 9,8 % (pimiento −16 %, tomate −17,3 %), con un valor cercano a 3.900 millones compensado por los precios. Para 2026/27 apunta a un 5-10 % menos de superficie de pimiento California. Es una valoración personal, no un dato oficial.",
+      "source": "HortiDaily (Alberto Lizarraga)",
+      "url": "https://www.hortidaily.com/article/9887461/examining-almeria-s-2025-26-season-and-2026-27-outlook/",
+      "status": "revisada"
+    },
+    {
+      "id": "aceite-norma-comercializacion-2026-10-21",
+      "date": "2026-10-21",
+      "ambito": "espana",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg",
+      "summary": "ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.",
+      "source": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen",
+      "status": "revisada"
+    },
+    {
+      "id": "lonjas-cereales-2026-11-07",
+      "date": "2026-11-07",
+      "ambito": "espana",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Los cereales cierran la semana a la baja en las lonjas de León, Salamanca y Barcelona",
+      "summary": "En las sesiones del 3 y 4 de noviembre, el trigo se pagó a 226 €/t en León y 236 €/t en Salamanca, y la cebada a 221 y 231 €/t, con bajadas de uno y dos euros. El maíz cedió hasta 243 €/t en Salamanca; en León no hubo precio al no haber acuerdo entre compradores y vendedores.",
+      "source": "Agronews Castilla y León",
+      "url": "https://www.agronewscastillayleon.com/precios-agrarios-2-6-noviembre-2026-porcino-cereales-vacuno",
+      "status": "revisada"
+    },
+    {
+      "id": "fruit-attraction-balance-2026-10-23",
+      "date": "2026-10-23",
+      "ambito": "espana",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Fruit Attraction cierra con 128.364 profesionales y un impacto estimado de 419 millones",
+      "summary": "La feria hortofrutícola de Madrid reunió a 128.364 profesionales de 170 países, un 6 % más, y a 2.588 empresas expositoras de 79 países en 162.000 metros cuadrados. La organización estima un impacto de 419 millones de euros en la ciudad. La próxima edición será del 5 al 7 de octubre de 2027.",
+      "source": "Agraria.pe (datos de la organización)",
+      "url": "https://agraria.pe/noticias/fruit-attraction-sigue-creciendo-y-reune-a-128-364-profesion-43338",
+      "status": "revisada"
+    },
+    {
+      "id": "ce-grupo-tomate-2026-10-19",
+      "date": "2026-10-19",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "Marruecos aporta dos de cada tres tomates que la UE importa de fuera de la Unión",
+      "summary": "En el grupo de expertos del tomate de la Comisión Europea, reunido el 15 de octubre, se expuso que Marruecos suministró 527.000 de las 773.000 toneladas importadas de terceros países. La producción española bajó cerca de un 2 % en 2025/26, con la energía y el transporte un 16 % más caros y los plásticos y envases un 18 %.",
+      "source": "Agronews Castilla y León (vía FEPEX)",
+      "url": "https://www.agronewscastillayleon.com/tomate-espana-produccion-costes-marruecos-2026",
+      "status": "revisada"
+    },
+    {
+      "id": "inflacion-alimentos-ue-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona",
+      "summary": "Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.",
+      "source": "Euronews (datos de Eurostat)",
+      "url": "https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest",
+      "status": "revisada"
+    },
+    {
+      "id": "vbt-tomate-pepino-2026-10-28",
+      "date": "2026-10-28",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Bélgica: suben el tomate y el pepino al apagarse los invernaderos sin calefacción",
+      "summary": "En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.",
+      "source": "HortiDaily (subastas VBT)",
+      "url": "https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/",
+      "status": "revisada"
+    },
+    {
+      "id": "vbt-pimiento-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "europa",
+      "tag": "mercados",
+      "importancia": 2,
+      "title": "El pimiento rojo belga baja a 1,20 €/kg en la recta final de la campaña",
+      "summary": "En la semana 44, las subastas belgas pagaron el pimiento rojo a unos 1,20 €/kg, por debajo del año anterior pese a una oferta algo mayor. El amarillo, el verde y el naranja se pagaron mejor que en 2025. Los precios vienen cayendo desde el máximo de finales de septiembre.",
+      "source": "HortiDaily (subastas VBT)",
+      "url": "https://www.hortidaily.com/article/9889462/final-batches-of-yellow-peppers-arrive-at-auction/",
+      "status": "revisada"
+    },
+    {
+      "id": "fao-indice-precios-2026-11-06",
+      "date": "2026-11-06",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 5,
+      "title": "El índice de precios de los alimentos de la FAO baja un 1,2 % en octubre, con el azúcar disparado",
+      "summary": "El indicador quedó en 133,9 puntos, un 1,2 % menos que en septiembre pero un 5,9 % por encima de octubre de 2025. Los cereales cayeron un 4,5 %, la carne un 1,2 % y los lácteos un 1,1 %, mientras el azúcar subió un 6,6 %, cuarto mes al alza y máximo desde diciembre de 2024.",
+      "source": "Tribuna do Sertão (datos de la FAO)",
+      "url": "https://www.tribunadosertao.com.br/geral/2026/11/06/1014931-indice-da-fao-de-precos-de-alimentos-recua-12-em-outubro",
+      "status": "revisada"
+    },
+    {
+      "id": "wasde-noviembre-2026-11-10",
+      "date": "2026-11-10",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels",
+      "summary": "El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.",
+      "source": "USDA (informe WASDE)",
+      "url": "https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf",
+      "status": "revisada"
+    },
+    {
+      "id": "peru-exportaciones-2026-11-05",
+      "date": "2026-11-05",
+      "ambito": "mundo",
+      "tag": "mercados",
+      "importancia": 3,
+      "title": "Perú exporta 4.799 millones de dólares en frutas y hortalizas hasta agosto, un 15 % más",
+      "summary": "El Ministerio de Desarrollo Agrario y Riego cifra en 4.798,9 millones de dólares las ventas de enero a agosto, frente a 4.167,8 del año anterior. Las frutas aportan 4.381,7 millones (+16,6 %) y las hortalizas 417,2 millones (+1,7 %). Suponen el 63,5 % de la agroexportación no tradicional.",
+      "source": "Agraria.pe (datos de Midagri)",
+      "url": "https://agraria.pe/noticias/exportaciones-de-frutas-y-hortalizas-sumaron-us-4-798-897-00-43414",
+      "status": "revisada"
+    }
+  ]
+}
