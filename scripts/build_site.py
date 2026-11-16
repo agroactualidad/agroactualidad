@@ -228,6 +228,55 @@ h1, h2, h3 {
 .tab > button { padding: 10px 11px; font-size: 0.94rem; }
 .tabs { gap: 0 2px; }
 
+.tab-link { display: inline-flex; align-items: center; padding: 10px 11px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.94rem; }
+.tab-link:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--text); }
+.tab-link[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.tab-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Menú de los tres puntos (redes, contacto, reseñas) */
+.mas { position: relative; margin-left: 4px; }
+.mas > summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: .94rem; color: var(--text);
+}
+.mas > summary::-webkit-details-marker { display: none; }
+.mas > summary:hover, .mas[open] > summary { background: var(--surface); }
+.mas > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mas-ico { display: inline-grid; gap: 3.5px; }
+.mas-ico i { display: block; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.mas-globo {
+  position: absolute; right: 0; top: calc(100% + 12px); width: min(320px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4); z-index: 30;
+}
+.mas-globo::before {
+  content: ""; position: absolute; top: -7px; right: 22px; width: 12px; height: 12px; background: var(--surface);
+  border-left: 1px solid var(--line); border-top: 1px solid var(--line); transform: rotate(45deg);
+}
+.mas-item {
+  display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; text-align: left;
+  font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
+  border-radius: 9px; cursor: pointer;
+}
+.mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
+.mas-item small { color: var(--muted); font-size: .8rem; }
+.resenas > summary { list-style: none; }
+.resenas > summary::-webkit-details-marker { display: none; }
+.resenas[open] > summary { color: var(--accent); }
+.resenas form { padding: 6px 12px 12px; display: grid; gap: 10px; }
+.resenas label { font-size: .9rem; color: #cbd9e8; }
+.resenas textarea {
+  width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: .95rem; color: var(--text);
+  background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+.resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas .enviar {
+  justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
+  border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
+}
+.resenas .aviso { margin: 0; font-size: .86rem; color: var(--muted); }
+@media (max-width: 860px) { .mas { margin-left: 0; } .mas-globo { right: auto; left: 0; } .mas-globo::before { right: auto; left: 22px; } }
+
 /* Página de Mercados */
 .saltos { display: grid; gap: 8px; }
 .saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
@@ -483,18 +532,37 @@ def cabecera(activa, menus):
     pestanas = ""
     for clave, titulo, destino, panel in menus:
         actual = ' aria-current="page"' if clave == activa else ""
-        enlace = f'<a class="panel-go" href="{destino}">Abrir {titulo}</a>' if destino and clave != activa else ""
         pestanas += f'''
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-{clave}"{actual}>{titulo}</button>
-          <div class="panel" id="p-{clave}" hidden>{panel}
-            {enlace}
-          </div>
-        </div>'''
+        <a class="tab-link" href="{destino}"{actual}>{titulo}</a>'''
     return f'''  <header class="masthead">
     <div class="wrap bar">
       <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
       <nav class="tabs" aria-label="Secciones">{pestanas}
+        <details class="mas" id="menu-mas">
+          <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
+          <div class="mas-globo">
+            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
+            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <details class="resenas">
+              <summary class="mas-item">Reseñas</summary>
+              <form id="form-resenas">
+                <label for="texto-resena">Escribe lo que quieras</label>
+                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <button type="submit" class="enviar">Enviar</button>
+                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+              </form>
+            </details>
+          </div>
+        </details>
+        <script>
+          (function () {{
+            var m = document.getElementById('menu-mas'); if (!m) return;
+            document.addEventListener('click', function (e) {{ if (m.open && !m.contains(e.target)) m.open = false; }});
+            document.addEventListener('keydown', function (e) {{ if (e.key === 'Escape') m.open = false; }});
+            var f = document.getElementById('form-resenas');
+            if (f) f.addEventListener('submit', function (e) {{ e.preventDefault(); }});
+          }})();
+        </script>
       </nav>
     </div>
   </header>'''
