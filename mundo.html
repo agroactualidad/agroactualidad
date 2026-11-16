@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agro Actualidad: agricultura en el mundo</title>
+  <meta name="description" content="Política agraria, comercio, economía, empresas y clima en el mundo, con enlace a cada fuente.">
+  <meta name="theme-color" content="#0c1a2c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* Agro Almería · tema azul profundo, pensado para lectura larga */
+:root {
+  --bg: #0c1a2c;
+  --bg-deep: #091424;
+  --surface: #13284a;
+  --line: #234266;
+  --text: #e8eff8;
+  --muted: #a3b7cd;
+  --accent: #6fd3c7;
+  --accent-ink: #062a2a;
+  --max: 1120px;
+  --gutter: clamp(18px, 4vw, 40px);
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Cabecera: logo a la izquierda, pestañas desplegables a la derecha */
+.masthead { position: relative; background: var(--bg-deep); border-bottom: 1px solid var(--line); z-index: 20; }
+.masthead .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.logo { display: block; background: #f6faf6; border-radius: 12px; padding: 6px 14px; line-height: 0; }
+.logo img { height: 50px; width: auto; display: block; }
+.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.tab > button {
+  font: inherit; font-size: 0.97rem; font-weight: 500; color: var(--text); background: none; border: 0;
+  padding: 10px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.tab > button::after { content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-2px); opacity: .7; }
+.tab > button[aria-expanded="true"] { background: var(--surface); }
+.tab > button[aria-expanded="true"]::after { transform: rotate(225deg) translateY(-2px); }
+.tab > button:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.tab > button[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.panel {
+  position: absolute; right: var(--gutter); top: 100%; width: min(380px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 14px 14px;
+  padding: 18px 20px; box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+.panel[hidden] { display: none; }
+.panel-intro { margin: 0; color: #cbd9e8; font-size: .97rem; }
+.panel-intro strong { color: var(--accent); font-weight: 600; }
+.panel-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; font-size: .93rem; }
+.panel-list a { text-decoration: none; display: block; padding-left: 12px; border-left: 2px solid var(--line); }
+.panel-list a:hover { border-left-color: var(--accent); }
+.panel-go { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--accent); }
+
+/* Gráficos */
+.charts { padding: clamp(28px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+.charts h2 { font-size: 1.5rem; margin-bottom: 20px; }
+.chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px 8px; }
+.chart h3 { font-size: 1.1rem; }
+.chart figcaption p { color: var(--muted); font-size: .86rem; margin: 6px 0 14px; max-width: 60ch; }
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.bars .lab { font-size: .93rem; line-height: 1.25; }
+.bars .lab small { display: block; color: var(--muted); font-size: .76rem; margin-top: 2px; }
+.bars .track { position: relative; height: 14px; border-radius: 4px; background: color-mix(in srgb, var(--bg) 55%, transparent); }
+.bars .bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; }
+.bars .pos { background: var(--accent); }
+.bars .neg { background: #f0b45a; }
+.bars .zero { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: .6; }
+.bars .val { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .93rem; min-width: 5.5em; text-align: right; }
+@media (max-width: 520px) { .bars li { grid-template-columns: 1fr auto; } .bars .track { grid-column: 1 / -1; order: 3; } }
+
+/* Iconos de tema */
+.when { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.tico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+.tico[data-tag="sanidad"] { color: #f0b45a; }
+.tico[data-tag="clima"] { color: #8fb8ff; }
+.tico[data-tag="politica"] { color: #c9b6ff; }
+.tico[data-tag="logistica"] { color: #ffa98f; }
+
+/* Portada: tejado de invernadero multicapilla como trama de fondo */
+.hero {
+  background-color: var(--bg-deep);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='56' viewBox='0 0 160 56'%3E%3Cpath d='M0 56 L40 12 L80 56 L120 12 L160 56' fill='none' stroke='%236fd3c7' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(9,20,36,0) 55%, var(--bg) 100%);
+  background-repeat: repeat, no-repeat;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: clamp(36px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  align-items: start;
+}
+.lead-meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; }
+.lead h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 22ch; }
+.lead p { color: #cbd9e8; max-width: 62ch; margin: 22px 0 0; }
+.lead .go {
+  display: inline-block; margin-top: 26px; padding: 11px 20px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600;
+  border-radius: 8px; text-decoration: none;
+}
+.lead .go:hover { background: #8fe0d6; color: var(--accent-ink); }
+
+.figures { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.figures-title { font-size: 1.05rem; color: var(--muted); font-weight: 500; margin: 0 0 14px; font-family: inherit; letter-spacing: 0; }
+.figures li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.figures .num { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1.1; }
+.figures .what { display: block; color: #cbd9e8; font-size: 0.95rem; margin-top: 4px; }
+.figures .src { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+/* Origen de la noticia (filtro sin JavaScript) */
+.origen-filtro { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 4px; align-items: center; }
+.origen-filtro input { position: absolute; opacity: 0; pointer-events: none; }
+.origen-filtro label { cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: #cfdcf0; font-size: .92rem; }
+.origen-filtro input:checked + label { background: #2f6fd0; border-color: #2f6fd0; color: #fff; }
+.origen-filtro input:focus-visible + label { outline: 2px solid #9fc4ff; outline-offset: 2px; }
+.chip.origen { --dot: #8fb8ff; font-weight: 600; }
+.chip.origen[data-origen="almeria"] { --dot: #9fdc8e; }
+.chip.origen[data-origen="espana"] { --dot: #f0b45a; }
+.chip.origen[data-origen="europa"] { --dot: #c9b6ff; }
+
+/* Barra de filtros */
+.filters-bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.filters { display: flex; gap: 8px; padding: 14px 0; overflow-x: auto; scrollbar-width: thin; }
+.filters button {
+  flex: 0 0 auto; font: inherit; font-size: 0.95rem; color: var(--text);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 15px; cursor: pointer;
+}
+.filters button:hover { border-color: var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+/* Lista de noticias */
+.feed { list-style: none; margin: 0; padding: 12px 0 8px; }
+.story {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 8px 28px;
+  padding: 28px 0; border-bottom: 1px solid var(--line);
+}
+.story[hidden] { display: none; }
+.story time { color: var(--muted); font-size: 0.95rem; }
+.story h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); max-width: 34ch; }
+.story h3 a { text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.story p { color: #cbd9e8; margin: 12px 0 0; max-width: 68ch; }
+.story .byline { color: var(--muted); font-size: 0.9rem; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot, var(--accent)); }
+.chip[data-tag="mercados"] { --dot: #6fd3c7; }
+.chip[data-tag="sanidad"] { --dot: #f0a58a; }
+.chip[data-tag="clima"] { --dot: #7fb2ff; }
+.chip[data-tag="politica"] { --dot: #d6b8ff; }
+.chip[data-tag="logistica"] { --dot: #e9cf99; }
+.chip[data-tag="campo"] { --dot: #9fdc8e; }
+.mark { border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; font-size: 0.82rem; }
+.mark.auto { border-color: #8a7a4a; color: #e9cf99; }
+.empty { padding: 40px 0; color: var(--muted); }
+
+/* Pie */
+.foot { background: var(--bg-deep); border-top: 1px solid var(--line); margin-top: 24px; padding: 40px 0 56px; color: var(--muted); font-size: 0.95rem; }
+.foot .cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.foot h2 { font-size: 1.05rem; color: var(--text); margin-bottom: 8px; }
+.foot p, .foot ul { margin: 0; max-width: 56ch; }
+.foot ul { padding-left: 1.1em; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; gap: 4px; }
+  .when { flex-direction: row; align-items: center; gap: 10px; }
+  .foot .cols { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Ajustes de cabecera: una sola fila en pantallas anchas */
+.masthead .wrap { max-width: 1320px; }
+.logo img { height: 46px; }
+.tab > button { padding: 10px 11px; font-size: 0.94rem; }
+.tabs { gap: 0 2px; }
+
+/* Página de Mercados */
+.saltos { display: grid; gap: 8px; }
+.saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
+.saltos a:hover { border-color: var(--accent); color: var(--text); }
+.nota { color: var(--muted); font-size: .88rem; margin: 14px 0 0; }
+.mercado { padding-top: clamp(28px, 5vw, 48px); scroll-margin-top: 20px; }
+.mercado + .mercado { border-top: 1px solid var(--line); margin-top: 20px; }
+.mercado h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); display: flex; align-items: center; gap: 12px; }
+.mercado .cuenta { font-family: "Instrument Sans", sans-serif; font-size: .8rem; font-weight: 600; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+.empty-sec { color: var(--muted); }
+.chip.ajeno { font-style: italic; }
+
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap bar">
+      <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
+      <nav class="tabs" aria-label="Secciones">
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-almeria">Almería</button>
+          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#cogeca-forum-2026-11-11">Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE</a></li><li><a href="#asaja-plasticos-2026-11-08">ASAJA Almería pide que los plásticos de invernadero entren en las rebajas fiscales de 2026</a></li></ul>
+            <a class="panel-go" href="index.html">Abrir Almería</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mercados">Mercados</button>
+          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
+            <a class="panel-go" href="mercados.html">Abrir Mercados</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-innovacion">Innovación y productos</button>
+          <div class="panel" id="p-innovacion" hidden><p class="panel-intro">Variedades, maquinaria, bioinsumos y envases que llegan al campo.</p><ul class="panel-list"><li><a href="innovacion.html#n-variedades">Variedades y semillas</a></li><li><a href="innovacion.html#n-maquinaria">Maquinaria y tecnología de cultivo</a></li><li><a href="innovacion.html#n-bioinsumos">Bioinsumos y protección de cultivos</a></li><li><a href="innovacion.html#n-envases">Envases y poscosecha</a></li></ul>
+            <a class="panel-go" href="innovacion.html">Abrir Innovación y productos</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
+          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
+            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
+          </div>
+        </div>
+        <div class="tab">
+          <button type="button" aria-expanded="false" aria-controls="p-mundo" aria-current="page">Mundo</button>
+          <div class="panel" id="p-mundo" hidden><p class="panel-intro">Política agraria, comercio, economía y clima en el resto del mundo.</p><ul class="panel-list"><li><a href="mundo.html#w-politica">Política y comercio</a></li><li><a href="mundo.html#w-economia">Economía e insumos</a></li><li><a href="mundo.html#w-empresas">Empresas e inversión</a></li><li><a href="mundo.html#w-clima">Clima, sanidad y seguridad alimentaria</a></li></ul>
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="lead-title">
+    <div class="wrap">
+      <article class="lead" id="destacada">
+        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
+        <p class="lead-meta">10 de noviembre de 2026 · Global Agriculture (FAO)</p>
+        <h1 id="lead-title">La FAO avisa en la COP31 de que el calor y El Niño dificultan cada vez más producir alimentos</h1>
+        <p>La conferencia, en Antalya hasta el 20 de noviembre, arrancó con un llamamiento de la FAO a invertir más en seguridad alimentaria y agricultura resistente al clima. El Ministerio de Agricultura turco y el FIDA presentaron un informe sobre cómo la volatilidad de precios de 2026 agrava los efectos del clima. Turquía lanzó además la iniciativa Turquoise Nexus, con compromisos de los países a partir de 2027. La FAO recuerda que la agricultura supone el 70 % de las extracciones de agua dulce.</p>
+        <a class="go" href="https://www.global-agriculture.com/global-agriculture/fao-warns-el-nino-heat-is-threatening-food-production-as-cop31-opens/" rel="noopener" target="_blank">Leer la noticia original</a>
+      </article>
+      <aside aria-labelledby="salto-title">
+        <h2 class="figures-title" id="salto-title">Cuatro áreas</h2>
+        <nav class="saltos"><a href="#w-politica">Política y comercio</a><a href="#w-economia">Economía e insumos</a><a href="#w-empresas">Empresas e inversión</a><a href="#w-clima">Clima, sanidad y seguridad alimentaria</a></nav>
+        <p class="nota">Cada apartado muestra hasta 6 noticias de los últimos 30 días. Si uno se queda corto, se completa con noticias destacadas de los demás.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="charts" id="graficos" aria-labelledby="charts-title">
+    <div class="wrap">
+      <h2 id="charts-title">El mundo en gráficos</h2>
+      <div class="chart-grid">
+      <figure class="chart">
+        <figcaption><h3>Venta de maquinaria agrícola en 2026 (nueve meses)</h3><p>Variación de ventas según los datos de mercado del informe de AGCO, citados por AgNavigator.</p></figcaption>
+        <ul class="bars">
+          <li>
+            <span class="lab">Tractores · Norteamérica<small>AGCO, 29 oct</small></span>
+            <span class="track"><i class="bar neg" style="left:76.3%;width:23.7%"></i><i class="zero" style="left:100.0%"></i></span>
+            <span class="val">−9 %</span>
+          </li>
+          <li>
+            <span class="lab">Cosechadoras · Norteamérica<small>AGCO, 29 oct</small></span>
+            <span class="track"><i class="bar neg" style="left:73.7%;width:26.3%"></i><i class="zero" style="left:100.0%"></i></span>
+            <span class="val">−10 %</span>
+          </li>
+          <li>
+            <span class="lab">Tractores · Brasil<small>AGCO, 29 oct</small></span>
+            <span class="track"><i class="bar neg" style="left:55.3%;width:44.7%"></i><i class="zero" style="left:100.0%"></i></span>
+            <span class="val">−17 %</span>
+          </li>
+          <li>
+            <span class="lab">Cosechadoras · Brasil<small>AGCO, 29 oct</small></span>
+            <span class="track"><i class="bar neg" style="left:0.0%;width:100.0%"></i><i class="zero" style="left:100.0%"></i></span>
+            <span class="val">−38 %</span>
+          </li>
+        </ul>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"></div>
+  <main class="wrap mercados">
+    <section class="mercado" id="w-politica">
+      <h2>Política y comercio <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="w-mercosur-seis-meses-2026-11-11" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
+        <div>
+          <h3><a href="https://en.mercopress.com/2026/11/11/eu-mercosur-deal-six-months-on-winners-losers-and-the-question-mark-over-europe-s-top-court" rel="noopener" target="_blank">Seis meses de acuerdo UE-Mercosur: cupos, salvaguardas y la duda del Tribunal de Justicia</a></h3>
+          <p>El acuerdo provisional se aplica desde el 1 de mayo y eliminará aranceles sobre el 92 % de las importaciones del Mercosur en la UE. Hay cupos cerrados para carne de vacuno y aves, salvaguardas si los precios caen más de un 5 % y una reserva de 45.000 millones para compensar a los agricultores europeos. El Parlamento Europeo pidió en enero (334 votos a 324) que el Tribunal de Justicia revise el pacto; su opinión podría tardar hasta principios de 2028. ASAJA sostiene que no hay competencia justa si no se garantizan las normas de la UE; un analista de BBVA Research ve perdedores en el vacuno extensivo, el azúcar y el bioetanol.</p>
+          <div class="byline">
+            <span class="chip" data-tag="politica">Política agraria</span>
+            
+            <span class="chip origen">UE y Mercosur</span>
+            
+            <span>MercoPress</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-farm-bill-eeuu-2026-11-10" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
+        <div>
+          <h3><a href="https://rfdtv.com/farm-bill-talks-advance-as-congressional-deadline-nears" rel="noopener" target="_blank">El Congreso de EE. UU. se queda sin tiempo para aprobar la ley agraria</a></h3>
+          <p>Las negociaciones avanzan en ambas cámaras, pero si no se cierran antes de que acabe la sesión podrían tener que reiniciarse el año que viene. El presidente del comité agrario del Senado, John Boozman, ve «una excelente oportunidad» y avisa de que «si no tenemos cuidado, vamos a perder la ley». Reconoce que a los agricultores las cuentas «no les salen». El Freedom Caucus de la Cámara condiciona su apoyo a que sea fiscalmente responsable.</p>
+          <div class="byline">
+            <span class="chip" data-tag="politica">Política agraria</span>
+            
+            <span class="chip origen">EE. UU.</span>
+            
+            <span>RFD-TV</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-india-arroz-restricciones-2026-11-06" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-06">6 nov</time></div>
+        <div>
+          <h3><a href="https://www.spglobal.com/energy/en/news-research/latest-news/agriculture/110626-indian-rice-exporters-brace-for-possible-curbs-on-100-broken-wr-exports" rel="noopener" target="_blank">Los exportadores indios temen nuevas restricciones a la exportación de arroz partido</a></h3>
+          <p>Según S&amp;P Global, el Gobierno se reunió el 4 de noviembre y estudiaría limitar las ventas de arroz blanco 100 % partido por la subida de precios internos y la competencia de la industria del etanol y de los piensos. No hay notificación oficial y un directivo del sector cree que es pronto para esperar una medida. El precio de referencia en Kakinada fue de 336 dólares por tonelada (un 5 % más que hace un mes). S&amp;P prevé una producción india de 146 millones de toneladas en 2026/27, 8 millones menos por El Niño.</p>
+          <div class="byline">
+            <span class="chip" data-tag="politica">Política agraria</span>
+            
+            <span class="chip origen">India</span>
+            
+            <span>S&amp;P Global</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="w-economia">
+      <h2>Economía e insumos <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="w-ipc-alimentos-eeuu-2026-11-13" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
+        <div>
+          <h3><a href="https://agri-pulse.com/articles/25504-daybreak-nov-13-permitting-reform-bill-gets-backing" rel="noopener" target="_blank">Los precios de los alimentos en EE. UU. suben un 0,4 % en octubre tras tres meses estables</a></h3>
+          <p>El IPC de octubre, publicado el 10 de noviembre, muestra que los alimentos del supermercado interrumpen tres meses de precios prácticamente planos. Un economista de Cal Poly espera que la inflación alimentaria siga algo elevada hasta final de 2026 y posiblemente a principios de 2027. No hubo IPC de octubre de 2025 por el cierre del Gobierno federal.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">EE. UU.</span>
+            
+            <span>Agri-Pulse</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-cnh-kobelco-2026-11-09" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
+        <div>
+          <h3><a href="https://www.agnavigator.com/Article/2026/11/09/cnh-sharpens-agriculture-focus-with-kobelco-deal-as-farm-machinery-recovery-gathers-pace/" rel="noopener" target="_blank">CNH vende el 70 % de su negocio de construcción a Kobelco para centrarse en maquinaria agrícola</a></h3>
+          <p>La sociedad conjunta se valora en 1.000 millones de dólares y CNH espera ingresar unos 700 millones para reducir deuda; el cierre se prevé para finales de 2027. En el tercer trimestre, los ingresos fueron planos (4.350 millones) y el beneficio ajustado casi se duplicó (205 millones). Su consejero delegado habla de «mejores indicadores del ciclo en Norteamérica», con volatilidad en Europa, Oriente Medio, África y Brasil.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">Mundial</span>
+            <span class="chip ajeno">Desde: Empresas e inversión</span>
+            <span>AgNavigator (CNH)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-cf-nitrogeno-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
+        <div>
+          <h3><a href="https://www.agnavigator.com/Article/2026/11/05/nitrogen-market-update-cf-industries-reports-q3-2026-results/" rel="noopener" target="_blank">Los abonos nitrogenados siguen caros: la urea de Oriente Medio se ha reducido a la mitad</a></h3>
+          <p>CF Industries, que cifra sus ventas del tercer trimestre en 1.860 millones de dólares (1.659 un año antes), dice que las exportaciones de urea de Oriente Medio se han recortado más o menos a la mitad desde el inicio de la guerra de Irán. En octubre, el 37 % de la capacidad europea de amoníaco estaba parada o a ritmo reducido por el gas, y Trinidad cierra de forma definitiva el 35 % de la suya. India importará más de 10 millones de toneladas de urea y China podría restringir sus exportaciones. Son valoraciones de un productor de abonos.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">Mundial</span>
+            
+            <span>AgNavigator (CF Industries)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="w-empresas">
+      <h2>Empresas e inversión <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="w-deere-fabricas-2026-11-04" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-04">4 nov</time></div>
+        <div>
+          <h3><a href="https://www.agnavigator.com/Article/2026/11/04/john-deere-to-close-2-iowa-facilities-during-ag-machinery-slowdown/" rel="noopener" target="_blank">John Deere reorganiza su producción y cerrará dos plantas de Iowa</a></h3>
+          <p>Trasladará hileradoras (windrowers) y empacadoras redondas de Ottumwa a Des Moines, y los pulverizadores Hagie de Clarion a Thibodaux; las cosechadoras de caña pasarán de Luisiana a Brasil. No ha detallado el impacto en empleo. La empresa insiste en que 2026 marcará el fondo del ciclo de maquinaria agrícola; presenta resultados anuales el 25 de noviembre.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">EE. UU.</span>
+            
+            <span>AgNavigator (John Deere)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-agco-tercer-trimestre-2026-10-29" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-29">29 oct</time></div>
+        <div>
+          <h3><a href="https://www.agnavigator.com/Article/2026/10/29/agco-q3-results-highlight-global-market-challenges-amid-stressed-farm-economics/" rel="noopener" target="_blank">AGCO recorta su previsión de ventas: la renta agraria baja en Europa y Latinoamérica</a></h3>
+          <p>Las ventas del tercer trimestre cayeron un 8,6 % hasta 2.300 millones de dólares y la previsión anual baja a 9.800-10.000 millones. Su consejero delegado atribuye el frenazo a la menor renta agraria y a la incertidumbre, sobre todo en Europa, Oriente Medio y Latinoamérica; en Norteamérica ve el mercado más positivo. En Brasil, los tipos altos y el crédito escaso hunden la venta de máquinas.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">Mundial</span>
+            
+            <span>AgNavigator (AGCO)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-syngenta-ventures-unicornios-2026-10-21" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-21">21 oct</time></div>
+        <div>
+          <h3><a href="https://www.agnavigator.com/Article/2026/10/21/agtech-must-abandon-the-unicorn-fantasy-says-syngenta-ventures-michael-lee/" rel="noopener" target="_blank">Un directivo de Syngenta Ventures pide a las empresas de agrotecnología dejar de soñar con unicornios</a></h3>
+          <p>Michael Lee afirma que la mayoría de las salidas de estas start-ups son ventas a grandes agroindustriales por entre 100 y 400 millones de dólares y que las valoraciones siguen demasiado altas. Aconseja captar bastante menos de 50 millones y ve oportunidades en biológicos, robótica y gestión del agua. Es la opinión de un inversor, no un dato de mercado.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            <span class="chip origen">Mundial</span>
+            
+            <span>AgNavigator (Syngenta Ventures)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="mercado" id="w-clima">
+      <h2>Clima, sanidad y seguridad alimentaria <span class="cuenta">3</span></h2>
+      <ul class="feed">
+      <li class="story" id="w-gusano-barrenador-eeuu-2026-11-13" data-tag="sanidad">
+        <div class="when"><span class="tico" data-tag="sanidad"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M12 12v5"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
+        <div>
+          <h3><a href="https://agri-pulse.com/articles/25504-daybreak-nov-13-permitting-reform-bill-gets-backing" rel="noopener" target="_blank">EE. UU. suma 128 casos animales de gusano barrenador del Nuevo Mundo</a></h3>
+          <p>Según el USDA, 65 siguen activos; Texas acumula 71 y Nuevo México 38. Arizona confirmó su sexto caso, cerca de Pearce (condado de Cochise), y amplió la zona infestada. El primer caso en el país se notificó el 3 de junio de 2026.</p>
+          <div class="byline">
+            <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            
+            <span class="chip origen">EE. UU.</span>
+            
+            <span>Agri-Pulse (USDA APHIS)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-fao-cop31-calor-2026-11-10" data-tag="clima">
+        <div class="when"><span class="tico" data-tag="clima"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17a4 4 0 0 1 0-8 5 5 0 0 1 9.5-1A4.5 4.5 0 0 1 17 17z"/><path d="M9 20l1-2M13 20l1-2"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
+        <div>
+          <h3><a href="https://www.global-agriculture.com/global-agriculture/fao-warns-el-nino-heat-is-threatening-food-production-as-cop31-opens/" rel="noopener" target="_blank">La FAO avisa en la COP31 de que el calor y El Niño dificultan cada vez más producir alimentos</a></h3>
+          <p>La conferencia, en Antalya hasta el 20 de noviembre, arrancó con un llamamiento de la FAO a invertir más en seguridad alimentaria y agricultura resistente al clima. El Ministerio de Agricultura turco y el FIDA presentaron un informe sobre cómo la volatilidad de precios de 2026 agrava los efectos del clima. Turquía lanzó además la iniciativa Turquoise Nexus, con compromisos de los países a partir de 2027. La FAO recuerda que la agricultura supone el 70 % de las extracciones de agua dulce.</p>
+          <div class="byline">
+            <span class="chip" data-tag="clima">Clima y agua</span>
+            
+            <span class="chip origen">Turquía (COP31)</span>
+            
+            <span>Global Agriculture (FAO)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="w-wfp-el-nino-2026-11-09" data-tag="clima">
+        <div class="when"><span class="tico" data-tag="clima"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17a4 4 0 0 1 0-8 5 5 0 0 1 9.5-1A4.5 4.5 0 0 1 17 17z"/><path d="M9 20l1-2M13 20l1-2"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
+        <div>
+          <h3><a href="https://www.wfp.org/news/cop31-world-food-programme-urges-use-innovative-finance-prevent-climate-shocks-becoming-hunger" rel="noopener" target="_blank">El PMA calcula que El Niño puede llevar al hambre aguda a otros 49 millones de personas a finales de 2027</a></h3>
+          <p>El organismo de la ONU prevé que el fenómeno alcance su máximo entre octubre y diciembre y que sus efectos sobre siembras, cosechas y precios se alarguen hasta principios de 2028. Señala riesgo de sequía en el Corredor Seco centroamericano, el Sahel, África oriental y austral, y de inundaciones en el Cuerno de África y partes de Sudamérica. Pide a la COP31 más financiación anticipada: hoy supone menos del 2 % de la ayuda humanitaria.</p>
+          <div class="byline">
+            <span class="chip" data-tag="clima">Clima y agua</span>
+            
+            <span class="chip origen">Mundial</span>
+            
+            <span>Programa Mundial de Alimentos</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap cols">
+      <section>
+        <h2>Cómo se hace esta página</h2>
+        <p>Cada noticia es un resumen redactado con ayuda de inteligencia artificial y enlaza a la fuente original. Las marcadas como «Revisada» se han contrastado a mano con el medio; las de «Resumen automático» no. Ante cualquier cifra importante, consulta la fuente.</p>
+      </section>
+      <section>
+        <h2>Fuentes consultadas</h2>
+        <ul><li>AgNavigator</li><li>Agri-Pulse</li><li>Global Agriculture</li><li>MercoPress</li><li>Programa Mundial de Alimentos</li><li>RFD-TV</li><li>S&amp;P Global</li></ul>
+      </section>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
