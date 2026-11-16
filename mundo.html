@@ -213,6 +213,55 @@ h1, h2, h3 {
 .tab > button { padding: 10px 11px; font-size: 0.94rem; }
 .tabs { gap: 0 2px; }
 
+.tab-link { display: inline-flex; align-items: center; padding: 10px 11px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.94rem; }
+.tab-link:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--text); }
+.tab-link[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.tab-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Menú de los tres puntos (redes, contacto, reseñas) */
+.mas { position: relative; margin-left: 4px; }
+.mas > summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: .94rem; color: var(--text);
+}
+.mas > summary::-webkit-details-marker { display: none; }
+.mas > summary:hover, .mas[open] > summary { background: var(--surface); }
+.mas > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mas-ico { display: inline-grid; gap: 3.5px; }
+.mas-ico i { display: block; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.mas-globo {
+  position: absolute; right: 0; top: calc(100% + 12px); width: min(320px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4); z-index: 30;
+}
+.mas-globo::before {
+  content: ""; position: absolute; top: -7px; right: 22px; width: 12px; height: 12px; background: var(--surface);
+  border-left: 1px solid var(--line); border-top: 1px solid var(--line); transform: rotate(45deg);
+}
+.mas-item {
+  display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; text-align: left;
+  font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
+  border-radius: 9px; cursor: pointer;
+}
+.mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
+.mas-item small { color: var(--muted); font-size: .8rem; }
+.resenas > summary { list-style: none; }
+.resenas > summary::-webkit-details-marker { display: none; }
+.resenas[open] > summary { color: var(--accent); }
+.resenas form { padding: 6px 12px 12px; display: grid; gap: 10px; }
+.resenas label { font-size: .9rem; color: #cbd9e8; }
+.resenas textarea {
+  width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: .95rem; color: var(--text);
+  background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+.resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas .enviar {
+  justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
+  border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
+}
+.resenas .aviso { margin: 0; font-size: .86rem; color: var(--muted); }
+@media (max-width: 860px) { .mas { margin-left: 0; } .mas-globo { right: auto; left: 0; } .mas-globo::before { right: auto; left: 22px; } }
+
 /* Página de Mercados */
 .saltos { display: grid; gap: 8px; }
 .saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
@@ -232,36 +281,36 @@ h1, h2, h3 {
     <div class="wrap bar">
       <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
       <nav class="tabs" aria-label="Secciones">
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-almeria">Almería</button>
-          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
-            <a class="panel-go" href="index.html">Abrir Almería</a>
+        <a class="tab-link" href="index.html">Almería</a>
+        <a class="tab-link" href="mercados.html">Mercados</a>
+        <a class="tab-link" href="innovacion.html">Innovación y productos</a>
+        <a class="tab-link" href="ia.html">IA y agricultura de precisión</a>
+        <a class="tab-link" href="mundo.html" aria-current="page">Mundo</a>
+        <details class="mas" id="menu-mas">
+          <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
+          <div class="mas-globo">
+            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
+            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <details class="resenas">
+              <summary class="mas-item">Reseñas</summary>
+              <form id="form-resenas">
+                <label for="texto-resena">Escribe lo que quieras</label>
+                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <button type="submit" class="enviar">Enviar</button>
+                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+              </form>
+            </details>
           </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-mercados">Mercados</button>
-          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
-            <a class="panel-go" href="mercados.html">Abrir Mercados</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-innovacion">Innovación y productos</button>
-          <div class="panel" id="p-innovacion" hidden><p class="panel-intro">Variedades, maquinaria, bioinsumos y envases que llegan al campo.</p><ul class="panel-list"><li><a href="innovacion.html#n-variedades">Variedades y semillas</a></li><li><a href="innovacion.html#n-maquinaria">Maquinaria y tecnología de cultivo</a></li><li><a href="innovacion.html#n-bioinsumos">Bioinsumos y protección de cultivos</a></li><li><a href="innovacion.html#n-envases">Envases y poscosecha</a></li></ul>
-            <a class="panel-go" href="innovacion.html">Abrir Innovación y productos</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
-            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-mundo" aria-current="page">Mundo</button>
-          <div class="panel" id="p-mundo" hidden><p class="panel-intro">Política agraria, comercio, economía y clima en el resto del mundo.</p><ul class="panel-list"><li><a href="mundo.html#w-politica">Política y comercio</a></li><li><a href="mundo.html#w-economia">Economía e insumos</a></li><li><a href="mundo.html#w-empresas">Empresas e inversión</a></li><li><a href="mundo.html#w-clima">Clima, sanidad y seguridad alimentaria</a></li></ul>
-            
-          </div>
-        </div>
+        </details>
+        <script>
+          (function () {
+            var m = document.getElementById('menu-mas'); if (!m) return;
+            document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') m.open = false; });
+            var f = document.getElementById('form-resenas');
+            if (f) f.addEventListener('submit', function (e) { e.preventDefault(); });
+          })();
+        </script>
       </nav>
     </div>
   </header>
@@ -321,18 +370,18 @@ h1, h2, h3 {
     <section class="mercado" id="w-politica">
       <h2>Política y comercio <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="w-usda-grants-support-oats-research-2026-11-16" data-tag="innovacion">
-        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+      <li class="story" id="w-mercosur-seis-meses-2026-11-11" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
         <div>
-          <h3><a href="https://www.world-grain.com/articles/23461-usda-grants-support-oats-research" rel="noopener" target="_blank">EE. UU. concede más de un millón de dólares para investigar la avena</a></h3>
-          <p>El Departamento de Agricultura de Estados Unidos (USDA) ha destinado ayudas a un laboratorio universitario de cereales de grano pequeño. La financiación supera el millón de dólares y se dirige a la investigación sobre la avena.</p>
+          <h3><a href="https://en.mercopress.com/2026/11/11/eu-mercosur-deal-six-months-on-winners-losers-and-the-question-mark-over-europe-s-top-court" rel="noopener" target="_blank">Seis meses de acuerdo UE-Mercosur: cupos, salvaguardas y la duda del Tribunal de Justicia</a></h3>
+          <p>El acuerdo provisional se aplica desde el 1 de mayo y eliminará aranceles sobre el 92 % de las importaciones del Mercosur en la UE. Hay cupos cerrados para carne de vacuno y aves, salvaguardas si los precios caen más de un 5 % y una reserva de 45.000 millones para compensar a los agricultores europeos. El Parlamento Europeo pidió en enero (334 votos a 324) que el Tribunal de Justicia revise el pacto; su opinión podría tardar hasta principios de 2028. ASAJA sostiene que no hay competencia justa si no se garantizan las normas de la UE; un analista de BBVA Research ve perdedores en el vacuno extensivo, el azúcar y el bioetanol.</p>
           <div class="byline">
-            <span class="chip" data-tag="innovacion">Innovación e IA</span>
+            <span class="chip" data-tag="politica">Política agraria</span>
             
-            <span class="chip origen">EE. UU.</span>
+            <span class="chip origen">UE y Mercosur</span>
             
-            <span>World-Grain</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>MercoPress</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
@@ -386,17 +435,17 @@ h1, h2, h3 {
           </div>
         </div>
       </li>
-      <li class="story" id="w-mercosur-seis-meses-2026-11-11" data-tag="politica">
-        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
+      <li class="story" id="w-cnh-kobelco-2026-11-09" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
         <div>
-          <h3><a href="https://en.mercopress.com/2026/11/11/eu-mercosur-deal-six-months-on-winners-losers-and-the-question-mark-over-europe-s-top-court" rel="noopener" target="_blank">Seis meses de acuerdo UE-Mercosur: cupos, salvaguardas y la duda del Tribunal de Justicia</a></h3>
-          <p>El acuerdo provisional se aplica desde el 1 de mayo y eliminará aranceles sobre el 92 % de las importaciones del Mercosur en la UE. Hay cupos cerrados para carne de vacuno y aves, salvaguardas si los precios caen más de un 5 % y una reserva de 45.000 millones para compensar a los agricultores europeos. El Parlamento Europeo pidió en enero (334 votos a 324) que el Tribunal de Justicia revise el pacto; su opinión podría tardar hasta principios de 2028. ASAJA sostiene que no hay competencia justa si no se garantizan las normas de la UE; un analista de BBVA Research ve perdedores en el vacuno extensivo, el azúcar y el bioetanol.</p>
+          <h3><a href="https://www.agnavigator.com/Article/2026/11/09/cnh-sharpens-agriculture-focus-with-kobelco-deal-as-farm-machinery-recovery-gathers-pace/" rel="noopener" target="_blank">CNH vende el 70 % de su negocio de construcción a Kobelco para centrarse en maquinaria agrícola</a></h3>
+          <p>La sociedad conjunta se valora en 1.000 millones de dólares y CNH espera ingresar unos 700 millones para reducir deuda; el cierre se prevé para finales de 2027. En el tercer trimestre, los ingresos fueron planos (4.350 millones) y el beneficio ajustado casi se duplicó (205 millones). Su consejero delegado habla de «mejores indicadores del ciclo en Norteamérica», con volatilidad en Europa, Oriente Medio, África y Brasil.</p>
           <div class="byline">
-            <span class="chip" data-tag="politica">Política agraria</span>
+            <span class="chip" data-tag="mercados">Mercados</span>
             
-            <span class="chip origen">UE y Mercosur</span>
-            <span class="chip ajeno">Desde: Política y comercio</span>
-            <span>MercoPress</span>
+            <span class="chip origen">Mundial</span>
+            <span class="chip ajeno">Desde: Empresas e inversión</span>
+            <span>AgNavigator (CNH)</span>
             <span class="mark">Revisada</span>
           </div>
         </div>
@@ -419,53 +468,8 @@ h1, h2, h3 {
       </ul>
     </section>
     <section class="mercado" id="w-empresas">
-      <h2>Empresas e inversión <span class="cuenta">6</span></h2>
+      <h2>Empresas e inversión <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="w-tyson-sees-beef-woes-easing-as-cattle-supplies-imp-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.farmprogress.com/livestock/tyson-sees-beef-woes-easing-as-cattle-supplies-improve" rel="noopener" target="_blank">Tyson prevé mejorar su negocio de vacuno con más oferta de ganado</a></h3>
-          <p>La empresa Tyson espera una recuperación de su división de carne de vacuno gracias al aumento del suministro de animales. El cierre de algunas plantas también reduciría costes. Esto podría aliviar la escasez de reses que ha durado varios años.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            <span class="chip origen">EE. UU.</span>
-            
-            <span>Farm Progress</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="w-nigeria-secures-3m-investment-in-climate-smart-agr-2026-11-16" data-tag="clima">
-        <div class="when"><span class="tico" data-tag="clima"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17a4 4 0 0 1 0-8 5 5 0 0 1 9.5-1A4.5 4.5 0 0 1 17 17z"/><path d="M9 20l1-2M13 20l1-2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9893018/nigeria-secures-3m-investment-in-climate-smart-agriculture-at-cop31/" rel="noopener" target="_blank">Nigeria consigue 3 millones de dólares de inversión para invernaderos agrícolas climáticamente inteligentes</a></h3>
-          <p>Nigeria ha cerrado un acuerdo de inversión por valor de 3 millones de dólares para un proyecto de cultivo en invernadero en el estado de Kano. La iniciativa busca atraer capital privado, reforzar la seguridad alimentaria y fomentar una producción agrícola sostenible. El anuncio se enmarca en la cumbre climática COP31, que se celebra en Türkiye.</p>
-          <div class="byline">
-            <span class="chip" data-tag="clima">Clima y agua</span>
-            
-            <span class="chip origen">Nigeria</span>
-            
-            <span>HortiDaily</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="w-cnh-kobelco-2026-11-09" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
-        <div>
-          <h3><a href="https://www.agnavigator.com/Article/2026/11/09/cnh-sharpens-agriculture-focus-with-kobelco-deal-as-farm-machinery-recovery-gathers-pace/" rel="noopener" target="_blank">CNH vende el 70 % de su negocio de construcción a Kobelco para centrarse en maquinaria agrícola</a></h3>
-          <p>La sociedad conjunta se valora en 1.000 millones de dólares y CNH espera ingresar unos 700 millones para reducir deuda; el cierre se prevé para finales de 2027. En el tercer trimestre, los ingresos fueron planos (4.350 millones) y el beneficio ajustado casi se duplicó (205 millones). Su consejero delegado habla de «mejores indicadores del ciclo en Norteamérica», con volatilidad en Europa, Oriente Medio, África y Brasil.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            <span class="chip origen">Mundial</span>
-            
-            <span>AgNavigator (CNH)</span>
-            <span class="mark">Revisada</span>
-          </div>
-        </div>
-      </li>
       <li class="story" id="w-deere-fabricas-2026-11-04" data-tag="mercados">
         <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-04">4 nov</time></div>
         <div>
@@ -572,7 +576,7 @@ h1, h2, h3 {
       </section>
       <section>
         <h2>Fuentes consultadas</h2>
-        <ul><li>AgNavigator</li><li>Agri-Pulse</li><li>Farm Progress</li><li>Global Agriculture</li><li>HortiDaily</li><li>MercoPress</li><li>Programa Mundial de Alimentos</li><li>RFD-TV</li><li>S&amp;P Global</li><li>World-Grain</li></ul>
+        <ul><li>AgNavigator</li><li>Agri-Pulse</li><li>Global Agriculture</li><li>MercoPress</li><li>Programa Mundial de Alimentos</li><li>RFD-TV</li><li>S&amp;P Global</li></ul>
       </section>
     </div>
   </footer>

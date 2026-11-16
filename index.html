@@ -213,6 +213,55 @@ h1, h2, h3 {
 .tab > button { padding: 10px 11px; font-size: 0.94rem; }
 .tabs { gap: 0 2px; }
 
+.tab-link { display: inline-flex; align-items: center; padding: 10px 11px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.94rem; }
+.tab-link:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--text); }
+.tab-link[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.tab-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Menú de los tres puntos (redes, contacto, reseñas) */
+.mas { position: relative; margin-left: 4px; }
+.mas > summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: .94rem; color: var(--text);
+}
+.mas > summary::-webkit-details-marker { display: none; }
+.mas > summary:hover, .mas[open] > summary { background: var(--surface); }
+.mas > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mas-ico { display: inline-grid; gap: 3.5px; }
+.mas-ico i { display: block; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.mas-globo {
+  position: absolute; right: 0; top: calc(100% + 12px); width: min(320px, calc(100vw - 2 * var(--gutter)));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4); z-index: 30;
+}
+.mas-globo::before {
+  content: ""; position: absolute; top: -7px; right: 22px; width: 12px; height: 12px; background: var(--surface);
+  border-left: 1px solid var(--line); border-top: 1px solid var(--line); transform: rotate(45deg);
+}
+.mas-item {
+  display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; text-align: left;
+  font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
+  border-radius: 9px; cursor: pointer;
+}
+.mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
+.mas-item small { color: var(--muted); font-size: .8rem; }
+.resenas > summary { list-style: none; }
+.resenas > summary::-webkit-details-marker { display: none; }
+.resenas[open] > summary { color: var(--accent); }
+.resenas form { padding: 6px 12px 12px; display: grid; gap: 10px; }
+.resenas label { font-size: .9rem; color: #cbd9e8; }
+.resenas textarea {
+  width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: .95rem; color: var(--text);
+  background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+.resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas .enviar {
+  justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
+  border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
+}
+.resenas .aviso { margin: 0; font-size: .86rem; color: var(--muted); }
+@media (max-width: 860px) { .mas { margin-left: 0; } .mas-globo { right: auto; left: 0; } .mas-globo::before { right: auto; left: 22px; } }
+
 /* Página de Mercados */
 .saltos { display: grid; gap: 8px; }
 .saltos a { display: block; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; font-weight: 600; }
@@ -232,36 +281,36 @@ h1, h2, h3 {
     <div class="wrap bar">
       <a class="logo" href="./" aria-label="Agro Actualidad, inicio"><img src="assets/logo.png" width="790" height="216" alt="Agro Actualidad: del campo al mercado global"></a>
       <nav class="tabs" aria-label="Secciones">
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-almeria" aria-current="page">Almería</button>
-          <div class="panel" id="p-almeria" hidden><p class="panel-intro">Agricultura almeriense, al día.</p><ul class="panel-list"><li><a href="#destacada">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></li><li><a href="#invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></li><li><a href="#estado-invernaderos-2026-11-13">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></li><li><a href="#el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></li></ul>
-            
+        <a class="tab-link" href="index.html" aria-current="page">Almería</a>
+        <a class="tab-link" href="mercados.html">Mercados</a>
+        <a class="tab-link" href="innovacion.html">Innovación y productos</a>
+        <a class="tab-link" href="ia.html">IA y agricultura de precisión</a>
+        <a class="tab-link" href="mundo.html">Mundo</a>
+        <details class="mas" id="menu-mas">
+          <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
+          <div class="mas-globo">
+            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
+            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <details class="resenas">
+              <summary class="mas-item">Reseñas</summary>
+              <form id="form-resenas">
+                <label for="texto-resena">Escribe lo que quieras</label>
+                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <button type="submit" class="enviar">Enviar</button>
+                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+              </form>
+            </details>
           </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-mercados">Mercados</button>
-          <div class="panel" id="p-mercados" hidden><p class="panel-intro">Precios, campañas y comercio, de Almería al mundo.</p><ul class="panel-list"><li><a href="mercados.html#m-almeria">El mercado en Almería</a></li><li><a href="mercados.html#m-espana">El mercado en España</a></li><li><a href="mercados.html#m-europa">El mercado en Europa</a></li><li><a href="mercados.html#m-mundo">El mercado en el mundo</a></li></ul>
-            <a class="panel-go" href="mercados.html">Abrir Mercados</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-innovacion">Innovación y productos</button>
-          <div class="panel" id="p-innovacion" hidden><p class="panel-intro">Variedades, maquinaria, bioinsumos y envases que llegan al campo.</p><ul class="panel-list"><li><a href="innovacion.html#n-variedades">Variedades y semillas</a></li><li><a href="innovacion.html#n-maquinaria">Maquinaria y tecnología de cultivo</a></li><li><a href="innovacion.html#n-bioinsumos">Bioinsumos y protección de cultivos</a></li><li><a href="innovacion.html#n-envases">Envases y poscosecha</a></li></ul>
-            <a class="panel-go" href="innovacion.html">Abrir Innovación y productos</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-ia">IA y agricultura de precisión</button>
-          <div class="panel" id="p-ia" hidden><p class="panel-intro">Última hora mundial en IA, sensores, robots y datos para el cultivo.</p><ul class="panel-list"><li><a href="ia.html#a-ia">Inteligencia artificial</a></li><li><a href="ia.html#a-sensores">Sensores y riego de precisión</a></li><li><a href="ia.html#a-robots">Robots, drones y automatización</a></li><li><a href="ia.html#a-datos">Datos y plataformas digitales</a></li></ul>
-            <a class="panel-go" href="ia.html">Abrir IA y agricultura de precisión</a>
-          </div>
-        </div>
-        <div class="tab">
-          <button type="button" aria-expanded="false" aria-controls="p-mundo">Mundo</button>
-          <div class="panel" id="p-mundo" hidden><p class="panel-intro">Política agraria, comercio, economía y clima en el resto del mundo.</p><ul class="panel-list"><li><a href="mundo.html#w-politica">Política y comercio</a></li><li><a href="mundo.html#w-economia">Economía e insumos</a></li><li><a href="mundo.html#w-empresas">Empresas e inversión</a></li><li><a href="mundo.html#w-clima">Clima, sanidad y seguridad alimentaria</a></li></ul>
-            <a class="panel-go" href="mundo.html">Abrir Mundo</a>
-          </div>
-        </div>
+        </details>
+        <script>
+          (function () {
+            var m = document.getElementById('menu-mas'); if (!m) return;
+            document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') m.open = false; });
+            var f = document.getElementById('form-resenas');
+            if (f) f.addEventListener('submit', function (e) { e.preventDefault(); });
+          })();
+        </script>
       </nav>
     </div>
   </header>
@@ -269,7 +318,7 @@ h1, h2, h3 {
   <section class="hero" aria-labelledby="lead-title">
     <div class="wrap">
       <article class="lead" id="destacada">
-        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 15 de noviembre de 2026.</p>
+        <p class="updated">Revisado el 15 de noviembre de 2026. Última noticia nueva: 15 de noviembre de 2026.</p>
         <p class="lead-meta">14 de noviembre de 2026 · Moncloa</p>
         <h1 id="lead-title">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</h1>
         <p>El consejero de Agricultura, Ramón Fernández-Pacheco, reclama que España habilite productos ya disponibles en otros Estados miembros contra la plaga, que vuelve a amenazar el pimiento de Almería. La Consejería no ha concretado qué materias activas pide ni cifras de superficie afectada. Mientras tanto, el control se apoya en la vigilancia temprana y el control biológico.</p>
@@ -379,27 +428,12 @@ h1, h2, h3 {
 
   <div class="filters-bar">
     <div class="wrap">
-      <div class="filters" role="group" aria-label="Filtrar noticias por tema"><button type="button" data-filter="todo" aria-pressed="true">Todo</button><button type="button" data-filter="mercados" aria-pressed="false">Mercados</button><button type="button" data-filter="sanidad" aria-pressed="false">Sanidad vegetal</button><button type="button" data-filter="campo" aria-pressed="false">Campo</button></div>
+      <div class="filters" role="group" aria-label="Filtrar noticias por tema"><button type="button" data-filter="todo" aria-pressed="true">Todo</button><button type="button" data-filter="mercados" aria-pressed="false">Mercados</button><button type="button" data-filter="sanidad" aria-pressed="false">Sanidad vegetal</button><button type="button" data-filter="politica" aria-pressed="false">Política agraria</button><button type="button" data-filter="campo" aria-pressed="false">Campo</button></div>
     </div>
   </div>
 
   <main class="wrap">
     <ul class="feed">
-      <li class="story" id="invasive-thrips-species-costs-almer-a-pepper-secto-2026-11-13" data-tag="sanidad">
-        <div class="when"><span class="tico" data-tag="sanidad"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M12 12v5"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9891979/invasive-thrips-species-costs-almeria-pepper-sector-over-half-a-billion-euros-in-four-seasons/" rel="noopener" target="_blank">Una plaga de trips invasor ha costado más de 500 millones de euros al pimiento almeriense en cuatro campañas</a></h3>
-          <p>El trips Thrips parvispinus está agravando su impacto sobre el pimiento de Almería y ha causado pérdidas productivas y económicas importantes en las últimas cuatro campañas. Desde la campaña 2022/2023, los volúmenes de producción y comercialización han caído de media un 10 % por campaña. El extracto no detalla todas las causas de esta caída.</p>
-          <div class="byline">
-            <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
-            
-            
-            
-            <span>HortiDaily</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
       <li class="story" id="estado-invernaderos-2026-11-13" data-tag="campo">
         <div class="when"><span class="tico" data-tag="campo"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V12a9 9 0 0 1 18 0v8M12 3v17M7.5 5.5v14.5M16.5 5.5v14.5"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
         <div>
@@ -415,48 +449,33 @@ h1, h2, h3 {
           </div>
         </div>
       </li>
-      <li class="story" id="el-thrips-parvispinus-ha-provocado-p-rdidas-de-360-2026-11-11" data-tag="sanidad">
-        <div class="when"><span class="tico" data-tag="sanidad"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M12 12v5"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
+      <li class="story" id="cogeca-forum-2026-11-11" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
         <div>
-          <h3><a href="https://hortoinfo.es/el-thrips-parvispinus-ha-provocado-perdidas-de-360-millones-de-kilos-en-4-campanas-a-los-productores-almerienses/" rel="noopener" target="_blank">El thrips parvispinus provoca pérdidas de 360 millones de kilos a los productores almerienses en cuatro campañas</a></h3>
-          <p>Desde la campaña 2022/2023, esta plaga ha reducido un 10% por campaña la producción y la comercialización en Almería. La merma se debe tanto a cultivos eliminados como a superficies que los agricultores han dejado de sembrar, ante la dificultad para controlarla.</p>
+          <h3><a href="https://www.freshplaza.com/article/9891576/european-agricultural-cooperatives-call-for-stronger-eu-investment-support/" rel="noopener" target="_blank">Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE</a></h3>
+          <p>Unos 130 representantes de cooperativas se reunieron el 9 y 10 de noviembre en el Presidency Cogeca Business Forum. Su presidente, Lennart Nilsson, reclamó una PAC que apoye la inversión en explotaciones y cooperativas, una OCM que refuerce a las organizaciones de productores y un Fondo Europeo de Competitividad abierto a las cooperativas, de cara al presupuesto 2028-2034. Cajamar anunció en junio que apoyaría la organización del foro, previsto en Almería; FreshPlaza fecha el llamamiento «desde Almería», pero solo confirma que se celebró en España.</p>
           <div class="byline">
-            <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            <span class="chip" data-tag="politica">Política agraria</span>
             
             
             
-            <span>Hortoinfo</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>FreshPlaza</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
-      <li class="story" id="de-un-15-en-unas-comercializadoras-a-un-35-en-otra-2026-11-11" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-11">11 nov</time></div>
+      <li class="story" id="asaja-plasticos-2026-11-08" data-tag="politica">
+        <div class="when"><span class="tico" data-tag="politica"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10M12 20V10M18 20V10M3 10l9-6 9 6z"/></svg></span><time datetime="2026-11-08">8 nov</time></div>
         <div>
-          <h3><a href="https://hortoinfo.es/de-un-15-en-unas-comercializadoras-a-un-35-en-otras-asi-ha-incidido-la-huelga-general-en-el-sector-horticola-de-almeria/" rel="noopener" target="_blank">La huelga general afecta de forma desigual al sector hortícola almeriense, con impactos del 15% al 35%</a></h3>
-          <p>La mayoría de las compañías del sector hortícola de Almería siguió operando durante la huelga general, tanto en los invernaderos como en la industria auxiliar y las subastas. La incidencia varió según la empresa, entre un 15% en unas comercializadoras y un 35% en otras. La distribución también mantuvo su actividad, aunque con algunas incidencias.</p>
+          <h3><a href="https://www.agronewscastillayleon.com/asaja-almeria-rebaja-fiscal-plasticos-agricolas-modulos-2026" rel="noopener" target="_blank">ASAJA Almería pide que los plásticos de invernadero entren en las rebajas fiscales de 2026</a></h3>
+          <p>La Orden HAC/1161/2026, del 4 de noviembre, fija para los módulos del IRPF de 2026 una reducción general del 10 %, más minoraciones del 35 % en gasóleo agrícola y del 15 % en fertilizantes. ASAJA considera que dejar fuera los plásticos ignora un gasto básico del invernadero y pide además rebajas específicas para los cultivos con pérdidas por plagas, sobre todo el pimiento. Es una reclamación pendiente de respuesta de Hacienda.</p>
           <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
+            <span class="chip" data-tag="politica">Política agraria</span>
             
             
             
-            <span>Hortoinfo</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="las-mesas-de-la-uni-n-europea-se-llenaron-de-sand-2026-11-09" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-09">9 nov</time></div>
-        <div>
-          <h3><a href="https://hortoinfo.es/las-mesas-de-la-union-europea-se-llenaron-de-sandias-espanolas-durante-la-campana-mas-de-la-mitad-de-almeria/" rel="noopener" target="_blank">Almería aporta más de la mitad de las sandías españolas consumidas en la Unión Europea</a></h3>
-          <p>España abasteció el 31,51 % de las sandías consumidas en la UE durante la campaña, y el 53,03 % de esa cuota española salió de Almería. Italia (11,8 %) y Marruecos (9,8 %) figuran como otros orígenes destacados.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>Hortoinfo</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>Agronews Castilla y León</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
@@ -490,6 +509,36 @@ h1, h2, h3 {
           </div>
         </div>
       </li>
+      <li class="story" id="pimiento-trips-sin-armas-2026-11-02" data-tag="sanidad">
+        <div class="when"><span class="tico" data-tag="sanidad"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M12 12v5"/></svg></span><time datetime="2026-11-02">2 nov</time></div>
+        <div>
+          <h3><a href="https://www.elespanol.com/invertia/economia/20261102/invernaderos-almerienses-sin-armas-plaga-arrasa-pimiento-anuales-juego/1003744442197_0.html" rel="noopener" target="_blank">El trips sigue sin solución eficaz en el pimiento almeriense, con 1.120 millones en juego</a></h3>
+          <p>El Español recoge que el Thrips parvispinus se ha extendido por los invernaderos de pimiento, un cultivo de 12.500 ha y más de 900.000 toneladas. ASAJA denuncia que la situación se ha agravado y pide herramientas eficaces; Cohexpal plantea un «paro biológico»; y la Junta cuenta 800 inspecciones y 224 expedientes. El Ministerio denegó el uso excepcional del spirotetramat.</p>
+          <div class="byline">
+            <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            
+            
+            
+            <span>El Español (Invertia)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="balance-perspectivas-2026-10-29" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-29">29 oct</time></div>
+        <div>
+          <h3><a href="https://www.hortidaily.com/article/9887461/examining-almeria-s-2025-26-season-and-2026-27-outlook/" rel="noopener" target="_blank">Balance de la campaña 2025/26 en Almería: menos producción, precios más altos y el pimiento bajo presión</a></h3>
+          <p>Un consultor que visitó la provincia cifra la caída de producción en un 9,8 % (pimiento −16 %, tomate −17,3 %), con un valor cercano a 3.900 millones compensado por los precios. Para 2026/27 apunta a un 5-10 % menos de superficie de pimiento California y trasplantes unas dos semanas más tarde por el trips. Es una valoración personal, no un dato oficial.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            
+            
+            <span>HortiDaily (Alberto Lizarraga)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
     </ul>
     <p class="empty" id="empty" hidden>No hay noticias de este tema por ahora.</p>
   </main>
@@ -501,7 +550,7 @@ h1, h2, h3 {
       </section>
       <section>
         <h2>Fuentes consultadas</h2>
-        <ul><li>HortiDaily</li><li>Hortoinfo</li><li>Moncloa</li></ul>
+        <ul><li>Agronews Castilla y León</li><li>El Español</li><li>FreshPlaza</li><li>HortiDaily</li><li>Moncloa</li></ul>
       </section>
     </div>
   </footer>
