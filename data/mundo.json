@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:50:03+00:00",
-  "checked": "2026-11-16T21:50:03+00:00",
+  "updated": "2026-11-17T15:15:07+00:00",
+  "checked": "2026-11-17T15:15:07+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,32 @@
     }
   ],
   "items": [
+    {
+      "id": "w-kazajist-n-elevar-la-producci-n-de-champi-ones-a-3-2026-11-17",
+      "date": "2026-11-17",
+      "title": "EcoGlade amplía su explotación de champiñones en Kazajistán hasta 360 toneladas al mes",
+      "summary": "La empresa EcoGlade construye la tercera fase de su explotación de champiñones en Petropavlovsk, en el norte de Kazajistán. Al terminarla, la capacidad de producción subirá a 360 toneladas mensuales, unas 4.400 al año.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892826/kazajistan-elevara-la-produccion-de-champinones-a-360-toneladas-mensuales/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Kazajistán"
+    },
+    {
+      "id": "w-no-haremos-mango-mar-timo-esta-campa-a-el-riesgo-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Cultivemos descarta exportar mango por vía marítima por el riesgo de lluvias en Tambogrande",
+      "summary": "El director del grupo Cultivemos alerta de que las lluvias acumuladas en Tambogrande, en Perú, aumentan el riesgo de enfermedades fúngicas. Por ello, la empresa no enviará mango por barco esta campaña y concentrará sus exportaciones en el transporte aéreo.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893649/no-haremos-mango-maritimo-esta-campana-el-riesgo-no-compensa/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "clima",
+      "ambito": "clima",
+      "pais": "Perú"
+    },
     {
       "id": "w-usda-grants-support-oats-research-2026-11-16",
       "date": "2026-11-16",

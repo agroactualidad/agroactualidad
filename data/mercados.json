@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:50:03+00:00",
-  "checked": "2026-11-16T21:50:03+00:00",
+  "updated": "2026-11-17T15:15:07+00:00",
+  "checked": "2026-11-17T15:15:07+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,54 @@
     }
   ],
   "items": [
+    {
+      "id": "m-la-cebolleta-egipcia-entra-en-escena-con-m-s-volum-2026-11-17",
+      "date": "2026-11-17",
+      "title": "La cebolleta egipcia gana volumen en Alemania, pero con menor diferencial de precio frente a la alemana",
+      "summary": "La campaña de cebolleta en Alemania empieza este año algo más tarde de lo habitual, porque el clima cálido ha alargado la temporada de cultivo local. Con la llegada de la cebolleta egipcia aumenta el volumen disponible, aunque la ventaja de precio respecto a la alemana se reduce.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892474/la-cebolleta-egipcia-entra-en-escena-con-mas-volumen-pero-menor-diferencial-de-precio-frente-a-la-alemana/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-la-calidad-y-los-vol-menes-de-esta-temporada-supe-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Balance positivo de la campaña francesa de granada, con buena calidad y volúmenes",
+      "summary": "La campaña francesa de granada llega a su fin, aunque la fruta seguirá en los puntos de venta hasta Navidad. La cosecha se cerró a principios de noviembre y los primeros datos apuntan a un buen resultado en sabor, coloración y volúmenes disponibles.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892486/la-calidad-y-los-volumenes-de-esta-temporada-superan-nuestras-expectativas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-marruecos-prev-una-normalizaci-n-de-los-precios-de-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Marruecos espera que los precios de tomate, patata y cebolla se normalicen en tres semanas",
+      "summary": "Los comerciantes marroquíes prevén que los precios del tomate, la patata y la cebolla vuelvan a niveles habituales en unas tres semanas, a medida que aumente la oferta nacional. El precio del tomate al consumo llegó a 14 dírhams por kilo el sábado pasado.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893317/marruecos-preve-una-normalizacion-de-los-precios-del-tomate-la-patata-y-la-cebolla-en-tres-semanas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-el-calor-oto-al-en-lorca-adelanta-la-recolecci-n-d-2026-11-17",
+      "date": "2026-11-17",
+      "title": "El calor de noviembre adelanta la recolección de brócoli, alcachofa y lechuga en Lorca",
+      "summary": "Las temperaturas altas de noviembre están adelantando la cosecha de alcachofa, brócoli y lechuga en el Valle del Guadalentín, en Lorca. El sector considera que la calidad de la recolección es muy buena. El presidente de COAG en el municipio se pronuncia sobre el fenómeno, aunque el extracto no recoge todos sus argumentos.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893638/el-calor-otonal-en-lorca-adelanta-la-recoleccion-de-brocoli-alcachofa-y-lechuga/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
     {
       "id": "m-december-corn-trying-to-get-back-to-4-50-2026-11-16",
       "date": "2026-11-16",

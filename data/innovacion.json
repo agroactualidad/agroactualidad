@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:50:03+00:00",
-  "checked": "2026-11-16T21:50:03+00:00",
+  "updated": "2026-11-17T15:15:07+00:00",
+  "checked": "2026-11-17T15:15:07+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,30 @@
     }
   ],
   "items": [
+    {
+      "id": "i-estas-peras-de-color-rojo-intenso-est-n-listas-pa-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Dos nuevas variedades de pera roja intensa buscan ampliar su presencia en tiendas europeas",
+      "summary": "Tras años de desarrollo, dos variedades de pera de tono rojo intenso han despertado el interés de una gran cadena de distribución. La empresa quiere comercializarlas a mayor escala en sus tiendas de Europa.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9890951/estas-peras-de-color-rojo-intenso-estan-listas-para-conquistar-el-mercado/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
+    {
+      "id": "i-nuestros-films-para-pal-s-combinan-ventilaci-n-e-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Tama Group destaca sus films para palés, que combinan ventilación e innovación",
+      "summary": "Tama Group, propiedad de los kibutz Mishmar Ha'emek y Gal'ed y fundada en 1950, empezó con mallas para pacas y cosechadoras de algodón. Ahora la empresa promociona sus films para palés, que unen ventilación e innovación.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892420/nuestros-films-para-pales-combinan-ventilacion-e-innovacion/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "envases"
+    },
     {
       "id": "i-sizing-greenhouse-dehumidification-equipment-the-d-2026-11-16",
       "date": "2026-11-16",
