@@ -258,6 +258,7 @@ h1, h2, h3 {
   font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
   border-radius: 9px; cursor: pointer;
 }
+.mas-item { text-decoration: none; }
 .mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
 .mas-item small { color: var(--muted); font-size: .8rem; }
 .resenas > summary { list-style: none; }
@@ -270,6 +271,8 @@ h1, h2, h3 {
   background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
 }
 .resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas input[type="email"] { width: 100%; font: inherit; font-size: .95rem; color: var(--text); background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; }
+.resenas .enviar:disabled { opacity: .6; cursor: wait; }
 .resenas .enviar {
   justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
   border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
@@ -541,15 +544,18 @@ def cabecera(activa, menus):
         <details class="mas" id="menu-mas">
           <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
           <div class="mas-globo">
-            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
-            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <a class="mas-item" href="https://www.instagram.com/agroactualidad2026/" target="_blank" rel="noopener noreferrer">Redes sociales <small>Instagram</small></a>
+            <a class="mas-item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=agroactualidad2026@gmail.com&amp;su=Contacto%20desde%20Agro%20Actualidad" target="_blank" rel="noopener noreferrer">Contacto <small>Gmail</small></a>
             <details class="resenas">
               <summary class="mas-item">Reseñas</summary>
-              <form id="form-resenas">
+              <form id="form-resenas" novalidate>
                 <label for="texto-resena">Escribe lo que quieras</label>
-                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <textarea id="texto-resena" name="message" maxlength="2000" required placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <label for="correo-resena">Tu correo (opcional, solo si quieres respuesta)</label>
+                <input id="correo-resena" name="email" type="email" maxlength="120" autocomplete="email">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <button type="submit" class="enviar">Enviar</button>
-                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+                <p class="aviso" id="aviso-resenas" role="status">Máximo 3 mensajes cada 24 horas. Llegan directamente a mi correo.</p>
               </form>
             </details>
           </div>
@@ -559,8 +565,31 @@ def cabecera(activa, menus):
             var m = document.getElementById('menu-mas'); if (!m) return;
             document.addEventListener('click', function (e) {{ if (m.open && !m.contains(e.target)) m.open = false; }});
             document.addEventListener('keydown', function (e) {{ if (e.key === 'Escape') m.open = false; }});
-            var f = document.getElementById('form-resenas');
-            if (f) f.addEventListener('submit', function (e) {{ e.preventDefault(); }});
+            var f = document.getElementById('form-resenas'); if (!f) return;
+            var aviso = document.getElementById('aviso-resenas'), KEY = 'resenas_envios', MAX = 3, DIA = 86400000;
+            function leer() {{ try {{ var a = JSON.parse(localStorage.getItem(KEY) || '[]'); var n = Date.now(); return a.filter(function (x) {{ return n - x < DIA; }}); }} catch (e) {{ return []; }} }}
+            function guardar(a) {{ try {{ localStorage.setItem(KEY, JSON.stringify(a)); }} catch (e) {{}} }}
+            f.addEventListener('submit', function (e) {{
+              e.preventDefault();
+              var txt = f.elements['message'].value.trim();
+              if (txt.length < 5) {{ aviso.textContent = 'Escribe al menos unas palabras antes de enviar.'; return; }}
+              var env = leer();
+              if (env.length >= MAX) {{ aviso.textContent = 'Has llegado al máximo de 3 mensajes en 24 horas. Vuelve a intentarlo mañana.'; return; }}
+              var btn = f.querySelector('.enviar'); btn.disabled = true; aviso.textContent = 'Enviando…';
+              var datos = {{ message: txt, email: f.elements['email'].value.trim(), _honey: f.elements['_honey'].value,
+                _subject: 'Nueva reseña en Agro Actualidad', _captcha: 'false', _template: 'table' }};
+              fetch('https://formsubmit.co/ajax/agroactualidad2026@gmail.com', {{ method: 'POST',
+                headers: {{ 'Content-Type': 'application/json', 'Accept': 'application/json' }}, body: JSON.stringify(datos) }})
+                .then(function (r) {{ return r.json().then(function (j) {{ return {{ ok: r.ok, j: j }}; }}); }})
+                .then(function (r) {{
+                  if (r.ok && String(r.j.success) !== 'false') {{
+                    env.push(Date.now()); guardar(env); f.reset();
+                    aviso.textContent = '¡Gracias! Tu mensaje ha llegado. Te quedan ' + (MAX - env.length) + ' en las próximas 24 horas.';
+                  }} else {{ aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; }}
+                }})
+                .catch(function () {{ aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; }})
+                .then(function () {{ btn.disabled = false; }});
+            }});
           }})();
         </script>
       </nav>
