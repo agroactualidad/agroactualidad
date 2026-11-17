@@ -243,6 +243,7 @@ h1, h2, h3 {
   font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
   border-radius: 9px; cursor: pointer;
 }
+.mas-item { text-decoration: none; }
 .mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
 .mas-item small { color: var(--muted); font-size: .8rem; }
 .resenas > summary { list-style: none; }
@@ -255,6 +256,8 @@ h1, h2, h3 {
   background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
 }
 .resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas input[type="email"] { width: 100%; font: inherit; font-size: .95rem; color: var(--text); background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; }
+.resenas .enviar:disabled { opacity: .6; cursor: wait; }
 .resenas .enviar {
   justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
   border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
@@ -289,15 +292,18 @@ h1, h2, h3 {
         <details class="mas" id="menu-mas">
           <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
           <div class="mas-globo">
-            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
-            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <a class="mas-item" href="https://www.instagram.com/agroactualidad2026/" target="_blank" rel="noopener noreferrer">Redes sociales <small>Instagram</small></a>
+            <a class="mas-item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=agroactualidad2026@gmail.com&amp;su=Contacto%20desde%20Agro%20Actualidad" target="_blank" rel="noopener noreferrer">Contacto <small>Gmail</small></a>
             <details class="resenas">
               <summary class="mas-item">Reseñas</summary>
-              <form id="form-resenas">
+              <form id="form-resenas" novalidate>
                 <label for="texto-resena">Escribe lo que quieras</label>
-                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <textarea id="texto-resena" name="message" maxlength="2000" required placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <label for="correo-resena">Tu correo (opcional, solo si quieres respuesta)</label>
+                <input id="correo-resena" name="email" type="email" maxlength="120" autocomplete="email">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <button type="submit" class="enviar">Enviar</button>
-                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+                <p class="aviso" id="aviso-resenas" role="status">Máximo 3 mensajes cada 24 horas. Llegan directamente a mi correo.</p>
               </form>
             </details>
           </div>
@@ -307,8 +313,31 @@ h1, h2, h3 {
             var m = document.getElementById('menu-mas'); if (!m) return;
             document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') m.open = false; });
-            var f = document.getElementById('form-resenas');
-            if (f) f.addEventListener('submit', function (e) { e.preventDefault(); });
+            var f = document.getElementById('form-resenas'); if (!f) return;
+            var aviso = document.getElementById('aviso-resenas'), KEY = 'resenas_envios', MAX = 3, DIA = 86400000;
+            function leer() { try { var a = JSON.parse(localStorage.getItem(KEY) || '[]'); var n = Date.now(); return a.filter(function (x) { return n - x < DIA; }); } catch (e) { return []; } }
+            function guardar(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+            f.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var txt = f.elements['message'].value.trim();
+              if (txt.length < 5) { aviso.textContent = 'Escribe al menos unas palabras antes de enviar.'; return; }
+              var env = leer();
+              if (env.length >= MAX) { aviso.textContent = 'Has llegado al máximo de 3 mensajes en 24 horas. Vuelve a intentarlo mañana.'; return; }
+              var btn = f.querySelector('.enviar'); btn.disabled = true; aviso.textContent = 'Enviando…';
+              var datos = { message: txt, email: f.elements['email'].value.trim(), _honey: f.elements['_honey'].value,
+                _subject: 'Nueva reseña en Agro Actualidad', _captcha: 'false', _template: 'table' };
+              fetch('https://formsubmit.co/ajax/agroactualidad2026@gmail.com', { method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(datos) })
+                .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                .then(function (r) {
+                  if (r.ok && String(r.j.success) !== 'false') {
+                    env.push(Date.now()); guardar(env); f.reset();
+                    aviso.textContent = '¡Gracias! Tu mensaje ha llegado. Te quedan ' + (MAX - env.length) + ' en las próximas 24 horas.';
+                  } else { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; }
+                })
+                .catch(function () { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; })
+                .then(function () { btn.disabled = false; });
+            });
           })();
         </script>
       </nav>
@@ -318,7 +347,7 @@ h1, h2, h3 {
   <section class="hero" aria-labelledby="lead-title">
     <div class="wrap">
       <article class="lead" id="destacada">
-        <p class="updated">Revisado el 17 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
+        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
         <p class="lead-meta">11 de noviembre de 2026 · Infoagro (IKOS Advanced)</p>
         <h1 id="lead-title">IKOS Advanced, de Adra, lanza un cuaderno de campo digital ante el fin del papel el 1 de enero de 2027</h1>
         <p>Ikos Notes permite registrar tratamientos, abonado y riego desde el móvil, importa fincas del REA y avisa si un producto supera la dosis o no está autorizado para el cultivo. Técnicos y cooperativas pueden gestionar los cuadernos de todos sus agricultores. La empresa, con unos 80 empleados, dice tener más de 4.000 agricultores y 15.000 hectáreas en 13 países, y ofrece un 25 % de descuento hasta el 31 de diciembre.</p>
@@ -410,18 +439,18 @@ h1, h2, h3 {
     <section class="mercado" id="a-sensores">
       <h2>Sensores y riego de precisión <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="a-uga-researchers-use-plant-signals-to-make-indoor-l-2026-11-16" data-tag="innovacion" data-origen="mundo">
+      <li class="story" id="a-western-berry-arandano-autonomo-2026-11-16" data-tag="innovacion" data-origen="mundo">
         <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
         <div>
-          <h3><a href="https://www.hortidaily.com/article/9890283/uga-researchers-use-plant-signals-to-make-indoor-lighting-more-efficient/" rel="noopener" target="_blank">Investigadores de la UGA usan señales de las plantas para hacer más eficiente la iluminación de interior</a></h3>
-          <p>Investigadores de la Universidad de Georgia proponen regular la iluminación suplementaria de los invernaderos según señales de las propias plantas. Los sistemas tradicionales funcionan con temporizadores fijos o programaciones sencillas, lo que puede derivar en un gasto innecesario de luz.</p>
+          <h3><a href="https://www.hortidaily.com/article/9892923/blueberry-grower-in-australia-trials-driverless-tractors-and-autonomous-harvesting/" rel="noopener" target="_blank">Un productor australiano de arándano prueba tractores sin conductor y cosecha mecánica a una décima parte del coste</a></h3>
+          <p>Western Berry, con 120 hectáreas al norte de Perth, ensaya tractores autónomos para pulverizar y una cosechadora mecánica con batería solar que recoge hasta 6 toneladas al día. Según la empresa, cuesta unos 0,50 dólares australianos por kilo frente a 6 de la recolección manual. Espera cosechar casi 1.500 toneladas y que a lo sumo la mitad se recoja a máquina.</p>
           <div class="byline">
             <span class="chip" data-tag="innovacion">Innovación e IA</span>
-            <span class="chip origen" data-origen="mundo">Mundo · EE. UU.</span>
+            <span class="chip origen" data-origen="mundo">Mundo · Australia</span>
             
-            
-            <span>HortiDaily</span>
-            <span class="mark auto">Resumen automático</span>
+            <span class="chip ajeno">Desde: Robots, drones y automatización</span>
+            <span>HortiDaily (Western Berry)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
@@ -458,23 +487,8 @@ h1, h2, h3 {
       </ul>
     </section>
     <section class="mercado" id="a-robots">
-      <h2>Robots, drones y automatización <span class="cuenta">5</span></h2>
+      <h2>Robots, drones y automatización <span class="cuenta">4</span></h2>
       <ul class="feed">
-      <li class="story" id="a-western-berry-arandano-autonomo-2026-11-16" data-tag="innovacion" data-origen="mundo">
-        <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9892923/blueberry-grower-in-australia-trials-driverless-tractors-and-autonomous-harvesting/" rel="noopener" target="_blank">Un productor australiano de arándano prueba tractores sin conductor y cosecha mecánica a una décima parte del coste</a></h3>
-          <p>Western Berry, con 120 hectáreas al norte de Perth, ensaya tractores autónomos para pulverizar y una cosechadora mecánica con batería solar que recoge hasta 6 toneladas al día. Según la empresa, cuesta unos 0,50 dólares australianos por kilo frente a 6 de la recolección manual. Espera cosechar casi 1.500 toneladas y que a lo sumo la mitad se recoja a máquina.</p>
-          <div class="byline">
-            <span class="chip" data-tag="innovacion">Innovación e IA</span>
-            <span class="chip origen" data-origen="mundo">Mundo · Australia</span>
-            
-            
-            <span>HortiDaily (Western Berry)</span>
-            <span class="mark">Revisada</span>
-          </div>
-        </div>
-      </li>
       <li class="story" id="a-pixa-fresa-nocturna-2026-11-13" data-tag="innovacion" data-origen="mundo">
         <div class="when"><span class="tico" data-tag="innovacion"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
         <div>

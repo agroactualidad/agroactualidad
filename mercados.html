@@ -243,6 +243,7 @@ h1, h2, h3 {
   font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
   border-radius: 9px; cursor: pointer;
 }
+.mas-item { text-decoration: none; }
 .mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
 .mas-item small { color: var(--muted); font-size: .8rem; }
 .resenas > summary { list-style: none; }
@@ -255,6 +256,8 @@ h1, h2, h3 {
   background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
 }
 .resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas input[type="email"] { width: 100%; font: inherit; font-size: .95rem; color: var(--text); background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; }
+.resenas .enviar:disabled { opacity: .6; cursor: wait; }
 .resenas .enviar {
   justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
   border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
@@ -289,15 +292,18 @@ h1, h2, h3 {
         <details class="mas" id="menu-mas">
           <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
           <div class="mas-globo">
-            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
-            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <a class="mas-item" href="https://www.instagram.com/agroactualidad2026/" target="_blank" rel="noopener noreferrer">Redes sociales <small>Instagram</small></a>
+            <a class="mas-item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=agroactualidad2026@gmail.com&amp;su=Contacto%20desde%20Agro%20Actualidad" target="_blank" rel="noopener noreferrer">Contacto <small>Gmail</small></a>
             <details class="resenas">
               <summary class="mas-item">Reseñas</summary>
-              <form id="form-resenas">
+              <form id="form-resenas" novalidate>
                 <label for="texto-resena">Escribe lo que quieras</label>
-                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <textarea id="texto-resena" name="message" maxlength="2000" required placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <label for="correo-resena">Tu correo (opcional, solo si quieres respuesta)</label>
+                <input id="correo-resena" name="email" type="email" maxlength="120" autocomplete="email">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <button type="submit" class="enviar">Enviar</button>
-                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+                <p class="aviso" id="aviso-resenas" role="status">Máximo 3 mensajes cada 24 horas. Llegan directamente a mi correo.</p>
               </form>
             </details>
           </div>
@@ -307,8 +313,31 @@ h1, h2, h3 {
             var m = document.getElementById('menu-mas'); if (!m) return;
             document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') m.open = false; });
-            var f = document.getElementById('form-resenas');
-            if (f) f.addEventListener('submit', function (e) { e.preventDefault(); });
+            var f = document.getElementById('form-resenas'); if (!f) return;
+            var aviso = document.getElementById('aviso-resenas'), KEY = 'resenas_envios', MAX = 3, DIA = 86400000;
+            function leer() { try { var a = JSON.parse(localStorage.getItem(KEY) || '[]'); var n = Date.now(); return a.filter(function (x) { return n - x < DIA; }); } catch (e) { return []; } }
+            function guardar(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+            f.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var txt = f.elements['message'].value.trim();
+              if (txt.length < 5) { aviso.textContent = 'Escribe al menos unas palabras antes de enviar.'; return; }
+              var env = leer();
+              if (env.length >= MAX) { aviso.textContent = 'Has llegado al máximo de 3 mensajes en 24 horas. Vuelve a intentarlo mañana.'; return; }
+              var btn = f.querySelector('.enviar'); btn.disabled = true; aviso.textContent = 'Enviando…';
+              var datos = { message: txt, email: f.elements['email'].value.trim(), _honey: f.elements['_honey'].value,
+                _subject: 'Nueva reseña en Agro Actualidad', _captcha: 'false', _template: 'table' };
+              fetch('https://formsubmit.co/ajax/agroactualidad2026@gmail.com', { method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(datos) })
+                .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                .then(function (r) {
+                  if (r.ok && String(r.j.success) !== 'false') {
+                    env.push(Date.now()); guardar(env); f.reset();
+                    aviso.textContent = '¡Gracias! Tu mensaje ha llegado. Te quedan ' + (MAX - env.length) + ' en las próximas 24 horas.';
+                  } else { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; }
+                })
+                .catch(function () { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; })
+                .then(function () { btn.disabled = false; });
+            });
           })();
         </script>
       </nav>
@@ -318,7 +347,7 @@ h1, h2, h3 {
   <section class="hero" aria-labelledby="lead-title">
     <div class="wrap">
       <article class="lead" id="destacada">
-        <p class="updated">Revisado el 17 de noviembre de 2026. Última noticia nueva: 17 de noviembre de 2026.</p>
+        <p class="updated">Revisado el 16 de noviembre de 2026. Última noticia nueva: 16 de noviembre de 2026.</p>
         <p class="lead-meta">10 de noviembre de 2026 · USDA (informe WASDE)</p>
         <h1 id="lead-title">El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels</h1>
         <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
@@ -413,49 +442,19 @@ h1, h2, h3 {
   <div class="wrap"></div>
   <main class="wrap mercados">
     <section class="mercado" id="m-almeria">
-      <h2>El mercado en Almería <span class="cuenta">3</span></h2>
+      <h2>El mercado en Almería <span class="cuenta">1</span></h2>
       <ul class="feed">
-      <li class="story" id="m-alerta-por-el-retroceso-de-las-exportaciones-y-de-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="ce-grupo-tomate-2026-10-19" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-19">19 oct</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893671/alerta-por-el-retroceso-de-las-exportaciones-y-de-la-perdida-de-competitividad-del-ajo-espanol/" rel="noopener" target="_blank">La Mesa Nacional del Ajo alerta de la caída de exportaciones y de la pérdida de competitividad</a></h3>
-          <p>La Mesa Nacional del Ajo advierte de un descenso de las ventas de ajo español a sus principales destinos extracomunitarios. Señala también una pérdida continuada de competitividad frente a producciones de terceros países. Atribuye la situación al aumento de costes y a la reducción de herramientas disponibles para el cultivo.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            <span class="chip ajeno">Desde: El mercado en España</span>
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="wasde-noviembre-2026-11-10" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
-        <div>
-          <h3><a href="https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf" rel="noopener" target="_blank">El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels</a></h3>
-          <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            <span class="chip ajeno">Desde: El mercado en el mundo</span>
-            <span>USDA (informe WASDE)</span>
-            <span class="mark">Revisada</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="inflacion-alimentos-ue-2026-11-05" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
-        <div>
-          <h3><a href="https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest" rel="noopener" target="_blank">Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona</a></h3>
-          <p>Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.</p>
+          <h3><a href="https://www.agronewscastillayleon.com/tomate-espana-produccion-costes-marruecos-2026" rel="noopener" target="_blank">Marruecos aporta dos de cada tres tomates que la UE importa de fuera de la Unión</a></h3>
+          <p>En el grupo de expertos del tomate de la Comisión Europea, reunido el 15 de octubre, se expuso que Marruecos suministró 527.000 de las 773.000 toneladas importadas de terceros países. La producción española bajó cerca de un 2 % en 2025/26, con la energía y el transporte un 16 % más caros y los plásticos y envases un 18 %.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             <span class="chip ajeno">Desde: El mercado en Europa</span>
-            <span>Euronews (datos de Eurostat)</span>
+            <span>Agronews Castilla y León (vía FEPEX)</span>
             <span class="mark">Revisada</span>
           </div>
         </div>
@@ -463,68 +462,8 @@ h1, h2, h3 {
       </ul>
     </section>
     <section class="mercado" id="m-espana">
-      <h2>El mercado en España <span class="cuenta">5</span></h2>
+      <h2>El mercado en España <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="m-tal-como-est-n-las-cosas-deber-amos-tener-una-bue-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9890944/tal-como-estan-las-cosas-deberiamos-tener-una-buena-temporada-de-clementinas/" rel="noopener" target="_blank">Arranca la campaña citrícola española con buenas expectativas para la clementina</a></h3>
-          <p>Ha comenzado la nueva campaña de cítricos en España y el importador neerlandés De Groot Fruit &amp; Vegetables ya ha recibido las primeras Satsuma y Okitsu. Espera pronto las Oronules y las Clemenules, y el responsable de compras del grupo considera que la temporada podría ser buena.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-el-calor-oto-al-en-lorca-adelanta-la-recolecci-n-d-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893638/el-calor-otonal-en-lorca-adelanta-la-recoleccion-de-brocoli-alcachofa-y-lechuga/" rel="noopener" target="_blank">El calor de noviembre adelanta la recolección de brócoli, alcachofa y lechuga en Lorca</a></h3>
-          <p>Las temperaturas altas de noviembre están adelantando la cosecha de alcachofa, brócoli y lechuga en el Valle del Guadalentín, en Lorca. El sector considera que la calidad de la recolección es muy buena. El presidente de COAG en el municipio se pronuncia sobre el fenómeno, aunque el extracto no recoge todos sus argumentos.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-espa-a-combina-las-importaciones-de-ar-ndanos-peru-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893182/espana-combina-las-importaciones-de-arandanos-peruanos-con-la-preparacion-de-la-nueva-cosecha-de-huelva/" rel="noopener" target="_blank">El mercado español de arándanos depende de Perú mientras Huelva prepara su nueva cosecha</a></h3>
-          <p>El consumo español de arándanos se abastece sobre todo de fruta importada, con Perú como principal proveedor. Mientras tanto, Huelva se prepara para sus primeras recolecciones de la campaña 2026/27, con Sudáfrica y Zimbabue como orígenes complementarios.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-dia-y-consum-lideran-las-ganancias-de-cuota-de-mer-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893230/dia-y-consum-lideran-las-ganancias-de-cuota-de-mercado-en-la-distribucion-alimentaria-espanola/" rel="noopener" target="_blank">Dia y Consum encabezan el avance en cuota de mercado de la distribución alimentaria española</a></h3>
-          <p>Dia y Consum son las cadenas que más han crecido en cuota de mercado dentro de la distribución alimentaria en España. Entre enero y octubre de 2026 ganaron 0,4 puntos porcentuales en valor frente al mismo periodo del año anterior, según Worldpanel by Numerator. Juntas concentran una parte muy relevante de ese mercado.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
       <li class="story" id="lonjas-cereales-2026-11-07" data-tag="mercados">
         <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-07">7 nov</time></div>
         <div>
@@ -540,163 +479,133 @@ h1, h2, h3 {
           </div>
         </div>
       </li>
+      <li class="story" id="fruit-attraction-balance-2026-10-23" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-23">23 oct</time></div>
+        <div>
+          <h3><a href="https://agraria.pe/noticias/fruit-attraction-sigue-creciendo-y-reune-a-128-364-profesion-43338" rel="noopener" target="_blank">Fruit Attraction cierra con 128.364 profesionales y un impacto estimado de 419 millones</a></h3>
+          <p>La feria hortofrutícola de Madrid reunió a 128.364 profesionales de 170 países, un 6 % más, y a 2.588 empresas expositoras de 79 países en 162.000 metros cuadrados. La organización estima un impacto de 419 millones de euros en la ciudad. La próxima edición será del 5 al 7 de octubre de 2027.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            
+            
+            <span>Agraria.pe (datos de la organización)</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
+      <li class="story" id="aceite-norma-comercializacion-2026-10-21" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-21">21 oct</time></div>
+        <div>
+          <h3><a href="https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen" rel="noopener" target="_blank">Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg</a></h3>
+          <p>ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.</p>
+          <div class="byline">
+            <span class="chip" data-tag="mercados">Mercados</span>
+            
+            
+            
+            <span>Agronews Castilla y León</span>
+            <span class="mark">Revisada</span>
+          </div>
+        </div>
+      </li>
       </ul>
     </section>
     <section class="mercado" id="m-europa">
-      <h2>El mercado en Europa <span class="cuenta">5</span></h2>
+      <h2>El mercado en Europa <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="m-la-cosecha-de-pera-en-la-ue-sube-ligeramente-hasta-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="inflacion-alimentos-ue-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893297/la-cosecha-de-pera-en-la-ue-sube-ligeramente-hasta-1-88-millones-de-toneladas/" rel="noopener" target="_blank">La UE prevé una cosecha de pera de 1,88 millones de toneladas en 2026/27, un 2 % más</a></h3>
-          <p>Según un informe sobre fruta de hueso y pepita en la Unión Europea, la producción de pera comercial alcanzaría unas 1,88 millones de toneladas en la campaña 2026/27. Esa cifra supone un aumento de alrededor del 2 % respecto a la temporada anterior.</p>
+          <h3><a href="https://www.euronews.com/2026/11/05/food-prices-in-europe-where-are-grocery-costs-rising-fastest" rel="noopener" target="_blank">Los alimentos frescos se encarecen un 4,6 % interanual en la eurozona</a></h3>
+          <p>Según el avance de Eurostat de octubre, la inflación de la eurozona llegó al 4 %, y los alimentos sin procesar (fruta, verdura, carne y pescado) subieron un 4,6 %, frente al 2,7 % de agosto. En Francia los productos frescos subieron un 8 % y en Italia los no elaborados un 7,5 %.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>Euronews (datos de Eurostat)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
-      <li class="story" id="m-el-br-coli-reivindica-su-papel-protagonista-con-un-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="vbt-pimiento-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893660/el-brocoli-reivindica-su-papel-protagonista-con-una-campana-de-promocion-en-espana-y-alemania/" rel="noopener" target="_blank">La Asociación +Brócoli lanza una campaña de promoción en España y Alemania para dar protagonismo al brócoli</a></h3>
-          <p>La Asociación +Brócoli pone en marcha una campaña de promoción del 16 al 29 de noviembre en España y Alemania. Su objetivo es impulsar el consumo de este vegetal, para que deje de ser un acompañamiento secundario en el plato.</p>
+          <h3><a href="https://www.hortidaily.com/article/9889462/final-batches-of-yellow-peppers-arrive-at-auction/" rel="noopener" target="_blank">El pimiento rojo belga baja a 1,20 €/kg en la recta final de la campaña</a></h3>
+          <p>En la semana 44, las subastas belgas pagaron el pimiento rojo a unos 1,20 €/kg, por debajo del año anterior pese a una oferta algo mayor. El amarillo, el verde y el naranja se pagaron mejor que en 2025. Los precios vienen cayendo desde el máximo de finales de septiembre.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>HortiDaily (subastas VBT)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
-      <li class="story" id="m-la-cebolleta-egipcia-entra-en-escena-con-m-s-volum-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="vbt-tomate-pepino-2026-10-28" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-10-28">28 oct</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9892474/la-cebolleta-egipcia-entra-en-escena-con-mas-volumen-pero-menor-diferencial-de-precio-frente-a-la-alemana/" rel="noopener" target="_blank">La cebolleta egipcia gana volumen en Alemania, pero con menor diferencial de precio frente a la alemana</a></h3>
-          <p>La campaña de cebolleta en Alemania empieza este año algo más tarde de lo habitual, porque el clima cálido ha alargado la temporada de cultivo local. Con la llegada de la cebolleta egipcia aumenta el volumen disponible, aunque la ventaja de precio respecto a la alemana se reduce.</p>
+          <h3><a href="https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/" rel="noopener" target="_blank">Bélgica: suben el tomate y el pepino al apagarse los invernaderos sin calefacción</a></h3>
+          <p>En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-la-calidad-y-los-vol-menes-de-esta-temporada-supe-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9892486/la-calidad-y-los-volumenes-de-esta-temporada-superan-nuestras-expectativas/" rel="noopener" target="_blank">Balance positivo de la campaña francesa de granada, con buena calidad y volúmenes</a></h3>
-          <p>La campaña francesa de granada llega a su fin, aunque la fruta seguirá en los puntos de venta hasta Navidad. La cosecha se cerró a principios de noviembre y los primeros datos apuntan a un buen resultado en sabor, coloración y volúmenes disponibles.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-la-producci-n-francesa-de-peras-caer-un-8-en-2026-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9892892/la-produccion-francesa-de-peras-caera-un-8-en-2026-pero-superara-la-media-quinquenal/" rel="noopener" target="_blank">Francia prevé un descenso del 8 % en su producción de peras en 2026, aunque superaría la media de cinco años</a></h3>
-          <p>Según estimaciones del servicio de estadística del Ministerio de Agricultura francés, la cosecha de peras de mesa rondaría las 146.000 toneladas en 2026. Esa cifra supone un retroceso del 8 % frente al año anterior, pero aun así quedaría por encima de la media de los últimos cinco años.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>HortiDaily (subastas VBT)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
       </ul>
     </section>
     <section class="mercado" id="m-mundo">
-      <h2>El mercado en el mundo <span class="cuenta">5</span></h2>
+      <h2>El mercado en el mundo <span class="cuenta">3</span></h2>
       <ul class="feed">
-      <li class="story" id="m-solo-las-manzanas-de-buena-calidad-tendr-n-cabida-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="wasde-noviembre-2026-11-10" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-10">10 nov</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9892371/solo-las-manzanas-de-buena-calidad-tendran-cabida-en-el-mercado-de-exportacion/" rel="noopener" target="_blank">Turquía prevé una cosecha abundante de manzana, pero con menos fruta apta para exportar</a></h3>
-          <p>Se espera una campaña de manzana abundante en Turquía, aunque la fruta con calidad suficiente para exportar será más escasa. Los exportadores se centran en mercados como la India y los Emiratos Árabes Unidos, donde la calidad es el factor diferenciador.</p>
+          <h3><a href="https://esmis.nal.usda.gov/sites/default/release-files/796142/wasde1126.pdf" rel="noopener" target="_blank">El USDA sitúa la cosecha de maíz de Estados Unidos en 15.893 millones de bushels</a></h3>
+          <p>El informe WASDE de noviembre estima un rendimiento de 179,6 bushels por acre en maíz y existencias finales de 1.758 millones, con la soja en 53,3 bushels por acre y 4.574 millones de producción. La producción mundial de trigo queda en 827,51 millones de toneladas.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>USDA (informe WASDE)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
-      <li class="story" id="m-marruecos-prev-una-normalizaci-n-de-los-precios-de-2026-11-17" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-17">17 nov</time></div>
+      <li class="story" id="fao-indice-precios-2026-11-06" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-06">6 nov</time></div>
         <div>
-          <h3><a href="https://www.freshplaza.es/spain/article/9893317/marruecos-preve-una-normalizacion-de-los-precios-del-tomate-la-patata-y-la-cebolla-en-tres-semanas/" rel="noopener" target="_blank">Marruecos espera que los precios de tomate, patata y cebolla se normalicen en tres semanas</a></h3>
-          <p>Los comerciantes marroquíes prevén que los precios del tomate, la patata y la cebolla vuelvan a niveles habituales en unas tres semanas, a medida que aumente la oferta nacional. El precio del tomate al consumo llegó a 14 dírhams por kilo el sábado pasado.</p>
+          <h3><a href="https://www.tribunadosertao.com.br/geral/2026/11/06/1014931-indice-da-fao-de-precos-de-alimentos-recua-12-em-outubro" rel="noopener" target="_blank">El índice de precios de los alimentos de la FAO baja un 1,2 % en octubre, con el azúcar disparado</a></h3>
+          <p>El indicador quedó en 133,9 puntos, un 1,2 % menos que en septiembre pero un 5,9 % por encima de octubre de 2025. Los cereales cayeron un 4,5 %, la carne un 1,2 % y los lácteos un 1,1 %, mientras el azúcar subió un 6,6 %, cuarto mes al alza y máximo desde diciembre de 2024.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>FreshPlaza España</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>Tribuna do Sertão (datos de la FAO)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
-      <li class="story" id="m-december-corn-trying-to-get-back-to-4-50-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
+      <li class="story" id="peru-exportaciones-2026-11-05" data-tag="mercados">
+        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-05">5 nov</time></div>
         <div>
-          <h3><a href="https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap" rel="noopener" target="_blank">El maíz de diciembre intenta recuperar los 4,50 dólares</a></h3>
-          <p>Los futuros del maíz con entrega en diciembre buscan volver a 4,50 dólares tras una sesión de tarde en la que los precios subieron moderadamente al inicio de la semana. El extracto no aporta más detalles sobre las causas ni el volumen de la subida.</p>
+          <h3><a href="https://agraria.pe/noticias/exportaciones-de-frutas-y-hortalizas-sumaron-us-4-798-897-00-43414" rel="noopener" target="_blank">Perú exporta 4.799 millones de dólares en frutas y hortalizas hasta agosto, un 15 % más</a></h3>
+          <p>El Ministerio de Desarrollo Agrario y Riego cifra en 4.798,9 millones de dólares las ventas de enero a agosto, frente a 4.167,8 del año anterior. Las frutas aportan 4.381,7 millones (+16,6 %) y las hortalizas 417,2 millones (+1,7 %). Suponen el 63,5 % de la agroexportación no tradicional.</p>
           <div class="byline">
             <span class="chip" data-tag="mercados">Mercados</span>
             
             
             
-            <span>Farm Progress</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-why-you-shouldn-t-bank-on-a-grain-bottom-yet-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.farmprogress.com/markets-and-quotes/morning-market-review" rel="noopener" target="_blank">Los futuros de cereales no confirman todavía que los precios hayan tocado fondo</a></h3>
-          <p>Los futuros de soja retroceden tras haber subido a máximos de dos semanas al final de la semana anterior, mientras que el maíz muestra un comportamiento mixto. Los operadores siguen a la espera de la reunión entre Trump y Xi, que comienza el miércoles.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>Farm Progress</span>
-            <span class="mark auto">Resumen automático</span>
-          </div>
-        </div>
-      </li>
-      <li class="story" id="m-moroccan-tomato-potato-and-onion-prices-expected-t-2026-11-16" data-tag="mercados">
-        <div class="when"><span class="tico" data-tag="mercados"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><time datetime="2026-11-16">16 nov</time></div>
-        <div>
-          <h3><a href="https://www.hortidaily.com/article/9893175/moroccan-tomato-potato-and-onion-prices-expected-to-ease-within-three-weeks/" rel="noopener" target="_blank">Marruecos prevé que los precios de tomate, patata y cebolla se normalicen en unas tres semanas</a></h3>
-          <p>Los comerciantes marroquíes esperan que los precios del tomate, la patata y la cebolla vuelvan a niveles habituales en unas tres semanas, a medida que aumente la oferta nacional. Los precios minoristas de estos productos han subido recientemente, y un operador del mercado mayorista de Inezgane comparte esa previsión de bajada.</p>
-          <div class="byline">
-            <span class="chip" data-tag="mercados">Mercados</span>
-            
-            
-            
-            <span>HortiDaily</span>
-            <span class="mark auto">Resumen automático</span>
+            <span>Agraria.pe (datos de Midagri)</span>
+            <span class="mark">Revisada</span>
           </div>
         </div>
       </li>
@@ -711,7 +620,7 @@ h1, h2, h3 {
       </section>
       <section>
         <h2>Fuentes consultadas</h2>
-        <ul><li>Agronews Castilla y León</li><li>Euronews</li><li>Farm Progress</li><li>FreshPlaza España</li><li>HortiDaily</li><li>USDA</li></ul>
+        <ul><li>Agraria.pe</li><li>Agronews Castilla y León</li><li>Euronews</li><li>HortiDaily</li><li>Tribuna do Sertão</li><li>USDA</li></ul>
       </section>
     </div>
   </footer>

@@ -243,6 +243,7 @@ h1, h2, h3 {
   font: inherit; font-size: .97rem; color: var(--text); background: none; border: 0; padding: 11px 12px;
   border-radius: 9px; cursor: pointer;
 }
+.mas-item { text-decoration: none; }
 .mas-item:hover { background: color-mix(in srgb, var(--bg-deep) 55%, transparent); }
 .mas-item small { color: var(--muted); font-size: .8rem; }
 .resenas > summary { list-style: none; }
@@ -255,6 +256,8 @@ h1, h2, h3 {
   background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
 }
 .resenas textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resenas input[type="email"] { width: 100%; font: inherit; font-size: .95rem; color: var(--text); background: var(--bg-deep); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; }
+.resenas .enviar:disabled { opacity: .6; cursor: wait; }
 .resenas .enviar {
   justify-self: start; font: inherit; font-weight: 600; color: #08201c; background: var(--accent);
   border: 0; border-radius: 9px; padding: 9px 18px; cursor: pointer;
@@ -289,15 +292,18 @@ h1, h2, h3 {
         <details class="mas" id="menu-mas">
           <summary aria-label="Menú: redes sociales, contacto y reseñas"><span class="mas-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menú</summary>
           <div class="mas-globo">
-            <button type="button" class="mas-item" data-pronto="redes">Redes sociales <small>Próximamente</small></button>
-            <button type="button" class="mas-item" data-pronto="contacto">Contacto <small>Próximamente</small></button>
+            <a class="mas-item" href="https://www.instagram.com/agroactualidad2026/" target="_blank" rel="noopener noreferrer">Redes sociales <small>Instagram</small></a>
+            <a class="mas-item" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=agroactualidad2026@gmail.com&amp;su=Contacto%20desde%20Agro%20Actualidad" target="_blank" rel="noopener noreferrer">Contacto <small>Gmail</small></a>
             <details class="resenas">
               <summary class="mas-item">Reseñas</summary>
-              <form id="form-resenas">
+              <form id="form-resenas" novalidate>
                 <label for="texto-resena">Escribe lo que quieras</label>
-                <textarea id="texto-resena" name="mensaje" maxlength="2000" placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <textarea id="texto-resena" name="message" maxlength="2000" required placeholder="Tu opinión, una sugerencia, una noticia que echas en falta…"></textarea>
+                <label for="correo-resena">Tu correo (opcional, solo si quieres respuesta)</label>
+                <input id="correo-resena" name="email" type="email" maxlength="120" autocomplete="email">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
                 <button type="submit" class="enviar">Enviar</button>
-                <p class="aviso" id="aviso-resenas" role="status">El envío aún no está activo; pronto llegará a mi correo.</p>
+                <p class="aviso" id="aviso-resenas" role="status">Máximo 3 mensajes cada 24 horas. Llegan directamente a mi correo.</p>
               </form>
             </details>
           </div>
@@ -307,8 +313,31 @@ h1, h2, h3 {
             var m = document.getElementById('menu-mas'); if (!m) return;
             document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') m.open = false; });
-            var f = document.getElementById('form-resenas');
-            if (f) f.addEventListener('submit', function (e) { e.preventDefault(); });
+            var f = document.getElementById('form-resenas'); if (!f) return;
+            var aviso = document.getElementById('aviso-resenas'), KEY = 'resenas_envios', MAX = 3, DIA = 86400000;
+            function leer() { try { var a = JSON.parse(localStorage.getItem(KEY) || '[]'); var n = Date.now(); return a.filter(function (x) { return n - x < DIA; }); } catch (e) { return []; } }
+            function guardar(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+            f.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var txt = f.elements['message'].value.trim();
+              if (txt.length < 5) { aviso.textContent = 'Escribe al menos unas palabras antes de enviar.'; return; }
+              var env = leer();
+              if (env.length >= MAX) { aviso.textContent = 'Has llegado al máximo de 3 mensajes en 24 horas. Vuelve a intentarlo mañana.'; return; }
+              var btn = f.querySelector('.enviar'); btn.disabled = true; aviso.textContent = 'Enviando…';
+              var datos = { message: txt, email: f.elements['email'].value.trim(), _honey: f.elements['_honey'].value,
+                _subject: 'Nueva reseña en Agro Actualidad', _captcha: 'false', _template: 'table' };
+              fetch('https://formsubmit.co/ajax/agroactualidad2026@gmail.com', { method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(datos) })
+                .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                .then(function (r) {
+                  if (r.ok && String(r.j.success) !== 'false') {
+                    env.push(Date.now()); guardar(env); f.reset();
+                    aviso.textContent = '¡Gracias! Tu mensaje ha llegado. Te quedan ' + (MAX - env.length) + ' en las próximas 24 horas.';
+                  } else { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; }
+                })
+                .catch(function () { aviso.textContent = 'No se pudo enviar ahora. Inténtalo más tarde o usa «Contacto».'; })
+                .then(function () { btn.disabled = false; });
+            });
           })();
         </script>
       </nav>
@@ -319,10 +348,10 @@ h1, h2, h3 {
     <div class="wrap">
       <article class="lead" id="destacada">
         <p class="updated">Revisado el 17 de noviembre de 2026. Última noticia nueva: 17 de noviembre de 2026.</p>
-        <p class="lead-meta">17 de noviembre de 2026 · Agroinformación</p>
-        <h1 id="lead-title">COAG alerta de más de 1.200 hectáreas de pimiento arrancadas en Almería por el trips parvispinus</h1>
-        <p>La organización agraria COAG de Almería advierte de que la expansión del trips parvispinus ya ha obligado a arrancar más de 1.200 hectáreas de pimiento en la provincia. La plaga empieza a extenderse también a cultivos como el pepino y pone en riesgo la continuidad de miles de agricultores. Como posible respuesta se plantea una parada biológica controlada.</p>
-        <a class="go" href="https://agroinformacion.com/alertan-de-ya-hay-en-almeria-mas-de-1-200-hectareas-de-pimiento-arrancadas-por-la-plaga-del-parvispinus-y-barajan-un-paro-biologico-controlado/" rel="noopener" target="_blank">Leer la noticia original</a>
+        <p class="lead-meta">14 de noviembre de 2026 · Moncloa</p>
+        <h1 id="lead-title">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</h1>
+        <p>El consejero de Agricultura, Ramón Fernández-Pacheco, reclama que España habilite productos ya disponibles en otros Estados miembros contra la plaga, que vuelve a amenazar el pimiento de Almería. La Consejería no ha concretado qué materias activas pide ni cifras de superficie afectada. Mientras tanto, el control se apoya en la vigilancia temprana y el control biológico.</p>
+        <a class="go" href="https://www.moncloa.com/2026/11/14/andalucia-fitosanitarios-thrips-parvispinus-3467890/" rel="noopener" target="_blank">Leer la noticia original</a>
       </article>
 
       <aside aria-labelledby="figures-title">
@@ -428,7 +457,7 @@ h1, h2, h3 {
 
   <div class="filters-bar">
     <div class="wrap">
-      <div class="filters" role="group" aria-label="Filtrar noticias por tema"><button type="button" data-filter="todo" aria-pressed="true">Todo</button><button type="button" data-filter="mercados" aria-pressed="false">Mercados</button><button type="button" data-filter="sanidad" aria-pressed="false">Sanidad vegetal</button></div>
+      <div class="filters" role="group" aria-label="Filtrar noticias por tema"><button type="button" data-filter="todo" aria-pressed="true">Todo</button><button type="button" data-filter="mercados" aria-pressed="false">Mercados</button><button type="button" data-filter="sanidad" aria-pressed="false">Sanidad vegetal</button><button type="button" data-filter="campo" aria-pressed="false">Campo</button></div>
     </div>
   </div>
 
@@ -449,17 +478,17 @@ h1, h2, h3 {
           </div>
         </div>
       </li>
-      <li class="story" id="thrips-fitosanitarios-2026-11-14" data-tag="sanidad">
-        <div class="when"><span class="tico" data-tag="sanidad"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z"/><path d="M12 12v5"/></svg></span><time datetime="2026-11-14">14 nov</time></div>
+      <li class="story" id="estado-invernaderos-2026-11-13" data-tag="campo">
+        <div class="when"><span class="tico" data-tag="campo"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V12a9 9 0 0 1 18 0v8M12 3v17M7.5 5.5v14.5M16.5 5.5v14.5"/></svg></span><time datetime="2026-11-13">13 nov</time></div>
         <div>
-          <h3><a href="https://www.moncloa.com/2026/11/14/andalucia-fitosanitarios-thrips-parvispinus-3467890/" rel="noopener" target="_blank">Andalucía pide al Gobierno autorizar contra el trips parvispinus los fitosanitarios que ya usan otros países europeos</a></h3>
-          <p>El consejero de Agricultura, Ramón Fernández-Pacheco, reclama que España habilite productos ya disponibles en otros Estados miembros contra la plaga, que vuelve a amenazar el pimiento de Almería. La Consejería no ha concretado qué materias activas pide ni cifras de superficie afectada. Mientras tanto, el control se apoya en la vigilancia temprana y el control biológico.</p>
+          <h3><a href="https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/" rel="noopener" target="_blank">Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips</a></h3>
+          <p>El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.</p>
           <div class="byline">
-            <span class="chip" data-tag="sanidad">Sanidad vegetal</span>
+            <span class="chip" data-tag="campo">Campo</span>
             
             
             
-            <span>Moncloa</span>
+            <span>HortiDaily (boletín de la Junta de Andalucía)</span>
             <span class="mark">Revisada</span>
           </div>
         </div>
@@ -550,7 +579,7 @@ h1, h2, h3 {
       </section>
       <section>
         <h2>Fuentes consultadas</h2>
-        <ul><li>Agroinformación</li><li>El Español</li><li>HortiDaily</li><li>Moncloa</li></ul>
+        <ul><li>El Español</li><li>HortiDaily</li><li>Moncloa</li></ul>
       </section>
     </div>
   </footer>
