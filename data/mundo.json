@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T15:15:07+00:00",
-  "checked": "2026-11-17T15:15:07+00:00",
+  "updated": "2026-11-17T18:20:09+00:00",
+  "checked": "2026-11-17T18:20:09+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,45 @@
     }
   ],
   "items": [
+    {
+      "id": "w-una-empresa-belga-invierte-70-millones-de-euros-en-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Lutosa estrena en Bélgica una nueva línea de patata rallada tras invertir 70 millones",
+      "summary": "La empresa belga Lutosa puso en marcha en noviembre de 2026 una nueva línea para elaborar especialidades de patata rallada en Leuze-en-Hainaut. Con ella completa un plan de modernización de sus líneas de especialidades dotado con 70 millones de euros.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893343/una-empresa-belga-invierte-70-millones-de-euros-en-modernizar-su-produccion-de-especialidades-de-patata/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "empresas",
+      "pais": "Bélgica"
+    },
+    {
+      "id": "w-nueva-empresa-de-pi-a-en-panam-prev-duplicar-su-pr-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Una nueva empresa panameña de piña prevé duplicar su producción en 2027",
+      "summary": "Dorada Tropic es una compañía constituida en 2025 a partir de un grupo de productores de piña que cultivan desde 2021. Su gerente general explica que la empresa busca dar más seguridad a su actividad productiva. El titular anticipa que la producción se duplicará en 2027.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893706/nueva-empresa-de-pina-en-panama-preve-duplicar-su-produccion-en-2027/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Panamá"
+    },
+    {
+      "id": "w-agtegra-full-circle-ag-to-explore-merger-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Agtegra y Full Circle Ag estudian una posible fusión",
+      "summary": "Las firmas Agtegra y Full Circle Ag exploran la posibilidad de fusionarse. Las cooperativas implicadas dan servicio en los estados de Dakota del Norte y del Sur.",
+      "source": "World-Grain",
+      "url": "https://www.world-grain.com/articles/23465-agtegra-full-circle-ag-to-explore-merger",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "EE. UU."
+    },
     {
       "id": "w-kazajist-n-elevar-la-producci-n-de-champi-ones-a-3-2026-11-17",
       "date": "2026-11-17",

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T19:30:00+01:00",
+  "updated": "2026-11-17T18:20:09+00:00",
   "stats": [
     {
       "value": "1.120 M€",
@@ -32,6 +32,28 @@
   ],
   "items": [
     {
+      "id": "alertan-de-ya-hay-en-almer-a-m-s-de-1-200-hect-rea-2026-11-17",
+      "date": "2026-11-17",
+      "title": "COAG alerta de más de 1.200 hectáreas de pimiento arrancadas en Almería por el trips parvispinus",
+      "summary": "La organización agraria COAG de Almería advierte de que la expansión del trips parvispinus ya ha obligado a arrancar más de 1.200 hectáreas de pimiento en la provincia. La plaga empieza a extenderse también a cultivos como el pepino y pone en riesgo la continuidad de miles de agricultores. Como posible respuesta se plantea una parada biológica controlada.",
+      "source": "Agroinformación",
+      "url": "https://agroinformacion.com/alertan-de-ya-hay-en-almeria-mas-de-1-200-hectareas-de-pimiento-arrancadas-por-la-plaga-del-parvispinus-y-barajan-un-paro-biologico-controlado/",
+      "importancia": 5,
+      "status": "auto",
+      "tag": "sanidad"
+    },
+    {
+      "id": "berja-trips-6-por-ciento-2026-11-16",
+      "date": "2026-11-16",
+      "tag": "sanidad",
+      "importancia": 4,
+      "title": "La Junta: el trips afecta ya al 6 % de la superficie de pimiento, frente al 3,5 % de la campaña anterior",
+      "summary": "En una visita a un invernadero de Berja, el consejero Ramón Fernández-Pacheco dijo que el pimiento afectado ha subido del 3,5 % entre octubre y diciembre pasados al 6 % a finales de octubre. Almería produce cerca de un millón de toneladas en unas 13.500 hectáreas. Considera «insuficientes» las herramientas actuales, incluidos los protocolos de control biológico de la Junta, y sostiene que la solución pasa por autorizar materias activas.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893024/spanish-government-urged-to-allow-effective-tools-against-thrips/",
+      "status": "revisada"
+    },
+    {
       "id": "thrips-fitosanitarios-2026-11-14",
       "date": "2026-11-14",
       "tag": "sanidad",
@@ -41,6 +63,39 @@
       "url": "https://www.moncloa.com/2026/11/14/andalucia-fitosanitarios-thrips-parvispinus-3467890/",
       "status": "revisada",
       "importancia": 5
+    },
+    {
+      "id": "estado-invernaderos-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "campo",
+      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
+      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
+      "source": "HortiDaily (boletín de la Junta de Andalucía)",
+      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
+      "status": "revisada",
+      "importancia": 3
+    },
+    {
+      "id": "coexphal-trips-carta-2026-11-13",
+      "date": "2026-11-13",
+      "tag": "sanidad",
+      "importancia": 5,
+      "title": "Coexphal cifra en 360.000 toneladas lo perdido por el trips en cuatro campañas y pide autorizar productos de emergencia",
+      "summary": "Según Coexphal, desde 2022/23 el volumen de pimiento comercializado en Almería ha caído de media un 10 % por campaña por cultivos destruidos y superficie sin plantar. La pérdida acumulada sería de 360.000 toneladas, 360 millones de euros en origen y 540 en destino. La asociación afirma que el 99 % de las explotaciones aplican gestión integrada y pide al Ministerio de Agricultura autorizar de urgencia materias activas ya permitidas excepcionalmente en otros países de la UE; envió una carta con una caja de pimientos afectados al ministro Luis Planas. Son cifras de la propia organización.",
+      "source": "HortiDaily (Coexphal)",
+      "url": "https://www.hortidaily.com/article/9891979/invasive-thrips-species-costs-almeria-pepper-sector-over-half-a-billion-euros-in-four-seasons/",
+      "status": "revisada"
+    },
+    {
+      "id": "cogeca-forum-2026-11-11",
+      "date": "2026-11-11",
+      "tag": "politica",
+      "title": "Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE",
+      "summary": "Unos 130 representantes de cooperativas se reunieron el 9 y 10 de noviembre en el Presidency Cogeca Business Forum. Su presidente, Lennart Nilsson, reclamó una PAC que apoye la inversión en explotaciones y cooperativas, una OCM que refuerce a las organizaciones de productores y un Fondo Europeo de Competitividad abierto a las cooperativas, de cara al presupuesto 2028-2034. Cajamar anunció en junio que apoyaría la organización del foro, previsto en Almería; FreshPlaza fecha el llamamiento «desde Almería», pero solo confirma que se celebró en España.",
+      "source": "FreshPlaza",
+      "url": "https://www.freshplaza.com/article/9891576/european-agricultural-cooperatives-call-for-stronger-eu-investment-support/",
+      "status": "revisada",
+      "importancia": 2
     },
     {
       "id": "asaja-plasticos-2026-11-08",
@@ -65,37 +120,15 @@
       "importancia": 4
     },
     {
-      "id": "estado-invernaderos-2026-11-13",
-      "date": "2026-11-13",
-      "tag": "campo",
-      "title": "Poniente en plena cosecha de tomate y pimiento; en Níjar, algunos pimientos con ciclos más cortos por el trips",
-      "summary": "El boletín de la Junta de Andalucía sobre la semana del 2 al 8 de noviembre describe buena cuajada y calidad en tomate y pimiento del Poniente, berenjena con rendimientos parecidos a otros años y calabacín y pepino con buena producción. En el Campo de Níjar, los invernaderos afectados por trips registran ciclos de producción más cortos.",
-      "source": "HortiDaily (boletín de la Junta de Andalucía)",
-      "url": "https://www.hortidaily.com/article/9892451/andalusia-s-greenhouse-crops-report-positive-week-as-harvest-season-advances/",
-      "status": "revisada",
-      "importancia": 3
-    },
-    {
-      "id": "temporal-fondo-emergencia-2026-10-22",
-      "date": "2026-10-22",
-      "tag": "clima",
-      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
-      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
-      "source": "Moncloa",
-      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
-      "status": "revisada",
-      "importancia": 3
-    },
-    {
-      "id": "cogeca-forum-2026-11-11",
-      "date": "2026-11-11",
-      "tag": "politica",
-      "title": "Las cooperativas agrarias europeas piden más apoyo a la inversión en el próximo presupuesto de la UE",
-      "summary": "Unos 130 representantes de cooperativas se reunieron el 9 y 10 de noviembre en el Presidency Cogeca Business Forum. Su presidente, Lennart Nilsson, reclamó una PAC que apoye la inversión en explotaciones y cooperativas, una OCM que refuerce a las organizaciones de productores y un Fondo Europeo de Competitividad abierto a las cooperativas, de cara al presupuesto 2028-2034. Cajamar anunció en junio que apoyaría la organización del foro, previsto en Almería; FreshPlaza fecha el llamamiento «desde Almería», pero solo confirma que se celebró en España.",
-      "source": "FreshPlaza",
-      "url": "https://www.freshplaza.com/article/9891576/european-agricultural-cooperatives-call-for-stronger-eu-investment-support/",
-      "status": "revisada",
-      "importancia": 2
+      "id": "tomate-retraso-precios-2026-11-03",
+      "date": "2026-11-03",
+      "tag": "mercados",
+      "importancia": 4,
+      "title": "Campaña de tomate retrasada: precios muy por encima de la media en las subastas almerienses",
+      "summary": "Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.",
+      "source": "HortiDaily (Vicasol)",
+      "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
+      "status": "revisada"
     },
     {
       "id": "pimiento-trips-sin-armas-2026-11-02",
@@ -120,40 +153,18 @@
       "status": "revisada"
     },
     {
-      "id": "tomate-retraso-precios-2026-11-03",
-      "date": "2026-11-03",
-      "tag": "mercados",
-      "importancia": 4,
-      "title": "Campaña de tomate retrasada: precios muy por encima de la media en las subastas almerienses",
-      "summary": "Según Vicasol, muchos productores retrasaron el trasplante por las plagas y el calor, y el volumen no llegará hasta mediados de noviembre, cuando suele estar en las semanas 44-45. Los precios medios citados rondan 2,06 €/kg en tomate plum y 2,11 €/kg en rama. Marruecos va 10-15 días retrasado y el sector teme que coincidan los picos.",
-      "source": "HortiDaily (Vicasol)",
-      "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
-      "status": "revisada"
-    },
-    {
-      "id": "coexphal-trips-carta-2026-11-13",
-      "date": "2026-11-13",
-      "tag": "sanidad",
-      "importancia": 5,
-      "title": "Coexphal cifra en 360.000 toneladas lo perdido por el trips en cuatro campañas y pide autorizar productos de emergencia",
-      "summary": "Según Coexphal, desde 2022/23 el volumen de pimiento comercializado en Almería ha caído de media un 10 % por campaña por cultivos destruidos y superficie sin plantar. La pérdida acumulada sería de 360.000 toneladas, 360 millones de euros en origen y 540 en destino. La asociación afirma que el 99 % de las explotaciones aplican gestión integrada y pide al Ministerio de Agricultura autorizar de urgencia materias activas ya permitidas excepcionalmente en otros países de la UE; envió una carta con una caja de pimientos afectados al ministro Luis Planas. Son cifras de la propia organización.",
-      "source": "HortiDaily (Coexphal)",
-      "url": "https://www.hortidaily.com/article/9891979/invasive-thrips-species-costs-almeria-pepper-sector-over-half-a-billion-euros-in-four-seasons/",
-      "status": "revisada"
-    },
-    {
-      "id": "berja-trips-6-por-ciento-2026-11-16",
-      "date": "2026-11-16",
-      "tag": "sanidad",
-      "importancia": 4,
-      "title": "La Junta: el trips afecta ya al 6 % de la superficie de pimiento, frente al 3,5 % de la campaña anterior",
-      "summary": "En una visita a un invernadero de Berja, el consejero Ramón Fernández-Pacheco dijo que el pimiento afectado ha subido del 3,5 % entre octubre y diciembre pasados al 6 % a finales de octubre. Almería produce cerca de un millón de toneladas en unas 13.500 hectáreas. Considera «insuficientes» las herramientas actuales, incluidos los protocolos de control biológico de la Junta, y sostiene que la solución pasa por autorizar materias activas.",
-      "source": "HortiDaily",
-      "url": "https://www.hortidaily.com/article/9893024/spanish-government-urged-to-allow-effective-tools-against-thrips/",
-      "status": "revisada"
+      "id": "temporal-fondo-emergencia-2026-10-22",
+      "date": "2026-10-22",
+      "tag": "clima",
+      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
+      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
+      "source": "Moncloa",
+      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
+      "status": "revisada",
+      "importancia": 3
     }
   ],
-  "checked": "2026-11-17T19:30:00+01:00",
+  "checked": "2026-11-17T18:20:09+00:00",
   "charts": [
     {
       "id": "precios",

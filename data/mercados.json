@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T15:15:07+00:00",
-  "checked": "2026-11-17T15:15:07+00:00",
+  "updated": "2026-11-17T18:20:09+00:00",
+  "checked": "2026-11-17T18:20:09+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,66 @@
     }
   ],
   "items": [
+    {
+      "id": "m-tal-como-est-n-las-cosas-deber-amos-tener-una-bue-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Arranca la campaña citrícola española con buenas expectativas para la clementina",
+      "summary": "Ha comenzado la nueva campaña de cítricos en España y el importador neerlandés De Groot Fruit & Vegetables ya ha recibido las primeras Satsuma y Okitsu. Espera pronto las Oronules y las Clemenules, y el responsable de compras del grupo considera que la temporada podría ser buena.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9890944/tal-como-estan-las-cosas-deberiamos-tener-una-buena-temporada-de-clementinas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-solo-las-manzanas-de-buena-calidad-tendr-n-cabida-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Turquía prevé una cosecha abundante de manzana, pero con menos fruta apta para exportar",
+      "summary": "Se espera una campaña de manzana abundante en Turquía, aunque la fruta con calidad suficiente para exportar será más escasa. Los exportadores se centran en mercados como la India y los Emiratos Árabes Unidos, donde la calidad es el factor diferenciador.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9892371/solo-las-manzanas-de-buena-calidad-tendran-cabida-en-el-mercado-de-exportacion/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-la-cosecha-de-pera-en-la-ue-sube-ligeramente-hasta-2026-11-17",
+      "date": "2026-11-17",
+      "title": "La UE prevé una cosecha de pera de 1,88 millones de toneladas en 2026/27, un 2 % más",
+      "summary": "Según un informe sobre fruta de hueso y pepita en la Unión Europea, la producción de pera comercial alcanzaría unas 1,88 millones de toneladas en la campaña 2026/27. Esa cifra supone un aumento de alrededor del 2 % respecto a la temporada anterior.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893297/la-cosecha-de-pera-en-la-ue-sube-ligeramente-hasta-1-88-millones-de-toneladas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-el-br-coli-reivindica-su-papel-protagonista-con-un-2026-11-17",
+      "date": "2026-11-17",
+      "title": "La Asociación +Brócoli lanza una campaña de promoción en España y Alemania para dar protagonismo al brócoli",
+      "summary": "La Asociación +Brócoli pone en marcha una campaña de promoción del 16 al 29 de noviembre en España y Alemania. Su objetivo es impulsar el consumo de este vegetal, para que deje de ser un acompañamiento secundario en el plato.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893660/el-brocoli-reivindica-su-papel-protagonista-con-una-campana-de-promocion-en-espana-y-alemania/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-alerta-por-el-retroceso-de-las-exportaciones-y-de-2026-11-17",
+      "date": "2026-11-17",
+      "title": "La Mesa Nacional del Ajo alerta de la caída de exportaciones y de la pérdida de competitividad",
+      "summary": "La Mesa Nacional del Ajo advierte de un descenso de las ventas de ajo español a sus principales destinos extracomunitarios. Señala también una pérdida continuada de competitividad frente a producciones de terceros países. Atribuye la situación al aumento de costes y a la reducción de herramientas disponibles para el cultivo.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893671/alerta-por-el-retroceso-de-las-exportaciones-y-de-la-perdida-de-competitividad-del-ajo-espanol/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
     {
       "id": "m-la-cebolleta-egipcia-entra-en-escena-con-m-s-volum-2026-11-17",
       "date": "2026-11-17",
