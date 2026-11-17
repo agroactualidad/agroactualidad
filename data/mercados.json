@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T18:20:09+00:00",
-  "checked": "2026-11-17T18:20:09+00:00",
+  "updated": "2026-11-17T19:19:57+00:00",
+  "checked": "2026-11-17T19:19:57+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,30 @@
     }
   ],
   "items": [
+    {
+      "id": "m-espa-a-ha-producido-4-5-millones-de-toneladas-de-h-2026-11-17",
+      "date": "2026-11-17",
+      "title": "España alcanza 4,5 millones de toneladas de hortalizas de invernadero en la campaña 2025/26",
+      "summary": "La producción nacional de hortalizas de invernadero se mantuvo en un nivel parecido al de la campaña anterior. Además, superó en un 4 % la media de los últimos cinco años. Los datos se presentaron en una reunión del sector hortícola.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893699/espana-ha-producido-4-5-millones-de-toneladas-de-hortalizas-en-invernadero-en-la-campana-2025-26/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-uae-vegetable-prices-fall-42-as-local-supply-incre-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Bajan los precios de las hortalizas en Emiratos Árabes Unidos al aumentar la oferta local",
+      "summary": "En Emiratos Árabes Unidos los precios de las hortalizas caen con el inicio de la temporada local, que aumenta el suministro interno y favorece promociones en tienda. El calabacín baja un 42 %, de 12 a 6,95 dírhams por kilo.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893463/uae-vegetable-prices-fall-42-as-local-supply-increases/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-tal-como-est-n-las-cosas-deber-amos-tener-una-bue-2026-11-17",
       "date": "2026-11-17",

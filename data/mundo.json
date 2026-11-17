@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T18:20:09+00:00",
-  "checked": "2026-11-17T18:20:09+00:00",
+  "updated": "2026-11-17T19:19:57+00:00",
+  "checked": "2026-11-17T19:19:57+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,71 @@
     }
   ],
   "items": [
+    {
+      "id": "w-subasta-de-l-neas-de-clasificaci-n-de-cerezas-y-ma-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Subasta online de líneas de clasificación para cerezas y manzanas en Alemania",
+      "summary": "Una casa de subastas online ofrece líneas de clasificación para cerezas y manzanas por encargo de VOG Ingelheim. El lote incluye separadores, máquinas de selección óptica, sistemas de distribución, básculas y lavadoras.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893293/subasta-de-lineas-de-clasificacion-de-cerezas-y-manzanas/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "logistica",
+      "ambito": "empresas",
+      "pais": "Alemania"
+    },
+    {
+      "id": "w-danish-biotech-specialist-raises-20-million-to-acc-2026-11-17",
+      "date": "2026-11-17",
+      "title": "La biotecnológica danesa Traitomic levanta 20 millones de euros para acelerar sus rasgos listos para el mercado",
+      "summary": "La empresa danesa Traitomic ha captado 20 millones de euros en una ronda de Serie A liderada por Sofinnova Partners. En el consorcio inversor también participan fondos como EIFO y otros inversores del sector agrotecnológico nórdico.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893687/danish-biotech-specialist-raises-eur20-million-to-accelerate-market-ready-trait-development/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "empresas",
+      "pais": "Dinamarca"
+    },
+    {
+      "id": "w-decloet-greenhouse-manufacturing-acquired-by-yoder-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Yoder Produce adquiere DeCloet Greenhouse Manufacturing tras la aprobación judicial en EE. UU. y Canadá",
+      "summary": "La empresa de fabricación de invernaderos DeCloet Greenhouse Manufacturing pasa a manos de Yoder Produce, con sede en Ohio. La operación cuenta con la aprobación de los tribunales de Estados Unidos y Canadá, lo que permite cerrar el proceso concursal en el que estaba la compañía. Se prevé que la transacción se complete a finales de noviembre.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893689/decloet-greenhouse-manufacturing-acquired-by-yoder-produce/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "EE. UU. y Canadá"
+    },
+    {
+      "id": "w-czech-vegetable-growers-face-yield-losses-of-30-to-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Los horticultores checos prevén pérdidas de cosecha del 30 al 50 % en las zonas más castigadas",
+      "summary": "La Unión de Productores de Hortalizas de Bohemia y Moravia calcula pérdidas de rendimiento de entre el 30 y el 50 % en las áreas más afectadas en 2026. Sequía, calor elevado, heladas primaverales y granizadas localizadas han dañado los cultivos, con diferencias según la región y el tipo de producto.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892926/czech-vegetable-growers-face-yield-losses-of-30-to-50-in-worst-affected-areas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "campo",
+      "ambito": "clima",
+      "pais": "Chequia"
+    },
+    {
+      "id": "w-china-s-17-billion-crop-pledge-falters-ahead-of-tr-2026-11-17",
+      "date": "2026-11-17",
+      "title": "El compromiso chino de comprar 17.000 millones en productos agrícolas estadounidenses se tambalea",
+      "summary": "Es poco probable que China cumpla en 2026 su promesa de compra de productos agrícolas de EE. UU. por unos 17.000 millones de dólares. Mientras continúan las negociaciones comerciales con Trump, los precios del grano siguen débiles.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/farm-policy/china-s-17-billion-crop-pledge-falters-ahead-of-trump-xi-summit",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "China y EE. UU."
+    },
     {
       "id": "w-una-empresa-belga-invierte-70-millones-de-euros-en-2026-11-17",
       "date": "2026-11-17",

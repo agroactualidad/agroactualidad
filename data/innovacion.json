@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T15:15:07+00:00",
-  "checked": "2026-11-17T18:20:09+00:00",
+  "updated": "2026-11-17T19:19:57+00:00",
+  "checked": "2026-11-17T19:19:57+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,18 @@
     }
   ],
   "items": [
+    {
+      "id": "i-kelp-based-biostimulant-cuts-inputs-while-boosting-2026-11-17",
+      "date": "2026-11-17",
+      "title": "Bioestimulante a base de algas kelp reduce insumos y favorece el desarrollo radicular",
+      "summary": "Kelp Blue centra su producción en la macroalga parda Macrocystis pyrifera, de crecimiento rápido y sin necesidad de agua dulce ni de tierra. Según el extracto, sus compuestos bioactivos tienen interés agrícola, en un contexto de cuotas de recolección silvestre cada vez más restrictivas.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9892777/kelp-based-biostimulant-cuts-inputs-while-boosting-root-development-and-yields/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "bioinsumos"
+    },
     {
       "id": "i-estas-peras-de-color-rojo-intenso-est-n-listas-pa-2026-11-17",
       "date": "2026-11-17",
