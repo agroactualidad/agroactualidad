@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T19:19:57+00:00",
-  "checked": "2026-11-17T19:19:57+00:00",
+  "updated": "2026-11-18T14:52:26+00:00",
+  "checked": "2026-11-18T14:52:26+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,58 @@
     }
   ],
   "items": [
+    {
+      "id": "w-thailand-opening-markets-wider-to-u-s-to-secure-tr-2026-11-18",
+      "date": "2026-11-18",
+      "title": "Tailandia abre su mercado a EE. UU. para cerrar un acuerdo comercial",
+      "summary": "Tailandia está cerca de cerrar un acuerdo comercial con Estados Unidos. Según la información disponible, el país se compromete a comprar soja estadounidense y a abrir su mercado a la carne de cerdo y a otros productos agrarios de EE. UU.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/farm-policy/thailand-opening-markets-wider-to-u-s-to-secure-trade-deal",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "Tailandia y EE. UU."
+    },
+    {
+      "id": "w-we-re-fully-committed-to-hass-avocados-growth-2026-11-18",
+      "date": "2026-11-18",
+      "title": "La cooperativa israelí Granot apuesta por crecer con el aguacate Hass",
+      "summary": "La cooperativa israelí Granot Agricultural Farms, fundada hace casi siete décadas, reúne la producción de 43 kibutz y es la mayor de Israel en aguacate. Desde 2020, sus productores asumieron directamente la exportación, un paso que su área de marketing considera decisivo.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893600/we-re-fully-committed-to-hass-avocados-growth/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Israel"
+    },
+    {
+      "id": "w-guanajuato-s-strawberry-industry-on-high-alert-ove-2026-11-18",
+      "date": "2026-11-18",
+      "title": "Alerta en Guanajuato por enfermedades fúngicas que afectan a los cultivos de fresa",
+      "summary": "Los cultivos de fresa en Guanajuato, México, siguen bajo vigilancia fitosanitaria por enfermedades causadas por hongos que pueden provocar podredumbres y propagarse entre las plantas. El comité fitosanitario estatal desarrolla campañas de seguimiento y control en las zonas productoras.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893850/guanajuato-s-strawberry-industry-on-high-alert-over-fungal-diseases/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "sanidad",
+      "ambito": "clima",
+      "pais": "México"
+    },
+    {
+      "id": "w-why-cgmmv-resistance-matters-for-cucumber-growers-2026-11-18",
+      "date": "2026-11-18",
+      "title": "Por qué la resistencia al CGMMV importa a los productores de pepino",
+      "summary": "El virus del mosaico verde moteado del pepino (CGMMV) cobra importancia en las zonas productoras de este cultivo. La resistencia genética pasa así de ser un rasgo complementario a un elemento central de la protección del cultivo. Para el productor, su valor está en preservar el potencial productivo de la planta.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9894002/why-cgmmv-resistance-matters-for-cucumber-growers/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "sanidad",
+      "ambito": "clima",
+      "pais": "Mundial"
+    },
     {
       "id": "w-subasta-de-l-neas-de-clasificaci-n-de-cerezas-y-ma-2026-11-17",
       "date": "2026-11-17",

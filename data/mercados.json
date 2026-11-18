@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T19:19:57+00:00",
-  "checked": "2026-11-17T19:19:57+00:00",
+  "updated": "2026-11-18T14:52:26+00:00",
+  "checked": "2026-11-18T14:52:26+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,30 @@
     }
   ],
   "items": [
+    {
+      "id": "m-higher-yields-expected-to-lift-south-korean-strawb-2026-11-18",
+      "date": "2026-11-18",
+      "title": "Corea del Sur prevé más fresa por mejores plantones y clima, con subidas de hasta un 20 %",
+      "summary": "La oferta de fresa en Corea del Sur sigue siendo escasa al inicio de la campaña 2026/27, con pequeños volúmenes que se agotan rápido. Según una empresa del sector, unos plantones más sanos y un clima más favorable apuntan a una cosecha mayor.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893610/higher-yields-expected-to-lift-south-korean-strawberry-supplies-by-up-to-20/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-spain-has-produced-4-5-million-tons-of-greenhouse-2026-11-18",
+      "date": "2026-11-18",
+      "title": "España alcanza 4,5 millones de toneladas de hortalizas de invernadero en la campaña 2025/26",
+      "summary": "La producción española de hortalizas de invernadero llegó a unas 4,5 millones de toneladas en la campaña 2025/26, un volumen similar al de la temporada anterior. Según los datos presentados en una reunión del sector, la cifra supera en un 4 % la media de los últimos cinco años.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9893833/spain-has-produced-4-5-million-tons-of-greenhouse-vegetables-in-the-2025-26-season/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
     {
       "id": "m-espa-a-ha-producido-4-5-millones-de-toneladas-de-h-2026-11-17",
       "date": "2026-11-17",
