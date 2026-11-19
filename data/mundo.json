@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-18T14:52:26+00:00",
-  "checked": "2026-11-18T14:52:26+00:00",
+  "updated": "2026-11-19T14:57:52+00:00",
+  "checked": "2026-11-19T14:57:52+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,58 @@
     }
   ],
   "items": [
+    {
+      "id": "w-usmef-marks-50-years-of-growing-us-meat-exports-wo-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Las exportaciones de carne de cerdo y vacuno de EE. UU. alcanzan máximos históricos en 2025",
+      "summary": "Las ventas al exterior de carne de cerdo y de vacuno estadounidenses marcaron récords en 2025. La coincidencia con el 50.º aniversario de la federación exportadora de carne de EE. UU. sirve para destacar su labor de apertura de mercados internacionales.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/tv-and-radio/usmef-marks-50-years-of-growing-us-meat-exports-worldwide",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "economia",
+      "pais": "EE. UU."
+    },
+    {
+      "id": "w-china-holds-soybean-imports-at-ports-as-domestic-s-2026-11-19",
+      "date": "2026-11-19",
+      "title": "China retiene en sus puertos las importaciones de soja ante el aumento de existencias internas",
+      "summary": "China está demorando la liberación de soja importada en sus puertos porque hay exceso de oferta interna y la demanda de las granjas porcinas es débil. Esta situación presiona los precios mientras avanzan las negociaciones comerciales con Estados Unidos.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/farm-policy/china-holds-soybean-imports-at-ports-as-domestic-supplies-swell",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "China y EE. UU."
+    },
+    {
+      "id": "w-new-east-china-ripening-and-distribution-center-of-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Una marca china de aguacates inaugura un centro de maduración y distribución en Shanghai",
+      "summary": "La marca china Mr. Avocado ha puesto en marcha en Shanghai un nuevo centro de maduración, envasado y distribución. Según la información disponible, la instalación busca mejorar el servicio a distintos canales comerciales en la zona este de China.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9893640/new-east-china-ripening-and-distribution-center-officially-commences-operations/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "logistica",
+      "ambito": "empresas",
+      "pais": "China"
+    },
+    {
+      "id": "w-u-s-mushroom-growers-enter-final-stage-of-trade-fi-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Los productores estadounidenses de champiñón entran en la fase final de su disputa comercial con Canadá",
+      "summary": "La coalición que defiende el comercio justo de champiñón frescos ha acogido con buenos ojos una audiencia pública de la Comisión de Comercio Internacional de EE. UU. Esta audiencia, celebrada el 17 de noviembre, examina las importaciones canadienses de champiñón. El objetivo declarado es recuperar prácticas comerciales justas y proteger la producción nacional.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894317/u-s-mushroom-growers-enter-final-stage-of-trade-fight-against-canadian-imports/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "EE. UU. y Canadá"
+    },
     {
       "id": "w-thailand-opening-markets-wider-to-u-s-to-secure-tr-2026-11-18",
       "date": "2026-11-18",

@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-18T14:52:26+00:00",
-  "checked": "2026-11-18T14:52:26+00:00",
+  "updated": "2026-11-19T14:57:52+00:00",
+  "checked": "2026-11-19T14:57:52+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,30 @@
     }
   ],
   "items": [
+    {
+      "id": "m-high-orange-juice-stocks-expected-to-pressure-braz-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Las altas existencias de zumo de naranja presionarían a la baja los precios de la naranja en Brasil",
+      "summary": "La recuperación de las existencias de zumo de naranja en la campaña 2025/26 apunta a una oferta alta hasta junio de 2027, lo que limita la subida de precios que pagan las industrias. Una simulación preliminar de Cepea estima que las existencias podrían superar las 300.000 toneladas a 30 de junio de 2027.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894402/high-orange-juice-stocks-expected-to-pressure-brazilian-orange-prices/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-massachusetts-fresh-cranberry-volume-up-while-othe-2026-11-19",
+      "date": "2026-11-19",
+      "title": "El volumen de arándano fresco de Massachusetts sube mientras otras regiones registran descensos",
+      "summary": "El precio del arándano fresco está algo por encima del de 2025, mientras que el del destinado a procesado ha bajado un poco. Según un responsable del sector, Quebec y Wisconsin podrían tener un volumen total entre un 10 y un 15 % inferior, aunque aún no hay cifras definitivas de la cosecha.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894318/massachusetts-fresh-cranberry-volume-up-while-other-regions-drop/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-higher-yields-expected-to-lift-south-korean-strawb-2026-11-18",
       "date": "2026-11-18",
@@ -671,18 +695,6 @@
       "summary": "ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.",
       "source": "Agronews Castilla y León",
       "url": "https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen",
-      "status": "revisada"
-    },
-    {
-      "id": "ce-grupo-tomate-2026-10-19",
-      "date": "2026-10-19",
-      "ambito": "europa",
-      "tag": "mercados",
-      "importancia": 5,
-      "title": "Marruecos aporta dos de cada tres tomates que la UE importa de fuera de la Unión",
-      "summary": "En el grupo de expertos del tomate de la Comisión Europea, reunido el 15 de octubre, se expuso que Marruecos suministró 527.000 de las 773.000 toneladas importadas de terceros países. La producción española bajó cerca de un 2 % en 2025/26, con la energía y el transporte un 16 % más caros y los plásticos y envases un 18 %.",
-      "source": "Agronews Castilla y León (vía FEPEX)",
-      "url": "https://www.agronewscastillayleon.com/tomate-espana-produccion-costes-marruecos-2026",
       "status": "revisada"
     }
   ]

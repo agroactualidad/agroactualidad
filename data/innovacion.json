@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-17T19:19:57+00:00",
-  "checked": "2026-11-18T14:52:26+00:00",
+  "updated": "2026-11-19T14:57:52+00:00",
+  "checked": "2026-11-19T14:57:52+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,42 @@
     }
   ],
   "items": [
+    {
+      "id": "i-university-of-minnesota-s-licensing-program-expand-2026-11-19",
+      "date": "2026-11-19",
+      "title": "El programa de licencias de la Universidad de Minnesota llega a Canadá con nuevas variedades de manzana y uva de mesa",
+      "summary": "El programa de licencias Superior Fruit Innovations amplía su actividad a Canadá. Los fruticultores y viticultores canadienses podrán acceder a variedades exclusivas de manzana y uva de mesa, desarrolladas para climas del norte por el programa de mejora frutal de la universidad.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894311/university-of-minnesota-s-licensing-program-expands-into-canada/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
+    {
+      "id": "i-importer-turned-grower-trials-virus-free-chinese-a-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Importador convertido en productor prueba jengibre chino y tailandés libre de virus en Limpopo",
+      "summary": "Un importador de jengibre ha empezado a cultivarlo en su propia finca de Limpopo, ante los largos plazos de envío desde China. Está probando variedades chinas y tailandesas libres de virus.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894572/importer-turned-grower-trials-virus-free-chinese-and-thai-ginger-in-limpopo/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
+    {
+      "id": "i-plant-based-coir-bag-shows-no-degradation-after-si-2026-11-19",
+      "date": "2026-11-19",
+      "title": "Una bolsa de fibra de coco de origen vegetal resiste seis meses en invernadero sin degradarse",
+      "summary": "Premier Tech ha lanzado una bolsa más transpirable, fabricada con fibra de coco, látex natural y tinta de origen vegetal, como alternativa a la de plástico para cultivadores comerciales de cannabis. El nuevo formato se presentó en NECANN Boston 2026 y, según el titular, no muestra degradación tras seis meses en invernadero.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9894098/plant-based-coir-bag-shows-no-degradation-after-six-months-in-the-greenhouse/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "envases"
+    },
     {
       "id": "i-kelp-based-biostimulant-cuts-inputs-while-boosting-2026-11-17",
       "date": "2026-11-17",
