@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-19T14:57:52+00:00",
-  "checked": "2026-11-19T14:57:52+00:00",
+  "updated": "2026-11-20T14:40:05+00:00",
+  "checked": "2026-11-20T14:40:05+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,102 @@
     }
   ],
   "items": [
+    {
+      "id": "m-global-market-overview-cucumbers-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Mercado mundial del pepino con tendencias mixtas en Europa ante el cultivo de invierno",
+      "summary": "El mercado global del pepino muestra tendencias dispares mientras los productores europeos terminan sus cultivos al aire libre y se preparan para el cultivo de invierno. En Países Bajos, los productores reportan rendimientos y precios satisfactorios pese al calor del verano, mientras que en Francia los precios subieron junto con los costes de explotación. El extracto no detalla la situación de los precios italianos.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894323/global-market-overview-cucumbers/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-we-re-anticipating-another-solid-season-for-austr-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Arranca la campaña de fruta de verano en Australia con buenas expectativas",
+      "summary": "La recolección de fruta de verano ya ha comenzado en Australia, con productores de Swan Hill (Victoria) y Queensland. Los primeros melocotones y nectarinas australianos empiezan a llegar a los mercados. El sector espera otra temporada favorable.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894477/we-re-anticipating-another-solid-season-for-australian-summerfruit/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-europe-s-table-grape-appetite-holds-steady-but-sou-2026-11-20",
+      "date": "2026-11-20",
+      "title": "El consumo europeo de uva de mesa se mantiene estable y bajan las importaciones del hemisferio sur",
+      "summary": "Se prevé que el consumo europeo de uva de mesa crezca ligeramente en la campaña 2026/27. Las importaciones bajarían y las exportaciones subirían muy poco respecto a la campaña anterior.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894638/europe-s-table-grape-appetite-holds-steady-but-southern-hemisphere-imports-keep-shelves-full/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-smaller-grape-harvests-a-major-shortage-of-red-gr-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Sudáfrica adelanta su temporada de uva, con cosechas menores y escasez de uva roja",
+      "summary": "Se prevé un inicio temprano de la campaña de uva en Sudáfrica, según observó un representante de Exsa Europe durante una visita a las zonas productoras. Según esa visita, la naturaleza va adelantada tanto en las regiones de cultivo tempranas como en las tardías. La noticia también señala cosechas más pequeñas y una escasez de uva roja.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894645/smaller-grape-harvests-a-major-shortage-of-red-grapes-and-more-logistics-options/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-an-eventful-year-in-the-lime-market-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Un año de altibajos en el mercado de la lima",
+      "summary": "La primera mitad del año fue buena para el mercado de la lima, con volúmenes por encima de los del año récord de 2025. Desde la semana 35 la tendencia cambió y ahora los volúmenes están algo por debajo de ese nivel.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894651/an-eventful-year-in-the-lime-market/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-chile-kicks-off-the-2026-27-cherry-season-in-china-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Chile inaugura la temporada 2026-27 de cereza en China con un acto en Shenzhen",
+      "summary": "El presidente de Chile, José Antonio Kast, y representantes de Frutas de Chile y de su comité de cereza dieron el pistoletazo de salida a la campaña 2026-27 en China. El acto se celebró en una frutería de Shenzhen y forma parte de una serie de eventos en Pekín, Shenzhen y Shanghái.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894752/chile-kicks-off-the-2026-27-cherry-season-in-china-with-an-event-in-shenzhen/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-late-start-to-the-sicilian-citrus-season-due-to-t-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Arranca con retraso la campaña de cítricos en Sicilia por el calor",
+      "summary": "La campaña de cítricos de Sicilia ya ha comenzado oficialmente, con las primeras expediciones de clementinas y naranjas en la semana 47 y de limones desde la semana 48. Un importador italiano atribuye el inicio algo más tardío de lo habitual al calor de este año.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894765/late-start-to-the-sicilian-citrus-season-due-to-the-heat/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-increased-air-freight-arrivals-of-chilean-cherries-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Más llegadas de cereza chilena por vía aérea provocan una corrección de precios tras los máximos recientes",
+      "summary": "Tras un fuerte repunte de precios la semana pasada, por la oferta limitada, la cereza chilena transportada por avión empieza a llegar en mayor cantidad al mercado chino. Por ello, los precios se están moderando gradualmente desde sus niveles más altos recientes.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894769/increased-air-freight-arrivals-of-chilean-cherries-trigger-price-correction-from-recent-highs/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-high-orange-juice-stocks-expected-to-pressure-braz-2026-11-19",
       "date": "2026-11-19",

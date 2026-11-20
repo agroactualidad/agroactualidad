@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-19T14:57:52+00:00",
-  "checked": "2026-11-19T14:57:52+00:00",
+  "updated": "2026-11-20T14:40:05+00:00",
+  "checked": "2026-11-20T14:40:05+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,42 @@
     }
   ],
   "items": [
+    {
+      "id": "i-the-fruit-lid-and-cartonboard-punnet-allow-fresh-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Una tapa para fruta y una bandeja de cartón permiten que el producto fresco respire",
+      "summary": "Ravenwood Packaging adapta su tecnología de etiquetado sin soporte al sector de productos frescos. Propone una tapa para fruta que sustituiría al film plástico convencional. La empresa, que inicialmente diseñó sus máquinas para carne, pescado y aves, trabaja ahora en aplicaciones para más tipos de alimentos.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9893431/the-fruit-lid-and-cartonboard-punnet-allow-fresh-produce-to-breathe/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "envases"
+    },
+    {
+      "id": "i-new-potato-sorter-handles-up-to-100-tons-per-hour-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Tomra presenta en Bélgica una nueva clasificadora de patata con capacidad de hasta 100 toneladas por hora",
+      "summary": "Tomra Food mostrará su sistema de clasificación de patata Tomra 4A en la feria Interpom 2026, que se celebrará en Kortrijk (Bélgica) entre finales de noviembre y principios de diciembre. Los visitantes podrán ver la máquina en su stand, asistir a demostraciones y conversar con especialistas de la empresa.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9895064/new-potato-sorter-handles-up-to-100-tons-per-hour/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "maquinaria"
+    },
+    {
+      "id": "i-in-5-to-10-years-seedless-bell-peppers-should-be-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Pimientos sin semillas podrían convertirse en estándar de mercado en 5 a 10 años",
+      "summary": "Una empresa israelí de mejora genética, relativamente nueva, prueba sus productos directamente en las explotaciones de los productores. Su director ejecutivo quiere centrarse en variedades y genética en lugar de en la gestión de fincas. La noticia sitúa estas pruebas en un contexto de desarrollo de nuevas variedades de pimiento sin semillas.",
+      "source": "FreshPlaza (inglés)",
+      "url": "https://www.freshplaza.com/north-america/article/9894517/in-5-to-10-years-seedless-bell-peppers-should-be-a-market-standard/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
     {
       "id": "i-university-of-minnesota-s-licensing-program-expand-2026-11-19",
       "date": "2026-11-19",

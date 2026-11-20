@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-16T21:50:03+00:00",
-  "checked": "2026-11-19T14:57:52+00:00",
+  "checked": "2026-11-20T14:40:05+00:00",
   "charts": [
     {
       "id": "cosecha-mecanica",
@@ -202,20 +202,6 @@
       "summary": "La empresa estadounidense cultiva hortalizas de hoja en un invernadero de unos 0,4 ha (1 acre) con hidroponía sin recirculación y robots guiados por modelos de aprendizaje automático. Prevé ampliar a unas 12 hectáreas en Hollister (California) a partir de finales de 2027. Anunció una ronda de 30 millones de dólares en julio. El artículo no aporta datos de rendimiento.",
       "source": "FreshPlaza (Hippo Harvest)",
       "url": "https://www.freshplaza.com/article/9890582/where-robotics-and-ai-meet-greenhouse-growing/",
-      "status": "revisada"
-    },
-    {
-      "id": "a-irri-mekong-datos-2026-10-20",
-      "date": "2026-10-20",
-      "ambito": "datos",
-      "origen": "mundo",
-      "pais": "Vietnam",
-      "tag": "innovacion",
-      "importancia": 2,
-      "title": "El IRRI señala el abonado y la fecha de siembra como las dos grandes causas de la brecha de rendimiento en arroz-camarón",
-      "summary": "Según el estudio presentado en un taller en Ca Mau, la gestión de nutrientes (37 %) y la época de siembra (29 %) explican en torno al 66 % de los factores analizados. El IRRI defiende herramientas basadas en datos para ajustar abonado y calendarios en el delta del Mekong.",
-      "source": "AgNavigator (IRRI)",
-      "url": "https://www.agnavigator.com/Article/2026/10/20/mekong-delta-rice-shrimp-producers-need-data-driven-tools-to-lift-yields-irri/",
       "status": "revisada"
     }
   ]
