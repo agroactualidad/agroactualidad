@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-19T14:57:52+00:00",
-  "checked": "2026-11-20T14:40:05+00:00",
+  "checked": "2026-11-21T13:56:46+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -449,19 +449,6 @@
       "summary": "Las ventas del tercer trimestre cayeron un 8,6 % hasta 2.300 millones de dólares y la previsión anual baja a 9.800-10.000 millones. Su consejero delegado atribuye el frenazo a la menor renta agraria y a la incertidumbre, sobre todo en Europa, Oriente Medio y Latinoamérica; en Norteamérica ve el mercado más positivo. En Brasil, los tipos altos y el crédito escaso hunden la venta de máquinas.",
       "source": "AgNavigator (AGCO)",
       "url": "https://www.agnavigator.com/Article/2026/10/29/agco-q3-results-highlight-global-market-challenges-amid-stressed-farm-economics/",
-      "status": "revisada"
-    },
-    {
-      "id": "w-syngenta-ventures-unicornios-2026-10-21",
-      "date": "2026-10-21",
-      "ambito": "empresas",
-      "pais": "Mundial",
-      "tag": "mercados",
-      "importancia": 2,
-      "title": "Un directivo de Syngenta Ventures pide a las empresas de agrotecnología dejar de soñar con unicornios",
-      "summary": "Michael Lee afirma que la mayoría de las salidas de estas start-ups son ventas a grandes agroindustriales por entre 100 y 400 millones de dólares y que las valoraciones siguen demasiado altas. Aconseja captar bastante menos de 50 millones y ve oportunidades en biológicos, robótica y gestión del agua. Es la opinión de un inversor, no un dato de mercado.",
-      "source": "AgNavigator (Syngenta Ventures)",
-      "url": "https://www.agnavigator.com/Article/2026/10/21/agtech-must-abandon-the-unicorn-fantasy-says-syngenta-ventures-michael-lee/",
       "status": "revisada"
     }
   ]

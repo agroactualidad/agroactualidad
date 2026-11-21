@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16T21:50:03+00:00",
-  "checked": "2026-11-20T14:40:05+00:00",
+  "updated": "2026-11-21T13:56:46+00:00",
+  "checked": "2026-11-21T13:56:46+00:00",
   "charts": [
     {
       "id": "cosecha-mecanica",
@@ -24,6 +24,20 @@
     }
   ],
   "items": [
+    {
+      "id": "a-la-ia-mejora-la-predicci-n-de-la-madurez-y-calidad-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La IA mejora la predicción de la madurez y calidad del mango",
+      "summary": "Un investigador de la CQUniversity Australia ha estudiado cómo la inteligencia artificial y los modelos de aprendizaje profundo pueden mejorar la estimación del contenido de materia seca en el mango. Para ello se emplea la espectroscopía de infrarrojo cercano. El contenido de materia seca es un indicador relevante de la madurez y la calidad de la fruta.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894185/la-ia-mejora-la-prediccion-de-la-madurez-y-calidad-del-mango/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "ia",
+      "origen": "mundo",
+      "pais": "Australia"
+    },
     {
       "id": "a-uga-researchers-use-plant-signals-to-make-indoor-l-2026-11-16",
       "date": "2026-11-16",

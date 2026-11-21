@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-20T14:40:05+00:00",
-  "checked": "2026-11-20T14:40:05+00:00",
+  "updated": "2026-11-21T13:56:46+00:00",
+  "checked": "2026-11-21T13:56:46+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,102 @@
     }
   ],
   "items": [
+    {
+      "id": "m-usda-exports-spain-buys-soymeal-2026-11-20",
+      "date": "2026-11-20",
+      "title": "El USDA informa de compras de harina de soja por parte de España",
+      "summary": "Según el titular, el USDA recoge compras de harina de soja realizadas por España. El extracto indica que la campaña de comercialización 2026-27 de maíz y soja comenzó el 1 de septiembre.",
+      "source": "Farm Progress",
+      "url": "https://www.farmprogress.com/marketing/flash-sales",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-espa-a-e-italia-toman-el-relevo-en-el-mercado-de-l-2026-11-20",
+      "date": "2026-11-20",
+      "title": "España e Italia asumen el suministro de coliflor y brócoli en Países Bajos al terminar la temporada local",
+      "summary": "En la firma neerlandesa AGF Direct, la coliflor y el brócoli de origen local están siendo sustituidos por producto importado. Su responsable explica que llegan varios camiones semanales desde España e Italia.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894152/espana-e-italia-toman-el-relevo-en-el-mercado-de-la-coliflor-y-el-brocoli-tras-el-fin-de-la-temporada-holandesa/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-la-producci-n-europea-de-uva-de-mesa-sube-un-4-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La UE prevé subir un 4% su cosecha de uva de mesa en la campaña 2026/27",
+      "summary": "Los datos de la Unión Europea apuntan a una cosecha de uva de mesa comercial de unas 1.585.800 toneladas en la campaña 2026/27, cerca de 61.600 toneladas más que en la anterior. La previsión procede del informe anual sobre frutas de hoja caduca de la UE.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894172/la-produccion-europea-de-uva-de-mesa-sube-un-4/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-el-mercado-egipcio-de-la-patata-cierra-la-campa-a-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Egipto encara la campaña de patata 2026/2027 con pocas existencias y más interés exportador",
+      "summary": "Egipto inicia la campaña de patata 2026/2027 con existencias muy reducidas de la cosecha anterior. Crece el interés de los exportadores, aunque la inestabilidad en el mar Negro podría seguir limitando los volúmenes disponibles.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894177/el-mercado-egipcio-de-la-patata-cierra-la-campana-2026-con-resultados-muy-positivos/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-las-importaciones-de-kaki-espa-ol-suelen-comenzar-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La mayor cosecha india de kaki frena las ventas por la subida de precios",
+      "summary": "La producción india de kaki crecería entre un 30 y un 40 % respecto a la campaña anterior, con mejor color y dulzor. Aun así, el encarecimiento está generando cautela entre los compradores y frenando las ventas. El texto también señala que las importaciones de kaki español suelen empezar cuando termina la campaña india, en diciembre.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894181/las-importaciones-de-kaki-espanol-suelen-comenzar-cuando-termina-la-campana-india-en-diciembre/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-la-dop-melocot-n-de-calanda-certifica-m-s-de-5-mil-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La DOP Melocotón de Calanda certifica más de cinco millones de kilos en su segunda mejor campaña",
+      "summary": "La denominación de origen del Melocotón de Calanda cierra la campaña con unos 5 millones de kilos certificados. Es su segunda mejor cifra en 27 años de historia. El año récord anterior no pudo etiquetarse toda la producción por las lluvias persistentes.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894584/la-dop-melocoton-de-calanda-certifica-mas-de-5-millones-de-kilos-en-su-segunda-mejor-campana/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-el-mercado-de-la-lima-afronta-un-a-o-de-altibajos-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Año de altibajos en el mercado de la lima por el clima en Brasil",
+      "summary": "El primer semestre del año fue favorable para la lima, con oferta por encima del 10 % respecto al récord de 2025. A partir de la semana 35 la situación cambió, según una empresa comercializadora holandesa. Las condiciones meteorológicas en Brasil han marcado la campaña.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894653/el-mercado-de-la-lima-afronta-un-ano-de-altibajos-marcado-por-las-condiciones-meteorologicas-en-brasil/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-resumen-del-mercado-global-del-pepino-2026-11-20",
+      "date": "2026-11-20",
+      "title": "El mercado mundial del pepino muestra tendencias dispares al cerrar las campañas europeas",
+      "summary": "El mercado global del pepino evoluciona de forma irregular mientras los productores europeos terminan sus cultivos sin iluminación artificial y se preparan para el invierno. En los Países Bajos, los agricultores valoran positivamente tanto los rendimientos como los precios, pese al calor del verano.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894726/resumen-del-mercado-global-del-pepino/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-global-market-overview-cucumbers-2026-11-20",
       "date": "2026-11-20",
@@ -779,18 +875,6 @@
       "summary": "La feria hortofrutícola de Madrid reunió a 128.364 profesionales de 170 países, un 6 % más, y a 2.588 empresas expositoras de 79 países en 162.000 metros cuadrados. La organización estima un impacto de 419 millones de euros en la ciudad. La próxima edición será del 5 al 7 de octubre de 2027.",
       "source": "Agraria.pe (datos de la organización)",
       "url": "https://agraria.pe/noticias/fruit-attraction-sigue-creciendo-y-reune-a-128-364-profesion-43338",
-      "status": "revisada"
-    },
-    {
-      "id": "aceite-norma-comercializacion-2026-10-21",
-      "date": "2026-10-21",
-      "ambito": "espana",
-      "tag": "mercados",
-      "importancia": 5,
-      "title": "Las organizaciones agrarias piden activar la retirada de aceite de oliva con el virgen extra por debajo de 3,20 €/kg",
-      "summary": "ASAJA, COAG, UPA y Cooperativas Agro-alimentarias reclaman al Ministerio que aplique ya la norma de comercialización de la campaña 2026/27. Citan el virgen extra por debajo de 3,20 €/kg y el lampante por debajo de 2,90 €/kg, con una disponibilidad prevista superior a 2.175.000 toneladas, existencias incluidas.",
-      "source": "Agronews Castilla y León",
-      "url": "https://www.agronewscastillayleon.com/aceite-oliva-2026-norma-comercializacion-precios-origen",
       "status": "revisada"
     }
   ]
