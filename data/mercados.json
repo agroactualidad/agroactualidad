@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-21T13:56:46+00:00",
-  "checked": "2026-11-21T13:56:46+00:00",
+  "updated": "2026-11-22T13:50:44+00:00",
+  "checked": "2026-11-22T13:50:44+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,54 @@
     }
   ],
   "items": [
+    {
+      "id": "m-la-ca-da-del-poder-adquisitivo-se-nota-en-las-ven-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La caída del poder adquisitivo se refleja en las ventas de frutas y hortalizas",
+      "summary": "Con el cambio de temporada en frutas y hortalizas, ya se ofrecen clementinas españolas de la variedad Oronules. Algunos clientes siguen comprando hasta el final producto importado de ultramar.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894290/la-caida-del-poder-adquisitivo-se-nota-en-las-ventas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-menores-cosechas-una-notable-escasez-de-uva-roja-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Sudáfrica prevé una temporada de uva temprana con menor oferta de uva roja",
+      "summary": "Se anticipa un inicio adelantado de la campaña de uva en Sudáfrica, según lo observado durante una visita a las zonas productoras. El desarrollo de los cultivos se ha adelantado en las áreas de producción temprana.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894647/menores-cosechas-una-notable-escasez-de-uva-roja-y-mas-opciones-logisticas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-albacete-aumenta-sus-exportaciones-de-ajo-a-estado-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La Mesa del Ajo advierte de menos compras de EE. UU., Reino Unido y Marruecos al ajo español",
+      "summary": "Tras su reunión en Las Pedroñeras, la Mesa Nacional del Ajo prevé una reducción de las compras de estos tres países. Según la información, suman el 85 % de las ventas españolas de ajo fuera de la Unión Europea.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895007/albacete-aumenta-sus-exportaciones-de-ajo-a-estados-unidos-pese-a-la-incertidumbre-arancelaria/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-el-futuro-de-la-almendra-espa-ola-depender-de-nue-2026-11-20",
+      "date": "2026-11-20",
+      "title": "La almendra española consolida su recuperación productiva y apuesta por coordinar toda la cadena de valor",
+      "summary": "La Mesa Sectorial de Frutos Secos valora de forma muy positiva la evolución del sector almendrero en España. Los datos de la campaña 2025/26 y las previsiones para la 2026/27 apuntan a una recuperación productiva que se consolida.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895151/el-futuro-de-la-almendra-espanola-dependera-de-nuestra-capacidad-para-trabajar-conjuntamente-en-toda-la-cadena-de-valor/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
     {
       "id": "m-usda-exports-spain-buys-soymeal-2026-11-20",
       "date": "2026-11-20",

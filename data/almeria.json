@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T18:20:09+00:00",
+  "updated": "2026-11-22T13:50:44+00:00",
   "stats": [
     {
       "value": "1.120 M€",
@@ -21,16 +21,20 @@
       "source": "HortiDaily, 3 nov",
       "url": "https://www.hortidaily.com/article/9888140/delay-in-spain-s-tomato-season-and-low-supply-across-europe-continue-to-drive-prices-up/",
       "date": "2026-11-03"
-    },
-    {
-      "value": "130 ha",
-      "label": "Invernadero dañado por la borrasca Adam en el Poniente (COAG)",
-      "source": "Moncloa, 22 oct",
-      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
-      "date": "2026-10-22"
     }
   ],
   "items": [
+    {
+      "id": "alcanzado-un-preacuerdo-para-renovar-el-convenio-c-2026-11-20",
+      "date": "2026-11-20",
+      "title": "Preacuerdo para renovar el convenio del manipulado hortofrutícola de Almería",
+      "summary": "Las organizaciones empresariales y sindicales de la mesa negociadora han alcanzado un preacuerdo para renovar el convenio de manipulado y envasado de frutas, hortalizas y flores en Almería. Si se confirma, el nuevo texto se firmaría el 27 de noviembre. El convenio regula las condiciones laborales del sector en la provincia.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895155/alcanzado-un-preacuerdo-para-renovar-el-convenio-colectivo-del-manipulado-hortofruticola-de-almeria/",
+      "importancia": 4,
+      "status": "auto",
+      "tag": "logistica"
+    },
     {
       "id": "alertan-de-ya-hay-en-almer-a-m-s-de-1-200-hect-rea-2026-11-17",
       "date": "2026-11-17",
@@ -151,20 +155,9 @@
       "source": "HortiDaily (Alberto Lizarraga)",
       "url": "https://www.hortidaily.com/article/9887461/examining-almeria-s-2025-26-season-and-2026-27-outlook/",
       "status": "revisada"
-    },
-    {
-      "id": "temporal-fondo-emergencia-2026-10-22",
-      "date": "2026-10-22",
-      "tag": "clima",
-      "title": "La Junta prepara un fondo de emergencia en el Presupuesto de 2027 tras el temporal en el Poniente",
-      "summary": "El consejero Fernández-Pacheco anunció una partida de contingencia, ampliable o no, para adelantar las ayudas por temporales. COAG Almería estima en 130 hectáreas la superficie dañada por la borrasca Adam, sobre todo en Santa María del Águila y Las Norias (El Ejido), con afecciones en Dalías y Berja; Moncloa recoge además daños superiores a 5 millones de euros en El Ejido. El balance es provisional y el fondo depende de que el Parlamento apruebe el presupuesto.",
-      "source": "Moncloa",
-      "url": "https://www.moncloa.com/2026/10/22/fondo-emergencia-andalucia-almeria-2027-3453206/",
-      "status": "revisada",
-      "importancia": 3
     }
   ],
-  "checked": "2026-11-21T13:56:46+00:00",
+  "checked": "2026-11-22T13:50:44+00:00",
   "charts": [
     {
       "id": "precios",
