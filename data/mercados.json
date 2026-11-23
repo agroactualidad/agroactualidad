@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-22T13:50:44+00:00",
-  "checked": "2026-11-22T13:50:44+00:00",
+  "updated": "2026-11-23T16:56:09+00:00",
+  "checked": "2026-11-23T16:56:09+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,42 @@
     }
   ],
   "items": [
+    {
+      "id": "m-sweden-s-grain-harvest-returns-to-average-levels-2026-11-23",
+      "date": "2026-11-23",
+      "title": "La cosecha de cereal de Suecia vuelve a niveles medios",
+      "summary": "La cosecha de cereal de Suecia recupera volúmenes medios. El extracto anticipa condiciones difíciles para 2027.",
+      "source": "World-Grain",
+      "url": "https://www.world-grain.com/articles/23486-swedens-grain-harvest-returns-to-average-levels",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-la-temporada-egipcia-de-fresas-arranca-con-una-sem-2026-11-23",
+      "date": "2026-11-23",
+      "title": "Egipto y Jordania adelantan su campaña de fresas con envíos ya rumbo a Europa",
+      "summary": "La temporada de fresas de Egipto y Jordania ha empezado antes de lo habitual. Una empresa belga ya recibe camiones a diario, aunque los principales exportadores egipcios todavía no han iniciado sus envíos.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894662/la-temporada-egipcia-de-fresas-arranca-con-una-semana-de-adelanto-y-buenas-perspectivas-en-el-mercado-europeo/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-caen-las-exportaciones-de-cebolla-mientras-crecen-2026-11-23",
+      "date": "2026-11-23",
+      "title": "Las exportaciones de cebolla se frenan mientras suben las de patata",
+      "summary": "Tras varias semanas de mucha actividad, las ventas de cebolla al exterior han perdido ritmo. Un responsable de la empresa neerlandesa Mulder Onions señala que el mercado se ha calmado desde mediados de la semana anterior, aunque no cree que la situación se mantenga. Por el contrario, las exportaciones de patata están aumentando.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895050/caen-las-exportaciones-de-cebolla-mientras-crecen-las-de-patata/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
     {
       "id": "m-la-ca-da-del-poder-adquisitivo-se-nota-en-las-ven-2026-11-20",
       "date": "2026-11-20",
@@ -911,18 +947,6 @@
       "summary": "En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.",
       "source": "HortiDaily (subastas VBT)",
       "url": "https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/",
-      "status": "revisada"
-    },
-    {
-      "id": "fruit-attraction-balance-2026-10-23",
-      "date": "2026-10-23",
-      "ambito": "espana",
-      "tag": "mercados",
-      "importancia": 3,
-      "title": "Fruit Attraction cierra con 128.364 profesionales y un impacto estimado de 419 millones",
-      "summary": "La feria hortofrutícola de Madrid reunió a 128.364 profesionales de 170 países, un 6 % más, y a 2.588 empresas expositoras de 79 países en 162.000 metros cuadrados. La organización estima un impacto de 419 millones de euros en la ciudad. La próxima edición será del 5 al 7 de octubre de 2027.",
-      "source": "Agraria.pe (datos de la organización)",
-      "url": "https://agraria.pe/noticias/fruit-attraction-sigue-creciendo-y-reune-a-128-364-profesion-43338",
       "status": "revisada"
     }
   ]
