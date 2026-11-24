@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-23T16:56:09+00:00",
-  "checked": "2026-11-23T16:56:09+00:00",
+  "updated": "2026-11-24T16:45:29+00:00",
+  "checked": "2026-11-24T16:45:29+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,32 @@
     }
   ],
   "items": [
+    {
+      "id": "w-este-a-o-est-marcado-por-grandes-disparidades-reg-2026-11-24",
+      "date": "2026-11-24",
+      "title": "Luonnosta Holland, filial neerlandesa de una firma finlandesa de patata, apuesta por el comercio internacional",
+      "summary": "La filial neerlandesa de la empresa finlandesa Luonnosta opera desde Róterdam desde 2020. Su matriz, de origen cooperativo con productores de patata, se orienta cada vez más al comercio internacional. El extracto no detalla las cifras ni el alcance de la campaña de este año.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895095/este-ano-esta-marcado-por-grandes-disparidades-regionales-por-lo-que-nuestra-amplia-red-esta-resultando-muy-valiosa/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Finlandia y Países Bajos"
+    },
+    {
+      "id": "w-per-ampl-a-a-39-los-mercados-habilitados-para-expo-2026-11-24",
+      "date": "2026-11-24",
+      "title": "Perú amplía a 39 los destinos para exportar pitahaya tras la apertura del mercado boliviano",
+      "summary": "La entrada en Bolivia eleva a 39 los mercados autorizados para la pitahaya peruana. Se destaca la cercanía geográfica de este país, con más de 11 millones de habitantes, y la posibilidad de transportar la fruta por carretera.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895464/peru-amplia-a-39-los-mercados-habilitados-para-exportar-pitahaya-tras-abrir-bolivia/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "Perú"
+    },
     {
       "id": "w-chile-firma-con-filipinas-su-primer-acuerdo-comerc-2026-11-23",
       "date": "2026-11-23",

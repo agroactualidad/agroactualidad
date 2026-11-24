@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-20T14:40:05+00:00",
-  "checked": "2026-11-23T16:56:09+00:00",
+  "updated": "2026-11-24T16:45:29+00:00",
+  "checked": "2026-11-24T16:45:29+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,30 @@
     }
   ],
   "items": [
+    {
+      "id": "i-nueva-maquinaria-de-procesamiento-de-patata-para-m-2026-11-24",
+      "date": "2026-11-24",
+      "title": "Urschel presentará en Interpom nuevas máquinas para procesar patata con más eficiencia de corte",
+      "summary": "Urschel mostrará en la feria Interpom, entre el 29 de noviembre y el 1 de diciembre de 2026, su gama de equipos para procesar patata. Entre los modelos figuran cortadoras, un dicer y un molino de discos. Las máquinas buscan mejorar la eficiencia de corte y la capacidad de procesado.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894199/nueva-maquinaria-de-procesamiento-de-patata-para-mejorar-la-eficiencia-de-corte-y-la-capacidad/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "maquinaria"
+    },
+    {
+      "id": "i-nueva-clasificadora-de-patatas-que-maneja-hasta-10-2026-11-24",
+      "date": "2026-11-24",
+      "title": "Tomra presenta en Bélgica una clasificadora de patata que procesa hasta 100 toneladas por hora",
+      "summary": "La empresa Tomra Food expondrá su sistema de clasificación de patata Tomra 4A en la feria Interpom 2026, celebrada en Kortrijk (Bélgica). Los asistentes podrán ver la máquina en funcionamiento y recibir demostraciones de los especialistas de la compañía.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895117/nueva-clasificadora-de-patatas-que-maneja-hasta-100-toneladas-por-hora/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "maquinaria"
+    },
     {
       "id": "i-the-fruit-lid-and-cartonboard-punnet-allow-fresh-2026-11-20",
       "date": "2026-11-20",

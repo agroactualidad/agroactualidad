@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-23T16:56:09+00:00",
-  "checked": "2026-11-23T16:56:09+00:00",
+  "updated": "2026-11-24T16:45:29+00:00",
+  "checked": "2026-11-24T16:45:29+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,42 @@
     }
   ],
   "items": [
+    {
+      "id": "m-la-pera-griega-remonta-tras-un-septiembre-flojo-2026-11-24",
+      "date": "2026-11-24",
+      "title": "La pera griega se recupera en otoño tras unas ventas flojas en septiembre",
+      "summary": "La campaña de la pera griega arrancó despacio, con ventas en septiembre por debajo de lo previsto. Desde octubre la demanda muestra signos de mejora, y la variedad Santa María gana peso a medida que se agotan las Ercolini.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893302/la-pera-griega-remonta-tras-un-septiembre-flojo/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-inicio-temprano-para-los-viticultores-namibios-2026-11-24",
+      "date": "2026-11-24",
+      "title": "La campaña de uva en Namibia arranca antes de lo habitual",
+      "summary": "La temporada de uva en Namibia y en el norte-sur de Sudáfrica empieza con un adelanto notable. En el valle de Aussenkehr el envasado comenzó en la semana 44, el inicio más temprano registrado hasta ahora por los grandes productores.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895044/inicio-temprano-para-los-viticultores-namibios/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-la-temporada-de-uva-china-en-la-india-concluye-con-2026-11-24",
+      "date": "2026-11-24",
+      "title": "La campaña de uva china en la India cierra con márgenes sólidos, pero con un final más difícil",
+      "summary": "La temporada de importación de uva china en la India termina con un balance rentable para los importadores. Las últimas semanas, sin embargo, fueron más complicadas por el encarecimiento de las compras, la calidad irregular y la llegada concentrada de fruta al final del ciclo.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895112/la-temporada-de-uva-china-en-la-india-concluye-con-buenos-margenes-pero-con-una-recta-final-mas-complicada/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-sweden-s-grain-harvest-returns-to-average-levels-2026-11-23",
       "date": "2026-11-23",
