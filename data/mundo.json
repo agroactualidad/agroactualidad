@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T16:45:29+00:00",
-  "checked": "2026-11-24T16:45:29+00:00",
+  "updated": "2026-11-25T16:31:48+00:00",
+  "checked": "2026-11-25T16:31:48+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,19 @@
     }
   ],
   "items": [
+    {
+      "id": "w-mali-busca-reforzar-las-salidas-de-su-mango-en-el-2026-11-25",
+      "date": "2026-11-25",
+      "title": "Mali diversifica las exportaciones de mango hacia Marruecos ante las restricciones fitosanitarias europeas",
+      "summary": "Los exportadores de mango de Mali buscan nuevos destinos ante las restricciones fitosanitarias de la UE. La interprofesional del sector se reunió con una asociación marroquí para avanzar en esa diversificación comercial.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895625/mali-busca-reforzar-las-salidas-de-su-mango-en-el-mercado-marroqui/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "politica",
+      "pais": "Mali"
+    },
     {
       "id": "w-este-a-o-est-marcado-por-grandes-disparidades-reg-2026-11-24",
       "date": "2026-11-24",

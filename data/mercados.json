@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T16:45:29+00:00",
-  "checked": "2026-11-24T16:45:29+00:00",
+  "updated": "2026-11-25T16:31:48+00:00",
+  "checked": "2026-11-25T16:31:48+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,78 @@
     }
   ],
   "items": [
+    {
+      "id": "m-el-apetito-europeo-por-la-uva-de-mesa-se-mantiene-2026-11-25",
+      "date": "2026-11-25",
+      "title": "La demanda europea de uva de mesa se mantendrá estable en la campaña 2026/27",
+      "summary": "Se estima que el consumo de uva de mesa fresca en la UE alcance unos 2,09 millones de toneladas en la campaña 2026/27, algo por encima del año anterior. Las importaciones bajarían a unas 670.000 toneladas, frente a las cifras de la campaña 2025/26.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9894691/el-apetito-europeo-por-la-uva-de-mesa-se-mantiene-estable/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-las-fresas-registran-su-quinta-semana-consecutiva-2026-11-25",
+      "date": "2026-11-25",
+      "title": "Las fresas y los arándanos encadenan nuevas subidas en los supermercados neerlandeses",
+      "summary": "En la semana 47, los precios medios de las fresas y los arándanos en el retail neerlandés volvieron a subir, igual que los del pepino y el mango. En cambio, bajaron el brócoli y el tomate en rama. El balance total recoge 16 cambios de precio fijados por los distribuidores.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895519/las-fresas-registran-su-quinta-semana-consecutiva-de-subidas-en-el-retail-holandes/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-sud-frica-revisa-a-la-baja-sus-previsiones-de-expo-2026-11-25",
+      "date": "2026-11-25",
+      "title": "Sudáfrica rebaja sus previsiones de exportación de fruta de hueso para 2026/2027",
+      "summary": "Sudáfrica ha reducido sus estimaciones de exportación de fruta de hueso para la temporada 2026/2027 tras nuevas evaluaciones del cultivo en sus principales zonas productoras. El recorte responde a un menor cuajado de fruta, que modera el potencial exportador previsto.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895542/sudafrica-revisa-a-la-baja-sus-previsiones-de-exportacion-de-fruta-de-hueso/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-egipto-empieza-a-recolectar-su-naranja-m-s-tempran-2026-11-25",
+      "date": "2026-11-25",
+      "title": "Egipto adelanta el inicio de su campaña de exportación de naranja",
+      "summary": "La campaña de exportación de naranja de Egipto 2026/27 comenzará el 25 de noviembre, antes que el año pasado. Las autoridades consideran que la fecha de inicio es clave para el desarrollo de toda la campaña exportadora.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896011/egipto-empieza-a-recolectar-su-naranja-mas-temprano-que-el-ano-pasado/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-tras-varios-a-os-de-sequ-a-la-campa-a-de-c-tricos-2026-11-25",
+      "date": "2026-11-25",
+      "title": "La campaña de cítricos española repunta tras los años de sequía",
+      "summary": "La campaña de cítricos españoles está en plena actividad y ya se comercializan las primeras variedades de naranjas, mandarinas y clementinas. El grupo cooperativo Anecoop afronta la temporada con perspectivas en general positivas. Tras varios años de sequía, la llegada de lluvias ha mejorado el panorama.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896090/tras-varios-anos-de-sequia-la-campana-de-citricos-espanola-recupera-el-color/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "espana"
+    },
+    {
+      "id": "m-el-retroceso-de-la-producci-n-francesa-de-pepino-s-2026-11-25",
+      "date": "2026-11-25",
+      "title": "Las olas de calor reducen la cosecha francesa de pepino y sostienen sus precios internos",
+      "summary": "El calor del verano ha reducido los rendimientos del pepino en Francia. Según Agreste, la cosecha de 2026 se estima en 175.900 toneladas, sin contar los departamentos de ultramar. Esa menor oferta ayuda a mantener los precios en el mercado francés.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896094/el-retroceso-de-la-produccion-francesa-de-pepino-sostiene-los-precios-en-su-mercado-nacional/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
     {
       "id": "m-la-pera-griega-remonta-tras-un-septiembre-flojo-2026-11-24",
       "date": "2026-11-24",

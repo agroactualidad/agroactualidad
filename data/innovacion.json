@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-24T16:45:29+00:00",
-  "checked": "2026-11-24T16:45:29+00:00",
+  "updated": "2026-11-25T16:31:48+00:00",
+  "checked": "2026-11-25T16:31:48+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,18 @@
     }
   ],
   "items": [
+    {
+      "id": "i-con-esta-variedad-cubrimos-las-necesidades-de-la-2026-11-25",
+      "date": "2026-11-25",
+      "title": "BASF Nunhems presenta en Albacete una nueva cebolla de día largo, la Labomba F1",
+      "summary": "Nunhems, la división de BASF, ha presentado en Barrax (Albacete) su nueva cebolla de día largo Labomba F1. Según la empresa, es una variedad rústica con alto rendimiento y buena capacidad de conservación.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896340/con-esta-variedad-cubrimos-las-necesidades-de-la-industria-los-empaquetadores-y-los-mercados-mayoristas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
     {
       "id": "i-nueva-maquinaria-de-procesamiento-de-patata-para-m-2026-11-24",
       "date": "2026-11-24",
