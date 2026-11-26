@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-25T16:31:48+00:00",
-  "checked": "2026-11-25T16:31:48+00:00",
+  "updated": "2026-11-26T16:04:39+00:00",
+  "checked": "2026-11-26T16:04:39+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,18 @@
     }
   ],
   "items": [
+    {
+      "id": "i-jengibre-y-c-rcuma-ser-n-los-cultivos-del-futuro-e-2026-11-26",
+      "date": "2026-11-26",
+      "title": "El jengibre y la cúrcuma ganan terreno como nuevos cultivos en Francia",
+      "summary": "Los cambios del clima y la búsqueda de alternativas llevan a algunas explotaciones hortícolas francesas a interesarse por el jengibre y la cúrcuma. Una nueva oferta de plantas lanzada en 2026 por la firma Voltz está despertando un interés considerable entre los productores.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895621/jengibre-y-curcuma-seran-los-cultivos-del-futuro-en-francia/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "variedades"
+    },
     {
       "id": "i-con-esta-variedad-cubrimos-las-necesidades-de-la-2026-11-25",
       "date": "2026-11-25",
@@ -363,18 +375,6 @@
       "summary": "La variedad, de la marca de semillas de Bayer, tiene resistencia intermedia multigénica a ToBRFV y al oídio, y está pensada para invernadero de alta tecnología, con o sin iluminación. Da fruto rojo, oval y uniforme de 90 a 110 gramos. El artículo no ofrece datos de rendimiento.",
       "source": "HortiDaily (De Ruiter)",
       "url": "https://www.hortidaily.com/article/9889221/introducing-solstic-roma-tomato-variety-with-resistance-to-tobrfv/",
-      "status": "revisada"
-    },
-    {
-      "id": "i-infoagro-exhibition-2027-2026-10-26",
-      "date": "2026-10-26",
-      "ambito": "maquinaria",
-      "tag": "innovacion",
-      "importancia": 3,
-      "title": "Infoagro Exhibition 2027 será del 5 al 7 de mayo en Roquetas de Mar",
-      "summary": "La feria de la agricultura intensiva y la industria auxiliar volverá al Palacio de Congresos de Aguadulce. Presentará a agricultores y técnicos las últimas novedades de las empresas, con la horticultura almeriense como modelo de referencia.",
-      "source": "HortiDaily",
-      "url": "https://www.hortidaily.com/article/9885983/infoagro-exhibition-2027-will-bring-together-the-key-players-in-intensive-agriculture-in-almeria/",
       "status": "revisada"
     }
   ]

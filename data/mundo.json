@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-25T16:31:48+00:00",
-  "checked": "2026-11-25T16:31:48+00:00",
+  "updated": "2026-11-26T16:04:39+00:00",
+  "checked": "2026-11-26T16:04:39+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,45 @@
     }
   ],
   "items": [
+    {
+      "id": "w-el-chalion-de-poitou-despierta-un-inter-s-crecient-2026-11-26",
+      "date": "2026-11-26",
+      "title": "Crece el interés por exportar la cebolla échalion de Poitou",
+      "summary": "Una empresa francesa fundada en 2019 agrupa a doce productores de la región de Vienne en torno a la cebolla échalion tradicional del Mirebalais. Su objetivo es conservar las características de este producto regional, cultivado en la zona desde los años ochenta, mientras aumenta el interés por venderlo fuera del país.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893399/el-echalion-de-poitou-despierta-un-interes-creciente-en-la-exportacion/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Francia"
+    },
+    {
+      "id": "w-podr-a-egipto-convertirse-en-la-pr-xima-gran-pote-2026-11-26",
+      "date": "2026-11-26",
+      "title": "Egipto podría emerger como nueva potencia mundial del arándano",
+      "summary": "El sector internacional del arándano avanza hacia una nueva etapa, con la producción extendiéndose a zonas geográficas diferentes. El comercio global abre oportunidades inéditas y los países emergentes captan el interés de inversores y empresas de la cadena de suministro.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895561/podria-egipto-convertirse-en-la-proxima-gran-potencia-mundial-del-arandano/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "empresas",
+      "pais": "Egipto"
+    },
+    {
+      "id": "w-las-exportaciones-sudafricanas-de-c-tricos-y-uvas-2026-11-26",
+      "date": "2026-11-26",
+      "title": "Sudáfrica prevé menos exportaciones de cítricos y uva en 2027 por trabas comerciales y clima",
+      "summary": "El sector frutícola sudafricano anticipa caídas en sus exportaciones de cara a 2027 por restricciones comerciales y dificultades climáticas. Aunque los embalses se han recuperado tras las lluvias de la temporada 2025-26, las inundaciones en varias zonas del Cabo complican la situación.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896031/las-exportaciones-sudafricanas-de-citricos-y-uvas-se-enfrentan-a-caidas-de-cara-a-2027/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "clima",
+      "pais": "Sudáfrica"
+    },
     {
       "id": "w-mali-busca-reforzar-las-salidas-de-su-mango-en-el-2026-11-25",
       "date": "2026-11-25",
