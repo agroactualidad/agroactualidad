@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T16:04:39+00:00",
-  "checked": "2026-11-26T16:04:39+00:00",
+  "updated": "2026-11-27T15:54:00+00:00",
+  "checked": "2026-11-27T15:54:00+00:00",
   "charts": [
     {
       "id": "mallas",
@@ -29,6 +29,18 @@
     }
   ],
   "items": [
+    {
+      "id": "i-la-tapa-y-la-bandeja-de-cart-n-permiten-que-los-p-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Ravenwood adapta una tapa de cartón sin film plástico para la fruta fresca",
+      "summary": "Ravenwood Packaging está adaptando a la horticultura su tecnología de etiquetado linerless, sin papel soporte siliconado. Propone una tapa para fruta que sustituya al film plástico convencional. La empresa, que empezó desarrollando maquinaria para otros sectores, busca envases que mantengan frescos los productos.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9893811/la-tapa-y-la-bandeja-de-carton-permiten-que-los-productos-frescos-respiren/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "innovacion",
+      "ambito": "envases"
+    },
     {
       "id": "i-jengibre-y-c-rcuma-ser-n-los-cultivos-del-futuro-e-2026-11-26",
       "date": "2026-11-26",

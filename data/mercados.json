@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T16:04:39+00:00",
-  "checked": "2026-11-26T16:04:39+00:00",
+  "updated": "2026-11-27T15:54:00+00:00",
+  "checked": "2026-11-27T15:54:00+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,102 @@
     }
   ],
   "items": [
+    {
+      "id": "m-aceptar-el-importador-los-precios-actuales-o-ser-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Mercado europeo de la patata: la demanda se recupera y los precios suben, pero el comercio no despega",
+      "summary": "El mercado europeo de la patata está todavía poco activo, aunque la demanda vuelve poco a poco y los precios aumentan en varios mercados. Jurgen Duthoo, de la empresa belga Warnez, constata que las operaciones comerciales aún no terminan de arrancar.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896383/aceptara-el-importador-los-precios-actuales-o-sera-el-mercado-el-que-se-ajuste-a-lo-que-se-esta-dispuesto-a-pagar/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-nuestra-capacidad-ha-aumentado-hasta-situarse-en-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Turquía adelanta el inicio de su campaña de manzana con fuerte demanda y mejor disponibilidad",
+      "summary": "La campaña de manzana turca ha empezado antes de lo previsto, con clientes muy activos y más producto disponible que el año pasado, cuando las heladas redujeron la cosecha. El exportador Orvia también ha puesto en marcha una nueva instalación, aunque el extracto no detalla su función.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896421/nuestra-capacidad-ha-aumentado-hasta-situarse-en-diez-contenedores-de-manzana-al-dia/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-creo-que-el-mercado-de-la-cebolla-puede-todav-a-r-2026-11-27",
+      "date": "2026-11-27",
+      "title": "El mercado de la cebolla podría repuntar en diciembre, según un comerciante holandés",
+      "summary": "Un comerciante holandés de cebolla se muestra satisfecho con las ventas de los primeros meses de la campaña, con exportaciones elevadas. Confía en que el mercado pueda mejorar hacia el final del año, aunque el extracto se corta justo al hablar de los precios.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896850/creo-que-el-mercado-de-la-cebolla-puede-todavia-repuntar-en-diciembre/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-cuando-los-vol-menes-son-limitados-la-selecci-n-e-2026-11-27",
+      "date": "2026-11-27",
+      "title": "En Marruecos, con menos volumen de cítricos, la selección en almacén gana peso",
+      "summary": "La campaña citrícola marroquí de esta temporada se presenta con volúmenes más ajustados. La vicepresidenta de ventas de Beni Mellal Citrus considera que, con menos producto, la clasificación en el almacén resulta todavía más determinante. La empresa envasa y exporta cítricos.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896862/cuando-los-volumenes-son-limitados-la-seleccion-en-el-almacen-cobra-mayor-importancia/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-comienza-la-temporada-de-la-patata-chipriota-con-p-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Arranca la campaña de la patata chipriota con precios en origen de 0,75-0,80 €/kg",
+      "summary": "La recolección y comercialización de la patata de Chipre ha empezado bien, y los primeros volúmenes ya se dirigen a mercados de exportación. Un directivo de la comercializadora All Veg valora la cosecha de patata de invierno, aunque el extracto no recoge más detalles.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896878/comienza-la-temporada-de-la-patata-chipriota-con-precios-en-origen-de-0-75-0-80-eur-kg/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "europa"
+    },
+    {
+      "id": "m-rusia-afronta-el-invierno-con-m-s-manzanas-naciona-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Rusia encara el invierno con más manzana nacional y más importaciones de fruta",
+      "summary": "El mercado ruso de fruta fresca llega al invierno con una cosecha nacional de manzana más abundante, que presiona los precios a la baja. Al mismo tiempo, siguen aumentando las importaciones de cítricos, plátanos, fruta de pepita, fruta de hueso y berries.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896887/rusia-afronta-el-invierno-con-mas-manzanas-nacionales-y-un-aumento-de-las-importaciones-de-fruta/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-resumen-del-mercado-global-de-las-mandarinas-y-cle-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Panorama mundial de mandarinas y clementinas: oferta abundante y precios bajo presión",
+      "summary": "El mercado internacional de mandarinas y clementinas tiene una oferta amplia, calibres variables y presión sobre los precios en varios mercados. España gana peso en Europa con una oferta creciente, aunque el extracto indica que hasta hace poco la producción estuvo condicionada por temperaturas altas.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896894/resumen-del-mercado-global-de-las-mandarinas-y-clementinas/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-las-cosechas-de-manzana-de-china-se-recuperan-y-la-2026-11-27",
+      "date": "2026-11-27",
+      "title": "China prevé una cosecha de manzana más abundante en 2026/27 y un repunte de sus exportaciones",
+      "summary": "Según un informe del USDA, China calcula una producción de manzana de 48,2 millones de toneladas para la campaña 2026/27, un 5 % más que el año anterior. El documento también apunta a un fuerte aumento de las exportaciones del país.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896964/las-cosechas-de-manzana-de-china-se-recuperan-y-las-exportaciones-apuntan-a-un-fuerte-aumento/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-el-ma-z-regresa-a-la-tablilla-de-precios-de-la-lon-2026-11-26",
       "date": "2026-11-26",

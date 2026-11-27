@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T13:50:44+00:00",
+  "updated": "2026-11-27T15:54:00+00:00",
   "stats": [
     {
       "value": "1.120 M€",
@@ -24,6 +24,17 @@
     }
   ],
   "items": [
+    {
+      "id": "almer-a-exporta-pepino-por-931-millones-de-euros-r-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Almería bate su récord histórico de ingresos por exportación de pepino en la campaña 2025/2026",
+      "summary": "Los exportadores de Almería cierran la campaña 2025/2026 con los mayores ingresos de su historia por la venta de pepino al extranjero. La cifra alcanza 931,43 millones de euros por unos 559,2 millones de kilos, según el servicio estadístico Estacom.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9897215/almeria-exporta-pepino-por-931-millones-de-euros-record-historico-en-la-campana-2025-2026/",
+      "importancia": 5,
+      "status": "auto",
+      "tag": "mercados"
+    },
     {
       "id": "alcanzado-un-preacuerdo-para-renovar-el-convenio-c-2026-11-20",
       "date": "2026-11-20",
@@ -157,7 +168,7 @@
       "status": "revisada"
     }
   ],
-  "checked": "2026-11-26T16:04:39+00:00",
+  "checked": "2026-11-27T15:54:00+00:00",
   "charts": [
     {
       "id": "precios",

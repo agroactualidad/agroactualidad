@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-26T16:04:39+00:00",
-  "checked": "2026-11-26T16:04:39+00:00",
+  "updated": "2026-11-27T15:54:00+00:00",
+  "checked": "2026-11-27T15:54:00+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,19 @@
     }
   ],
   "items": [
+    {
+      "id": "w-ue-y-reino-unido-crean-un-espacio-fitosanitario-co-2026-11-27",
+      "date": "2026-11-27",
+      "title": "UE y Reino Unido eliminan certificados fitosanitarios en el comercio de frutas y hortalizas",
+      "summary": "Bruselas cierra un pacto post-Brexit que crea un espacio sanitario y fitosanitario común entre la Unión Europea y Reino Unido. El acuerdo suprime los certificados que hasta ahora se exigían para vender vegetales y productos agroalimentarios entre ambas zonas, con el objetivo de reducir trabas al comercio hortofrutícola.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9896347/ue-y-reino-unido-crean-un-espacio-fitosanitario-comun-para-reducir-trabas-al-comercio-hortofruticola/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "politica",
+      "ambito": "politica",
+      "pais": "UE y Reino Unido"
+    },
     {
       "id": "w-el-chalion-de-poitou-despierta-un-inter-s-crecient-2026-11-26",
       "date": "2026-11-26",
