@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T15:54:00+00:00",
+  "updated": "2026-11-28T14:48:09+00:00",
   "stats": [
     {
       "value": "1.120 M€",
@@ -24,6 +24,28 @@
     }
   ],
   "items": [
+    {
+      "id": "el-thrips-parvispinus-tensiona-el-mercado-del-pimi-2026-11-27",
+      "date": "2026-11-27",
+      "title": "La plaga Thrips parvispinus reduce la oferta de pimiento almeriense y eleva la incertidumbre del mercado",
+      "summary": "La escasez de pimiento de categoría I sin daños visibles por Thrips parvispinus limita la oferta de Almería, principal proveedor europeo en otoño e invierno. Esta falta de producto está empujando los precios al alza y aumentando la incertidumbre en el mercado.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9897252/el-thrips-parvispinus-tensiona-el-mercado-del-pimiento-y-aumenta-la-incertidumbre-en-almeria/",
+      "importancia": 4,
+      "status": "auto",
+      "tag": "mercados"
+    },
+    {
+      "id": "infoagro-exhibition-2027-to-expand-its-floor-space-2026-11-27",
+      "date": "2026-11-27",
+      "title": "La feria Infoagro Exhibition 2027 amplía su superficie de exposición un 5% en Aguadulce",
+      "summary": "La sexta edición de Infoagro Exhibition se celebrará en Aguadulce del 5 al 7 de mayo de 2027. El certamen, situado en una zona rodeada de más de 33.000 hectáreas de invernaderos, reunirá de nuevo a la agricultura intensiva. Además, su espacio expositivo crecerá un 5%.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9895999/infoagro-exhibition-2027-to-expand-its-floor-space-by-5/",
+      "importancia": 3,
+      "status": "auto",
+      "tag": "innovacion"
+    },
     {
       "id": "almer-a-exporta-pepino-por-931-millones-de-euros-r-2026-11-27",
       "date": "2026-11-27",
@@ -168,7 +190,7 @@
       "status": "revisada"
     }
   ],
-  "checked": "2026-11-27T15:54:00+00:00",
+  "checked": "2026-11-28T14:48:09+00:00",
   "charts": [
     {
       "id": "precios",

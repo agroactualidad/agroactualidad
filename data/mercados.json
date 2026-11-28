@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-27T15:54:00+00:00",
-  "checked": "2026-11-27T15:54:00+00:00",
+  "updated": "2026-11-28T14:48:09+00:00",
+  "checked": "2026-11-28T14:48:09+00:00",
   "charts": [
     {
       "id": "europa-precios",
@@ -85,6 +85,30 @@
     }
   ],
   "items": [
+    {
+      "id": "m-sud-frica-exporta-18-128-toneladas-de-ar-ndanos-y-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Sudáfrica mantiene el ritmo de exportación de arándanos frente a la campaña anterior",
+      "summary": "La temporada 2026/27 de arándanos sudafricanos suma 18.128 toneladas frescas exportadas hasta la semana 46. La cifra es similar a la del mismo periodo de 2025, según el director ejecutivo de Berries ZA.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9897222/sudafrica-exporta-18-128-toneladas-de-arandanos-y-mantiene-el-ritmo-de-la-campana-anterior/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
+    {
+      "id": "m-turkey-first-strawberries-of-the-season-harvested-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Turquía inicia la cosecha de las primeras fresas de temporada bajo cubierta en Antalya",
+      "summary": "En el distrito de Serik, en Antalya, han empezado a recolectarse las primeras fresas tempranas de la temporada cultivadas en invernadero. Las pastelerías son los compradores más interesados, mientras que en mercados y bazares de barrio se venden en envases pequeños.",
+      "source": "HortiDaily",
+      "url": "https://www.hortidaily.com/article/9894937/turkey-first-strawberries-of-the-season-harvested-in-antalya/",
+      "importancia": 1,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "mundo"
+    },
     {
       "id": "m-aceptar-el-importador-los-precios-actuales-o-ser-2026-11-27",
       "date": "2026-11-27",
@@ -1199,18 +1223,6 @@
       "summary": "Un consultor que visitó la provincia cifra la caída de producción en un 9,8 % (pimiento −16 %, tomate −17,3 %), con un valor cercano a 3.900 millones compensado por los precios. Para 2026/27 apunta a un 5-10 % menos de superficie de pimiento California. Es una valoración personal, no un dato oficial.",
       "source": "HortiDaily (Alberto Lizarraga)",
       "url": "https://www.hortidaily.com/article/9887461/examining-almeria-s-2025-26-season-and-2026-27-outlook/",
-      "status": "revisada"
-    },
-    {
-      "id": "vbt-tomate-pepino-2026-10-28",
-      "date": "2026-10-28",
-      "ambito": "europa",
-      "tag": "mercados",
-      "importancia": 3,
-      "title": "Bélgica: suben el tomate y el pepino al apagarse los invernaderos sin calefacción",
-      "summary": "En las subastas de las cooperativas belgas (VBT) de la semana 43, el tomate suelto se pagó de media a 1,38 €/kg y el de rama a 2,19 €/kg, con subidas fuertes por la menor oferta. El pepino se quedó en 64 céntimos por unidad, por encima del año pasado.",
-      "source": "HortiDaily (subastas VBT)",
-      "url": "https://www.hortidaily.com/article/9886801/tomato-and-cucumber-prices-rise-as-unheated-greenhouse-cultivation-winds-down/",
       "status": "revisada"
     }
   ]

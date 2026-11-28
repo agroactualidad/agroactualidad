@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-27T15:54:00+00:00",
-  "checked": "2026-11-27T15:54:00+00:00",
+  "updated": "2026-11-28T14:48:09+00:00",
+  "checked": "2026-11-28T14:48:09+00:00",
   "charts": [
     {
       "id": "agco-ventas",
@@ -35,6 +35,19 @@
     }
   ],
   "items": [
+    {
+      "id": "w-la-ue-ha-importado-m-s-frutas-y-hortalizas-de-or-g-2026-11-27",
+      "date": "2026-11-27",
+      "title": "Las importaciones de frutas y hortalizas extracomunitarias a la UE siguen aumentando en 2026",
+      "summary": "Las compras y ventas exteriores de frutas y hortalizas frescas de la Unión Europea mantienen su tendencia al alza este año. Según datos provisionales de los primeros meses, el crecimiento global es moderado, y el valor de ambos flujos comerciales también ha subido.",
+      "source": "FreshPlaza España",
+      "url": "https://www.freshplaza.es/spain/article/9895974/la-ue-ha-importado-mas-frutas-y-hortalizas-de-origenes-extracomunitarios-tambien-en-2026/",
+      "importancia": 2,
+      "status": "auto",
+      "tag": "mercados",
+      "ambito": "economia",
+      "pais": "UE"
+    },
     {
       "id": "w-ue-y-reino-unido-crean-un-espacio-fitosanitario-co-2026-11-27",
       "date": "2026-11-27",
